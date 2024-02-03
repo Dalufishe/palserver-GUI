@@ -1,0 +1,29 @@
+{
+  "name": "palserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "dev": "npx electronmon --trace-warnings .",
+    "build": "electron-packager . palserver-GUI --platform=win32 --arch=x64 --overwrite"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.2.1"
+  },
+  "electronmon": {
+    "patterns": [
+      "!engine/**",
+      "!saves/**"
+    ]
+  },
+  "dependencies": {
+    "@radix-ui/react-toast": "^1.1.5",
+    "electron-packager": "^17.1.2",
+    "explorer-opener": "^1.0.1",
+    "ini": "^4.1.1"
+  }
+}

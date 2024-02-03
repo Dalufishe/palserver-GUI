@@ -1,0 +1,7 @@
+/release
+/electron/node_modules
+/electron/engine
+/app/node_modules
+/app/build
+/electron/frontend/build
+/electron/saves
