@@ -8,7 +8,7 @@ import {
   BrowserRouter,
   HashRouter,
   Redirect,
-  Route,
+  Route,　
   Switch,
 } from "react-router-dom";
 import Monitor from "./pages/Monitor";
