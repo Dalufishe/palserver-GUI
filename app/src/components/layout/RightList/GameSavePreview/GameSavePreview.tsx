@@ -29,21 +29,25 @@ export default function GameSavePreview() {
       </span>
       <div className="w-full text-[90%] flex flex-col items-center">
         {/* 伺服器地址 */}
-        <div className="w-[70%] flex justify-between items-center flex-wrap">
-          <span>伺服器 IP：</span>
-          <span
-            className="cursor-pointer hover:underline"
-            onClick={() => {
-              handleCopyToClickboard(
-                currentSave?.settings?.PublicIP?.slice(1, -1)
-              );
-            }}
-          >
-            {currentSave?.settings?.PublicIP?.slice(1, -1) || "尚未設置"}
-          </span>
-        </div>
         <Tooltip
-          delayDuration={1000}
+          content="這是你和別人玩輸入的 IP 地址"
+          style={{ background: "#1b1421", color: "white" }}
+        >
+          <div className="w-[70%] flex justify-between items-center flex-wrap">
+            <span>伺服器 IP：</span>
+            <span
+              className="cursor-pointer hover:underline"
+              onClick={() => {
+                handleCopyToClickboard(
+                  currentSave?.settings?.PublicIP?.slice(1, -1)
+                );
+              }}
+            >
+              {currentSave?.settings?.PublicIP?.slice(1, -1) || "尚未設置"}
+            </span>
+          </div>
+        </Tooltip>
+        <Tooltip
           content="這是你自己玩輸入的 IP 地址"
           style={{ background: "#1b1421", color: "white" }}
         >
@@ -52,7 +56,9 @@ export default function GameSavePreview() {
             <span
               className="cursor-pointer hover:underline"
               onClick={() => {
-                handleCopyToClickboard("127.0.0.1:8211");
+                handleCopyToClickboard(
+                  `127.0.0.1:${currentSave?.settings?.PublicPort}`
+                );
               }}
             >
               {"127.0.0.1:8211"}

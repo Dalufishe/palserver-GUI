@@ -55,7 +55,7 @@ export default function RightList() {
             isServerRunning
               ? () => {}
               : () => {
-                  history.push("/world-settings");
+                  history.push("/save-settings");
                 }
           }
         >

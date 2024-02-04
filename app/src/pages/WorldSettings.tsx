@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { ipcRenderer } from "../constant/contextBridge";
-import { Button, Select, Slider } from "@radix-ui/themes";
+import { electron, ipcRenderer } from "../constant/contextBridge";
+import { Button, IconButton, Select, Slider, Tooltip } from "@radix-ui/themes";
 import { isEmpty, map } from "lodash";
 import zh_tw from "../locales/zh_tw";
 import useGameSave from "../hooks/useGameSave";
 import useSelectedGameSave from "../redux/selectGameSave/useSelectedGameSave";
 import { useHistory } from "react-router-dom";
 import * as Toast from "@radix-ui/react-toast";
+import { MdEditDocument, MdSettings } from "react-icons/md";
 
 const settingsOptions = {
   DayTimeSpeedRate: [1, 50],
@@ -62,6 +63,12 @@ export default function WorldSettings() {
     history.push("/server-settings");
   };
 
+  const handleOpenSource = () => {
+    electron.openExplorer(
+      `./saves/${selectedGameSave}/Config/WindowsServer/PalWorldSettings.ini`
+    );
+  };
+
   return (
     <div className="bg-bg2 rounded-lg w-full h-full p-4 overflow-y-scroll">
       <div className="flex flex-col justify-center gap-2 p-2">
@@ -109,7 +116,12 @@ export default function WorldSettings() {
           </div>
         ))}
       </div>
-      <div className="flex justify-center items-center gap-4">
+      <div className="w-full flex justify-center items-center gap-4 relative">
+        <Tooltip content="從原始文件編輯">
+          <IconButton onClick={handleOpenSource} color="gray" radius="full">
+            <MdEditDocument />
+          </IconButton>
+        </Tooltip>
         <Button color="gray" onClick={handleRecoverSave}>
           復原
         </Button>

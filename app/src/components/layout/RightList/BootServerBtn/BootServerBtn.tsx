@@ -3,14 +3,19 @@ import { ipcRenderer } from "../../../../constant/contextBridge";
 import { cn } from "../../../../utils/cn";
 import useSelectedGameSave from "../../../../redux/selectGameSave/useSelectedGameSave";
 import useServerIsRunning from "../../../../hooks/useServerIsRunning";
+import { useHistory } from "react-router-dom";
 
 export default function BootServerBtn() {
+  const history = useHistory();
+
   const { selectedGameSave } = useSelectedGameSave();
 
   const isServerRunning = useServerIsRunning();
 
   // 啟動伺服器
   const handleBootServer = () => {
+    history.push("/server-settings");
+
     // 將上一個存檔保存
     // ipcRenderer.send("request-set-engine-to-save");
     // ipcRenderer.on("set-engine-to-save-response:done", () => {
