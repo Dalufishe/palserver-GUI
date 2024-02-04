@@ -32,10 +32,10 @@ export default function BootServerBtn() {
 
   // 關閉伺服器
   useEffect(() => {
-    const i = setInterval(() => {
-      // 每分鐘自動存檔
-      ipcRenderer.send("request-set-engine-to-save");
-    }, 60 * 1000);
+    // const i = setInterval(() => {
+    //   // 每分鐘自動存檔
+    //   ipcRenderer.send("request-set-engine-to-save");
+    // }, 60 * 1000);
 
     // 伺服器關閉保存存檔
     ipcRenderer.on("exec-server-response:exit", (event) => {
@@ -44,7 +44,7 @@ export default function BootServerBtn() {
 
     return () => {
       ipcRenderer.removeAllListeners("exec-server-response:exit");
-      clearInterval(i);
+      // clearInterval(i);
     };
   }, []);
 
