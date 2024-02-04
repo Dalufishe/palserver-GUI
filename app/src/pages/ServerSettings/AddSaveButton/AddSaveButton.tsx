@@ -4,6 +4,7 @@ import {
   Button,
   Flex,
   TextField,
+  TextFieldInput,
 } from "@radix-ui/themes";
 import React, { useState } from "react";
 import { MdAddCircle } from "react-icons/md";
@@ -13,21 +14,20 @@ import useSaveMeta from "../../../hooks/useSaveMeta";
 import useSelectedGameSave from "../../../redux/selectGameSave/useSelectedGameSave";
 
 export default function AddSaveButton() {
-  const saveMetaJson = useSaveMeta();
+  const { metaData, setMetaData } = useSaveMeta();
   const { setSelectedGameSave } = useSelectedGameSave();
 
   const [serverName, setServerName] = useState("");
+  const [publicIP, setPublicIP] = useState("");
 
   const handleAddGameSave = () => {
     const saveId = nanoid();
     ipcRenderer.send("request-set-save", saveId, {
-      settings: { ServerName: `"${serverName}"` },
+      settings: { ServerName: `"${serverName}"`, PublicIP: `"${publicIP}"` },
     });
-    ipcRenderer.send("request-set-save-metadata", [
-      ...saveMetaJson,
-      { id: saveId },
-    ]);
+    setMetaData([...metaData, { id: saveId }]);
     setServerName("");
+    setPublicIP("");
     setSelectedGameSave(saveId);
   };
 
@@ -36,47 +36,51 @@ export default function AddSaveButton() {
       <AlertDialog.Trigger>
         <AddButton />
       </AlertDialog.Trigger>
-      <form>
-        <AlertDialog.Content style={{ maxWidth: 450 }}>
-          <AlertDialog.Title>建立存檔</AlertDialog.Title>
-          <AlertDialog.Description
-            size="2"
-            className="flex flex-col gap-2 w-[70%]"
-          >
-            <div className="flex gap-2 items-center justify-between">
-              <div>伺服器名稱：</div>
-              <TextField.Root>
-                <TextField.Input
-                  required
-                  autoFocus
-                  placeholder=""
-                  value={serverName}
-                  onChange={(e) => {
-                    setServerName(e.target.value);
-                  }}
-                />
-              </TextField.Root>
-            </div>
-          </AlertDialog.Description>
-          <Flex gap="3" mt="4" justify="end">
-            <AlertDialog.Cancel>
-              <Button variant="soft" color="gray">
-                取消
-              </Button>
-            </AlertDialog.Cancel>
-            <AlertDialog.Action>
-              <Button
-                disabled={!serverName}
-                onClick={handleAddGameSave}
-                variant="solid"
-                color="yellow"
-              >
-                建立
-              </Button>
-            </AlertDialog.Action>
-          </Flex>
-        </AlertDialog.Content>
-      </form>
+
+      <AlertDialog.Content style={{ maxWidth: 450 }}>
+        <AlertDialog.Title>建立存檔</AlertDialog.Title>
+
+        <div className="w-[70%] my-2 flex gap-2 items-center justify-between">
+          <span>伺服器名稱：</span>
+          <TextFieldInput
+            autoFocus
+            placeholder=""
+            value={serverName}
+            onChange={(e) => {
+              setServerName(e.target.value);
+            }}
+          />
+        </div>
+
+        <div className="w-[70%] my-2 flex gap-2 items-center justify-between">
+          <span>公開 IP：</span>
+          <TextFieldInput
+            placeholder=""
+            value={publicIP}
+            onChange={(e) => {
+              setPublicIP(e.target.value);
+            }}
+          />
+        </div>
+
+        <Flex gap="3" mt="4" justify="end">
+          <AlertDialog.Cancel>
+            <Button variant="soft" color="gray">
+              取消
+            </Button>
+          </AlertDialog.Cancel>
+          <AlertDialog.Action>
+            <Button
+              disabled={!serverName}
+              onClick={handleAddGameSave}
+              variant="solid"
+              color="yellow"
+            >
+              建立
+            </Button>
+          </AlertDialog.Action>
+        </Flex>
+      </AlertDialog.Content>
     </AlertDialog.Root>
   );
 }

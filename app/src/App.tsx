@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { run } from "./constant/contextBridge";
+import { ipcRenderer, run } from "./constant/contextBridge";
 import StartBtnImage from "./assets/images/start.webp";
 import AboutSection from "./components/layout/AboutSection/AboutSection";
 import Button from "./components/global/Button";
@@ -21,6 +21,11 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "./redux/store";
 
 function App() {
+  // useEffect(() => {
+  //   // 意外關閉時備份
+  //   ipcRenderer.send("request-set-engine-to-save");
+  // }, []);
+
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
@@ -46,6 +51,6 @@ function App() {
       </PersistGate>
     </Provider>
   );
-} 
+}
 
 export default App;

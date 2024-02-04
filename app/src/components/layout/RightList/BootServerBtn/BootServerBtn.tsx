@@ -12,17 +12,17 @@ export default function BootServerBtn() {
   // 啟動伺服器
   const handleBootServer = () => {
     // 將上一個存檔保存
-    ipcRenderer.send("request-set-engine-to-save");
-    ipcRenderer.on("set-engine-to-save-response:done", () => {
-      // 將指定存檔存入引擎
-      ipcRenderer.send("request-set-save-to-engine", selectedGameSave);
-      ipcRenderer.on("set-save-to-engine-response:done", (event, data) => {
-        // 啟動伺服器
-        ipcRenderer.send("request-exec-server");
-        ipcRenderer.removeAllListeners("set-save-to-engine-response:done");
-      });
-      ipcRenderer.removeAllListeners("set-engine-to-save-response:done");
+    // ipcRenderer.send("request-set-engine-to-save");
+    // ipcRenderer.on("set-engine-to-save-response:done", () => {
+    // 將指定存檔存入引擎
+    ipcRenderer.send("request-set-save-to-engine", selectedGameSave);
+    ipcRenderer.on("set-save-to-engine-response:done", (event, data) => {
+      // 啟動伺服器
+      ipcRenderer.send("request-exec-server");
+      ipcRenderer.removeAllListeners("set-save-to-engine-response:done");
     });
+    ipcRenderer.removeAllListeners("set-engine-to-save-response:done");
+    // });
   };
 
   // 關閉伺服器

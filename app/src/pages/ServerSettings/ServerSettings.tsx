@@ -7,11 +7,11 @@ import useSaveMeta from "../../hooks/useSaveMeta";
 
 export default function ServerSettings() {
   const worldSettings = useWorldSettings();
-  const savesMetaJson = useSaveMeta();
+  const { metaData } = useSaveMeta();
 
   return (
     <div className={styles.container}>
-      {savesMetaJson?.map((save: any) => (
+      {metaData?.map((save: any) => (
         <GameSaveBtn key={save.id} saveMetaData={save} />
       ))}
       <AddSaveButton />

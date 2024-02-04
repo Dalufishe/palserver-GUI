@@ -1,10 +1,11 @@
 import { FaGithub } from "react-icons/fa";
 import IconImage from "../../../assets/images/icon.webp";
 import Button from "../../global/Button";
+import { electron } from "../../../constant/contextBridge";
 
 export default function AboutSection() {
   const handleOpenGithub = () => {
-    // window.location = ""
+    electron.openLink("https://github.com/Dalufishe/palserver-GUI");
   };
 
   return (

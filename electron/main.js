@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, dialog } = require("electron");
 const { ipcMain } = require('electron');
 const url = require("url");
 const path = require("path");
@@ -8,6 +8,7 @@ const ini = require("ini")
 const { spawn } = require("child_process");
 const palServerSettingConverter = require("./utils/palServerSettingConverter");
 const { existsSync } = require("fs");
+
 
 function createMainWindow() {
     const mainWindow = new BrowserWindow({
@@ -22,7 +23,7 @@ function createMainWindow() {
         },
     });
 
-    // mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools();
 
 
     // for production
@@ -35,8 +36,22 @@ function createMainWindow() {
     // for development
     mainWindow.loadURL("http://localhost:3000");
 
-
     rigisterIPC()
+
+    mainWindow.on('close', async (e) => {
+        e.preventDefault()
+
+        const { response } = await dialog.showMessageBox(mainWindow, {
+            type: 'question',
+            title: '  溫馨提醒  ',
+            message: '請確認關閉所有正在運行的帕魯伺服器，否則可能會造成存檔丟失。',
+            buttons: ['Yes', 'No'],
+        })
+
+        response === 0 && mainWindow.destroy()
+
+ 
+    });
 
 }
 
@@ -44,6 +59,8 @@ function rigisterIPC() {
 
     const SaveRootPath = path.join(__dirname, "./saves")
     const EngineSavePath = path.join(__dirname, "./engine/PalServer/Pal/Saved")
+
+
 
     // 啟動伺服器
     ipcMain.on('request-exec-server', (event, arg) => {
@@ -96,9 +113,9 @@ function rigisterIPC() {
         });
     })
     // 設置存檔
-    ipcMain.on("request-set-save", async (event, savePath, data) => {
+    ipcMain.on("request-set-save", async (event, savePath, data, mode = "w") => {
         const SaveSettingsPath = path.join(SaveRootPath, savePath, "./Config/WindowsServer/PalWorldSettings.ini");
-        if (!existsSync(SaveSettingsPath)) {
+        if (!existsSync(SaveSettingsPath) && mode === "w") {
             // 建立存檔
             await fs.cp(path.join(__dirname, "./.save-template"), path.join(__dirname, `./saves/${savePath}`), { recursive: true })
             // 建立資訊文件
@@ -141,7 +158,8 @@ function rigisterIPC() {
     ipcMain.on("request-set-save-to-engine", async (event, savePath) => {
         const SavePath = path.join(SaveRootPath, savePath);
         if (fsc.existsSync(SavePath)) {
-            // fsc.rmSync(EngineSavePath, { recursive: true, force: true })
+            // 將存檔確實清空
+            fsc.rmSync(path.join(EngineSavePath, "/SaveGames"), { recursive: true, force: true })
             await fs.cp(SavePath, EngineSavePath, { recursive: true, force: true })
             event.reply("set-save-to-engine-response:done", { savePath })
         }

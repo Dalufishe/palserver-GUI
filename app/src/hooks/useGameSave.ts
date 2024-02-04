@@ -7,14 +7,19 @@ const useGameSave = (savePath: string) => {
   useEffect(() => {
     ipcRenderer.send("request-save", savePath);
 
-    ipcRenderer.on(`save-response-${savePath}`, (event, save) => {
+    const listener = (event, save) => {
       setSave(save);
-    });
+    };
+
+    ipcRenderer.on(`save-response-${savePath}`, listener);
+  }, [savePath]);
+
+  useEffect(() => {
     return () => {
       ipcRenderer.removeAllListeners(`save-response-${savePath}`);
     };
-  }, [savePath]);
- 
+  }, []);
+
   return save;
 };
 

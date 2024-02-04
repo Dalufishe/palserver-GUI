@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "../../global/Button";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   electron,
   engine,
@@ -12,8 +12,11 @@ import GameSavePreview from "./GameSavePreview/GameSavePreview";
 import useSelectedGameSave from "../../../redux/selectGameSave/useSelectedGameSave";
 import useServerIsRunning from "../../../hooks/useServerIsRunning";
 import { Badge } from "@radix-ui/themes";
+import { cn } from "../../../utils/cn";
 
 export default function RightList() {
+  const history = useHistory();
+
   const isServerRunning = useServerIsRunning();
   const { selectedGameSave } = useSelectedGameSave();
 
@@ -32,12 +35,33 @@ export default function RightList() {
             </Badge>
           )}
         </div>
-        <Link to="world-settings">
-          <ListButton>更改世界設定</ListButton>
-        </Link>
-        <Link to="save-settings">
-          <ListButton>地圖檔設定</ListButton>
-        </Link>
+
+        <ListButton
+          className={isServerRunning ? "cursor-not-allowed" : " cursor-pointer"}
+          onClick={
+            isServerRunning
+              ? () => {}
+              : () => {
+                  history.push("/world-settings");
+                }
+          }
+        >
+          更改世界設定
+        </ListButton>
+
+        <ListButton
+          className={isServerRunning ? "cursor-not-allowed" : " cursor-pointer"}
+          onClick={
+            isServerRunning
+              ? () => {}
+              : () => {
+                  history.push("/world-settings");
+                }
+          }
+        >
+          地圖檔設定
+        </ListButton>
+
         <BootServerBtn />
       </div>
     </div>
@@ -45,15 +69,20 @@ export default function RightList() {
 }
 
 export const ListButton = ({
+  className,
   children,
   onClick,
 }: {
+  className?: string;
   children: any;
   onClick?: () => void;
 }) => (
   <Button
     onClick={onClick}
-    className="bg-bg1 w-full h-10 rounded-lg flex items-center justify-center"
+    className={cn(
+      "bg-bg1 w-full h-10 rounded-lg flex items-center justify-center",
+      className
+    )}
   >
     {children}
   </Button>

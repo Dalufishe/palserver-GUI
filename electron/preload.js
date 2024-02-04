@@ -1,4 +1,4 @@
-const { contextBridge, ipcRenderer } = require("electron");
+const { contextBridge, ipcRenderer, shell } = require("electron");
 const os = require("os");
 const path = require("path");
 const fs = require("fs");
@@ -10,14 +10,15 @@ contextBridge.exposeInMainWorld("electron", {
     homeDir: () => os.homedir(),
     arch: () => os.arch(),
     osVersion: () => os.version(),
-    openExplorer: (p) => openExplorer(path.join(__dirname, p))
+    openExplorer: (p) => openExplorer(path.join(__dirname, p)),
+    openLink: (link) => shell.openExternal(link)
 });
 
 contextBridge.exposeInMainWorld("ipcRenderer", {
     send: (channel, ...data) => ipcRenderer.send(channel, ...data),
     on: (channel, func) =>
         ipcRenderer.on(channel, (event, ...args) => func(event, ...args)),
-    removeListener: (channel, listener) => ipcRenderer.removeListener(channel, listener),
+    off: (channel, listener) => ipcRenderer.off(channel, listener),
     removeAllListeners: (channel) => ipcRenderer.removeAllListeners(channel)
 });
 
