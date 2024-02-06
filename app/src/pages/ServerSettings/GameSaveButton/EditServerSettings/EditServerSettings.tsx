@@ -16,9 +16,11 @@ export default function EditServerSettings(props: { saveId: string }) {
   const gameSave = useGameSave(props.saveId);
   const gameSaveServerName = gameSave?.settings?.ServerName?.slice(1, -1);
   const gameSavePublicIP = gameSave?.settings?.PublicIP?.slice(1, -1);
+  const gameSavePublicPort = gameSave?.settings?.PublicPort;
 
   const [serverName, setServerName] = useState("");
   const [publicIP, setPublicIP] = useState("");
+  const [publicPort, setPublicPort] = useState("");
 
   const handleEditGameSave = () => {
     ipcRenderer.send(
@@ -59,6 +61,17 @@ export default function EditServerSettings(props: { saveId: string }) {
           value={publicIP}
           onChange={(e) => {
             setPublicIP(e.target.value);
+          }}
+        />
+      </div>
+
+      <div className="w-[70%] my-2 flex gap-2 items-center justify-between">
+        <span>端口號：</span>
+        <TextFieldInput
+          placeholder={gameSavePublicPort}
+          value={publicPort}
+          onChange={(e) => {
+            setPublicPort(e.target.value);
           }}
         />
       </div>

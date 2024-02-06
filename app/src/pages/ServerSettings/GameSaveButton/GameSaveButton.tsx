@@ -33,14 +33,14 @@ export default function SaveButton(props: Props) {
         <ContextMenu.Trigger>
           <div
             onClick={handleSelect}
-            className={cn(
-              "flex flex-col gap-1 items-center w-28 h-24 p-1 cursor-pointer rounded-lg hover:bg-bg1"
-            )}
+            className={
+              "flex flex-col gap-y-2 items-center justify-center w-28 h-24 p-2 cursor-pointer rounded-lg hover:bg-bg1"
+            }
           >
             <img
               src={PalIcons[getSaveMetaData(gameSaveId)?.iconId] || CuteImg}
               alt=""
-              className="w-12 h-12"
+              className="w-12 h-12 select-none"
             />
             <span className="text-xs text-center">
               {gameSave?.settings?.ServerName.slice(1, -1)}

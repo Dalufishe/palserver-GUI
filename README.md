@@ -38,7 +38,7 @@
 
 ### 參與貢獻
 
-目前 palserver GUI 是我的一人專案，使用 Typescript + React + Electron 開發。如果你有興趣參與專案開發 (不論是軟體設計上、美術、翻譯或者程序開發)，都歡迎聯繫我的 [discord](https://discord.com/users/520869862650937364) 討論！
+目前 palserver GUI 是我的一人專案，使用 Typescript + React + Electron 開發。如果你有興趣參與專案開發 (不論是軟體設計上、美術、翻譯或者程序開發)，都歡迎聯繫我的 discord (使用者名稱：dalufish) 討論！
 
 ### 給予支持
 

@@ -115,6 +115,7 @@ export default function WorldSettings() {
             </div>
             {settingsOptions[k].type === "switch" && (
               <Switch
+              variant="classic"
                 checked={worldSettings[k]}
                 onCheckedChange={(v) => {
                   setWorldSettings({

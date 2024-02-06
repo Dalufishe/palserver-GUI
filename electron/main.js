@@ -21,6 +21,7 @@ function createMainWindow() {
             nodeIntegration: true,
             preload: path.join(__dirname, "preload.js"),
         },
+        autoHideMenuBar: true
     });
 
     // for production

@@ -65,7 +65,7 @@ const zh_tw: any = {
     ServerDescription: "伺服器描述",
     AdminPassword: "管理員密碼",
     ServerPassword: "伺服器密碼",
-    PublicPort: "公共端口號",
+    PublicPort: "端口號",
     PublicIP: "公開 IP 地址",
     RCONEnabled: "啟用 RCON",
     RCONPort: "RCON 端口號",

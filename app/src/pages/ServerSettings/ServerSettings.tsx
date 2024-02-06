@@ -11,10 +11,12 @@ export default function ServerSettings() {
 
   return (
     <div className={styles.container}>
-      {metaData?.map((save: any) => (
-        <GameSaveBtn key={save.id} saveMetaData={save} />
-      ))}
-      <AddSaveButton />
+      <div className="flex flex-row items-start gap-3 flex-wrap">
+        {metaData?.map((save: any) => (
+          <GameSaveBtn key={save.id} saveMetaData={save} />
+        ))}
+        <AddSaveButton />
+      </div>
     </div>
   );
 }

@@ -7,7 +7,7 @@ import {
   TextField,
   TextFieldInput,
 } from "@radix-ui/themes";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdAddCircle } from "react-icons/md";
 import { ipcRenderer } from "../../../constant/contextBridge";
 import { nanoid } from "nanoid";
@@ -16,22 +16,36 @@ import useSelectedGameSave from "../../../redux/selectGameSave/useSelectedGameSa
 import PalIcons from "../../../constant/palIcons";
 import { map } from "lodash";
 import SelectIconButton from "./SelectIconButton/SelectIconButton";
+import useGameSave from "../../../hooks/useGameSave";
 
 export default function AddSaveButton() {
   const { metaData, setMetaData } = useSaveMeta();
-  const { setSelectedGameSave } = useSelectedGameSave();
+  const { selectedGameSave, setSelectedGameSave } = useSelectedGameSave();
+
+  const gameSave = useGameSave(selectedGameSave);
+  const gameSavePublicIP = gameSave?.settings?.PublicIP?.slice(1, -1);
+  const gameSavePublicPort = gameSave?.settings?.PublicPort;
 
   const [serverName, setServerName] = useState("");
   const [publicIP, setPublicIP] = useState("");
+  const [publicPort, setPublicPort] = useState(gameSavePublicPort);
+  useEffect(() => {
+    setPublicPort(gameSavePublicPort);
+  }, [gameSavePublicPort]);
+
   const [iconId, setIconId] = useState(0);
 
   const handleAddGameSave = () => {
     const saveId = nanoid();
     ipcRenderer.send("request-set-save", saveId, {
-      settings: { ServerName: `"${serverName}"`, PublicIP: `"${publicIP}"` },
+      settings: {
+        ServerName: `"${serverName}"`,
+        PublicIP: `"${publicIP ? publicIP : gameSavePublicIP}"`,
+        PublicPort: publicPort ? publicPort : gameSavePublicPort,
+      },
     });
     setMetaData([...metaData, { id: saveId, iconId: iconId }]);
-    setServerName("");
+    setServerName(""); 
     setPublicIP("");
     setSelectedGameSave(saveId);
   };
@@ -69,8 +83,19 @@ export default function AddSaveButton() {
                 }}
               />
             </div>
+
+            <div className="w-full my-2 flex gap-2 items-center justify-between">
+              <span>端口號：</span>
+              <TextFieldInput
+                value={publicPort}
+                onChange={(e) => {
+                  setPublicPort(e.target.value);
+                }}
+              />
+            </div>
           </div>
-          <div className="w-[30%] flex flex-col items-center mt-2">
+
+          <div className="w-[30%] flex flex-col items-center mt-7">
             <SelectIconButton
               onIconChange={(i) => {
                 setIconId(i);
