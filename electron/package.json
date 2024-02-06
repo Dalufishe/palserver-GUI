@@ -1,15 +1,15 @@
 {
-  "name": "palserver",
+  "name": "palserver-gui",
   "version": "1.0.0",
-  "description": "",
+  "description": "palworld GUI server tool",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
     "dev": "npx electronmon --trace-warnings .",
-    "build": "electron-packager . palserver-GUI --platform=win32 --arch=x64 --overwrite"
+    "build": "electron-packager . palserver-GUI --platform=win32 --arch=x64 --overwrite --icon=assets/palserver.ico"
   },
-  "author": "",
+  "author": "Dalufish",
   "license": "MIT",
   "devDependencies": {
     "electron": "^28.2.1"

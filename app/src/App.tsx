@@ -8,7 +8,7 @@ import {
   BrowserRouter,
   HashRouter,
   Redirect,
-  Route,　
+  Route,
   Switch,
 } from "react-router-dom";
 import Monitor from "./pages/Monitor";
@@ -33,7 +33,7 @@ function App() {
           <Theme>
             <div className="App">
               <div className="w-screen h-screen flex">
-                <div className="flex-[7] h-full p-4 bg-bg-1 flex flex-col gap-4">
+                <div className="w-full h-full p-4 bg-bg-1 flex flex-col gap-4">
                   <AboutSection />
                   <Switch>
                     {/* <Route path="/monitor" component={Monitor} /> */}

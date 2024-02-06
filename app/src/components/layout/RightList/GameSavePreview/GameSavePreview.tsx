@@ -7,12 +7,14 @@ import * as Toast from "@radix-ui/react-toast";
 import { Link } from "react-router-dom";
 import useServerIsRunning from "../../../../hooks/useServerIsRunning";
 import { engine } from "../../../../constant/contextBridge";
+import useSaveMeta from "../../../../hooks/useSaveMeta";
+import PalIcons from "../../../../constant/palIcons";
 
 export default function GameSavePreview() {
-  const isServerRunning = useServerIsRunning();
-
   const { selectedGameSave } = useSelectedGameSave();
   const currentSave = useGameSave(selectedGameSave);
+
+  const { getSaveMetaData } = useSaveMeta();
 
   const handleCopyToClickboard = (v: string) => {
     navigator.clipboard.writeText(v);
@@ -21,7 +23,11 @@ export default function GameSavePreview() {
   return (
     <div className="flex flex-col items-center gap-1">
       <Link to="server-settings">
-        <img src={CuteImg} alt="" className="w-32 h-32" />
+        <img
+          src={PalIcons[getSaveMetaData(selectedGameSave)?.iconId] || CuteImg}
+          alt=""
+          className="w-32 h-32"
+        />
       </Link>
       {/* 伺服器名稱 */}
       <span className="cursor-default text-[120%]">

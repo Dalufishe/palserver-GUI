@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ipcRenderer } from "../constant/contextBridge";
 
 const useSaveMeta = () => {
-  const [meta, setMeta] = useState([]);
+  const [meta, setMeta] = useState<any[]>([]);
 
   useEffect(() => {
     ipcRenderer.send("request-save-metadata");
@@ -19,6 +19,9 @@ const useSaveMeta = () => {
     metaData: meta,
     setMetaData: (data: any[]) => {
       ipcRenderer.send("request-set-save-metadata", data);
+    },
+    getSaveMetaData(saveId: string) {
+      return meta.filter((m) => m.id === saveId)[0];
     },
   };
 };

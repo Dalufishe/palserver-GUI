@@ -6,13 +6,17 @@ import { cn } from "../../../utils/cn";
 import { AlertDialog, ContextMenu } from "@radix-ui/themes";
 import DeleteServer from "./DeleteServer/DeleteServer";
 import EditServerSettings from "./EditServerSettings/EditServerSettings";
+import PalIcons from "../../../constant/palIcons";
+import useSaveMeta from "../../../hooks/useSaveMeta";
 
 type Props = {
   saveMetaData: { id: string };
 };
 
 export default function SaveButton(props: Props) {
-  const { setSelectedGameSave } = useSelectedGameSave();
+  const { selectedGameSave, setSelectedGameSave } = useSelectedGameSave();
+
+  const { getSaveMetaData } = useSaveMeta();
 
   const gameSaveId = props.saveMetaData.id;
   const gameSave = useGameSave(gameSaveId);
@@ -33,7 +37,11 @@ export default function SaveButton(props: Props) {
               "flex flex-col gap-1 items-center w-28 h-24 p-1 cursor-pointer rounded-lg hover:bg-bg1"
             )}
           >
-            <img src={CuteImg} alt="" className="w-12 h-12" />
+            <img
+              src={PalIcons[getSaveMetaData(gameSaveId)?.iconId] || CuteImg}
+              alt=""
+              className="w-12 h-12"
+            />
             <span className="text-xs text-center">
               {gameSave?.settings?.ServerName.slice(1, -1)}
             </span>

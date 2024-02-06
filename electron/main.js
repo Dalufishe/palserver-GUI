@@ -24,15 +24,15 @@ function createMainWindow() {
     });
 
     // for production
-    const startUrl = url.format({
-        pathname: path.join(__dirname, './frontend/build/index.html'),
-        protocol: 'file',
-    });
-    mainWindow.loadURL(startUrl)
+    // const startUrl = url.format({
+    //     pathname: path.join(__dirname, './frontend/build/index.html'),
+    //     protocol: 'file',
+    // });
+    // mainWindow.loadURL(startUrl)
 
     // for development
-    // mainWindow.webContents.openDevTools();
-    // mainWindow.loadURL("http://localhost:3000");
+    mainWindow.webContents.openDevTools();
+    mainWindow.loadURL("http://localhost:3000");
 
     rigisterIPC()
 
