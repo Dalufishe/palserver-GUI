@@ -6,8 +6,12 @@ import { electron } from "../constant/contextBridge";
 export default function SaveSettings() {
   const { selectedGameSave } = useSelectedGameSave();
 
-  const handleOpenSave = () => {
+  const handleOpenServerPath = () => {
     electron.openExplorer(`./saves/${selectedGameSave}`);
+  };
+
+  const handleOpenSave = () => {
+    electron.openExplorer(`./saves/${selectedGameSave}/SaveGames`);
   };
 
   return (
@@ -18,7 +22,7 @@ export default function SaveSettings() {
             .path()
             .join(electron.__dirname(), `./saves/${selectedGameSave}`)}
         >
-          <Button onClick={handleOpenSave}>開啟伺服器資料夾</Button>
+          <Button onClick={handleOpenServerPath}>開啟伺服器資料夾</Button>
         </Tooltip>
 
         <span className="text-xs font-normal">
@@ -31,7 +35,10 @@ export default function SaveSettings() {
         <Tooltip
           content={electron
             .path()
-            .join(electron.__dirname(), `./saves/${selectedGameSave}`)}
+            .join(
+              electron.__dirname(),
+              `./saves/${selectedGameSave}/SaveGames`
+            )}
         >
           <Button color="gray" onClick={handleOpenSave}>
             開啟存檔資料夾

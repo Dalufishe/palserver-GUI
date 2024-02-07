@@ -24,6 +24,6 @@ contextBridge.exposeInMainWorld("ipcRenderer", {
 
 contextBridge.exposeInMainWorld("engine", {
     currentSave: () => {
-        return JSON.parse(fs.readFileSync(path.join(__dirname, "./engine/PalServer/Pal/Saved/.pal"), { encoding: "utf-8" })).saveId
+        return JSON.parse(fs.readFileSync(path.join(__dirname, "./engine/steamapps/common/PalServer/Pal/Saved/.pal"), { encoding: "utf-8" })).saveId
     }
 })

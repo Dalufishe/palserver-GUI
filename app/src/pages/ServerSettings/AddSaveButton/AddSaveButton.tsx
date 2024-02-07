@@ -33,6 +33,9 @@ export default function AddSaveButton() {
     setPublicPort(gameSavePublicPort);
   }, [gameSavePublicPort]);
 
+  const [serverPassword, setServerPassword] = useState("");
+  const [adminPassword, setAdminPassword] = useState("");
+
   const [iconId, setIconId] = useState(0);
 
   const handleAddGameSave = () => {
@@ -42,11 +45,15 @@ export default function AddSaveButton() {
         ServerName: `"${serverName}"`,
         PublicIP: `"${publicIP ? publicIP : gameSavePublicIP}"`,
         PublicPort: publicPort ? publicPort : gameSavePublicPort,
+        ServerPassword: `"${serverPassword}"`,
+        AdminPassword: `"${adminPassword}"`,
       },
     });
     setMetaData([...metaData, { id: saveId, iconId: iconId }]);
-    setServerName(""); 
+    setServerName("");
     setPublicIP("");
+    setServerPassword("");
+    setAdminPassword("");
     setSelectedGameSave(saveId);
   };
 
@@ -90,6 +97,26 @@ export default function AddSaveButton() {
                 value={publicPort}
                 onChange={(e) => {
                   setPublicPort(e.target.value);
+                }}
+              />
+            </div>
+
+            <div className="w-full my-2 flex gap-2 items-center justify-between">
+              <span>伺服器密碼：</span>
+              <TextFieldInput
+                value={serverPassword}
+                onChange={(e) => {
+                  setServerPassword(e.target.value);
+                }}
+              />
+            </div>
+
+            <div className="w-full my-2 flex gap-2 items-center justify-between">
+              <span>管理員密碼：</span>
+              <TextFieldInput
+                value={adminPassword}
+                onChange={(e) => {
+                  setAdminPassword(e.target.value);
                 }}
               />
             </div>

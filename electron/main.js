@@ -57,7 +57,7 @@ function createMainWindow() {
 function rigisterIPC() {
 
     const SaveRootPath = path.join(__dirname, "./saves")
-    const EngineSavePath = path.join(__dirname, "./engine/PalServer/Pal/Saved")
+    const EngineSavePath = path.join(__dirname, "./engine/steamapps/common/PalServer/Pal/Saved")
 
 
 
@@ -66,7 +66,7 @@ function rigisterIPC() {
         // 這裡放置原有的 execServer 實現
         // 在 execServer 的 callback 中，使用 event.reply 发送数据回渲染器进程
         // 例如: event.reply('exec-server-response', data);
-        const cmd = `${path.join(__dirname, "./engine/PalServer/PalServer.exe")}`
+        const cmd = `${path.join(__dirname, "./engine/steamapps/common/PalServer/PalServer.exe")}`
         palserver = spawn(cmd);
 
         const currentSave = JSON.parse(fsc.readFileSync(path.join(EngineSavePath, ".pal"), { encoding: "utf-8" })).saveId
@@ -91,9 +91,20 @@ function rigisterIPC() {
             event.reply('exec-server-response:exit', currentSave, code);
         });
     });
+    // 更新伺服器 
+    ipcMain.on('request-update-server', (event) => {
+        const cmd = path.join(__dirname, "./engine/steamcmd.exe")
+        palserverUpdate = spawn(cmd, ['+login', 'anonymous', "+app_update", "2394010", "validate", "+quit"]);
+
+        palserverUpdate.on('exit', function (code, signal) {
+            console.log('child process eixt ,exit:' + code);
+            event.reply('update-server-response:done', code);
+        });
+
+    })
     // 請求當前伺服器世界設定
     ipcMain.on("request-world-settings", async (event, arg) => {
-        const SettingsPath = path.join(__dirname, "./engine/PalServer/Pal/Saved/Config/WindowsServer/PalWorldSettings.ini")
+        const SettingsPath = path.join(__dirname, "./engine/steamapps/common/PalServer/Pal/Saved/Config/WindowsServer/PalWorldSettings.ini")
         const SettingsFile = await fs.readFile(SettingsPath, { encoding: "utf-8" })
         const Settings = palServerSettingConverter.parse(ini.parse(SettingsFile)["/Script/Pal"].PalGameWorldSettings.OptionSettings)
         event.reply('world-settings-response', Settings);
@@ -138,7 +149,7 @@ function rigisterIPC() {
             settings: SaveSettings,
         });
     })
-    // 請求存檔資訊 
+    // 請求存檔資訊  
     ipcMain.on("request-save-metadata", async (event, arg) => {
         event.reply("save-metadata-response", JSON.parse(fsc.readFileSync(path.join(__dirname, "./saves/meta.json"), {
             encoding: "utf-8",

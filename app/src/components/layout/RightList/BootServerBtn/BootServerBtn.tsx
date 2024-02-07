@@ -5,7 +5,7 @@ import useSelectedGameSave from "../../../../redux/selectGameSave/useSelectedGam
 import useServerIsRunning from "../../../../hooks/useServerIsRunning";
 import { useHistory } from "react-router-dom";
 
-export default function BootServerBtn() {
+export default function BootServerBtn({ disabled }: { disabled: boolean }) {
   const history = useHistory();
 
   const { selectedGameSave } = useSelectedGameSave();
@@ -50,13 +50,13 @@ export default function BootServerBtn() {
 
   return (
     <div
-      onClick={isServerRunning ? () => {} : handleBootServer}
+      onClick={disabled ? () => {} : handleBootServer}
       className={cn(
         "w-full h-10 bg-gray-200 text-bg1 rounded-lg flex items-center justify-center select-none",
-        isServerRunning ? "cursor-not-allowed" : " cursor-pointer"
+        disabled ? "cursor-not-allowed" : " cursor-pointer"
       )}
     >
-      {isServerRunning ? "伺服器運行中" : "啟動伺服器"}
+      {isServerRunning ? "伺服器執行中" : "啟動伺服器"}
     </div>
   );
 }

@@ -19,14 +19,14 @@ import ServerSettings from "./pages/ServerSettings/ServerSettings";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "./redux/store";
-
+ 
 function App() {
   // useEffect(() => {
   //   // 意外關閉時備份
   //   ipcRenderer.send("request-set-engine-to-save");
   // }, []);
 
-  return (
+  return ( 
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <HashRouter>

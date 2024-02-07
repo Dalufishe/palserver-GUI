@@ -17,6 +17,7 @@ export default function ServerSettings() {
         ))}
         <AddSaveButton />
       </div>
+      <div className="absolute bottom-2 left-2 text-xs">0.0.5 (BETA) </div>
     </div>
   );
 }
