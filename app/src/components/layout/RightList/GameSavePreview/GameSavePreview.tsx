@@ -3,7 +3,7 @@ import useSelectedGameSave from "../../../../redux/selectGameSave/useSelectedGam
 import useGameSave from "../../../../hooks/useGameSave";
 import CuteImg from "../../../../assets/images/start.webp";
 import { Badge, Blockquote, Tooltip } from "@radix-ui/themes";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import useServerIsRunning from "../../../../hooks/useServerIsRunning";
 import { engine } from "../../../../constant/contextBridge";
 import useSaveMeta from "../../../../hooks/useSaveMeta";
@@ -11,6 +11,9 @@ import PalIcons from "../../../../constant/palIcons";
 import zh_tw from "../../../../locales/zh_tw";
 
 export default function GameSavePreview() {
+  
+  const history = useHistory();
+  
   const { selectedGameSave } = useSelectedGameSave();
   const currentSave = useGameSave(selectedGameSave);
 
@@ -22,13 +25,13 @@ export default function GameSavePreview() {
 
   return (
     <div className="flex flex-col items-center gap-1">
-      <Link to="server-settings">
+      <div onClick={()=>{history.push("/server-settings");}}>
         <img
           src={PalIcons[getSaveMetaData(selectedGameSave)?.iconId] || CuteImg}
           alt=""
           className="w-32 h-32"
         />
-      </Link>
+      </div>
       {/* 伺服器名稱 */}
       <span className="cursor-default text-[120%]">
         {currentSave?.settings?.ServerName?.slice(1, -1)}

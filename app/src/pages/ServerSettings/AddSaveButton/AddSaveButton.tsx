@@ -18,7 +18,7 @@ import { map } from "lodash";
 import SelectIconButton from "./SelectIconButton/SelectIconButton";
 import useGameSave from "../../../hooks/useGameSave";
 
-export default function AddSaveButton() {
+export default function AddSaveButton({ button }: { button: React.ReactNode }) {
   const { metaData, setMetaData } = useSaveMeta();
   const { selectedGameSave, setSelectedGameSave } = useSelectedGameSave();
 
@@ -59,13 +59,9 @@ export default function AddSaveButton() {
 
   return (
     <AlertDialog.Root>
-      <AlertDialog.Trigger>
-        <AddButton />
-      </AlertDialog.Trigger>
-
+      <AlertDialog.Trigger>{button}</AlertDialog.Trigger>
       <AlertDialog.Content style={{ maxWidth: 450 }}>
         <AlertDialog.Title>建立伺服器</AlertDialog.Title>
-
         <div className="flex">
           <div className="w-[70%]">
             <div className="w-full my-2 flex gap-2 items-center justify-between">
@@ -128,20 +124,6 @@ export default function AddSaveButton() {
                 setIconId(i);
               }}
             />
-            {/* <div className="flex flex-col gap-4">
-              {map(PalIcons, (v, k) => (
-                <IconButton
-                  radius="large"
-                  style={{
-                    width: 64,
-                    height: 64,
-                    backgroundColor: "#2d263320",
-                  }}
-                >
-                  <img src={v} className="w-10 h-10" />
-                </IconButton>
-              ))}
-            </div> */}
           </div>
         </div>
 
@@ -166,14 +148,3 @@ export default function AddSaveButton() {
     </AlertDialog.Root>
   );
 }
-
-const AddButton = (props: { onClick?: () => void }) => (
-  <div
-    onClick={props.onClick}
-    className={
-      "flex flex-col gap-1 w-28 h-24 p-1 cursor-pointer rounded-lg items-center justify-center hover:scale-110 transition-[transform]"
-    }
-  >
-    <MdAddCircle size={32} />
-  </div>
-);

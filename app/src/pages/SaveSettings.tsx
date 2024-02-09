@@ -1,9 +1,12 @@
 import React from "react";
 import useSelectedGameSave from "../redux/selectGameSave/useSelectedGameSave";
-import { Button, Callout, Tooltip } from "@radix-ui/themes";
+import { Blockquote, Button, Callout, Tooltip } from "@radix-ui/themes";
 import { electron } from "../constant/contextBridge";
+import { Link, useHistory } from "react-router-dom";
 
 export default function SaveSettings() {
+  const history = useHistory();
+
   const { selectedGameSave } = useSelectedGameSave();
 
   const handleOpenServerPath = () => {
@@ -25,35 +28,24 @@ export default function SaveSettings() {
           <Button onClick={handleOpenServerPath}>開啟伺服器資料夾</Button>
         </Tooltip>
 
-        <span className="text-xs font-normal">
-          這是伺服器的資料夾路徑，您可以開啟他來將既有的伺服器檔案複製貼上
-          遷移至 palserver
-          GUI。您也可以在這邊透過編輯原始文件的方式修改世界設定、玩家及插件存檔文件。請注意，
-          請勿修改或刪除本工具生成的 <code>.pal</code>{" "}
-          檔案，否則會造成非預期的錯誤。
-        </span>
-        <Tooltip
-          content={electron
-            .path()
-            .join(
-              electron.__dirname(),
-              `./saves/${selectedGameSave}/SaveGames`
-            )}
+        <Blockquote>
+          這是伺服器的資料夾路徑，您可以操作他來調整細節設定，或將已存在的伺服器存檔遷移到
+          palserver GUI。請注意，資料夾內的{" "}
+          <span className="text-blue-400">.pal</span> 文件請勿修改、覆蓋或刪除。遷移教學：
+        </Blockquote>
+        {/* <Button
+          color="gray"
+          onClick={() => {
+            history.push("/save-backup");
+          }}
         >
-          <Button color="gray" onClick={handleOpenSave}>
-            開啟存檔資料夾
-          </Button>
-        </Tooltip>
-        <span className="text-xs font-normal">
-          這是伺服器的存檔路徑，僅包含玩家及地圖資料 (不包含地圖設定檔或插件)
-          您可以操作他對存檔做備份。
-        </span>
-        {/*  */}
-        {/* <div className="absolute bottom-0 text-xs font-normal">
-          ※ 請注意，除了上兩個資料夾以外的路徑 (更上層)
-          並不建議您修改。palserver GUI
-          擁有自己的伺服器管理系統，擅自改變檔案結構可能會造成應用程式異常或存檔損毀。
-        </div> */}
+          自動備份存檔恢復
+        </Button>
+
+        <Blockquote color="gray" style={{ color: "white" }}>
+          palserver GUI
+          會定期自動備份存檔。您可以操作此界面，回溯到特定時間點的存檔。
+        </Blockquote> */}
       </div>
     </div>
   );

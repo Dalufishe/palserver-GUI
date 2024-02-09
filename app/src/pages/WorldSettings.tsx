@@ -41,7 +41,7 @@ const settingsOptions: any = {
   CollectionObjectRespawnSpeedRate: { range: [5, 30], type: "num_10" },
   CollectionDropRate: { range: [5, 30], type: "num_10" },
   EnemyDropItemRate: { range: [5, 30], type: "num_10" },
-  PalEggDefaultHatchingTime: { range: [1, 100], type: "num" },
+  PalEggDefaultHatchingTime: { range: [0, 100], type: "num" },
   GuildPlayerMaxNum: { range: [1, 100], type: "num" },
 
   DeathPenalty: {
@@ -95,6 +95,7 @@ export default function WorldSettings() {
   };
 
   const handleOpenSource = () => {
+    history.push("/server-settings");
     electron.openExplorer(
       `./saves/${selectedGameSave}/Config/WindowsServer/PalWorldSettings.ini`
     );
@@ -115,7 +116,7 @@ export default function WorldSettings() {
             </div>
             {settingsOptions[k].type === "switch" && (
               <Switch
-              variant="classic"
+                variant="classic"
                 checked={worldSettings[k]}
                 onCheckedChange={(v) => {
                   setWorldSettings({

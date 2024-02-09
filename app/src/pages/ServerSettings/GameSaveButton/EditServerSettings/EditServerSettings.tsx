@@ -17,10 +17,15 @@ export default function EditServerSettings(props: { saveId: string }) {
   const gameSaveServerName = gameSave?.settings?.ServerName?.slice(1, -1);
   const gameSavePublicIP = gameSave?.settings?.PublicIP?.slice(1, -1);
   const gameSavePublicPort = gameSave?.settings?.PublicPort;
+  const gameSaveServerPassword = gameSave?.settings?.ServerPassword;
+  const gameSaveAdminPassword = gameSave?.settings?.AdminPassword;
 
   const [serverName, setServerName] = useState("");
   const [publicIP, setPublicIP] = useState("");
   const [publicPort, setPublicPort] = useState("");
+
+  const [serverPassword, setServerPassword] = useState("");
+  const [adminPassword, setAdminPassword] = useState("");
 
   const handleEditGameSave = () => {
     ipcRenderer.send(
@@ -30,12 +35,22 @@ export default function EditServerSettings(props: { saveId: string }) {
         settings: {
           ServerName: `"${serverName ? serverName : gameSaveServerName}"`,
           PublicIP: `"${publicIP ? publicIP : gameSavePublicIP}"`,
+          PublicPort: publicPort ? Number(publicPort) : gameSavePublicPort,
+          ServerPassword: `"${
+            serverPassword ? serverPassword : gameSaveServerPassword
+          }"`,
+          AdminPassword: `"${
+            adminPassword ? adminPassword : gameSaveAdminPassword
+          }"`,
         },
       },
       "a"
     );
     setServerName("");
     setPublicIP("");
+    setPublicPort(null);
+    setServerPassword("");
+    setAdminPassword("");
     setSelectedGameSave(props.saveId);
   };
 
@@ -69,9 +84,30 @@ export default function EditServerSettings(props: { saveId: string }) {
         <span>端口號：</span>
         <TextFieldInput
           placeholder={gameSavePublicPort}
+          type="number"
           value={publicPort}
           onChange={(e) => {
             setPublicPort(e.target.value);
+          }}
+        />
+      </div>
+
+      <div className="w-[70%] my-2 flex gap-2 items-center justify-between">
+        <span>伺服器密碼：</span>
+        <TextFieldInput
+          value={serverPassword}
+          onChange={(e) => {
+            setServerPassword(e.target.value);
+          }}
+        />
+      </div>
+
+      <div className="w-[70%] my-2 flex gap-2 items-center justify-between">
+        <span>管理員密碼：</span>
+        <TextFieldInput
+          value={adminPassword}
+          onChange={(e) => {
+            setAdminPassword(e.target.value);
           }}
         />
       </div>
