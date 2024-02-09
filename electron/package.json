@@ -1,6 +1,6 @@
 {
   "name": "palserver-gui",
-  "version": "1.0.0",
+  "version": "0.0.5",
   "description": "palworld GUI server tool",
   "main": "main.js",
   "scripts": {

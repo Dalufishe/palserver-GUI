@@ -25,15 +25,15 @@ function createMainWindow() {
     });
 
     // for production
-    // const startUrl = url.format({
-    //     pathname: path.join(__dirname, './frontend/build/index.html'),
-    //     protocol: 'file',
-    // });
-    // mainWindow.loadURL(startUrl)
+    const startUrl = url.format({
+        pathname: path.join(__dirname, './frontend/build/index.html'),
+        protocol: 'file',
+    });
+    mainWindow.loadURL(startUrl)
 
     // for development
-    mainWindow.webContents.openDevTools();
-    mainWindow.loadURL("http://localhost:3000");
+    // mainWindow.webContents.openDevTools();
+    // mainWindow.loadURL("http://localhost:3000");
 
     rigisterIPC()
 
@@ -176,12 +176,20 @@ function rigisterIPC() {
     })
     // 將引擎內存檔導出保存
     ipcMain.on("request-set-engine-to-save", async (event) => {
-        const currentSave = JSON.parse(fsc.readFileSync(path.join(EngineSavePath, ".pal"), { encoding: "utf-8" })).saveId
-        const SavePath = path.join(SaveRootPath, currentSave);
-        if (fsc.existsSync(SavePath)) {
-            await fs.cp(EngineSavePath, SavePath, { recursive: true, force: true })
-            event.reply("set-engine-to-save-response:done", { savePath: currentSave })
+
+        const dotPalPath = path.join(EngineSavePath, ".pal")
+
+        if (dotPalPath) {
+            const currentSave = JSON.parse(fsc.readFileSync(dotPalPath, { encoding: "utf-8" })).saveId
+            const SavePath = path.join(SaveRootPath, currentSave, "SaveGames");
+            if (fsc.existsSync(SavePath)) {
+                await fs.cp(path.join(EngineSavePath, "SaveGames"), SavePath, { recursive: true, force: true })
+                event.reply("set-engine-to-save-response:done", { savePath: currentSave })
+            }
+        } else {
+            event.reply("set-engine-to-save-response:done", { savePath: null })
         }
+
     })
 }
 
