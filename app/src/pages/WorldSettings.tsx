@@ -10,7 +10,6 @@ import {
   Tooltip,
 } from "@radix-ui/themes";
 import { isBoolean, isEmpty, map, range } from "lodash";
-import zh_tw from "../locales/zh_tw";
 import useGameSave from "../hooks/useGameSave";
 import useSelectedGameSave from "../redux/selectGameSave/useSelectedGameSave";
 import { useHistory } from "react-router-dom";
@@ -109,15 +108,16 @@ export default function WorldSettings() {
       <div className="flex flex-col justify-center gap-2 p-2">
         {map(settingsOptions, (v, k) => (
           <div key={k} className="w-full flex items-center gap-4">
-            <label className="w-60">{zh_tw[k]}：</label>
+            <label className="w-60">{LOCALES[appLanguage][k]}：</label>
             <div className="w-14">
               {k === "DeathPenalty" ? (
-                zh_tw["DeathPenalty_" + worldSettings[k]]
+                LOCALES[appLanguage]["DeathPenalty_" + worldSettings[k]]
               ) : isBoolean(worldSettings[k]) ? (
-                zh_tw[worldSettings[k] ? "SwitchOn" : "SwitchOff"]
+                LOCALES[appLanguage][
+                  worldSettings[k] ? "SwitchOn" : "SwitchOff"
+                ]
               ) : (
                 <TextFieldInput
-                  color="blue"
                   style={{
                     background: "#1b1421",
                     color: "white",
@@ -164,7 +164,7 @@ export default function WorldSettings() {
                     {settingsOptions[k].range.map((option) => (
                       <Select.Item value={option}>
                         {k === "DeathPenalty" &&
-                          zh_tw["DeathPenalty_" + option]}
+                          LOCALES[appLanguage]["DeathPenalty_" + option]}
                       </Select.Item>
                     ))}
                   </Select.Group>

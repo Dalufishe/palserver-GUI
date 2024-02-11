@@ -2,11 +2,13 @@ import { FaGithub, FaHeart } from "react-icons/fa";
 import IconImage from "../../../assets/images/icon.webp";
 import Button from "../../global/Button";
 import { electron } from "../../../constant/contextBridge";
-import { Tooltip } from "@radix-ui/themes";
+import { Select, Tooltip } from "@radix-ui/themes";
 import { Link, useHistory } from "react-router-dom";
 import APP from "../../../constant/app";
+import useAppLanguage from "../../../redux/appLanguage/useAppLanguage";
 
 export default function AboutSection() {
+  const { appLanguage, setAppLanguage } = useAppLanguage();
   const history = useHistory();
 
   const handleOpenGithub = () => {
@@ -29,10 +31,23 @@ export default function AboutSection() {
         <span>{APP.APP_NAME}</span>
       </div>
       <div className="absolute right-2 flex gap-2 items-center">
+        {/* 切換語言 */}
+        <Select.Root
+          size="1"
+          value={appLanguage}
+          onValueChange={(v) => {
+            setAppLanguage(v);
+          }}
+        >
+          <Select.Trigger style={{ background: "#1b1421", color: "white" }} />
+          <Select.Content style={{ background: "#1b1421", color: "white" }}>
+            <Select.Item value="zh_tw">繁體中文</Select.Item>
+            <Select.Item value="en">English</Select.Item>
+          </Select.Content>
+        </Select.Root>
         <Button onClick={handleOpenDonation}>
           <FaHeart color="pink" />
         </Button>
-
         <Button onClick={handleOpenGithub}>
           <FaGithub />
         </Button>

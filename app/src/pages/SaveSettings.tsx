@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import useServerIsRunning from "../hooks/useServerIsRunning";
 import useAppLanguage from "../redux/appLanguage/useAppLanguage";
 import LOCALES from "../locales";
+import formatLocale from "../utils/formatLocale";
 
 export default function SaveSettings() {
   const history = useHistory();
@@ -42,13 +43,11 @@ export default function SaveSettings() {
             .path()
             .join(electron.__dirname(), `./saves/${selectedGameSave}`)}
         >
-          <Button onClick={handleOpenServerPath}>開啟伺服器資料夾</Button>
+          <Button onClick={handleOpenServerPath}>
+            {LOCALES[appLanguage].OpenServerFolder}
+          </Button>
         </Tooltip>
-        <Blockquote>
-          這是伺服器的資料夾路徑，您可以操作他來調整細節設定，或將已存在的伺服器存檔遷移到
-          palserver GUI。請注意，資料夾內的{" "}
-          <span className="text-blue-400">.pal</span> 文件請勿修改、覆蓋或刪除。
-        </Blockquote>
+        <Blockquote>{LOCALES[appLanguage].OpenServerFolderDesc}</Blockquote>
       </div>
 
       <Button

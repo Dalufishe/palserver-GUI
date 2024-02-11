@@ -110,5 +110,12 @@ const zh_tw = {
   BanListURL: "封禁名單網址",
   SwitchOn: "啟用",
   SwitchOff: "關閉",
+  //
+  ServerSettings: "伺服器設定",
+  WorldSettings: "更改世界設定",
+  ModsTool: "模組管理器",
+  OpenServerFolder: "開啟伺服器資料夾",
+  OpenServerFolderDesc:
+    "這是伺服器的資料夾路徑，您可以操作他來調整細節設定，或將已存在的伺服器存檔遷移 palserver GUI。請注意，資料夾內的 .pal 文件請勿修改、覆蓋或刪除。",
 };
 export default zh_tw;

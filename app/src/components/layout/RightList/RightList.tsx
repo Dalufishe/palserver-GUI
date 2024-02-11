@@ -7,8 +7,11 @@ import useSelectedGameSave from "../../../redux/selectGameSave/useSelectedGameSa
 import useServerIsRunning from "../../../hooks/useServerIsRunning";
 import { Badge } from "@radix-ui/themes";
 import { cn } from "../../../pages/utils/cn";
+import useAppLanguage from "../../../redux/appLanguage/useAppLanguage";
+import LOCALES from "../../../locales";
 
 export default function RightList() {
+  const { appLanguage } = useAppLanguage();
   const history = useHistory();
 
   const isServerRunning = useServerIsRunning();
@@ -39,7 +42,7 @@ export default function RightList() {
                 }
           }
         >
-          伺服器設定
+          {LOCALES[appLanguage].ServerSettings}
         </ListButton>
         <ListButton
           className={isServerRunning ? "cursor-not-allowed" : " cursor-pointer"}
@@ -51,7 +54,7 @@ export default function RightList() {
                 }
           }
         >
-          更改世界設定
+          {LOCALES[appLanguage].WorldSettings}
         </ListButton>
         <ListButton
           className={isServerRunning ? "cursor-not-allowed" : " cursor-pointer"}
@@ -63,7 +66,7 @@ export default function RightList() {
                 }
           }
         >
-          模組管理器
+          {LOCALES[appLanguage].ModsTool}
         </ListButton>
         <BootServerBtn disabled={isServerRunning} />
       </div>

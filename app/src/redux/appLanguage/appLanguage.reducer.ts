@@ -1,7 +1,9 @@
 import { AppLanguage, AppLanguageAction } from "./appLanguage.types";
 
 export const appLanguage = (
-  prevSate: AppLanguage = "zh_tw",
+  prevSate: AppLanguage = window.navigator.language === "zh-TW"
+    ? "zh_tw"
+    : "en",
   action: AppLanguageAction
 ) => {
   let newState = prevSate;
