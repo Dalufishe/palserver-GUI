@@ -15,6 +15,8 @@ import useGameSave from "../hooks/useGameSave";
 import useSelectedGameSave from "../redux/selectGameSave/useSelectedGameSave";
 import { useHistory } from "react-router-dom";
 import { MdEditDocument, MdSettings } from "react-icons/md";
+import useAppLanguage from "../redux/appLanguage/useAppLanguage";
+import LOCALES from "../locales";
 
 const settingsOptions: any = {
   DayTimeSpeedRate: { range: [1, 50], type: "num_10" },
@@ -74,6 +76,7 @@ const settingsOptions: any = {
 
 export default function WorldSettings() {
   const history = useHistory();
+  const { appLanguage } = useAppLanguage();
 
   const { selectedGameSave } = useSelectedGameSave();
   const gameSave = useGameSave(selectedGameSave);
@@ -193,15 +196,15 @@ export default function WorldSettings() {
         ))}
       </div>
       <div className="w-full flex justify-center items-center gap-4 relative">
-        <Tooltip content="從原始文件編輯">
+        <Tooltip content={LOCALES[appLanguage].EditFromSourceFile}>
           <IconButton onClick={handleOpenSource} color="gray" radius="full">
             <MdEditDocument />
           </IconButton>
         </Tooltip>
         <Button color="gray" onClick={handleRecoverSave}>
-          復原
+          {LOCALES[appLanguage].Reset}
         </Button>
-        <Button onClick={handleSetSave}>確定</Button>
+        <Button onClick={handleSetSave}>{LOCALES[appLanguage].Confirm}</Button>
       </div>
     </div>
   );

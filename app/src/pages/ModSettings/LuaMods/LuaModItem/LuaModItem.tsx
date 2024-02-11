@@ -6,6 +6,8 @@ import {
   electron,
   ipcRenderer,
 } from "../../../../constant/contextBridge";
+import useAppLanguage from "../../../../redux/appLanguage/useAppLanguage";
+import LOCALES from "../../../../locales";
 
 type Props = {
   name: string;
@@ -13,6 +15,8 @@ type Props = {
 };
 
 export default function LuaModItem(props: Props) {
+  const { appLanguage } = useAppLanguage();
+
   const [modEnabled, setModEnabled] = useState(props.enabled);
 
   const handleEnabledMod = () => {
@@ -46,11 +50,16 @@ export default function LuaModItem(props: Props) {
           <ContextMenu.Group>
             <AlertDialog.Trigger onClick={handleEnabledMod}>
               <ContextMenu.Item shortcut=" ">
-                {modEnabled ? "禁用" : "啟用"}模組
+                {modEnabled
+                  ? LOCALES[appLanguage].Disabled
+                  : LOCALES[appLanguage].Enabled}
+                {LOCALES[appLanguage].Mod}
               </ContextMenu.Item>
             </AlertDialog.Trigger>
             <AlertDialog.Trigger onClick={handleViewSourceCode}>
-              <ContextMenu.Item>原始碼</ContextMenu.Item>
+              <ContextMenu.Item>
+                {LOCALES[appLanguage].SourceCode}
+              </ContextMenu.Item>
             </AlertDialog.Trigger>
           </ContextMenu.Group>
           {/* <ContextMenu.Separator />

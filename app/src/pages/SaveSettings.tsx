@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import useSelectedGameSave from "../redux/selectGameSave/useSelectedGameSave";
-import { Blockquote, Button, Callout, Tooltip } from "@radix-ui/themes";
+import { Blockquote, Button, Tooltip } from "@radix-ui/themes";
 import { electron, ipcRenderer } from "../constant/contextBridge";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import useServerIsRunning from "../hooks/useServerIsRunning";
+import useAppLanguage from "../redux/appLanguage/useAppLanguage";
+import LOCALES from "../locales";
 
 export default function SaveSettings() {
   const history = useHistory();
-  const isServerRunning = useServerIsRunning();
+  const { appLanguage } = useAppLanguage();
 
+  const isServerRunning = useServerIsRunning();
   const { selectedGameSave } = useSelectedGameSave();
 
   const [isServerUpdate, setIsServerUpdate] = useState(false);
@@ -26,7 +29,7 @@ export default function SaveSettings() {
     ipcRenderer.send("request-update-server");
     ipcRenderer.on("update-server-response:done", () => {
       setIsServerUpdate(false);
-      window.alert("伺服器更新完畢！");
+      window.alert(LOCALES[appLanguage].ServerUpdateDone);
       ipcRenderer.removeAllListeners("update-server-response:done");
     });
   };
@@ -54,7 +57,9 @@ export default function SaveSettings() {
         }
         color="gray"
       >
-        {isServerUpdate ? "伺服器更新中..." : "更新伺服器到最新版本"}
+        {isServerUpdate
+          ? LOCALES[appLanguage].ServerIsUpdating
+          : LOCALES[appLanguage].UpdateServerToLatestVersion}
       </Button>
 
       {/* <Button
