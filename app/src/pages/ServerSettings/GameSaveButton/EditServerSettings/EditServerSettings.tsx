@@ -9,15 +9,22 @@ import React, { useState } from "react";
 import useGameSave from "../../../../hooks/useGameSave";
 import { ipcRenderer } from "../../../../constant/contextBridge";
 import useSelectedGameSave from "../../../../redux/selectGameSave/useSelectedGameSave";
+import useAppLanguage from "../../../../redux/appLanguage/useAppLanguage";
+import LOCALES from "../../../../locales";
 
 export default function EditServerSettings(props: { saveId: string }) {
+  const { appLanguage } = useAppLanguage();
+
   const { setSelectedGameSave } = useSelectedGameSave();
 
   const gameSave = useGameSave(props.saveId);
   const gameSaveServerName = gameSave?.settings?.ServerName?.slice(1, -1);
   const gameSavePublicIP = gameSave?.settings?.PublicIP?.slice(1, -1);
   const gameSavePublicPort = gameSave?.settings?.PublicPort;
-  const gameSaveServerPassword = gameSave?.settings?.ServerPassword?.slice(1, -1);
+  const gameSaveServerPassword = gameSave?.settings?.ServerPassword?.slice(
+    1,
+    -1
+  );
   const gameSaveAdminPassword = gameSave?.settings?.AdminPassword?.slice(1, -1);
 
   const [serverName, setServerName] = useState("");
@@ -56,10 +63,10 @@ export default function EditServerSettings(props: { saveId: string }) {
 
   return (
     <AlertDialog.Content style={{ maxWidth: 450 }}>
-      <AlertDialog.Title>編輯伺服器</AlertDialog.Title>
+      <AlertDialog.Title>{LOCALES[appLanguage].EditServer}</AlertDialog.Title>
 
       <div className="w-[70%] my-2 flex gap-2 items-center justify-between">
-        <span>伺服器名稱：</span>
+        <span>{LOCALES[appLanguage].ServerName}：</span>
         <TextFieldInput
           placeholder={gameSaveServerName}
           value={serverName}
@@ -70,7 +77,7 @@ export default function EditServerSettings(props: { saveId: string }) {
       </div>
 
       <div className="w-[70%] my-2 flex gap-2 items-center justify-between">
-        <span>公開 IP：</span>
+        <span>{LOCALES[appLanguage].PublicIP}：</span>
         <TextFieldInput
           placeholder={gameSavePublicIP}
           value={publicIP}
@@ -81,7 +88,7 @@ export default function EditServerSettings(props: { saveId: string }) {
       </div>
 
       <div className="w-[70%] my-2 flex gap-2 items-center justify-between">
-        <span>端口號：</span>
+        <span>{LOCALES[appLanguage].PublicPort}：</span>
         <TextFieldInput
           placeholder={gameSavePublicPort}
           type="number"
@@ -93,7 +100,7 @@ export default function EditServerSettings(props: { saveId: string }) {
       </div>
 
       <div className="w-[70%] my-2 flex gap-2 items-center justify-between">
-        <span>伺服器密碼：</span>
+        <span>{LOCALES[appLanguage].ServerPassword}：</span>
         <TextFieldInput
           placeholder={gameSaveServerPassword}
           value={serverPassword}
@@ -104,7 +111,7 @@ export default function EditServerSettings(props: { saveId: string }) {
       </div>
 
       <div className="w-[70%] my-2 flex gap-2 items-center justify-between">
-        <span>管理員密碼：</span>
+        <span>{LOCALES[appLanguage].AdminPassword}：</span>
         <TextFieldInput
           placeholder={gameSaveAdminPassword}
           value={adminPassword}
@@ -117,12 +124,12 @@ export default function EditServerSettings(props: { saveId: string }) {
       <Flex gap="3" mt="4" justify="end">
         <AlertDialog.Cancel>
           <Button variant="soft" color="gray">
-            取消
+            {LOCALES[appLanguage].Cancel}
           </Button>
         </AlertDialog.Cancel>
         <AlertDialog.Action>
           <Button variant="solid" onClick={handleEditGameSave}>
-            確認修改
+            {LOCALES[appLanguage].VerifyChange}
           </Button>
         </AlertDialog.Action>
       </Flex>

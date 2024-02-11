@@ -8,8 +8,12 @@ import {
 import React, { useState } from "react";
 import useGameSave from "../../../../hooks/useGameSave";
 import useSaveMeta from "../../../../hooks/useSaveMeta";
+import useAppLanguage from "../../../../redux/appLanguage/useAppLanguage";
+import LOCALES from "../../../../locales";
 
 export default function DeleteServer(props: { saveId: string }) {
+  const { appLanguage } = useAppLanguage();
+
   const gameSave = useGameSave(props.saveId);
   const gameSaveServerName = gameSave?.settings?.ServerName?.slice(1, -1);
 
@@ -24,9 +28,9 @@ export default function DeleteServer(props: { saveId: string }) {
 
   return (
     <AlertDialog.Content style={{ maxWidth: 450 }}>
-      <AlertDialog.Title>刪除伺服器</AlertDialog.Title>
+      <AlertDialog.Title>{LOCALES[appLanguage].DeleteServer}</AlertDialog.Title>
       <AlertDialog.Description size="2">
-        一旦伺服器被刪除，包括存檔、設定和玩家資料等在內的所有數據將會變得難以恢復。請在執行相關操作前仔細考慮。
+        {LOCALES[appLanguage].DeleteServerDesc}
       </AlertDialog.Description>
 
       <div className="my-2">
@@ -35,14 +39,14 @@ export default function DeleteServer(props: { saveId: string }) {
           onChange={(e) => {
             setInputServerName(e.target.value);
           }}
-          placeholder="請輸入伺服器名稱"
+          placeholder={LOCALES[appLanguage].PleaseEnterServerName}
         />
       </div>
 
       <Flex gap="3" mt="4" justify="end">
         <AlertDialog.Cancel>
           <Button variant="soft" color="gray">
-            取消
+            {LOCALES[appLanguage].Cancel}
           </Button>
         </AlertDialog.Cancel>
         <AlertDialog.Action>
@@ -52,7 +56,7 @@ export default function DeleteServer(props: { saveId: string }) {
             variant="solid"
             color="red"
           >
-            確認刪除
+            {LOCALES[appLanguage].VerifyDelete}
           </Button>
         </AlertDialog.Action>
       </Flex>

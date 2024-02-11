@@ -2,18 +2,21 @@ import { useState } from "react";
 import CuteImg from "../../../assets/images/start.webp";
 import useGameSave from "../../../hooks/useGameSave";
 import useSelectedGameSave from "../../../redux/selectGameSave/useSelectedGameSave";
-import { cn } from "../../utils/cn";
 import { AlertDialog, ContextMenu } from "@radix-ui/themes";
 import DeleteServer from "./DeleteServer/DeleteServer";
 import EditServerSettings from "./EditServerSettings/EditServerSettings";
 import PalIcons from "../../../constant/palIcons";
 import useSaveMeta from "../../../hooks/useSaveMeta";
+import useAppLanguage from "../../../redux/appLanguage/useAppLanguage";
+import LOCALES from "../../../locales";
 
 type Props = {
   saveMetaData: { id: string };
 };
 
 export default function SaveButton(props: Props) {
+  const { appLanguage } = useAppLanguage();
+
   const { selectedGameSave, setSelectedGameSave } = useSelectedGameSave();
 
   const { getSaveMetaData } = useSaveMeta();
@@ -53,7 +56,9 @@ export default function SaveButton(props: Props) {
               setCurrentAlret("edit-server");
             }}
           >
-            <ContextMenu.Item>編輯伺服器</ContextMenu.Item>
+            <ContextMenu.Item>
+              {LOCALES[appLanguage].EditServer}
+            </ContextMenu.Item>
           </AlertDialog.Trigger>
           <ContextMenu.Separator />
           <AlertDialog.Trigger
@@ -62,7 +67,7 @@ export default function SaveButton(props: Props) {
             }}
           >
             <ContextMenu.Item shortcut="⌫" color="red">
-              刪除伺服器
+              {LOCALES[appLanguage].DeleteServer}
             </ContextMenu.Item>
           </AlertDialog.Trigger>
         </ContextMenu.Content>

@@ -17,8 +17,12 @@ import PalIcons from "../../../constant/palIcons";
 import { map } from "lodash";
 import SelectIconButton from "./SelectIconButton/SelectIconButton";
 import useGameSave from "../../../hooks/useGameSave";
+import useAppLanguage from "../../../redux/appLanguage/useAppLanguage";
+import LOCALES from "../../../locales";
 
 export default function AddSaveButton({ button }: { button: React.ReactNode }) {
+  const { appLanguage } = useAppLanguage();
+
   const { metaData, setMetaData } = useSaveMeta();
   const { selectedGameSave, setSelectedGameSave } = useSelectedGameSave();
 
@@ -61,11 +65,13 @@ export default function AddSaveButton({ button }: { button: React.ReactNode }) {
     <AlertDialog.Root>
       <AlertDialog.Trigger>{button}</AlertDialog.Trigger>
       <AlertDialog.Content style={{ maxWidth: 450 }}>
-        <AlertDialog.Title>建立伺服器</AlertDialog.Title>
+        <AlertDialog.Title>
+          {LOCALES[appLanguage].CreateServer}
+        </AlertDialog.Title>
         <div className="flex">
           <div className="w-[70%]">
             <div className="w-full my-2 flex gap-2 items-center justify-between">
-              <span>伺服器名稱：</span>
+              <span>{LOCALES[appLanguage].ServerName}：</span>
               <TextFieldInput
                 autoFocus
                 placeholder=""
@@ -77,7 +83,7 @@ export default function AddSaveButton({ button }: { button: React.ReactNode }) {
             </div>
 
             <div className="w-full my-2 flex gap-2 items-center justify-between">
-              <span>公開 IP：</span>
+              <span>{LOCALES[appLanguage].PublicIP}：</span>
               <TextFieldInput
                 placeholder=""
                 value={publicIP}
@@ -88,7 +94,7 @@ export default function AddSaveButton({ button }: { button: React.ReactNode }) {
             </div>
 
             <div className="w-full my-2 flex gap-2 items-center justify-between">
-              <span>端口號：</span>
+              <span>{LOCALES[appLanguage].PublicIP}：</span>
               <TextFieldInput
                 value={publicPort}
                 onChange={(e) => {
@@ -98,7 +104,7 @@ export default function AddSaveButton({ button }: { button: React.ReactNode }) {
             </div>
 
             <div className="w-full my-2 flex gap-2 items-center justify-between">
-              <span>伺服器密碼：</span>
+              <span>{LOCALES[appLanguage].ServerPassword}：</span>
               <TextFieldInput
                 value={serverPassword}
                 onChange={(e) => {
@@ -108,7 +114,7 @@ export default function AddSaveButton({ button }: { button: React.ReactNode }) {
             </div>
 
             <div className="w-full my-2 flex gap-2 items-center justify-between">
-              <span>管理員密碼：</span>
+              <span>{LOCALES[appLanguage].AdminPassword}：</span>
               <TextFieldInput
                 value={adminPassword}
                 onChange={(e) => {
@@ -130,7 +136,7 @@ export default function AddSaveButton({ button }: { button: React.ReactNode }) {
         <Flex gap="3" mt="4" justify="end">
           <AlertDialog.Cancel>
             <Button variant="soft" color="gray">
-              取消
+              {LOCALES[appLanguage].Cancel}
             </Button>
           </AlertDialog.Cancel>
           <AlertDialog.Action>
@@ -140,7 +146,7 @@ export default function AddSaveButton({ button }: { button: React.ReactNode }) {
               variant="solid"
               color="yellow"
             >
-              建立
+              {LOCALES[appLanguage].Create}
             </Button>
           </AlertDialog.Action>
         </Flex>
