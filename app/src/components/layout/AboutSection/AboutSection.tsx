@@ -1,4 +1,4 @@
-import { FaGithub, FaHeart } from "react-icons/fa";
+import { FaDiscord, FaGithub, FaHeart } from "react-icons/fa";
 import IconImage from "../../../assets/images/icon.webp";
 import Button from "../../global/Button";
 import { electron } from "../../../constant/contextBridge";
@@ -17,6 +17,10 @@ export default function AboutSection() {
 
   const handleOpenDonation = () => {
     electron.openLink("https://www.buymeacoffee.com/dalufish");
+  };
+
+  const handleOpenDiscord = () => {
+    electron.openLink("https://discord.gg/sgMMdUZd3V");
   };
 
   return (
@@ -50,6 +54,9 @@ export default function AboutSection() {
         </Button>
         <Button onClick={handleOpenGithub}>
           <FaGithub />
+        </Button>
+        <Button onClick={handleOpenDiscord}>
+          <FaDiscord />
         </Button>
       </div>
     </div>
