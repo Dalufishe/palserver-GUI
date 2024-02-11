@@ -1,32 +1,17 @@
-import { useEffect, useState } from "react";
-import { ipcRenderer, run } from "./constant/contextBridge";
-import StartBtnImage from "./assets/images/start.webp";
 import AboutSection from "./components/layout/AboutSection/AboutSection";
-import Button from "./components/global/Button";
 import RightList from "./components/layout/RightList/RightList";
-import {
-  BrowserRouter,
-  HashRouter,
-  Redirect,
-  Route,
-  Switch,
-} from "react-router-dom";
-import Monitor from "./pages/Monitor";
+import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
 import WorldSettings from "./pages/WorldSettings";
 import SaveSettings from "./pages/SaveSettings";
 import { Theme } from "@radix-ui/themes";
-import ServerSettings from "./pages/ServerSettings/ServerSettings";
+import HomePage from "./pages/ServerSettings/HomePage";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "./redux/store";
 import SaveBackup from "./pages/SaveBackup/SaveBackup";
+import ModSettings from "./pages/ModSettings/ModSettings";
 
 function App() {
-  // useEffect(() => {
-  //   // 意外關閉時備份
-  //   ipcRenderer.send("request-set-engine-to-save");
-  // }, []);
-
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
@@ -38,11 +23,12 @@ function App() {
                   <AboutSection />
                   <Switch>
                     {/* <Route path="/monitor" component={Monitor} /> */}
-                    <Route path="/server-settings" component={ServerSettings} />
+                    <Route exact path="/" component={HomePage} />
                     <Route path="/world-settings" component={WorldSettings} />
                     <Route path="/save-settings" component={SaveSettings} />
+                    <Route path="/mod-settings" component={ModSettings} />
                     <Route path="/save-backup" component={SaveBackup} />
-                    <Redirect from="/" to="/server-settings" />
+                    <Redirect exact from="/" to="/" />
                   </Switch>
                 </div>
                 <RightList />

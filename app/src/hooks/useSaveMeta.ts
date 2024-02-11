@@ -10,9 +10,9 @@ const useSaveMeta = () => {
     ipcRenderer.on(`save-metadata-response`, (event, metadata) => {
       setMeta(metadata);
     });
-    // return () => {
-    //   ipcRenderer.removeAllListeners(`save-metadata-response`);
-    // };
+    return () => {
+      ipcRenderer.removeAllListeners(`save-metadata-response`);
+    };
   }, []);
 
   return {

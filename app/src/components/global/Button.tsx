@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "../../utils/cn";
+import { cn } from "../../pages/utils/cn";
 
 type Props = {
   children: any;
@@ -24,4 +24,3 @@ export default function Button({
     </div>
   );
 }
- 

@@ -4,6 +4,7 @@ import Button from "../../global/Button";
 import { electron } from "../../../constant/contextBridge";
 import { Tooltip } from "@radix-ui/themes";
 import { Link, useHistory } from "react-router-dom";
+import APP from "../../../constant/app";
 
 export default function AboutSection() {
   const history = useHistory();
@@ -20,12 +21,12 @@ export default function AboutSection() {
     <div className="flex gap-2 p-2 bg-bg2 rounded-lg items-center relative">
       <div
         onClick={() => {
-          history.push("/server-settings");
+          history.push("/");
         }}
         className="flex gap-2 cursor-pointer"
       >
         <img src={IconImage} alt="icon" className="w-6 h-6" />
-        <span>palserver GUI</span>
+        <span>{APP.APP_NAME}</span>
       </div>
       <div className="absolute right-2 flex gap-2 items-center">
         <Button onClick={handleOpenDonation}>

@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { ipcRenderer } from "../../../../constant/contextBridge";
-import { cn } from "../../../../utils/cn";
+import { cn } from "../../../../pages/utils/cn";
 import useSelectedGameSave from "../../../../redux/selectGameSave/useSelectedGameSave";
 import useServerIsRunning from "../../../../hooks/useServerIsRunning";
 import { useHistory } from "react-router-dom";
+import useAppLanguage from "../../../../redux/appLanguage/useAppLanguage";
+import LOCALES from "../../../../locales";
 
 export default function BootServerBtn({ disabled }: { disabled: boolean }) {
+  const { appLanguage } = useAppLanguage();
   const history = useHistory();
 
   const { selectedGameSave } = useSelectedGameSave();
@@ -14,19 +17,19 @@ export default function BootServerBtn({ disabled }: { disabled: boolean }) {
 
   // 啟動伺服器
   const handleBootServer = () => {
-    history.push("/server-settings");
+    history.push("/");
 
     // 將上一個存檔保存
     ipcRenderer.send("request-set-engine-to-save");
     ipcRenderer.on("set-engine-to-save-response:done", () => {
-    // 將指定存檔存入引擎
-    ipcRenderer.send("request-set-save-to-engine", selectedGameSave);
-    ipcRenderer.on("set-save-to-engine-response:done", (event, data) => {
-      // 啟動伺服器
-      ipcRenderer.send("request-exec-server");
-      ipcRenderer.removeAllListeners("set-save-to-engine-response:done");
-    });
-    ipcRenderer.removeAllListeners("set-engine-to-save-response:done");
+      // 將指定存檔存入引擎
+      ipcRenderer.send("request-set-save-to-engine", selectedGameSave);
+      ipcRenderer.on("set-save-to-engine-response:done", (event, data) => {
+        // 啟動伺服器
+        ipcRenderer.send("request-exec-server");
+        ipcRenderer.removeAllListeners("set-save-to-engine-response:done");
+      });
+      ipcRenderer.removeAllListeners("set-engine-to-save-response:done");
     });
   };
 
@@ -56,7 +59,9 @@ export default function BootServerBtn({ disabled }: { disabled: boolean }) {
         disabled ? "cursor-not-allowed" : " cursor-pointer"
       )}
     >
-      {isServerRunning ? "伺服器執行中" : "啟動伺服器"}
+      {isServerRunning
+        ? LOCALES[appLanguage].ServerIsRunning
+        : LOCALES[appLanguage].BootServer}
     </div>
   );
 }

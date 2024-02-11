@@ -6,6 +6,7 @@ import {
   Select,
   Slider,
   Switch,
+  TextFieldInput,
   Tooltip,
 } from "@radix-ui/themes";
 import { isBoolean, isEmpty, map, range } from "lodash";
@@ -13,7 +14,6 @@ import zh_tw from "../locales/zh_tw";
 import useGameSave from "../hooks/useGameSave";
 import useSelectedGameSave from "../redux/selectGameSave/useSelectedGameSave";
 import { useHistory } from "react-router-dom";
-import * as Toast from "@radix-ui/react-toast";
 import { MdEditDocument, MdSettings } from "react-icons/md";
 
 const settingsOptions: any = {
@@ -91,11 +91,11 @@ export default function WorldSettings() {
     ipcRenderer.send("request-set-save", selectedGameSave, {
       settings: worldSettings,
     });
-    history.push("/server-settings");
+    history.push("/");
   };
 
   const handleOpenSource = () => {
-    history.push("/server-settings");
+    history.push("/");
     electron.openExplorer(
       `./saves/${selectedGameSave}/Config/WindowsServer/PalWorldSettings.ini`
     );
@@ -107,12 +107,30 @@ export default function WorldSettings() {
         {map(settingsOptions, (v, k) => (
           <div key={k} className="w-full flex items-center gap-4">
             <label className="w-60">{zh_tw[k]}：</label>
-            <div className="w-10">
-              {k === "DeathPenalty"
-                ? zh_tw["DeathPenalty_" + worldSettings[k]]
-                : isBoolean(worldSettings[k])
-                ? zh_tw[worldSettings[k] ? "SwitchOn" : "SwitchOff"]
-                : worldSettings[k]}
+            <div className="w-14">
+              {k === "DeathPenalty" ? (
+                zh_tw["DeathPenalty_" + worldSettings[k]]
+              ) : isBoolean(worldSettings[k]) ? (
+                zh_tw[worldSettings[k] ? "SwitchOn" : "SwitchOff"]
+              ) : (
+                <TextFieldInput
+                  color="blue"
+                  style={{
+                    background: "#1b1421",
+                    color: "white",
+                    fontSize: 16,
+                  }}
+                  size="1"
+                  type="number"
+                  value={worldSettings[k]}
+                  onChange={(e) => {
+                    setWorldSettings({
+                      ...worldSettings,
+                      [k]: e.target.value,
+                    });
+                  }}
+                />
+              )}
             </div>
             {settingsOptions[k].type === "switch" && (
               <Switch
@@ -128,6 +146,7 @@ export default function WorldSettings() {
             )}
             {settingsOptions[k].type === "options" && (
               <Select.Root
+                size="2"
                 value={worldSettings[k]}
                 onValueChange={(v) => {
                   setWorldSettings({

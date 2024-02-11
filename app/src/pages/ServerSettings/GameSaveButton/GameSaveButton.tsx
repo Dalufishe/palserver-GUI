@@ -2,7 +2,7 @@ import { useState } from "react";
 import CuteImg from "../../../assets/images/start.webp";
 import useGameSave from "../../../hooks/useGameSave";
 import useSelectedGameSave from "../../../redux/selectGameSave/useSelectedGameSave";
-import { cn } from "../../../utils/cn";
+import { cn } from "../../utils/cn";
 import { AlertDialog, ContextMenu } from "@radix-ui/themes";
 import DeleteServer from "./DeleteServer/DeleteServer";
 import EditServerSettings from "./EditServerSettings/EditServerSettings";
@@ -34,7 +34,7 @@ export default function SaveButton(props: Props) {
           <div
             onClick={handleSelect}
             className={
-              "flex flex-col gap-y-2 items-center justify-center w-28 h-24 p-2 cursor-pointer rounded-lg hover:bg-bg1"
+              "flex flex-col gap-y-2 items-center w-28 h-24 p-2 cursor-pointer rounded-lg hover:bg-bg1 relative"
             }
           >
             <img
@@ -42,7 +42,7 @@ export default function SaveButton(props: Props) {
               alt=""
               className="w-12 h-12 select-none"
             />
-            <span className="text-xs text-center">
+            <span className="absolute top-[60px] text-xs text-center w-24 break-words">
               {gameSave?.settings?.ServerName.slice(1, -1)}
             </span>
           </div>

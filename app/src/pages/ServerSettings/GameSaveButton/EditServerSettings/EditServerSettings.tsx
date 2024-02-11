@@ -17,8 +17,8 @@ export default function EditServerSettings(props: { saveId: string }) {
   const gameSaveServerName = gameSave?.settings?.ServerName?.slice(1, -1);
   const gameSavePublicIP = gameSave?.settings?.PublicIP?.slice(1, -1);
   const gameSavePublicPort = gameSave?.settings?.PublicPort;
-  const gameSaveServerPassword = gameSave?.settings?.ServerPassword;
-  const gameSaveAdminPassword = gameSave?.settings?.AdminPassword;
+  const gameSaveServerPassword = gameSave?.settings?.ServerPassword?.slice(1, -1);
+  const gameSaveAdminPassword = gameSave?.settings?.AdminPassword?.slice(1, -1);
 
   const [serverName, setServerName] = useState("");
   const [publicIP, setPublicIP] = useState("");
@@ -95,6 +95,7 @@ export default function EditServerSettings(props: { saveId: string }) {
       <div className="w-[70%] my-2 flex gap-2 items-center justify-between">
         <span>伺服器密碼：</span>
         <TextFieldInput
+          placeholder={gameSaveServerPassword}
           value={serverPassword}
           onChange={(e) => {
             setServerPassword(e.target.value);
@@ -105,6 +106,7 @@ export default function EditServerSettings(props: { saveId: string }) {
       <div className="w-[70%] my-2 flex gap-2 items-center justify-between">
         <span>管理員密碼：</span>
         <TextFieldInput
+          placeholder={gameSaveAdminPassword}
           value={adminPassword}
           onChange={(e) => {
             setAdminPassword(e.target.value);
