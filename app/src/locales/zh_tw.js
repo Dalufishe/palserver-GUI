@@ -1,5 +1,5 @@
 const zh_tw = {
-  ServerIsRunning: "伺服器運行中",
+  ServerIsRunning: "伺服器執行中",
   BootServer: "啟動伺服器",
   OthersEnterIP: "這是其他玩家輸入的 IP 地址",
   YourselfEnterIP: "這是你自己輸入的 IP 地址",
