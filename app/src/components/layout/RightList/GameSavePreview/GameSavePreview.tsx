@@ -28,6 +28,7 @@ export default function GameSavePreview() {
   return (
     <div className="flex flex-col items-center gap-1">
       <div
+        className="cursor-pointer"
         onClick={() => {
           history.push("/");
         }}

@@ -1,14 +1,19 @@
-import { Tabs } from "@radix-ui/themes";
+import { Button, Tabs } from "@radix-ui/themes";
 import PakMods from "./PakMods/PakMods";
 import LuaMods from "./LuaMods/LuaMods";
 import LOCALES from "../../locales";
 import useAppLanguage from "../../redux/appLanguage/useAppLanguage";
+import { electron } from "../../constant/contextBridge";
+import ExportModsToClientSide from "./ExportModsToClientSide/ExportModsToClientSide";
 
 export default function ModSettings() {
   const { appLanguage } = useAppLanguage();
 
   return (
     <div className="bg-bg2 rounded-lg w-full h-full p-4 overflow-y-scroll relative">
+      <div className="absolute right-2 top-4">
+        <ExportModsToClientSide />
+      </div>
       <Tabs.Root defaultValue="lua">
         <Tabs.List>
           <Tabs.Trigger value="lua" style={{ color: "white", fontWeight: 500 }}>

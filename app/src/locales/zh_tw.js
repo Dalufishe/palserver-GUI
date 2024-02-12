@@ -115,7 +115,24 @@ const zh_tw = {
   WorldSettings: "更改世界設定",
   ModsTool: "模組管理器",
   OpenServerFolder: "開啟伺服器資料夾",
+  GoBack: "回上一頁",
   OpenServerFolderDesc:
     "這是伺服器的資料夾路徑，您可以操作他來調整細節設定，或將已存在的伺服器存檔遷移 palserver GUI。請注意，資料夾內的 .pal 文件請勿修改、覆蓋或刪除。",
+  //
+  ExportModsToClientSide: "導出模組到客戶端",
+  ExportModsToClientSideDesc1: "模組需在客戶端及伺服端同時安裝才會生效。點擊「導出」會生成一份您在伺服器配置之模組的客戶端版本。",
+  ExportModsToClientSideDesc2: "將生成的內容複製貼上到 steam 本機檔案 (點選取代全部) 即可完成安裝。",
+  Export: "導出",
+  FAQ: "常見問題",
+  FAQ1Q: "我該如何遷移存檔？",
+  FAQ1A: "若要遷移存檔，請確保伺服器在 palserver GUI 剛被建立 (尚未啟用)。將原先的存檔 (專用伺服器存檔：/SaveGames/0/某串ID；四人存檔：/SaveGames/某串ID/你的地圖檔ID) 複製貼上到 /SaveGames/0/47D51DB549971BDC025E4BA00A549007 裡，啟動伺服器就大功告成了。",
+  FAQ2Q: "地圖檔案無法被正確修改，每次改完都會被覆蓋。",
+  FAQ2A: "這是由於工具為保證存檔安全性實現的雙向備份所導致，SaveGames 資料夾中的內容會被覆蓋。做法是當需要做到修改存檔的操作時，永遠新建一個伺服器，並在伺服器啟動前將存檔移入就 ok 了。",
+  FAQ3Q: "我將四人存檔遷移到專用伺服器後，服主的資料消失了？",
+  FAQ4A: "是的，因官方識別玩家 ID 的機制會導致服主資料無法被存取，目前版本須依賴轉檔工具先將服主的資料轉為可被專用伺服器讀取的檔案：https://github.com/xNul/palworld-host-save-fix，再依照上方的步驟走一遍就完成了。(如果覺得麻煩也可以先在四人模式將據點所有權轉讓給其他玩家，帕魯丟給其他玩家，物資放箱子後，直接遷過來再將所有權轉回去。)",
+  FAQ4Q: "我將四人存檔遷移到專用伺服器後，調整的世界設定無法生效？",
+  FAQ4A: "請找到一個叫做 WorldOption.sav 的檔案，刪除他或者對他改名就會生效摟！",
+  FAQ5Q: "世界設定的孵蛋或據點上限無法生效？",
+  FAQ5A: "可以參考這部影片的後半段, 有詳細的解決方法: https://www.youtube.com/watch?v=1LqoN-pjb-0&t=6s4.",
 };
 export default zh_tw;

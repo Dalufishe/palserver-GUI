@@ -10,6 +10,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "./redux/store";
 import SaveBackup from "./pages/SaveBackup/SaveBackup";
 import ModSettings from "./pages/ModSettings/ModSettings";
+import FAQ from "./pages/FAQ/FAQ";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
                     <Route path="/world-settings" component={WorldSettings} />
                     <Route path="/save-settings" component={SaveSettings} />
                     <Route path="/mod-settings" component={ModSettings} />
+                    <Route path="/faq" component={FAQ} />
                     <Route path="/save-backup" component={SaveBackup} />
                     <Redirect exact from="/" to="/" />
                   </Switch>

@@ -25,30 +25,30 @@ function createMainWindow() {
   });
 
   // for production
-  // const startUrl = url.format({
-  //     pathname: path.join(__dirname, './frontend/build/index.html'),
-  //     protocol: 'file',
-  // });
-  // mainWindow.loadURL(startUrl)
+  const startUrl = url.format({
+    pathname: path.join(__dirname, './frontend/build/index.html'),
+    protocol: 'file',
+  });
+  mainWindow.loadURL(startUrl)
 
   // for development
-  mainWindow.webContents.openDevTools();
-  mainWindow.loadURL("http://localhost:3000");
+  // mainWindow.webContents.openDevTools();
+  // mainWindow.loadURL("http://localhost:3000");
 
   rigisterIPC();
 
-  mainWindow.on("close", async (e) => {
-    e.preventDefault();
+  // mainWindow.on("close", async (e) => {
+  //   e.preventDefault();
 
-    const { response } = await dialog.showMessageBox(mainWindow, {
-      type: "question",
-      title: "  溫馨提醒  ",
-      message: "請確認關閉所有正在運行的帕魯伺服器，否則可能會造成存檔丟失。",
-      buttons: ["Yes", "No"],
-    });
+  //   const { response } = await dialog.showMessageBox(mainWindow, {
+  //     type: "question",
+  //     title: "  溫馨提醒  ",
+  //     message: "請確認關閉所有正在運行的帕魯伺服器，否則可能會造成存檔丟失。",
+  //     buttons: ["Yes", "No"],
+  //   });
 
-    response === 0 && mainWindow.destroy();
-  });
+  //   response === 0 && mainWindow.destroy();
+  // });
 }
 
 function rigisterIPC() {
@@ -328,6 +328,39 @@ function rigisterIPC() {
       })),
     });
   });
+
+  // 倒出客戶端模組
+  ipcMain.on("request-export-clientside-mods", async (event) => {
+
+    const ClientSideModPath = path.join(__dirname, "./.clientside-mods")
+    const ClientSideLuaModPath = path.join(ClientSideModPath, "./Pal/Binaries/Win64/Mods")
+    const ClientSidePakModPath = path.join(ClientSideModPath, "./Pal/Content/Paks")
+    // 將上次生成的 lua 模組清空
+    fsc.rmSync(ClientSideLuaModPath, {
+      recursive: true,
+      force: true,
+    })
+    // 將上次生成的 pak 模組清空
+    fsc.rmSync(ClientSidePakModPath, {
+      recursive: true,
+      force: true,
+    })
+
+    // 生成中 ... 
+    await Promise.all([
+      fs.cp(EngineLuaModPath, ClientSideLuaModPath, {
+        recursive: true,
+        force: true,
+      }),
+      fs.cp(EnginePakModPath, ClientSidePakModPath, {
+        recursive: true,
+        force: true,
+      })])
+
+    event.reply("export-clientside-mods-response:done", {})
+
+
+  })
 }
 
 app.whenReady().then(createMainWindow);

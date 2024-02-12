@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useSelectedGameSave from "../redux/selectGameSave/useSelectedGameSave";
-import { Blockquote, Button, Tooltip } from "@radix-ui/themes";
+import { Blockquote, Button, Link, Tooltip } from "@radix-ui/themes";
 import { electron, ipcRenderer } from "../constant/contextBridge";
 import { useHistory } from "react-router-dom";
 import useServerIsRunning from "../hooks/useServerIsRunning";
@@ -47,7 +47,19 @@ export default function SaveSettings() {
             {LOCALES[appLanguage].OpenServerFolder}
           </Button>
         </Tooltip>
-        <Blockquote>{LOCALES[appLanguage].OpenServerFolderDesc}</Blockquote>
+        <Blockquote>
+          {/* 描述 */}
+          {LOCALES[appLanguage].OpenServerFolderDesc}
+          {/* 常見問題 */}
+          <Link
+            color="blue"
+            onClick={() => {
+              history.push("/faq");
+            }}
+          >
+            {" "+LOCALES[appLanguage].FAQ}
+          </Link>
+        </Blockquote>
       </div>
 
       <Button

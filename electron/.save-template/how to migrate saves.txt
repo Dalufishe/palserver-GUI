@@ -1,0 +1,22 @@
+To migrate save files, please ensure that the server is created in the palserver GUI before it's activated (not yet enabled).
+
+Simply copy and paste the original save file into \SaveGames\0\47D51DB549971BDC025E4BA00A549007, and starting the server will complete the process.
+
+Dedicated server save file location: (\SaveGames\0\some ID)
+Four-player server save file location: (\SaveGames\some ID\your map file ID)
+
+Frequently Asked Questions:
+
+Q: After migrating a four-player save file to a dedicated server, why does the host's data disappear?
+A: Yes, because the official mechanism for identifying player IDs results in the host's data being inaccessible. The current version relies on a conversion tool to transform the host's data into a file that can be read by the dedicated server: https://github.com/xNul/palworld-host-save-fix. Follow the steps above to complete the process.
+
+(If it feels troublesome, you can also transfer the ownership of the base to another player in four-player mode, hand over Palu to another player, and put supplies in a chest, and then migrate it directly before transferring the ownership back, which is also okay.)
+
+Q: After migrating a four-player save file to a dedicated server, why don't the adjusted world settings take effect?
+A: Please create a new server, copy and paste the save file, and before starting, find a file called WorldOption.sav. Deleting or renaming it will make the settings take effect!
+
+Q: Why don't the world settings for hatching or base limits take effect?
+A: The recommended approach is to use mods, or you can use the configuration method of WorldOption.sav. For a detailed solution, refer to the latter half of this video: https://www.youtube.com/watch?v=1LqoN-pjb-0&t=6s
+
+Q: Why can't map files be correctly modified, with changes being overwritten each time?
+A: This is due to the bidirectional backup caused by the tool, where content in the SaveGames folder will be overwritten. The approach is to always create a new server when you need to modify save files, and do so before starting the server.

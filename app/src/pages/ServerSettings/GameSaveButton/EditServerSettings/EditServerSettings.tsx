@@ -65,7 +65,7 @@ export default function EditServerSettings(props: { saveId: string }) {
     <AlertDialog.Content style={{ maxWidth: 450 }}>
       <AlertDialog.Title>{LOCALES[appLanguage].EditServer}</AlertDialog.Title>
 
-      <div className="w-[70%] my-2 flex gap-2 items-center justify-between">
+      <div className="w-[78%] my-2 flex gap-2 items-center justify-between">
         <span>{LOCALES[appLanguage].ServerName}：</span>
         <TextFieldInput
           placeholder={gameSaveServerName}
@@ -76,7 +76,7 @@ export default function EditServerSettings(props: { saveId: string }) {
         />
       </div>
 
-      <div className="w-[70%] my-2 flex gap-2 items-center justify-between">
+      <div className="w-[78%] my-2 flex gap-2 items-center justify-between">
         <span>{LOCALES[appLanguage].PublicIP}：</span>
         <TextFieldInput
           placeholder={gameSavePublicIP}
@@ -87,7 +87,7 @@ export default function EditServerSettings(props: { saveId: string }) {
         />
       </div>
 
-      <div className="w-[70%] my-2 flex gap-2 items-center justify-between">
+      <div className="w-[78%] my-2 flex gap-2 items-center justify-between">
         <span>{LOCALES[appLanguage].PublicPort}：</span>
         <TextFieldInput
           placeholder={gameSavePublicPort}
@@ -99,7 +99,7 @@ export default function EditServerSettings(props: { saveId: string }) {
         />
       </div>
 
-      <div className="w-[70%] my-2 flex gap-2 items-center justify-between">
+      <div className="w-[78%] my-2 flex gap-2 items-center justify-between">
         <span>{LOCALES[appLanguage].ServerPassword}：</span>
         <TextFieldInput
           placeholder={gameSaveServerPassword}
@@ -110,7 +110,7 @@ export default function EditServerSettings(props: { saveId: string }) {
         />
       </div>
 
-      <div className="w-[70%] my-2 flex gap-2 items-center justify-between">
+      <div className="w-[78%] my-2 flex gap-2 items-center justify-between">
         <span>{LOCALES[appLanguage].AdminPassword}：</span>
         <TextFieldInput
           placeholder={gameSaveAdminPassword}

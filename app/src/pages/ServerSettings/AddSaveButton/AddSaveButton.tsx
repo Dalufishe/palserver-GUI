@@ -69,7 +69,7 @@ export default function AddSaveButton({ button }: { button: React.ReactNode }) {
           {LOCALES[appLanguage].CreateServer}
         </AlertDialog.Title>
         <div className="flex">
-          <div className="w-[70%]">
+          <div className="w-[78%]">
             <div className="w-full my-2 flex gap-2 items-center justify-between">
               <span>{LOCALES[appLanguage].ServerName}：</span>
               <TextFieldInput
@@ -124,7 +124,7 @@ export default function AddSaveButton({ button }: { button: React.ReactNode }) {
             </div>
           </div>
 
-          <div className="w-[30%] flex flex-col items-center mt-7">
+          <div className="w-[22%] flex flex-col items-center mt-7 translate-x-2">
             <SelectIconButton
               onIconChange={(i) => {
                 setIconId(i);
