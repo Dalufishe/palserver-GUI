@@ -357,6 +357,8 @@ function rigisterIPC() {
         force: true,
       })])
 
+    await fs.rm(path.join(ClientSidePakModPath, "Pal-WindowsServer.pak"))
+
     event.reply("export-clientside-mods-response:done", {})
 
 
