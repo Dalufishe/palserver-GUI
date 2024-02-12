@@ -101,7 +101,7 @@ const zh_cn = {
   AdminPassword: "管理员密码",
   ServerPassword: "服务器密码",
   PublicPort: "端口",
-  PublicIP: "公开 IP",
+  PublicIP: "IP 地址",
   LocalIP: "本机 IP",
   RCONEnabled: "启用 RCON",
   RCONPort: "RCON 端口",
