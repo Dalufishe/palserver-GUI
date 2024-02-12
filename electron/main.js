@@ -70,6 +70,17 @@ function rigisterIPC() {
     "./engine/steamapps/common/PalServer/Pal/Content/Paks"
   );
 
+  ipcMain.on("request-latest-version", (event) => {
+    fetch(
+      "https://firebasestorage.googleapis.com/v0/b/honkai-stargazer-bf382.appspot.com/o/palserver-GUI%2Fversion.txt?alt=media&token=b2c5b7fd-5664-404c-9a03-1b72d049dd98"
+    )
+      .then((data) => data.text())
+      .then((data) => {
+
+        event.reply("latest-version-response", data)
+      });
+  })
+
   // 啟動伺服器
   ipcMain.on("request-exec-server", (event, arg) => {
     // 這裡放置原有的 execServer 實現

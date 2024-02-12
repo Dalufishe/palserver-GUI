@@ -35,7 +35,7 @@ const zh_tw = {
     "初次安裝的模組預設為「停用」，需對模組點擊右鍵啟用。並且玩家也要安裝才行。",
   HowToImportPakModsDesc1:
     "Pak 模組是幻獸帕魯使用的模組。要安裝已下載的模組請點擊「開啟模組資料夾」按鈕，並將模組放入該資料夾中即可完成安裝。",
-  HowToImportPakModsDesc2: "玩家也需要安裝模組。",
+  HowToImportPakModsDesc2: "請注意，Pal-WindowsServer.pak 不能被修改、刪除或重新命名。另外玩家也需要安裝模組。",
   Difficulty: "難度",
   DayTimeSpeedRate: "白天流逝速度",
   NightTimeSpeedRate: "夜晚流逝速度",
@@ -100,11 +100,11 @@ const zh_tw = {
   ServerDescription: "伺服器描述",
   AdminPassword: "管理員密碼",
   ServerPassword: "伺服器密碼",
-  PublicPort: "埠口",
+  PublicPort: "端口",
   PublicIP: "IP 位址",
   LocalIP: "本機 IP",
   RCONEnabled: "啟用 RCON",
-  RCONPort: "RCON 埠口",
+  RCONPort: "RCON 端口",
   Region: "地區",
   bUseAuth: "使用身分驗證",
   BanListURL: "封鎖名單網址",
@@ -134,5 +134,7 @@ const zh_tw = {
   FAQ4A: "請找到一個叫做 WorldOption.sav 的檔案，刪除它或者對它改名就會生效囉！",
   FAQ5Q: "世界設定的孵蛋或據點上限無法生效?",
   FAQ5A: "可以參考這部影片的後半段, 有詳細的解決方法: https://www.youtube.com/watch?v=1LqoN-pjb-0&t=6s4.",
+  //
+  NewUpdate:"有新版更新！(請下載最新版補丁包)"
 };
 export default zh_tw;

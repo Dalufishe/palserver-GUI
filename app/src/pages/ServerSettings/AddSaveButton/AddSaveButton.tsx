@@ -94,7 +94,7 @@ export default function AddSaveButton({ button }: { button: React.ReactNode }) {
             </div>
 
             <div className="w-full my-2 flex gap-2 items-center justify-between">
-              <span>{LOCALES[appLanguage].PublicIP}：</span>
+              <span>{LOCALES[appLanguage].PublicPort}：</span>
               <TextFieldInput
                 value={publicPort}
                 onChange={(e) => {

@@ -3,4 +3,4 @@ export type AppLanguageAction = {
   payload: AppLanguage;
 };
 
-export type AppLanguage = "zh_tw" | "en";
+export type AppLanguage = "zh_tw" | "en" | "zh_cn";

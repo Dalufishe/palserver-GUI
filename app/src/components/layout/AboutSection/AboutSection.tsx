@@ -46,6 +46,7 @@ export default function AboutSection() {
           <Select.Trigger style={{ background: "#1b1421", color: "white" }} />
           <Select.Content style={{ background: "#1b1421", color: "white" }}>
             <Select.Item value="zh_tw">繁體中文</Select.Item>
+            <Select.Item value="zh_cn">简体中文</Select.Item>
             <Select.Item value="en">English</Select.Item>
           </Select.Content>
         </Select.Root>

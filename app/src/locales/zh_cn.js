@@ -35,7 +35,7 @@ const zh_cn = {
     "第一次安装的模块默认为「停用」，需对模块点击右键启用。 并且玩家也要安装才行。",
   HowToImportPakModsDesc1:
     "Pak 模块是幻兽帕鲁使用的模块。 要安装已下载的模块请点击「打开模块文件夹」按钮，并将模块放入该文件夹中即可完成安装。",
-  HowToImportPakModsDesc2: "玩家也需要安装模块。",
+  HowToImportPakModsDesc2: "请注意，Pal-WindowsServer.pak 不能被修改、删除或重命名。此外，玩家还需要安装模块。",
   Difficulty: "难度",
   DayTimeSpeedRate: "白天流逝速度",
   NightTimeSpeedRate: "夜晚流逝速度",
@@ -134,5 +134,7 @@ const zh_cn = {
   FAQ4A: "请找到一个叫做 WorldOption.sav 的文件，删除它或者对它改名就会生效咯！",
   FAQ5Q: "世界设置的孵蛋或据点上限无法生效?",
   FAQ5A: "可以参考这期视频的后半段, 有详细的解决方法: https://www.youtube.com/watch?v=1LqoN-pjb-0&t=6s4.",
+  //
+  NewUpdate: "有新版本更新！（请下载最新版补丁包）"
 };
 export default zh_cn;

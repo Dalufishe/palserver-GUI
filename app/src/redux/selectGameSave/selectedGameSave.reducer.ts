@@ -1,7 +1,7 @@
 import { SelectedGameSaveAction } from "./selectedGameSave.types";
 
 export const selectedGameSave = (
-  prevSate: string = "",
+  prevSate: string = "test-save",
   action: SelectedGameSaveAction
 ) => {
   let newState = prevSate;

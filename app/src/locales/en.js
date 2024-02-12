@@ -134,5 +134,7 @@ const en = {
   FAQ4A: "Please create a new server, copy and paste the save file, and before starting, find a file called WorldOption.sav. Deleting or renaming it will make the settings take effect!",
   FAQ5Q: "Why don't the world settings for hatching or base limits take effect?",
   FAQ5A: "The recommended approach is to use mods, or you can use the configuration method of WorldOption.sav. For a detailed solution, refer to the latter half of this video: https://www.youtube.com/watch?v=1LqoN-pjb-0&t=6s",
+  //
+  NewUpdate: "New version update available! (Please download the latest patch package)"
 };
 export default en;
