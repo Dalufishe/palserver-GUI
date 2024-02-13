@@ -19,7 +19,7 @@ function App() {
         <HashRouter>
           <Theme>
             <div className="App">
-              <div className="w-screen h-screen flex">
+              <div className="w-screen h-screen flex" >
                 <div className="w-full h-full p-4 bg-bg-1 flex flex-col gap-4">
                   <AboutSection />
                   <Switch>

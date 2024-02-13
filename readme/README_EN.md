@@ -20,7 +20,7 @@ A fully graphical interface, a one-click tool for creating and managing Palworld
 
 ![alt text](/readme//3en.png)
 
-### Multiple Server Creation and Management
+### Multiple Server Management
 
 ![alt text](/readme/5en.png)
 

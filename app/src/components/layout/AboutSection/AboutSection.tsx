@@ -6,6 +6,7 @@ import { Select, Tooltip } from "@radix-ui/themes";
 import { Link, useHistory } from "react-router-dom";
 import APP from "../../../constant/app";
 import useAppLanguage from "../../../redux/appLanguage/useAppLanguage";
+import SupportMe from "./SupportMe/SupportMe";
 
 export default function AboutSection() {
   const { appLanguage, setAppLanguage } = useAppLanguage();
@@ -13,10 +14,6 @@ export default function AboutSection() {
 
   const handleOpenGithub = () => {
     electron.openLink("https://github.com/Dalufishe/palserver-GUI");
-  };
-
-  const handleOpenDonation = () => {
-    electron.openLink("https://www.buymeacoffee.com/dalufish");
   };
 
   const handleOpenDiscord = () => {
@@ -50,9 +47,7 @@ export default function AboutSection() {
             <Select.Item value="en">English</Select.Item>
           </Select.Content>
         </Select.Root>
-        <Button onClick={handleOpenDonation}>
-          <FaHeart color="pink" />
-        </Button>
+        <SupportMe />
         <Button onClick={handleOpenGithub}>
           <FaGithub />
         </Button>

@@ -156,5 +156,7 @@ const en = {
   MigrateFourPlayersSaveDesc9: "Wait for the Python script to finish executing, then launch the server.",
   MigrateFourPlayersSaveDesc10: "Congratulations on successfully completing the migration, you can now launch the server and play!",
   OpenSaveFolder: "Open Save Folder",
+  SupportMe: "Support My Work",
+  SupportMeDesc: "The palserver GUI is always free and continuously maintained. You do not need to pay to use the application, however, if you are willing to support our work, consider buying us a coffee as it would be a great encouragement to us."
 };
 export default en;

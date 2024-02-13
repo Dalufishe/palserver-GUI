@@ -153,10 +153,12 @@ const zh_cn = {
   MigrateFourPlayersSaveDesc4: "将刚刚复制的内容粘贴 (若需要则选择替换全部)。",
   MigrateFourPlayersSaveDesc5: "启动服务器游玩一段时间后关闭，并注意 Players 文件夹中多出来的文件。",
   MigrateFourPlayersSaveDesc6: "安装 Python 执行环境。",
-  MigrateFourPlayersSaveDesc7: "安装 Python 执行环境下载转档工具 https://github.com/xNul/palworld-host-save-fix/archive/refs/heads/main.zip，解压缩后在该路径上开启终端命令窗口(cmd)，并输入 pip install palworld - save - tools == 0.17.1。",
+  MigrateFourPlayersSaveDesc7: "下载转档工具 https://github.com/xNul/palworld-host-save-fix/archive/refs/heads/main.zip，解压缩后在该路径上开启终端命令窗口(cmd)，并输入 pip install palworld - save - tools == 0.17.1。",
   MigrateFourPlayersSaveDesc8: `在终端命令行输入 python fix-host-save.py "这边输入存档路径" "多出来的文件名 (忽略 .sav)" 00000000000000000000000000000001 False 并点两下 Enter 键。`,
   MigrateFourPlayersSaveDesc9: "等 Python 脚本执行完毕后，启动服务器。",
   MigrateFourPlayersSaveDesc10: "恭喜你成功完成迁移，启动服务器后就可以进去游玩啦！",
   OpenSaveFolder: "开启存档文件夹",
+  SupportMe: "支持我的工作",
+  SupportMeDesc: "palserver GUI 永远免费并持续维护。您不需要为使用应用程序收费，然而，若您乐意支持我们的工作，不妨考虑请我喝杯咖啡，将是我们莫大的鼓励。"
 };
 export default zh_cn;
