@@ -21,14 +21,6 @@ export default function FAQ() {
       </Link>
       <div className="my-2 flex flex-col gap-4">
         <FAQItem
-          q={LOCALES[appLanguage].FAQ1Q}
-          a={LOCALES[appLanguage].FAQ1A}
-        />
-        <FAQItem
-          q={LOCALES[appLanguage].FAQ2Q}
-          a={LOCALES[appLanguage].FAQ2A}
-        />
-        <FAQItem
           q={LOCALES[appLanguage].FAQ3Q}
           a={LOCALES[appLanguage].FAQ3A}
         />

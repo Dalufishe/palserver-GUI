@@ -45,7 +45,7 @@
 
 #### 開發中
 
-- 4人伺服器轉專用伺服器 (整合 palworld-host-save-fix)
+- 4 人伺服器轉專用伺服器 (整合 palworld-host-save-fix)
 - 屏蔽 IP 地址，防止盜版外掛
 - 自動重啟、定時關閉等功能
 
@@ -60,15 +60,14 @@
 - 模組管理頁面
 - 本地化，支持多語言
 
-
 ### 相關連結
 
-巴哈文：[點我](https://forum.gamer.com.tw/C.php?bsn=71458&snA=2043)
-yahoo 遊戲新聞連結：[點我](https://tw.news.yahoo.com/palserver-gui-041354287.html)
-電玩誌：[點我](https://gank.fanpiece.com/animeradio/%E5%8F%B0%E7%81%A3%E5%A4%A7%E7%A5%9E%E5%89%B5-%E5%B9%BB%E7%8D%B8%E5%B8%95%E9%AD%AF-%E4%B8%80%E9%8D%B5%E9%96%8B%E8%A8%AD%E4%BC%BA%E6%9C%8D%E5%99%A8-%E5%B7%A5%E5%85%B7-%E5%85%A7%E5%BB%BA%E7%B9%81%E4%B8%AD-%E5%9C%96%E5%83%8FUI-c1452714.html)
-KK3C狂想曲：[點我](https://kkplay3c.net/steam-pal-server-gui/)
-夢遊電玩：[點我](https://www.game735.com/forum.php?mod=viewthread&tid=388027&extra=page%3D1&ordertype=1)
-
+- Discord： [點我](https://discord.gg/sgMMdUZd3V)
+- 巴哈文：[點我](https://forum.gamer.com.tw/C.php?bsn=71458&snA=2043)
+- yahoo 遊戲新聞連結：[點我](https://tw.news.yahoo.com/palserver-gui-041354287.html)
+- 電玩誌：[點我](https://gank.fanpiece.com/animeradio/%E5%8F%B0%E7%81%A3%E5%A4%A7%E7%A5%9E%E5%89%B5-%E5%B9%BB%E7%8D%B8%E5%B8%95%E9%AD%AF-%E4%B8%80%E9%8D%B5%E9%96%8B%E8%A8%AD%E4%BC%BA%E6%9C%8D%E5%99%A8-%E5%B7%A5%E5%85%B7-%E5%85%A7%E5%BB%BA%E7%B9%81%E4%B8%AD-%E5%9C%96%E5%83%8FUI-c1452714.html)
+- KK3C 狂想曲：[點我](https://kkplay3c.net/steam-pal-server-gui/)
+- 夢遊電玩：[點我](https://www.game735.com/forum.php?mod=viewthread&tid=388027&extra=page%3D1&ordertype=1)
 
 ### 參與貢獻
 
@@ -78,6 +77,8 @@ KK3C狂想曲：[點我](https://kkplay3c.net/steam-pal-server-gui/)
 
 如果你覺得工具有解決到你的問題 :D，請給專案一顆星星，謝謝。
 也可以給予一杯咖啡的支持 [buymeacoffee](https://www.buymeacoffee.com/dalufish) ，鼓勵我繼續創作，感激不盡。
+
+<a href="https://www.buymeacoffee.com/Dalufish"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Dalufish&button_colour=FFDD00&font_colour=000000&font_family=Comic&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 ### 回報問題
 

@@ -62,11 +62,12 @@ Or go to the bottom right corner of GitHub releases to download historical versi
 
 ### Related Links
 
-Bahamut article: [Click here](https://forum.gamer.com.tw/C.php?bsn=71458&snA=2043)  
-Yahoo Games news link: [Click here](https://tw.news.yahoo.com/palserver-gui-041354287.html)  
-Video Game Magazine: [Click here](https://gank.fanpiece.com/animeradio/%E5%8F%B0%E7%81%A3%E5%A4%A7%E7%A5%9E%E5%89%B5-%E5%B9%BB%E7%8D%B8%E5%B8%95%E9%AD%AF-%E4%B8%80%E9%8D%B5%E9%96%8B%E8%A8%AD%E4%BC%BA%E6%9C%8D%E5%99%A8-%E5%B7%A5%E5%85%B7-%E5%85%A7%E5%BB%BA%E7%B9%81%E4%B8%AD-%E5%9C%96%E5%83%8FUI-c1452714.html)  
-KK3C Rhapsody: [Click here](https://kkplay3c.net/steam-pal-server-gui/)  
-Dream Game: [Click here](https://www.game735.com/forum.php?mod=viewthread&tid=388027&extra=page%3D1&ordertype=1)
+- Discord： [Click here](https://discord.gg/sgMMdUZd3V)
+- Bahamut article: [Click here](https://forum.gamer.com.tw/C.php?bsn=71458&snA=2043)
+- Yahoo Games news link: [Click here](https://tw.news.yahoo.com/palserver-gui-041354287.html)
+- Video Game Magazine: [Click here](https://gank.fanpiece.com/animeradio/%E5%8F%B0%E7%81%A3%E5%A4%A7%E7%A5%9E%E5%89%B5-%E5%B9%BB%E7%8D%B8%E5%B8%95%E9%AD%AF-%E4%B8%80%E9%8D%B5%E9%96%8B%E8%A8%AD%E4%BC%BA%E6%9C%8D%E5%99%A8-%E5%B7%A5%E5%85%B7-%E5%85%A7%E5%BB%BA%E7%B9%81%E4%B8%AD-%E5%9C%96%E5%83%8FUI-c1452714.html)
+- KK3C Rhapsody: [Click here](https://kkplay3c.net/steam-pal-server-gui/)
+- Dream Game: [Click here](https://www.game735.com/forum.php?mod=viewthread&tid=388027&extra=page%3D1&ordertype=1)
 
 ### Contributing
 
@@ -76,6 +77,8 @@ Currently, palserver GUI is my solo project, developed using Typescript + React 
 
 If you find this tool solves your problem :D, please give the project a star, thank you.  
 You can also support me with a coffee [buymeacoffee](https://www.buymeacoffee.com/dalufish) to encourage me to continue creating, much appreciated.
+
+<a href="https://www.buymeacoffee.com/Dalufish"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Dalufish&button_colour=FFDD00&font_colour=000000&font_family=Comic&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 ### Reporting Issues
 

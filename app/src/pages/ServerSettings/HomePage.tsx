@@ -8,8 +8,11 @@ import { electron, ipcRenderer } from "../../constant/contextBridge";
 import { useEffect, useState } from "react";
 import LOCALES from "../../locales";
 import useAppLanguage from "../../redux/appLanguage/useAppLanguage";
+import { useHistory } from "react-router-dom";
 
 export default function HomePage() {
+  const history = useHistory();
+
   const { metaData } = useSaveMeta();
   const { appLanguage } = useAppLanguage();
 
@@ -46,6 +49,15 @@ export default function HomePage() {
           </Link>
         )}
       </div>
+      <Link
+        onClick={() => {
+          history.push("/faq");
+        }}
+        className="absolute bottom-2 right-2 text-xs flex items-center gap-2"
+        style={{ color: "white", textDecoration: "underline" }}
+      >
+        {LOCALES[appLanguage].FAQ}
+      </Link>
     </div>
   );
 }
