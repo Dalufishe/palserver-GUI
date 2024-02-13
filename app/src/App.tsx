@@ -2,7 +2,7 @@ import AboutSection from "./components/layout/AboutSection/AboutSection";
 import RightList from "./components/layout/RightList/RightList";
 import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
 import WorldSettings from "./pages/WorldSettings";
-import SaveSettings from "./pages/SaveSettings";
+import SaveSettings from "./pages/SaveSettings/SaveSettings";
 import { Theme } from "@radix-ui/themes";
 import HomePage from "./pages/ServerSettings/HomePage";
 import { Provider } from "react-redux";

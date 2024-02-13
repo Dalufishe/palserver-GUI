@@ -36,7 +36,7 @@ export default function GameSavePreview() {
         <img
           src={PalIcons[getSaveMetaData(selectedGameSave)?.iconId] || CuteImg}
           alt=""
-          className="w-32 h-32"
+          className="w-32 h-32 select-none"
         />
       </div>
       {/* 伺服器名稱 */}

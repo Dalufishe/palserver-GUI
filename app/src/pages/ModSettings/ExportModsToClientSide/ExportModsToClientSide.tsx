@@ -30,6 +30,7 @@ export default function ExportModsToClientSide() {
             <div>{LOCALES[appLanguage].ExportModsToClientSideDesc2}</div>
             <div>
               <img
+                className="select-none"
                 src={require("../../../assets/images/HowToImportClientSideMod.png")}
                 alt=""
               />

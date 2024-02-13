@@ -11,7 +11,7 @@ const useSaveMeta = () => {
       setMeta(metadata);
     });
     return () => {
-      ipcRenderer.removeAllListeners(`save-metadata-response`);
+      // ipcRenderer.removeAllListeners(`save-metadata-response`);
     };
   }, []);
 

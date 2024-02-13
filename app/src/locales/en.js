@@ -134,6 +134,27 @@ const en = {
   FAQ5Q: "Why don't the world settings for hatching or base limits take effect?",
   FAQ5A: "The recommended approach is to use mods, or you can use the configuration method of WorldOption.sav. For a detailed solution, refer to the latter half of this video: https://www.youtube.com/watch?v=1LqoN-pjb-0&t=6s",
   //
-  NewUpdate: "New version update available! (Please download the latest patch package)"
+  NewUpdate: "New version update available! (Please download the latest patch package)",
+  //20240214
+  MigrateDedicatedServer: "Migrate Dedicated Server",
+  MigrateDedicatedServerToGUI: "Migrate Dedicated Server to GUI",
+  MigrateDedicatedServerDesc1: "You can migrate your existing dedicated server to the palserver GUI.",
+  MigrateDedicatedServerDesc2: "Find the original steamcmd save path (top left in the image).",
+  MigrateDedicatedServerDesc3: "Click 'Open Server Folder' at the bottom right to open the GUI server path (bottom right in the image).",
+  MigrateDedicatedServerDesc4: "Copy the contents from steamcmd and paste and replace everything into the GUI server folder.",
+  MigrateDedicatedServerDesc5: "Congratulations on completing the migration, you can now launch the server and play!",
+  MigrateFourPlayersSave: "Migrate Local Save (Four Player Invite Code)",
+  MigrateFourPlayersSaveToGUI: "Migrate Local Save to GUI",
+  MigrateFourPlayersSaveDesc1: "You can migrate your game saves to the palserver GUI.",
+  MigrateFourPlayersSaveDesc2: "After entering the game, click 'Start Game', select the save to migrate, click the file icon at the bottom left, and copy everything except the WorldOption.sav file.",
+  MigrateFourPlayersSaveDesc3: "Click 'Open Save Folder' at the bottom right.",
+  MigrateFourPlayersSaveDesc4: "Paste the contents you just copied (choose 'Replace all' if needed).",
+  MigrateFourPlayersSaveDesc5: "Launch the server and play for a while, then close it, and note the extra files in the Players folder.",
+  MigrateFourPlayersSaveDesc6: "Install Python runtime environment.",
+  MigrateFourPlayersSaveDesc7: "Under the Python runtime environment, download the conversion tool from https://github.com/xNul/palworld-host-save-fix/archive/refs/heads/main.zip, extract it, then open a command window (cmd) in that path and enter 'pip install palworld - save - tools == 0.17.1'.",
+  MigrateFourPlayersSaveDesc8: `In the command line, enter 'python fix-host-save.py "enter save path here" "name of the extra file (ignore .sav)" 00000000000000000000000000000001 False' and press Enter twice.`,
+  MigrateFourPlayersSaveDesc9: "Wait for the Python script to finish executing, then launch the server.",
+  MigrateFourPlayersSaveDesc10: "Congratulations on successfully completing the migration, you can now launch the server and play!",
+  OpenSaveFolder: "Open Save Folder",
 };
 export default en;
