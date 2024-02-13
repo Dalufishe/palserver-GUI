@@ -1,5 +1,7 @@
 # palserver GUI
 
+<a href=".">繁體中文</a> / <a href="./readme//README_EN.md">English</a>
+
 全圖形化介面，一鍵式帕魯 (Palworld) 伺服器建立、管理工具。
 
 - 易於上手，只需點擊首頁`右下方按鈕`即可啟動伺服器。

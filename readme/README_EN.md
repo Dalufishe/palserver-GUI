@@ -1,5 +1,7 @@
 # palserver GUI
 
+<a href="../README.md">繁體中文</a> / <a href=".">English</a>
+
 A fully graphical interface, a one-click tool for creating and managing Palworld servers.
 
 - **Easy to get started**: Just click the button at the bottom right of the homepage to launch the server.
