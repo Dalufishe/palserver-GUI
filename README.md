@@ -8,29 +8,29 @@
 - 提供完整的 `GUI 介面`調整世界設定、伺服器設定等。
 - 支持`多存檔`及`模組`管理，方便設定不同玩法和好友同樂！
 
-![alt text](/readme//2zh.png)
+![alt text](/readme//2zh.webp)
 
 ---
 
 ### 開箱即用，一鍵式體驗
 
-![alt text](/readme//1zh.png)
+![alt text](/readme//1zh.webp)
 
 ### 可視化世界設定選項
 
-![alt text](/readme//3zh.png)
+![alt text](/readme//3zh.webp)
 
 ### 多伺服器建立、管理
 
-![alt text](/readme/5zh.png)
+![alt text](/readme/5zh.webp)
 
 ### 支持存檔管理、遷移
 
-![alt text](/readme//4zh.png)
+![alt text](/readme//4zh.webp)
 
 ### 模組管理，並支持匯出到遊戲
 
-![alt text](/readme//6zh.png)
+![alt text](/readme//6zh.webp)
 
 ---
 

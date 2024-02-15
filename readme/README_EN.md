@@ -8,29 +8,29 @@ A fully graphical interface, a one-click tool for creating and managing Palworld
 - **Full GUI interface** for adjusting world settings, server settings, and more.
 - Supports **multiple save files** and **mod management**, making it easy to set up different play styles and enjoy with friends!
 
-![alt text](/readme//2en.png)
+![alt text](/readme//2en.webp)
 
 ---
 
 ### Plug and Play, One-Click Experience
 
-![alt text](/readme//1en.png)
+![alt text](/readme//1en.webp)
 
 ### Visual World Setting Options
 
-![alt text](/readme//3en.png)
+![alt text](/readme//3en.webp)
 
 ### Multiple Server Management
 
-![alt text](/readme/5en.png)
+![alt text](/readme/5en.webp)
 
 ### Supports Save File Management and Migration
 
-![alt text](/readme//4en.png)
+![alt text](/readme//4en.webp)
 
 ### Mod Management and Export to Game
 
-![alt text](/readme//6en.png)
+![alt text](/readme//6en.webp)
 
 ---
 
