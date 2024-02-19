@@ -53,7 +53,10 @@ export default function AddSaveButton({ button }: { button: React.ReactNode }) {
         AdminPassword: `"${adminPassword}"`,
       },
     });
-    setMetaData([...metaData, { id: saveId, iconId: iconId }]);
+    setMetaData([
+      ...metaData,
+      { id: saveId, iconId: iconId, ue4ssEnabled: true },
+    ]);
     setServerName("");
     setPublicIP("");
     setServerPassword("");

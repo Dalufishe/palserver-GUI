@@ -1,6 +1,6 @@
 import Button from "../../global/Button";
 import { useHistory } from "react-router-dom";
-import { engine, ipcRenderer, run } from "../../../constant/contextBridge";
+import { engine } from "../../../constant/contextBridge";
 import BootServerBtn from "./BootServerBtn/BootServerBtn";
 import GameSavePreview from "./GameSavePreview/GameSavePreview";
 import useSelectedGameSave from "../../../redux/selectGameSave/useSelectedGameSave";
@@ -9,6 +9,8 @@ import { Badge } from "@radix-ui/themes";
 import { cn } from "../../../pages/utils/cn";
 import useAppLanguage from "../../../redux/appLanguage/useAppLanguage";
 import LOCALES from "../../../locales";
+import { isUndefined } from "lodash";
+import useSaveMeta from "../../../hooks/useSaveMeta";
 
 export default function RightList() {
   const { appLanguage } = useAppLanguage();
@@ -16,6 +18,13 @@ export default function RightList() {
 
   const isServerRunning = useServerIsRunning();
   const { selectedGameSave } = useSelectedGameSave();
+
+  // ue4ss
+  const { getSaveMetaData } = useSaveMeta();
+  const saveMetaData = getSaveMetaData(selectedGameSave);
+  const isUe4ssEnabled = isUndefined(saveMetaData?.ue4ssEnabled)
+    ? true
+    : saveMetaData?.ue4ssEnabled;
 
   return (
     <div className="w-[400px] h-full p-4 bg-bg2 flex flex-col gap-4 relative">
@@ -33,42 +42,32 @@ export default function RightList() {
           )}
         </div>
         <ListButton
-          className={isServerRunning ? "cursor-not-allowed" : " cursor-pointer"}
-          onClick={
-            isServerRunning
-              ? () => {}
-              : () => {
-                  history.push("/save-settings");
-                }
-          }
+          className="cursor-pointer"
+          onClick={() => {
+            history.push("/save-settings");
+          }}
         >
           {LOCALES[appLanguage].ServerSettings}
         </ListButton>
         <ListButton
-          className={isServerRunning ? "cursor-not-allowed" : " cursor-pointer"}
-          onClick={
-            isServerRunning
-              ? () => {}
-              : () => {
-                  history.push("/world-settings");
-                }
-          }
+          className={"cursor-pointer"}
+          onClick={() => {
+            history.push("/world-settings");
+          }}
         >
           {LOCALES[appLanguage].WorldSettings}
         </ListButton>
-        <ListButton
-          className={isServerRunning ? "cursor-not-allowed" : " cursor-pointer"}
-          onClick={
-            isServerRunning
-              ? () => {}
-              : () => {
-                  history.push("/mod-settings");
-                }
-          }
-        >
-          {LOCALES[appLanguage].ModsTool}
-        </ListButton>
-        <BootServerBtn disabled={isServerRunning} />
+        {isUe4ssEnabled && (
+          <ListButton
+            className={"cursor-pointer"}
+            onClick={() => {
+              history.push("/mod-settings");
+            }}
+          >
+            {LOCALES[appLanguage].ModsTool}
+          </ListButton>
+        )}
+        <BootServerBtn />
       </div>
     </div>
   );

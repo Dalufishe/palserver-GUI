@@ -17,7 +17,7 @@ type Props = {
 export default function LuaModItem(props: Props) {
   const { appLanguage } = useAppLanguage();
 
-  const [modEnabled, setModEnabled] = useState(props.enabled);
+  // const [modEnabled, setModEnabled] = useState(props.enabled);
 
   const handleEnabledMod = () => {
     ipcRenderer.send("request-enabled-lua-mods", props.name, !modEnabled);
@@ -35,7 +35,7 @@ export default function LuaModItem(props: Props) {
       <ContextMenu.Root>
         <ContextMenu.Trigger>
           <div
-            style={{ opacity: modEnabled ? 1 : 0.3 }}
+            // style={{ opacity: modEnabled ? 1 : 0.3 }}
             className={
               "flex flex-col gap-y-2 items-center w-28 h-24 p-2 cursor-pointer rounded-lg hover:bg-bg1 relative"
             }
@@ -48,14 +48,14 @@ export default function LuaModItem(props: Props) {
         </ContextMenu.Trigger>
         <ContextMenu.Content>
           <ContextMenu.Group>
-            <AlertDialog.Trigger onClick={handleEnabledMod}>
+            {/* <AlertDialog.Trigger onClick={handleEnabledMod}>
               <ContextMenu.Item shortcut=" ">
                 {modEnabled
                   ? LOCALES[appLanguage].Disabled
                   : LOCALES[appLanguage].Enabled}
                 {LOCALES[appLanguage].Mod}
               </ContextMenu.Item>
-            </AlertDialog.Trigger>
+            </AlertDialog.Trigger> */}
             <AlertDialog.Trigger onClick={handleViewSourceCode}>
               <ContextMenu.Item>
                 {LOCALES[appLanguage].SourceCode}

@@ -11,7 +11,7 @@ export default function ModSettings() {
 
   return (
     <div className="bg-bg2 rounded-lg w-full h-full p-4 overflow-y-scroll relative">
-      <div className="absolute right-2 top-4">
+      <div className="absolute right-6 top-6">
         <ExportModsToClientSide />
       </div>
       <Tabs.Root defaultValue="lua">

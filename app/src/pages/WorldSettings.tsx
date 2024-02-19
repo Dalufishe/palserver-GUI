@@ -122,6 +122,7 @@ export default function WorldSettings() {
                     background: "#1b1421",
                     color: "white",
                     fontSize: 16,
+                    width: 60,
                   }}
                   size="1"
                   type="number"

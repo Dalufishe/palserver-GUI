@@ -10,7 +10,7 @@ export default function SelectIconButton(props: Props) {
   const [iconId, setIconId] = useState(0);
 
   const handleChangeIcon = () => {
-    if (iconId === 2) setIconId(0);
+    if (iconId === 3) setIconId(0);
     else setIconId(iconId + 1);
   };
 

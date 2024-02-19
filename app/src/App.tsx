@@ -19,7 +19,7 @@ function App() {
         <HashRouter>
           <Theme>
             <div className="App">
-              <div className="w-screen h-screen flex" >
+              <div className="w-screen h-screen flex">
                 <div className="w-full h-full p-4 bg-bg-1 flex flex-col gap-4">
                   <AboutSection />
                   <Switch>
@@ -29,7 +29,6 @@ function App() {
                     <Route path="/save-settings" component={SaveSettings} />
                     <Route path="/mod-settings" component={ModSettings} />
                     <Route path="/faq" component={FAQ} />
-                    <Route path="/save-backup" component={SaveBackup} />
                     <Redirect exact from="/" to="/" />
                   </Switch>
                 </div>

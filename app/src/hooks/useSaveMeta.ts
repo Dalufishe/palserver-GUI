@@ -23,6 +23,12 @@ const useSaveMeta = () => {
     getSaveMetaData(saveId: string) {
       return meta.filter((m) => m.id === saveId)[0];
     },
+    setSaveMetaData(saveId: string, data) {
+      ipcRenderer.send(
+        "request-set-save-metadata",
+        meta.map((m) => (m.id === saveId ? data : m))
+      );
+    },
   };
 };
 

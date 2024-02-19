@@ -4,8 +4,6 @@ import { ipcRenderer } from "../constant/contextBridge";
 const useServerIsRunning = () => {
   const [isServerRunning, setIsServerRunning] = useState(false);
 
-  console.log(isServerRunning);
-
   useEffect(() => {
     // 當伺服器接收訊息
     ipcRenderer.on("exec-server-response:done", (event) => {

@@ -6,7 +6,6 @@ import { Tooltip } from "@radix-ui/themes";
 import { useHistory } from "react-router-dom";
 import useSaveMeta from "../../../../hooks/useSaveMeta";
 import PalIcons from "../../../../constant/palIcons";
-import zh_tw from "../../../../locales/zh_tw";
 import { PiEyeBold, PiEyeClosedBold } from "react-icons/pi";
 import LOCALES from "../../../../locales";
 import useAppLanguage from "../../../../redux/appLanguage/useAppLanguage";

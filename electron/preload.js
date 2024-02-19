@@ -3,6 +3,7 @@ const os = require("os");
 const path = require("path");
 const fs = require("fs");
 const { openExplorer } = require("explorer-opener")
+const osu = require("node-os-utils")
 
 contextBridge.exposeInMainWorld("electron", {
     path: () => path,
@@ -10,7 +11,8 @@ contextBridge.exposeInMainWorld("electron", {
     homeDir: () => os.homedir(),
     arch: () => os.arch(),
     osVersion: () => os.version(),
-    openExplorer: (p) => openExplorer(path.join(__dirname, p)),
+    osu: () => osu,
+    openExplorer: (p) => fs.existsSync(path.join(__dirname, p)) && openExplorer(path.join(__dirname, p)),
     openLink: (link) => shell.openExternal(link)
 });
 
@@ -27,3 +29,4 @@ contextBridge.exposeInMainWorld("engine", {
         return JSON.parse(fs.readFileSync(path.join(__dirname, "./engine/steamapps/common/PalServer/Pal/Saved/.pal"), { encoding: "utf-8" })).saveId
     }
 })
+
