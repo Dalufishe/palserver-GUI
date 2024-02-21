@@ -125,7 +125,7 @@ const zh_tw = {
   Export: "匯出",
   FAQ: "常見問題",
   FAQ1Q: "我該如何移動存檔?",
-  FAQ1A: "若要移動存檔，請先確定伺服器剛新增好還沒啟動過。將原本的存檔 (專用伺服器存檔為：/SaveGames/0/某串ID；四人存檔為：/SaveGames/某串ID/你的地圖檔ID) 複製貼上到 /SaveGames/0/47D51DB549971BDC025E4BA00A549007 裡，再啟動伺服器就完成了。",
+  FAQ1A: "若要移動存檔，請先確定伺服器剛新增好還沒啟動過。將原本的存檔 (專用伺服器存檔為：/SaveGames/0/某串ID；四人存檔為：/SaveGames/某串ID/你的地圖檔ID) 複製貼上到 /SaveGames/0 裡，再啟動伺服器就完成了。",
   FAQ2Q: "地圖檔案無法正常修改，每次改完都會被覆蓋。",
   FAQ2A: "這是由於工具為保證存檔安全性實現的雙向備份所導致，SaveGames 資料夾中的內容會被覆蓋。背後做法是當需要做修改存檔時永遠新增一個伺服器，並自動把存檔移入導致的。",
   FAQ3Q: "我將四人存檔移動到專用伺服器後，服主的資料消失了?",
@@ -148,13 +148,13 @@ const zh_tw = {
   MigrateFourPlayersSave: "遷移本機存檔 (四人邀請碼)",
   MigrateFourPlayersSaveToGUI: "將本機存檔遷移到 GUI",
   MigrateFourPlayersSaveDesc1: "您可以將遊戲中的存檔遷移到 palserver GUI。",
-  MigrateFourPlayersSaveDesc2: "進入遊戲後點「開始遊戲」，選中要遷移的存檔，點擊左下角檔案圖示，將裡頭除了 WorldOption.sav 以外的所有檔案複製。",
+  MigrateFourPlayersSaveDesc2: "進入遊戲後點「開始遊戲」，選中要遷移的存檔，點擊左下角檔案圖示，將裡頭的 WorldOption.sav 隨意改名並將該資料夾本身複製。",
   MigrateFourPlayersSaveDesc3: "點擊右下角「開啟存檔資料夾」。",
-  MigrateFourPlayersSaveDesc4: "將剛剛複製的內容貼上 (若需要則點選取代全部)。",
+  MigrateFourPlayersSaveDesc4: "將剛剛複製的資料夾直接貼上。",
   MigrateFourPlayersSaveDesc5: "啟動伺服器，在遊戲點選「參加多人遊戲 (開始遊戲)」進入伺服器遊玩一段時間後關閉，並注意存檔資料夾中 Players 資料夾中多出來的檔案。",
   MigrateFourPlayersSaveDesc6: "到 Python 官網執行環境，並注意在下載過程點選 add python.exe to PATH。",
-  MigrateFourPlayersSaveDesc7: "下載轉檔工具 https://github.com/xNul/palworld-host-save-fix/archive/refs/heads/main.zip，解壓縮後在該路徑上開啟終端命令視窗(cmd)，並輸入 pip install palworld-save-tools==0.17.1。",
-  MigrateFourPlayersSaveDesc8: `在終端命令行輸入 python fix-host-save.py "這邊輸入存檔路徑 (右下角開啟存檔資料夾)" "這邊輸入 Players 資料夾多出來的檔案名稱 (忽略 .sav)" 00000000000000000000000000000001 True (若不需保留公會則輸入 False) 並點兩下 Enter 鍵。`,
+  MigrateFourPlayersSaveDesc7: "下載轉檔工具 https://github.com/Dalufishe/palworld-host-save-fix/archive/refs/heads/main.zip，解壓縮後在該路徑上開啟終端命令視窗(cmd)，並輸入 pip install palworld-save-tools==0.17.1。",
+  MigrateFourPlayersSaveDesc8: `在終端命令行輸入 python fix-host-save.py "這邊輸入存檔路徑 (右下角開啟存檔資料夾後點入您的存檔)" "這邊輸入 Players 資料夾多出來的檔案名稱 (忽略 .sav)" 00000000000000000000000000000001 True (若不需保留公會則輸入 False) 並點兩下 Enter 鍵。`,
   MigrateFourPlayersSaveDesc9: "等 Python 腳本執行完畢後，啟動伺服器。",
   MigrateFourPlayersSaveDesc10: "恭喜你成功完成遷移，啟動伺服器後就可以進去遊玩咯！",
   OpenSaveFolder: "開啟存檔資料夾",
@@ -184,5 +184,6 @@ const zh_tw = {
   RCONEnabledDesc: "您需要啟用遠端控制台 (RCON) 才能使用管理面板功能。",
   RCONFirst: "請先啟用 RCON 才能開啟此功能。",
   ServerBackupRecord: "伺服器存檔備份紀錄",
+  Open: "開啟"
 };
 export default zh_tw;

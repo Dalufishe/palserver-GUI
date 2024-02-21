@@ -36,7 +36,7 @@ const settingsOptions: any = {
   PlayerAutoHPRegeneRate: { range: [1, 50], type: "num_10" },
   PlayerAutoHpRegeneRateInSleep: { range: [1, 50], type: "num_10" },
   BuildObjectDamageRate: { range: [1, 50], type: "num_10" },
-  BuildObjectDeteriorationDamageRate: { range: [1, 50], type: "num_10" },
+  BuildObjectDeteriorationDamageRate: { range: [0, 50], type: "num_10" },
   DropItemMaxNum: { range: [0, 5000], type: "num" },
   CollectionObjectHpRate: { range: [5, 30], type: "num_10" },
   CollectionObjectRespawnSpeedRate: { range: [5, 30], type: "num_10" },

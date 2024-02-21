@@ -13,12 +13,12 @@ export default function FourPlayersMigration() {
   const handleOpenSavePath = () => {
     if (engine.currentSave() === selectedGameSave) {
       electron.openExplorer(
-        `./engine/steamapps/common/PalServer/Pal/Saved/SaveGames/0/47D51DB549971BDC025E4BA00A549007`
+        `./engine/steamapps/common/PalServer/Pal/Saved/SaveGames/0`
       );
     } else {
       // 開啟存檔資料夾
       electron.openExplorer(
-        `./saves/${selectedGameSave}/SaveGames/0/47D51DB549971BDC025E4BA00A549007`
+        `./saves/${selectedGameSave}/SaveGames/0`
       );
     }
   };

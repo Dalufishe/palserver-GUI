@@ -24,9 +24,9 @@
 
 ![alt text](/readme/5zh.webp)
 
-### 支持存檔管理、遷移
+### 伺服器遠端控制台、在線玩家查看、權限操作
 
-![alt text](/readme//4zh.webp)
+![alt text](/readme//7zh.webp)
 
 ### 模組管理，並支持匯出到遊戲
 
@@ -36,29 +36,10 @@
 
 ### 安裝連結及更新
 
-第一次下載連結：[點我](https://github.com/Dalufishe/palserver-GUI/releases/download/0.0.9/0.0.9-palserver-GUI-win32-x64.rar)  
-補丁包連結：[點我](https://github.com/Dalufishe/palserver-GUI/releases/download/patch-0.0.9/patch-0.0.9-palserver-GUI-win32-x64.rar)
+第一次下載連結：[點我](https://github.com/Dalufishe/palserver-GUI/releases/download/0.1.0/0.1.0-palserver-GUI-win32-x64.7z)  
+補丁包連結：[點我](https://github.com/Dalufishe/palserver-GUI/releases/download/patch-0.1.0/patch-0.1.0-palserver-GUI-win32-x64.7z)
 
 或者到 github 右下角 releases 也可以下載歷史版本 :D
-
-### Roadmap
-
-#### 開發中
-
-- 4 人伺服器轉專用伺服器 (整合 palworld-host-save-fix)
-- 屏蔽 IP 地址，防止盜版外掛
-- 自動重啟、定時關閉等功能
-
-#### 已完成
-
-- 一鍵安裝，一鍵啟動伺服器
-- 可視化世界設定修改頁面
-- 一鍵更新伺服器
-- 多伺服器、存檔管理
-- 自動備份，閃退存檔不會再消失了
-- 支持存檔遷移 (專用轉專用)
-- 模組管理頁面
-- 本地化，支持多語言
 
 ### 相關連結
 
@@ -68,6 +49,35 @@
 - 電玩誌：[點我](https://gank.fanpiece.com/animeradio/%E5%8F%B0%E7%81%A3%E5%A4%A7%E7%A5%9E%E5%89%B5-%E5%B9%BB%E7%8D%B8%E5%B8%95%E9%AD%AF-%E4%B8%80%E9%8D%B5%E9%96%8B%E8%A8%AD%E4%BC%BA%E6%9C%8D%E5%99%A8-%E5%B7%A5%E5%85%B7-%E5%85%A7%E5%BB%BA%E7%B9%81%E4%B8%AD-%E5%9C%96%E5%83%8FUI-c1452714.html)
 - KK3C 狂想曲：[點我](https://kkplay3c.net/steam-pal-server-gui/)
 - 夢遊電玩：[點我](https://www.game735.com/forum.php?mod=viewthread&tid=388027&extra=page%3D1&ordertype=1)
+
+### 相關影片
+
+- 捷克的介紹影片：[點我](https://youtu.be/8Vq7uANT0Eo?si=-nH9lkUpsk7DgMW8)
+
+<a href="https://youtu.be/8Vq7uANT0Eo?si=-nH9lkUpsk7DgMW8" target="_blank">
+<img src="https://i.ytimg.com/vi_webp/8Vq7uANT0Eo/maxresdefault.webp"/>
+</a>
+
+### Roadmap
+
+#### 開發中
+
+- 屏蔽 IP 地址，防止盜版外掛
+- 自動重啟、定時關閉等功能
+
+#### 已完成
+
+- 一鍵安裝，一鍵啟動伺服器
+- 可視化世界設定修改頁面
+- 一鍵更新伺服器
+- 多伺服器、存檔管理
+- 自動存檔，閃退存檔不會再消失了
+- 自動備份，救回壞檔前的存檔
+- 支持存檔遷移 (專用轉專用、四人轉專用都可以！)
+- 模組管理及匯出功能
+- 管理員控制台，支援 RCON 指令 & 查看在線玩家
+- 封鎖名單管理
+- 本地化，支持多語言
 
 ### 參與貢獻
 

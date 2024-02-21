@@ -5,11 +5,12 @@ import { selectedGameSaveAction } from "./selectedGameSave.action";
 const useSelectedGameSave = () => {
   const dispatch = useDispatch();
   const selectedGameSave = useSelector<RootState, string>(
-    (state) => state.selectedGameSave || ""
+    (state) => state.selectedGameSave || "test-save"
   );
   const setSelectedGameSave = (v: string) => {
     dispatch(selectedGameSaveAction(v));
   };
+
   return { selectedGameSave, setSelectedGameSave };
 };
 

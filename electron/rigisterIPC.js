@@ -45,10 +45,14 @@ module.exports = function rigisterIPC() {
   // 啟動伺服器
   ipcMain.on("request-exec-server", async (event, arg) => {
 
+
+
     // 判斷當前引擎中存檔
     const currentSave = JSON.parse(
       fsc.readFileSync(path.join(EngineSavePath, ".pal"), { encoding: "utf-8" })
     ).saveId;
+
+
 
     // ue4ss 啟用
     let isEnabledUe4ss = (await getSaveMetaData()).filter(save => save.id == currentSave)[0]?.ue4ssEnabled
@@ -56,6 +60,7 @@ module.exports = function rigisterIPC() {
 
 
     const dwmapidllLocation = path.join(EngineLuaModPath, "../")
+
 
     if (!isEnabledUe4ss) {
       if (existsSync(path.join(dwmapidllLocation, "dwmapi.dll")))
@@ -85,8 +90,6 @@ module.exports = function rigisterIPC() {
       event.reply("exec-server-response:exit", currentSave, code);
       clearInterval(backupTimer)
     });
-
-
 
   });
   // 更新伺服器
@@ -503,7 +506,11 @@ module.exports = function rigisterIPC() {
 
   })
 
-  
+  // 抓本地備份  
+  ipcMain.on("request-save-backup", async (event, savePath) => {
+    const backupFolder = await fs.readdir(path.join(BackUpPath, savePath))
+    event.reply(`save-backup-response-${savePath}`, backupFolder)
+  })
 
 }
 

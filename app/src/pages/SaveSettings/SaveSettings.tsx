@@ -83,7 +83,7 @@ export default function SaveSettings() {
   };
 
   return (
-    <div className="bg-bg2 rounded-lg w-full h-full flex flex-col justify-between p-4 overflow-y-scroll relative">
+    <div className="bg-bg2 rounded-lg w-full h-full flex flex-col justify-between p-4 pb-0 relative">
       <div className="absolute right-6 top-6">
         <Button onClick={handleOpenServerPath}>
           {LOCALES[appLanguage].OpenServerFolder}
