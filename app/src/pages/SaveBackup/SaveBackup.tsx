@@ -1,9 +1,17 @@
-import { AlertDialog, Button, Flex, Link } from "@radix-ui/themes";
+import {
+  AlertDialog,
+  Button,
+  Flex,
+  Link,
+  Select,
+  TextFieldInput,
+} from "@radix-ui/themes";
 import LOCALES from "../../locales";
 import useAppLanguage from "../../redux/appLanguage/useAppLanguage";
 import { useEffect, useState } from "react";
 import { electron, ipcRenderer } from "../../constant/contextBridge";
 import useSelectedGameSave from "../../redux/selectGameSave/useSelectedGameSave";
+import SetBackupTime from "./SetBackupTime/SetBackupTime";
 
 export default function SaveBackup() {
   const { appLanguage } = useAppLanguage();
@@ -41,13 +49,14 @@ export default function SaveBackup() {
         </AlertDialog.Title>
         <AlertDialog.Description>
           {saveBackup
-            ?.sort((a, b) => b - a)
+            ?.sort((a: any, b: any) => b - a)
             ?.slice(0, 20)
-            ?.map((backupId) => (
+            ?.map((backupId: string) => (
               <BackupItem backupId={backupId} />
             ))}
         </AlertDialog.Description>
-        <Flex gap="3" mt="4" justify="end">
+        <Flex gap="3" mt="4" justify="between">
+          <SetBackupTime />
           <AlertDialog.Cancel>
             <Button variant="soft" color="gray">
               {LOCALES[appLanguage].Cancel}

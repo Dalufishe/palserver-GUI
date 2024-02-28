@@ -10,7 +10,8 @@ const { forEach } = require("lodash");
 const getServerInfo = require("./src/palworld/getServerInfo")
 const cheerio = require("cheerio");
 const sendCommand = require("./src/palworld/sendCommand");
-const getSaveMetaData = require("./src/utils/data/getSaveMetaData")
+const getSaveMetaData = require("./src/utils/data/getSaveMetaData");
+const iniToWorldOptions = require("./src/utils/format/iniToWorldOptions");
 
 module.exports = function rigisterIPC() {
   const SaveRootPath = path.join(__dirname, "./saves");
@@ -32,32 +33,20 @@ module.exports = function rigisterIPC() {
   );
   const BackUpPath = path.join(__dirname, "./saves-backup")
 
-  ipcMain.on("request-latest-version", (event) => {
-    fetch(
-      "https://firebasestorage.googleapis.com/v0/b/honkai-stargazer-bf382.appspot.com/o/palserver-GUI%2Fversion.txt?alt=media&token=b2c5b7fd-5664-404c-9a03-1b72d049dd98"
-    )
-      .then((data) => data.text())
-      .then((data) => {
-        event.reply("latest-version-response", data);
-      });
-  });
-
   // 啟動伺服器
   ipcMain.on("request-exec-server", async (event, arg) => {
-
-
 
     // 判斷當前引擎中存檔
     const currentSave = JSON.parse(
       fsc.readFileSync(path.join(EngineSavePath, ".pal"), { encoding: "utf-8" })
     ).saveId;
 
+    const currentSaveMetaData = (await getSaveMetaData()).filter(save => save.id == currentSave)[0]
 
 
     // ue4ss 啟用
-    let isEnabledUe4ss = (await getSaveMetaData()).filter(save => save.id == currentSave)[0]?.ue4ssEnabled
+    let isEnabledUe4ss = currentSaveMetaData?.ue4ssEnabled
     if (typeof isEnabledUe4ss === "undefined") isEnabledUe4ss = true
-
 
     const dwmapidllLocation = path.join(EngineLuaModPath, "../")
 
@@ -70,19 +59,25 @@ module.exports = function rigisterIPC() {
         await fs.rename(path.join(dwmapidllLocation, "dwmapi.dll.disabled"), path.join(dwmapidllLocation, "dwmapi.dll"))
     }
 
+    // 公開到社群
+    const openToCommunity = currentSaveMetaData?.openToCommunity
+
+
     const cmd = `${path.join(
       __dirname,
       "./engine/steamapps/common/PalServer/PalServer.exe"
     )}`;
-    const palserver = spawn(cmd);
+    const palserver = spawn(cmd, ["-RCONPort=25575", openToCommunity ? "-EpicApp=PalServer" : "", "-useperfthreads", "-NoAsyncLoadingThread", "-UseMultithreadForDS"]);
 
     event.reply("exec-server-response:done", currentSave);
 
     // 自動備份
+    const backupTimeDuration = currentSaveMetaData?.backupTimeDuration || 1000 * 60 * 60
+
     const backupTimer = setInterval(() => {
       const DistPath = path.join(BackUpPath, currentSave, Date.now().toString())
       fs.cp(EngineSavePath, DistPath, { recursive: true })
-    }, 1000 * 60 * 5)
+    }, backupTimeDuration)
 
 
     // 當伺服器關閉時
@@ -225,17 +220,38 @@ module.exports = function rigisterIPC() {
     const SaveSettings = { ...prevSaveSettings, ...data.settings };
 
     // 寫入 .ini
+
+    const inputText = ini.stringify({
+      "/Script/Pal": {
+        PalGameWorldSettings: {
+          OptionSettings: palServerSettingConverter.format(SaveSettings),
+        },
+      },
+    })
+
+    // 找到OptionSettings=后面的引号的位置
+    let startIndex = inputText.indexOf('OptionSettings="') + 'OptionSettings="'.length;
+
+    // 截取字符串
+    let settingsText = "[/Script/Pal.PalGameWorldSettings]\nOptionSettings=" + inputText.substring(startIndex)
+    settingsText = settingsText.substring(0, settingsText.length - 1)
+    settingsText = settingsText.replaceAll("\\", "")
+
     await fs.writeFile(
       SaveSettingsPath,
-      ini.stringify({
-        "/Script/Pal": {
-          PalGameWorldSettings: {
-            OptionSettings: palServerSettingConverter.format(SaveSettings),
-          },
-        },
-      }),
+      settingsText,
       { encoding: "utf-8" }
     );
+
+    // 寫入 worldoptions.sav
+
+    // 讀取可能是複數的 0 底下的 saves
+    const saves = await fs.readdir(path.join(SavePath, "SaveGames/0"))
+
+    saves?.map(save => {
+      iniToWorldOptions(SaveSettingsPath, path.join(SavePath, `SaveGames/0/${save}`))
+    })
+
 
     event.reply(`save-response-${savePath}`, {
       savePath,
@@ -277,14 +293,15 @@ module.exports = function rigisterIPC() {
     const SavePath = path.join(SaveRootPath, savePath);
     if (fsc.existsSync(SavePath)) {
       // 將存檔確實清空
-      fsc.rmSync(path.join(EngineSavePath, "/SaveGames"), {
-        recursive: true,
-        force: true,
-      });
+      // fsc.rmSync(path.join(EngineSavePath, "/SaveGames"), {
+      //   recursive: true,
+      //   force: true,
+      // });
       await fs.cp(SavePath, EngineSavePath, { recursive: true, force: true });
       event.reply("set-save-to-engine-response:done", { savePath });
     }
   });
+
   // 將引擎內存檔導出保存
   ipcMain.on("request-set-engine-to-save", async (event) => {
     const dotPalPath = path.join(EngineSavePath, ".pal");
@@ -295,6 +312,13 @@ module.exports = function rigisterIPC() {
       ).saveId;
       const SavePath = path.join(SaveRootPath, currentSave);
       if (fsc.existsSync(SavePath)) {
+
+        // 將存檔確實清空
+        // fsc.rmSync(path.join(SavePath, "/SaveGames"), {
+        //   recursive: true,
+        //   force: true,
+        // });
+
         await fs.cp(path.join(EngineSavePath), SavePath, {
           recursive: true,
           force: true,
@@ -307,25 +331,39 @@ module.exports = function rigisterIPC() {
       event.reply("set-engine-to-save-response:done", { savePath: null });
     }
   });
+
   // 讀取 lua 模組
   ipcMain.on("request-lua-mods", async (event) => {
-    const modNames = (await fs.readdir(EngineLuaModPath)).filter(
-      (mod) => mod !== "mods.txt"
-    );
+    const modNames = (await fs.readdir(EngineLuaModPath))
+      .filter(
+        (mod) => (mod !== "mods.txt") && (mod !== "mods.rename.json")
+      );
+
+    // mods.txt
     const modsTXT = await fs.readFile(path.join(EngineLuaModPath, "mods.txt"), {
       encoding: "utf-8",
     });
-
     const modsStats = {};
-
     modsTXT.split("\n").forEach((modOption) => {
       modsStats[modOption.split(":")[0]] = modOption.split(":")[1] === "1";
     });
 
+    // mods.rename.txt
+    let modsRenameJSON = {}
+    const modsRenamePath = path.join(EngineLuaModPath, "mods.rename.json")
+    if (fsc.existsSync(modsRenamePath)) {
+      modsRenameJSON = JSON.parse(await fs.readFile(modsRenamePath, {
+        encoding: "utf-8",
+      }));
+    }
+
+
     event.reply("lua-mods-response", {
       mods: modNames.map((modName) => ({
         name: modName,
+        isDirectory: fsc.statSync(path.join(EngineLuaModPath, modName)).isDirectory(),
         enabled: modsStats[modName],
+        rename: modsRenameJSON[modName] || modName
       })),
     });
   });
@@ -359,17 +397,92 @@ module.exports = function rigisterIPC() {
     );
   });
 
+  // 重新命名 lua 模組
+  ipcMain.on("request-rename-lua-mods", async (event, modName, rename) => {
+
+    const modsRenamePath = path.join(EngineLuaModPath, "mods.rename.json")
+    let modsRenameJSON = {}
+
+    if (fsc.existsSync(modsRenamePath)) {
+      modsRenameJSON = JSON.parse(await fs.readFile(modsRenamePath, {
+        encoding: "utf-8",
+      }));
+    }
+
+    modsRenameJSON[modName] = rename;
+
+    await fs.writeFile(
+      modsRenamePath,
+      JSON.stringify(modsRenameJSON),
+      {
+        encoding: "utf-8",
+      }
+    );
+
+  });
+
+  // 刪除 lua 模組
+  ipcMain.on("request-delete-lua-mods", async (event, modName) => {
+    const modPath = path.join(EngineLuaModPath, modName)
+    if (fsc.existsSync(modPath)) {
+      fsc.rmSync(modPath, { recursive: true, force: true });
+    }
+  });
+
   // 讀取 pak 模組
   ipcMain.on("request-pak-mods", async (event) => {
     const modNames = (await fs.readdir(EnginePakModPath)).filter(
-      (mod) => mod !== "Pal-WindowsServer.pak"
+      (mod) => mod !== "Pal-WindowsServer.pak" && mod !== "mods.rename.json"
     );
+
+    // mods.rename.txt
+    let modsRenameJSON = {}
+    const modsRenamePath = path.join(EnginePakModPath, "mods.rename.json")
+    if (fsc.existsSync(modsRenamePath)) {
+      modsRenameJSON = JSON.parse(await fs.readFile(modsRenamePath, {
+        encoding: "utf-8",
+      }));
+    }
 
     event.reply("pak-mods-response", {
       mods: modNames.map((modName) => ({
         name: modName,
+        isDirectory: fsc.statSync(path.join(EnginePakModPath, modName)).isDirectory(),
+        rename: modsRenameJSON[modName] || modName
       })),
     });
+  });
+
+  // 重新命名 pak 模組
+  ipcMain.on("request-rename-pak-mods", async (event, modName, rename) => {
+
+    const modsRenamePath = path.join(EnginePakModPath, "mods.rename.json")
+    let modsRenameJSON = {}
+
+    if (fsc.existsSync(modsRenamePath)) {
+      modsRenameJSON = JSON.parse(await fs.readFile(modsRenamePath, {
+        encoding: "utf-8",
+      }));
+    }
+
+    modsRenameJSON[modName] = rename;
+
+    await fs.writeFile(
+      modsRenamePath,
+      JSON.stringify(modsRenameJSON),
+      {
+        encoding: "utf-8",
+      }
+    );
+
+  });
+
+  // 刪除 pak 模組
+  ipcMain.on("request-delete-pak-mods", async (event, modName) => {
+    const modPath = path.join(EnginePakModPath, modName)
+    if (fsc.existsSync(modPath)) {
+      fsc.rmSync(modPath, { recursive: true, force: true });
+    }
   });
 
   // 倒出客戶端模組
@@ -430,7 +543,6 @@ module.exports = function rigisterIPC() {
       password,
     };
     const response = await sendCommand(serverOptions, command)
-    console.log(response)
     event.reply("rcon-command-response", response)
   })
 

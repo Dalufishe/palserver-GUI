@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ipcRenderer } from "../../../../constant/contextBridge";
-import { cn } from "../../../../pages/utils/cn";
+import { cn } from "../../../../utils/cn";
 import useSelectedGameSave from "../../../../redux/selectGameSave/useSelectedGameSave";
 import useServerIsRunning from "../../../../hooks/useServerIsRunning";
 import { useHistory } from "react-router-dom";

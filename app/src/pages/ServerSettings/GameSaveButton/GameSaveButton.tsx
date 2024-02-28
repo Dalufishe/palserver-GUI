@@ -9,6 +9,9 @@ import PalIcons from "../../../constant/palIcons";
 import useSaveMeta from "../../../hooks/useSaveMeta";
 import useAppLanguage from "../../../redux/appLanguage/useAppLanguage";
 import LOCALES from "../../../locales";
+import { PiPlayCircleFill } from "react-icons/pi";
+import useServerIsRunning from "../../../hooks/useServerIsRunning";
+import { engine } from "../../../constant/contextBridge";
 
 type Props = {
   saveMetaData: { id: string };
@@ -17,8 +20,7 @@ type Props = {
 export default function SaveButton(props: Props) {
   const { appLanguage } = useAppLanguage();
 
-  const { selectedGameSave, setSelectedGameSave } = useSelectedGameSave();
-
+  const { setSelectedGameSave, selectedGameSave } = useSelectedGameSave();
   const { getSaveMetaData } = useSaveMeta();
 
   const gameSaveId = props.saveMetaData.id;
@@ -40,11 +42,13 @@ export default function SaveButton(props: Props) {
               "flex flex-col gap-y-2 items-center w-28 h-24 p-2 cursor-pointer rounded-lg hover:bg-bg1 relative"
             }
           >
-            <img
-              src={PalIcons[getSaveMetaData(gameSaveId)?.iconId] || CuteImg}
-              alt=""
-              className="w-12 h-12 select-none"
-            />
+            <div className="relative">
+              <img
+                src={PalIcons[getSaveMetaData(gameSaveId)?.iconId] || CuteImg}
+                alt=""
+                className="w-12 h-12 select-none"
+              />
+            </div>
             <span className="absolute top-[60px] text-xs text-center w-24 break-words">
               {gameSave?.settings?.ServerName.slice(1, -1)}
             </span>
@@ -82,3 +86,11 @@ export default function SaveButton(props: Props) {
     </AlertDialog.Root>
   );
 }
+
+const IsRunningIcon = () => (
+  <PiPlayCircleFill
+    className="absolute -right-3 -bottom-3"
+    size={32}
+    color="#12a10894"
+  />
+);

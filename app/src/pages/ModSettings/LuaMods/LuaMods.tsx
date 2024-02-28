@@ -9,9 +9,11 @@ export default function LuaMods() {
 
   return (
     <div className="flex flex-row gap-2 flex-wrap">
-      {luaMods?.map((mod, i) => (
-        <LuaModItem key={i} name={mod.name} enabled={mod.enabled} />
-      ))}
+      {luaMods
+        ?.sort((a, b) => b.isDirectory - a.isDirectory)
+        ?.map((mod, i) => (
+          <LuaModItem key={i} {...mod} />
+        ))}
       <AddLuaModButton button={<AddButton />} />
     </div>
   );

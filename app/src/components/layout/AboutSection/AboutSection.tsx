@@ -1,4 +1,4 @@
-import { FaDiscord, FaGithub, FaHeart } from "react-icons/fa";
+import { FaDiscord, FaGithub, FaHeart, FaYoutube } from "react-icons/fa";
 import IconImage from "../../../assets/images/icon.webp";
 import Button from "../../global/Button";
 import { electron } from "../../../constant/contextBridge";
@@ -11,6 +11,10 @@ import SupportMe from "./SupportMe/SupportMe";
 export default function AboutSection() {
   const { appLanguage, setAppLanguage } = useAppLanguage();
   const history = useHistory();
+
+  const handleOpenYoutube = () => {
+    electron.openLink("https://www.youtube.com/watch?v=8Vq7uANT0Eo&t=8s");
+  };
 
   const handleOpenGithub = () => {
     electron.openLink("https://github.com/Dalufishe/palserver-GUI");
@@ -48,7 +52,10 @@ export default function AboutSection() {
             <Select.Item value="jp">日本語</Select.Item>
           </Select.Content>
         </Select.Root>
-        <SupportMe />
+        {/* <SupportMe /> */}
+        <Button onClick={handleOpenYoutube}>
+          <FaYoutube color="#ff5555" />
+        </Button>
         <Button onClick={handleOpenGithub}>
           <FaGithub />
         </Button>

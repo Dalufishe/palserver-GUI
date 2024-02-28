@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "../../pages/utils/cn";
+import { cn } from "../../utils/cn";
 
 type Props = {
   children: any;

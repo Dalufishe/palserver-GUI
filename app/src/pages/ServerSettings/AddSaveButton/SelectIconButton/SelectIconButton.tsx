@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 import PalIcons from "../../../../constant/palIcons";
 
 type Props = {
+  icon?: number;
   onIconChange: (iconId: number) => void;
 };
 
 export default function SelectIconButton(props: Props) {
-  const [iconId, setIconId] = useState(0);
+  const [iconId, setIconId] = useState(props?.icon || 0);
 
   const handleChangeIcon = () => {
     if (iconId === 3) setIconId(0);

@@ -117,7 +117,7 @@ const zh_tw = {
   OpenServerFolder: "開啟伺服器資料夾",
   GoBack: "回上一頁",
   OpenServerFolderDesc:
-    "這是伺服器的資料夾位置，可以把已存在的伺服器存檔放入 palserver GUI。特別注意不要動到資料夾內的 .pal 檔案。",
+    "特別注意不要動到資料夾內的 .pal 檔案。否則可能造成伺服器無法正確啟動的情況。",
   //
   ExportModsToClientSide: "匯出模組到遊戲",
   ExportModsToClientSideDesc1: "遊戲跟伺服器都要安裝模組才行。點擊「匯出」會產生伺服器安裝的模組之客戶端版本。",
@@ -136,27 +136,28 @@ const zh_tw = {
   FAQ5Q: "世界設定的孵蛋或據點上限無法生效?",
   FAQ5A: "可以參考這部影片的後半段, 有詳細的解決方法: https://www.youtube.com/watch?v=1LqoN-pjb-0&t=6s4.",
   //
-  NewUpdate: "有新版更新！(請下載最新版補丁包)",
+  NewUpdate: "有新版更新！(請下載最新版 ${1} 補丁)",
   //20240214
   MigrateDedicatedServer: "遷移專用伺服器",
   MigrateDedicatedServerToGUI: "將專用伺服器遷移到 GUI",
   MigrateDedicatedServerDesc1: "您可以將已存在的專用伺服器遷移到 palserver GUI。",
   MigrateDedicatedServerDesc2: "找到原先 steamcmd 的存檔路徑 (圖左上)。",
-  MigrateDedicatedServerDesc3: "點擊右下角「開啟伺服器資料夾」打開 GUI 伺服器路徑 (圖右下)。",
-  MigrateDedicatedServerDesc4: "製 steamcmd 中的內容，貼上並取代全部到 GUI 的伺服器資料夾。",
+  MigrateDedicatedServerDesc3: "點擊右下角黃色按鈕「開啟伺服器資料夾」，打開 GUI 伺服器路徑 (圖右下)，並將裡面除了 .pal 之外的資料夾或檔案全部刪除。",
+  MigrateDedicatedServerDesc4: "將 steamcmd 中的內容，複製貼上到 GUI 的伺服器資料夾。",
   MigrateDedicatedServerDesc5: "恭喜完成遷移，啟動伺服器後就可以進去遊玩咯！",
   MigrateFourPlayersSave: "遷移本機存檔 (四人邀請碼)",
   MigrateFourPlayersSaveToGUI: "將本機存檔遷移到 GUI",
   MigrateFourPlayersSaveDesc1: "您可以將遊戲中的存檔遷移到 palserver GUI。",
-  MigrateFourPlayersSaveDesc2: "進入遊戲後點「開始遊戲」，選中要遷移的存檔，點擊左下角檔案圖示，將裡頭的 WorldOption.sav 隨意改名並將該資料夾本身複製。",
-  MigrateFourPlayersSaveDesc3: "點擊右下角「開啟存檔資料夾」。",
-  MigrateFourPlayersSaveDesc4: "將剛剛複製的資料夾直接貼上。",
-  MigrateFourPlayersSaveDesc5: "啟動伺服器，在遊戲點選「參加多人遊戲 (開始遊戲)」進入伺服器遊玩一段時間後關閉，並注意存檔資料夾中 Players 資料夾中多出來的檔案。",
-  MigrateFourPlayersSaveDesc6: "到 Python 官網執行環境，並注意在下載過程點選 add python.exe to PATH。",
-  MigrateFourPlayersSaveDesc7: "下載轉檔工具 https://github.com/Dalufishe/palworld-host-save-fix/archive/refs/heads/main.zip，解壓縮後在該路徑上開啟終端命令視窗(cmd)，並輸入 pip install palworld-save-tools==0.17.1。",
-  MigrateFourPlayersSaveDesc8: `在終端命令行輸入 python fix-host-save.py "這邊輸入存檔路徑 (右下角開啟存檔資料夾後點入您的存檔)" "這邊輸入 Players 資料夾多出來的檔案名稱 (忽略 .sav)" 00000000000000000000000000000001 True (若不需保留公會則輸入 False) 並點兩下 Enter 鍵。`,
+  MigrateFourPlayersSaveDesc2: "進入遊戲後點「開始遊戲」，選中要遷移的存檔，點擊左下角檔案圖示，將裡頭除了 WorldOption.sav 以外的所有檔案複製。",
+  MigrateFourPlayersSaveDesc3: "點擊右下角黃色按鈕「開啟存檔資料夾」。",
+  MigrateFourPlayersSaveDesc4: "將剛剛複製的內容貼上 (若需要擇點選取代全部)。",
+  MigrateFourPlayersSaveDesc5: "啟動伺服器遊玩一段時間後關閉，並注意 Players 資料夾中多出來的檔案。",
+  MigrateFourPlayersSaveDesc6: "安裝 Python 執行環境 (到微軟商店或官網，需點選 add python.exe to path)。",
+  MigrateFourPlayersSaveDesc7: "下載轉檔工具 https://github.com/Dalufishe/palworld-host-save-fix/archive/refs/heads/main.zip，解壓縮後在該路徑上開啟終端命令視窗 (cmd)，並輸入 pip install palworld-save-tools==0.17.1。",
+  MigrateFourPlayersSaveDesc8: `在終端命令行輸入 python fix-host-save.py "這邊輸入存檔路徑 (點開黃色按鈕的路徑) " "多出來的玩家檔案名稱 (忽略 .sav)" "00000000000000000000000000000001" True 並點兩下 Enter 鍵。`,
   MigrateFourPlayersSaveDesc9: "等 Python 腳本執行完畢後，啟動伺服器。",
   MigrateFourPlayersSaveDesc10: "恭喜你成功完成遷移，啟動伺服器後就可以進去遊玩咯！",
+  MigrateFourPlayersSaveDesc11: "四人操作流程相對複雜，若有需要，您可以在 palserver-GUI discord 群提問：https://discord.com/invite/sgMMdUZd3V",
   OpenSaveFolder: "開啟存檔資料夾",
   SupportMe: "支持我的工作",
   SupportMeDesc: "palserver GUI 永遠免費並持續維護。您不需要為使用應用程式收費，然而，若您樂意支持我們的工作，不妨考慮請我喝杯咖啡，將是我們莫大的鼓勵。",
@@ -184,6 +185,23 @@ const zh_tw = {
   RCONEnabledDesc: "您需要啟用遠端控制台 (RCON) 才能使用管理面板功能。",
   RCONFirst: "請先啟用 RCON 才能開啟此功能。",
   ServerBackupRecord: "伺服器存檔備份紀錄",
-  Open: "開啟"
+  Open: "開啟",
+  //20240226
+  SupportBy: "由 <u>${1}</u> 進行供電",
+  //20240227
+  MigrateSaveDesc: "若您需要遷移存檔，請前往設定進行操作。",
+  OpenFilePath: "開啟檔案位置",
+  //
+  Rename: "重新命名",
+  DeleteMod: "刪除模組",
+  SetTime: "設定時間",
+  HourPerTime: "小時一次",
+  UpdateLog: "更新日誌",
+  OpenToCommunity: "公開到社群選單",
+  PalSettings: "帕魯設定",
+  PlayerSettings: "玩家設定",
+  GuildSettings: "公會設定",
+  OthersSettings: "其它設定",
+  HasNotASCIIPath: "您的 palserver GUI 路徑可能存在中文或非 ASCII 字元，請將其修改才可完成更新。路徑名稱"
 };
 export default zh_tw;

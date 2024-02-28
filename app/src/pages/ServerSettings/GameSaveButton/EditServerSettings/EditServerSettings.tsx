@@ -11,11 +11,13 @@ import { ipcRenderer } from "../../../../constant/contextBridge";
 import useSelectedGameSave from "../../../../redux/selectGameSave/useSelectedGameSave";
 import useAppLanguage from "../../../../redux/appLanguage/useAppLanguage";
 import LOCALES from "../../../../locales";
+import SelectIconButton from "../../AddSaveButton/SelectIconButton/SelectIconButton";
+import useSaveMeta from "../../../../hooks/useSaveMeta";
 
 export default function EditServerSettings(props: { saveId: string }) {
   const { appLanguage } = useAppLanguage();
 
-  const { setSelectedGameSave } = useSelectedGameSave();
+  const { setSelectedGameSave, selectedGameSave } = useSelectedGameSave();
 
   const gameSave = useGameSave(props.saveId);
   const gameSaveServerName = gameSave?.settings?.ServerName?.slice(1, -1);
@@ -65,60 +67,64 @@ export default function EditServerSettings(props: { saveId: string }) {
     <AlertDialog.Content style={{ maxWidth: 450 }}>
       <AlertDialog.Title>{LOCALES[appLanguage].EditServer}</AlertDialog.Title>
 
-      <div className="w-[78%] my-2 flex gap-2 items-center justify-between">
-        <span>{LOCALES[appLanguage].ServerName}：</span>
-        <TextFieldInput
-          placeholder={gameSaveServerName}
-          value={serverName}
-          onChange={(e) => {
-            setServerName(e.target.value);
-          }}
-        />
-      </div>
+      <div className="flex">
+        <div className="w-[78%]">
+          <div className="my-2 flex gap-2 items-center justify-between">
+            <span>{LOCALES[appLanguage].ServerName}：</span>
+            <TextFieldInput
+              placeholder={gameSaveServerName}
+              value={serverName}
+              onChange={(e) => {
+                setServerName(e.target.value);
+              }}
+            />
+          </div>
 
-      <div className="w-[78%] my-2 flex gap-2 items-center justify-between">
-        <span>{LOCALES[appLanguage].PublicIP}：</span>
-        <TextFieldInput
-          placeholder={gameSavePublicIP}
-          value={publicIP}
-          onChange={(e) => {
-            setPublicIP(e.target.value);
-          }}
-        />
-      </div>
+          <div className="my-2 flex gap-2 items-center justify-between">
+            <span>{LOCALES[appLanguage].PublicIP}：</span>
+            <TextFieldInput
+              placeholder={gameSavePublicIP}
+              value={publicIP}
+              onChange={(e) => {
+                setPublicIP(e.target.value);
+              }}
+            />
+          </div>
 
-      <div className="w-[78%] my-2 flex gap-2 items-center justify-between">
-        <span>{LOCALES[appLanguage].PublicPort}：</span>
-        <TextFieldInput
-          placeholder={gameSavePublicPort}
-          type="number"
-          value={publicPort}
-          onChange={(e) => {
-            setPublicPort(e.target.value);
-          }}
-        />
-      </div>
+          <div className="my-2 flex gap-2 items-center justify-between">
+            <span>{LOCALES[appLanguage].PublicPort}：</span>
+            <TextFieldInput
+              placeholder={gameSavePublicPort}
+              type="number"
+              value={publicPort}
+              onChange={(e) => {
+                setPublicPort(e.target.value);
+              }}
+            />
+          </div>
 
-      <div className="w-[78%] my-2 flex gap-2 items-center justify-between">
-        <span>{LOCALES[appLanguage].ServerPassword}：</span>
-        <TextFieldInput
-          placeholder={gameSaveServerPassword}
-          value={serverPassword}
-          onChange={(e) => {
-            setServerPassword(e.target.value);
-          }}
-        />
-      </div>
+          <div className="my-2 flex gap-2 items-center justify-between">
+            <span>{LOCALES[appLanguage].ServerPassword}：</span>
+            <TextFieldInput
+              placeholder={gameSaveServerPassword}
+              value={serverPassword}
+              onChange={(e) => {
+                setServerPassword(e.target.value);
+              }}
+            />
+          </div>
 
-      <div className="w-[78%] my-2 flex gap-2 items-center justify-between">
-        <span>{LOCALES[appLanguage].AdminPassword}：</span>
-        <TextFieldInput
-          placeholder={gameSaveAdminPassword}
-          value={adminPassword}
-          onChange={(e) => {
-            setAdminPassword(e.target.value);
-          }}
-        />
+          <div className="my-2 flex gap-2 items-center justify-between">
+            <span>{LOCALES[appLanguage].AdminPassword}：</span>
+            <TextFieldInput
+              placeholder={gameSaveAdminPassword}
+              value={adminPassword}
+              onChange={(e) => {
+                setAdminPassword(e.target.value);
+              }}
+            />
+          </div>
+        </div>
       </div>
 
       <Flex gap="3" mt="4" justify="end">

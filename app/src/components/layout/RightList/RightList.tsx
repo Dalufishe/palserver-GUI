@@ -6,7 +6,7 @@ import GameSavePreview from "./GameSavePreview/GameSavePreview";
 import useSelectedGameSave from "../../../redux/selectGameSave/useSelectedGameSave";
 import useServerIsRunning from "../../../hooks/useServerIsRunning";
 import { Badge } from "@radix-ui/themes";
-import { cn } from "../../../pages/utils/cn";
+import { cn } from "../../../utils/cn";
 import useAppLanguage from "../../../redux/appLanguage/useAppLanguage";
 import LOCALES from "../../../locales";
 import { isUndefined } from "lodash";

@@ -1,21 +1,82 @@
 import React, { useEffect, useState } from "react";
-import { electron, ipcRenderer } from "../constant/contextBridge";
+import { electron, engine, ipcRenderer } from "../constant/contextBridge";
 import {
   Button,
   IconButton,
   Select,
   Slider,
   Switch,
+  Tabs,
   TextFieldInput,
   Tooltip,
 } from "@radix-ui/themes";
-import { isBoolean, isEmpty, map, range } from "lodash";
+import { filter, isBoolean, isEmpty, map, pickBy, range } from "lodash";
 import useGameSave from "../hooks/useGameSave";
 import useSelectedGameSave from "../redux/selectGameSave/useSelectedGameSave";
 import { useHistory } from "react-router-dom";
 import { MdEditDocument, MdSettings } from "react-icons/md";
 import useAppLanguage from "../redux/appLanguage/useAppLanguage";
 import LOCALES from "../locales";
+
+const PalSettingsOptionsKey = [
+  "PalCaptureRate",
+  "PalSpawnNumRate",
+  "PalDamageRateAttack",
+  "PalDamageRateDefense",
+  "PalStomachDecreaceRate",
+  "PalStaminaDecreaceRate",
+  "PalAutoHPRegeneRate",
+  "PalAutoHpRegeneRateInSleep",
+  "PalEggDefaultHatchingTime",
+  "WorkSpeedRate",
+];
+
+const PlayerSettingsOptionsKey = [
+  "ExpRate",
+  "PlayerDamageRateAttack",
+  "PlayerDamageRateDefense",
+  "PlayerStomachDecreaceRate",
+  "PlayerStaminaDecreaceRate",
+  "PlayerAutoHPRegeneRate",
+  "PlayerAutoHPRegeneRate",
+  "bEnablePlayerToPlayerDamage",
+  "bEnableFriendlyFire",
+  "bIsPvP",
+  "bEnableFastTravel",
+  "bIsStartLocationSelectByMap",
+  "DeathPenalty",
+];
+
+const GuildSettingsOptionsKey = [
+  "BaseCampMaxNum",
+  "BaseCampWorkerMaxNum",
+  "GuildPlayerMaxNum",
+  "bAutoResetGuildNoOnlinePlayers",
+  "AutoResetGuildTimeNoOnlinePlayers",
+  "bEnableDefenseOtherGuildPlayer",
+  "bCanPickupOtherGuildDeathPenaltyDrop",
+];
+
+const OthersSettingsOptionsKey = [
+  "DayTimeSpeedRate",
+  "NightTimeSpeedRate",
+  "BuildObjectDamageRate",
+  "BuildObjectDeteriorationDamageRate",
+  "DropItemMaxNum",
+  "CollectionObjectHpRate",
+  "CollectionObjectRespawnSpeedRate",
+  "CollectionDropRate",
+  "EnemyDropItemRate",
+  "bEnableInvaderEnemy",
+  "bEnableAimAssistPad",
+  "bEnableAimAssistKeyboard",
+  "DropItemAliveMaxHours",
+  "bIsMultiplay",
+  "bEnableNonLoginPenalty",
+  "bExistPlayerAfterLogout",
+  "CoopPlayerMaxNum",
+  "ServerPlayerMaxNum",
+];
 
 const settingsOptions: any = {
   DayTimeSpeedRate: { range: [1, 50], type: "num_10" },
@@ -98,115 +159,221 @@ export default function WorldSettings() {
 
   const handleOpenSource = () => {
     history.push("/");
-    electron.openExplorer(
-      `./saves/${selectedGameSave}/Config/WindowsServer/PalWorldSettings.ini`
-    );
+
+    if (engine.currentSave() === selectedGameSave) {
+      electron.openExplorer(
+        `./engine/steamapps/common/PalServer/Pal/Saved/Config/WindowsServer/PalWorldSettings.ini`
+      );
+    } else {
+      electron.openExplorer(
+        `./saves/${selectedGameSave}/Config/WindowsServer/PalWorldSettings.ini`
+      );
+    }
   };
 
   return (
-    <div className="bg-bg2 rounded-lg w-full h-full p-4 overflow-y-scroll">
-      <div className="flex flex-col justify-center gap-2 p-2">
-        {map(settingsOptions, (v, k) => (
-          <div key={k} className="w-full flex items-center gap-4">
-            <label className="w-60">{LOCALES[appLanguage][k]}：</label>
-            <div className="w-14">
-              {k === "DeathPenalty" ? (
-                LOCALES[appLanguage]["DeathPenalty_" + worldSettings[k]]
-              ) : isBoolean(worldSettings[k]) ? (
-                LOCALES[appLanguage][
-                  worldSettings[k] ? "SwitchOn" : "SwitchOff"
-                ]
-              ) : (
-                <TextFieldInput
-                  style={{
-                    background: "#1b1421",
-                    color: "white",
-                    fontSize: 16,
-                    width: 60,
-                  }}
-                  size="1"
-                  type="number"
-                  value={worldSettings[k]}
-                  onChange={(e) => {
-                    setWorldSettings({
-                      ...worldSettings,
-                      [k]: e.target.value,
-                    });
-                  }}
-                />
-              )}
-            </div>
-            {settingsOptions[k].type === "switch" && (
-              <Switch
-                variant="classic"
-                checked={worldSettings[k]}
-                onCheckedChange={(v) => {
-                  setWorldSettings({
-                    ...worldSettings,
-                    [k]: v,
-                  });
-                }}
-              />
-            )}
-            {settingsOptions[k].type === "options" && (
-              <Select.Root
-                size="2"
-                value={worldSettings[k]}
-                onValueChange={(v) => {
-                  setWorldSettings({
-                    ...worldSettings,
-                    [k]: v,
-                  });
-                }}
-              >
-                <Select.Trigger />
-                <Select.Content>
-                  <Select.Group>
-                    {settingsOptions[k].range.map((option) => (
-                      <Select.Item value={option}>
-                        {k === "DeathPenalty" &&
-                          LOCALES[appLanguage]["DeathPenalty_" + option]}
-                      </Select.Item>
-                    ))}
-                  </Select.Group>
-                </Select.Content>
-              </Select.Root>
-            )}
-            {(settingsOptions[k].type === "num" ||
-              settingsOptions[k].type === "num_10") && (
-              <Slider
-                size="1"
-                defaultValue={[1]}
-                min={settingsOptions[k].range[0]}
-                max={settingsOptions[k].range[1]}
-                value={[
-                  settingsOptions[k].type === "num"
-                    ? worldSettings[k]
-                    : worldSettings[k] * 10,
-                ]}
-                onValueChange={(v) => {
-                  setWorldSettings({
-                    ...worldSettings,
-                    [k]: settingsOptions[k].type === "num" ? v[0] : v[0] / 10,
-                  });
-                }}
-                className="flex-1"
-              />
-            )}
-          </div>
-        ))}
-      </div>
-      <div className="w-full flex justify-center items-center gap-4 relative">
+    <div className="bg-bg2 rounded-lg w-full h-full p-4 overflow-y-scroll relative">
+      <div className="absolute right-6 top-6 flex gap-2">
         <Tooltip content={LOCALES[appLanguage].EditFromSourceFile}>
-          <IconButton onClick={handleOpenSource} color="gray" radius="full">
+          <IconButton onClick={handleOpenSource} color="gray">
             <MdEditDocument />
           </IconButton>
         </Tooltip>
-        <Button color="gray" onClick={handleRecoverSave}>
-          {LOCALES[appLanguage].Reset}
+        <Button onClick={handleSetSave}>
+          {LOCALES[appLanguage].VerifyChange}
         </Button>
-        <Button onClick={handleSetSave}>{LOCALES[appLanguage].Confirm}</Button>
       </div>
+      <Tabs.Root defaultValue="pal">
+        <Tabs.List>
+          <Tabs.Trigger value="pal" style={{ color: "white", fontWeight: 500 }}>
+            {/* 帕魯設定 */}
+            {LOCALES[appLanguage].PalSettings}
+          </Tabs.Trigger>
+          <Tabs.Trigger
+            value="player"
+            style={{ color: "white", fontWeight: 500 }}
+          >
+            {/* 玩家設定 */}
+            {LOCALES[appLanguage].PlayerSettings}
+          </Tabs.Trigger>
+          <Tabs.Trigger
+            value="guild"
+            style={{ color: "white", fontWeight: 500 }}
+          >
+            {/* 公會設定 */}
+            {LOCALES[appLanguage].GuildSettings}
+          </Tabs.Trigger>
+          <Tabs.Trigger
+            value="others"
+            style={{ color: "white", fontWeight: 500 }}
+          >
+            {/* 其他設定 */}
+            {LOCALES[appLanguage].OthersSettings}
+          </Tabs.Trigger>
+        </Tabs.List>
+        <div className="py-4">
+          <Tabs.Content value="pal">
+            <div className="flex flex-col justify-center gap-2 p-2">
+              {map(
+                pickBy(settingsOptions, (v, k) =>
+                  PalSettingsOptionsKey.includes(k)
+                ),
+                (v, k) => (
+                  <WorldSettingsItem
+                    key={k}
+                    k={k}
+                    worldSettings={worldSettings}
+                    setWorldSettings={setWorldSettings}
+                  />
+                )
+              )}
+            </div>
+          </Tabs.Content>
+          <Tabs.Content value="player">
+            <div className="flex flex-col justify-center gap-2 p-2">
+              {map(
+                pickBy(settingsOptions, (v, k) =>
+                  PlayerSettingsOptionsKey.includes(k)
+                ),
+                (v, k) => (
+                  <WorldSettingsItem
+                    key={k}
+                    k={k}
+                    worldSettings={worldSettings}
+                    setWorldSettings={setWorldSettings}
+                  />
+                )
+              )}
+            </div>
+          </Tabs.Content>
+          <Tabs.Content value="guild">
+            <div className="flex flex-col justify-center gap-2 p-2">
+              {map(
+                pickBy(settingsOptions, (v, k) =>
+                  GuildSettingsOptionsKey.includes(k)
+                ),
+                (v, k) => (
+                  <WorldSettingsItem
+                    key={k}
+                    k={k}
+                    worldSettings={worldSettings}
+                    setWorldSettings={setWorldSettings}
+                  />
+                )
+              )}
+            </div>
+          </Tabs.Content>
+          <Tabs.Content value="others">
+            <div className="flex flex-col justify-center gap-2 p-2">
+              {map(
+                pickBy(settingsOptions, (v, k) =>
+                  OthersSettingsOptionsKey.includes(k)
+                ),
+                (v, k) => (
+                  <WorldSettingsItem
+                    key={k}
+                    k={k}
+                    worldSettings={worldSettings}
+                    setWorldSettings={setWorldSettings}
+                  />
+                )
+              )}
+            </div>
+          </Tabs.Content>
+        </div>
+      </Tabs.Root>
     </div>
   );
 }
+
+const WorldSettingsItem = ({ k, worldSettings, setWorldSettings }) => {
+  const { appLanguage } = useAppLanguage();
+
+  return (
+    <div key={k} className="w-full flex items-center gap-4">
+      <label className="w-60">{LOCALES[appLanguage][k]}：</label>
+      <div className="w-14">
+        {k === "DeathPenalty" ? (
+          LOCALES[appLanguage]["DeathPenalty_" + worldSettings[k]]
+        ) : isBoolean(worldSettings[k]) ? (
+          LOCALES[appLanguage][worldSettings[k] ? "SwitchOn" : "SwitchOff"]
+        ) : (
+          <TextFieldInput
+            style={{
+              background: "#1b1421",
+              color: "white",
+              fontSize: 16,
+              width: 60,
+            }}
+            size="1"
+            type="number"
+            value={worldSettings[k]}
+            onChange={(e) => {
+              setWorldSettings({
+                ...worldSettings,
+                [k]: e.target.value,
+              });
+            }}
+          />
+        )}
+      </div>
+      {settingsOptions[k]?.type === "switch" && (
+        <Switch
+          variant="classic"
+          checked={worldSettings[k]}
+          onCheckedChange={(v) => {
+            setWorldSettings({
+              ...worldSettings,
+              [k]: v,
+            });
+          }}
+        />
+      )}
+      {settingsOptions[k]?.type === "options" && (
+        <Select.Root
+          size="2"
+          value={worldSettings[k]}
+          onValueChange={(v) => {
+            setWorldSettings({
+              ...worldSettings,
+              [k]: v,
+            });
+          }}
+        >
+          <Select.Trigger />
+          <Select.Content>
+            <Select.Group>
+              {settingsOptions[k].range.map((option) => (
+                <Select.Item value={option}>
+                  {k === "DeathPenalty" &&
+                    LOCALES[appLanguage]["DeathPenalty_" + option]}
+                </Select.Item>
+              ))}
+            </Select.Group>
+          </Select.Content>
+        </Select.Root>
+      )}
+      {(settingsOptions[k]?.type === "num" ||
+        settingsOptions[k]?.type === "num_10") && (
+        <Slider
+          size="1"
+          defaultValue={[1]}
+          min={settingsOptions[k].range[0]}
+          max={settingsOptions[k].range[1]}
+          value={[
+            settingsOptions[k].type === "num"
+              ? worldSettings[k]
+              : worldSettings[k] * 10,
+          ]}
+          onValueChange={(v) => {
+            setWorldSettings({
+              ...worldSettings,
+              [k]: settingsOptions[k].type === "num" ? v[0] : v[0] / 10,
+            });
+          }}
+          className="flex-1"
+        />
+      )}
+    </div>
+  );
+};

@@ -19,8 +19,10 @@ import SelectIconButton from "./SelectIconButton/SelectIconButton";
 import useGameSave from "../../../hooks/useGameSave";
 import useAppLanguage from "../../../redux/appLanguage/useAppLanguage";
 import LOCALES from "../../../locales";
+import { useHistory } from "react-router-dom";
 
 export default function AddSaveButton({ button }: { button: React.ReactNode }) {
+  const history = useHistory();
   const { appLanguage } = useAppLanguage();
 
   const { metaData, setMetaData } = useSaveMeta();
@@ -62,6 +64,7 @@ export default function AddSaveButton({ button }: { button: React.ReactNode }) {
     setServerPassword("");
     setAdminPassword("");
     setSelectedGameSave(saveId);
+    history.push("/save-settings");
   };
 
   return (

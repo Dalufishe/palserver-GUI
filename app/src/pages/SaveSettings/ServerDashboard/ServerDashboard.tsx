@@ -11,9 +11,11 @@ import ServerBanList from "./ServerBanList/ServerBanList";
 import formatLocale from "../../../utils/formatLocale";
 import useSelectedGameSave from "../../../redux/selectGameSave/useSelectedGameSave";
 import useGameSave from "../../../hooks/useGameSave";
+import { useHistory } from "react-router-dom";
 
 export default function ServerDashboard() {
   const { appLanguage } = useAppLanguage();
+  const history = useHistory();
 
   const { selectedGameSave } = useSelectedGameSave();
   const currentSave = useGameSave(selectedGameSave);
@@ -62,10 +64,15 @@ export default function ServerDashboard() {
     </div>
   ) : (
     <div className="p-2 w-full">
-      {LOCALES[appLanguage].RCONEnabledDesc}
-      <Button size={"1"} onClick={handleEnabledRCON}>
-        {LOCALES[appLanguage].RCONEnabled}
-      </Button>
+      {/* 啟用 rcon */}
+      <div>
+        {LOCALES[appLanguage].RCONEnabledDesc}
+        <Button size={"1"} onClick={handleEnabledRCON}>
+          {LOCALES[appLanguage].RCONEnabled}
+        </Button>
+      </div>
+      {/* 遷移存檔 */}
+      <div className="mt-2">{LOCALES[appLanguage].MigrateSaveDesc}</div>
     </div>
   );
 }

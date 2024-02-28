@@ -117,7 +117,7 @@ const zh_cn = {
   OpenServerFolder: "打开服务器文件夹",
   GoBack: "返回上页",
   OpenServerFolderDesc:
-    "这是服务器的文件夹路径，可以把已存在的服务器存档放入 palserver GUI。 特别注意不要动到文件夹内的 .pal 文件。",
+    "特别注意不要动到文件夹内的 .pal 文件。",
   //
   ExportModsToClientSide: "导出模块到游戏",
   ExportModsToClientSideDesc1: "游戏跟服务器都要安装模块才行。点击「导出」会产生服务器安装的模块之客户端版本。",
@@ -136,28 +136,29 @@ const zh_cn = {
   FAQ5Q: "世界设置的孵蛋或据点上限无法生效?",
   FAQ5A: "可以参考这期视频的后半段, 有详细的解决方法: https://www.youtube.com/watch?v=1LqoN-pjb-0&t=6s4.",
   //
-  NewUpdate: "有新版本更新！（请下载最新版补丁包）",
+  NewUpdate: "有新版本更新！（请下载最新版 ${1} 补丁）",
   //20240214
   MigrateDedicatedServer: "迁移专用服务器",
   MigrateDedicatedServerToGUI: "将专用服务器迁移到 GUI",
   MigrateDedicatedServerDesc1: "您可以将已存在的专用服务器迁移到 palserver GUI。",
   MigrateDedicatedServerDesc2: "找到原先 steamcmd 的存档路径 (图左上)。",
-  MigrateDedicatedServerDesc3: "点击右下角「开启服务器文件夹」打开 GUI 服务器路径 (图右下)。",
-  MigrateDedicatedServerDesc4: "制 steamcmd 中的内容，粘贴并替换全部到 GUI 的服务器文件夹。",
-  MigrateDedicatedServerDesc5: "恭喜完成迁移，启动服务器后就可以进去游玩啦！",
-  MigrateFourPlayersSave: "迁移本机存档 (四人邀请码)",
-  MigrateFourPlayersSaveToGUI: "将本机存档迁移到 GUI",
+  MigrateDedicatedServerDesc3: "点击右下角黄色按钮「打开服务器文件夹」，打开 GUI 服务器路径 (图右下)，并将里面除了 .pal 之外的文件夹或文件全部删除。",
+  MigrateDedicatedServerDesc4: "将 steamcmd 中的内容，复制粘贴到 GUI 的服务器文件夹。",
+  MigrateDedicatedServerDesc5: "恭喜完成迁移，启动服务器后就可以进入游玩啦！",
+  MigrateFourPlayersSave: "迁移本地存档 (四人邀请码)",
+  MigrateFourPlayersSaveToGUI: "将本地存档迁移到 GUI",
   MigrateFourPlayersSaveDesc1: "您可以将游戏中的存档迁移到 palserver GUI。",
-  MigrateFourPlayersSaveDesc2: "进入游戏后点「开始游戏」，选中要迁移的存档，点击左下角档案图示，将里头的 WorldOption.sav 随意改名并将该资料夹本身复制。",
-  MigrateFourPlayersSaveDesc3: "点击右下角「开启存档资料夹」。",
-  MigrateFourPlayersSaveDesc4: "将刚刚复制的资料夹直接贴上。",
-  MigrateFourPlayersSaveDesc5: "启动服务器，在游戏点选「参加多人游戏 (开始游戏)」进入服务器游玩一段时间后关闭，并注意存档资料夹中 Players 资料夹中多出来的档案。",
-  MigrateFourPlayersSaveDesc6: "到 Python 官网执行环境，并注意在下载过程点选 add python.exe to PATH。",
-  MigrateFourPlayersSaveDesc7: "下载转档工具 https://github.com/Dalufishe/palworld-host-save-fix/archive/refs/heads/main.zip，解压缩后在该路径上开启终端命令视窗(cmd)，并输入 pip install palworld-save-tools==0.17.1。",
-  MigrateFourPlayersSaveDesc8: `在终端命令行输入 python fix-host-save.py "这边输入存档路径 (右下角开启存档资料夹后点入您的存档)" "这边输入 Players 资料夹多出来的档案名称 (忽略 .sav)" 00000000000000000000000000000001 True (若不需保留公会则输入 False) 并点两下 Enter 键。`,
+  MigrateFourPlayersSaveDesc2: "进入游戏后点击「开始游戏」，选中要迁移的存档，点击左下角文件图标，将里头除了 WorldOption.sav 以外的所有文件复制。",
+  MigrateFourPlayersSaveDesc3: "点击右下角黄色按钮「打开存档文件夹」。",
+  MigrateFourPlayersSaveDesc4: "将刚刚复制的内容粘贴 (若需要选择替换全部)。",
+  MigrateFourPlayersSaveDesc5: "启动服务器游玩一段时间后关闭，并注意 Players 文件夹中多出来的文件。",
+  MigrateFourPlayersSaveDesc6: "安装 Python 执行环境 (到微软商店或官网，需要选择 add python.exe to path)。",
+  MigrateFourPlayersSaveDesc7: "下载转档工具 https://github.com/Dalufishe/palworld-host-save-fix/archive/refs/heads/main.zip，解压缩后在该路径上开启终端命令视窗 (cmd)，并输入 pip install palworld-save-tools==0.17.1。",
+  MigrateFourPlayersSaveDesc8: `在终端命令行输入 python fix-host-save.py "这边输入存档路径(点击开启黄色按钮的路径) " "多出来的玩家文件名称(忽略.sav)" ,"00000000000000000000000000000001" True 并双击 Enter 键。`,
   MigrateFourPlayersSaveDesc9: "等 Python 脚本执行完毕后，启动服务器。",
-  MigrateFourPlayersSaveDesc10: "恭喜你成功完成迁移，启动服务器后就可以进去游玩啦！",
-  OpenSaveFolder: "开启存档文件夹",
+  MigrateFourPlayersSaveDesc10: "恭喜你成功完成迁移，启动服务器后就可以进入游玩啦！",
+  MigrateFourPlayersSaveDesc11: "四人玩家的迁移过程相对复杂。如有需要，您可以在 palserver-GUI Discord 群中提问：https://discord.com/invite/sgMMdUZd3V",
+  OpenSaveFolder: "打开存档文件夹",
   SupportMe: "支持我的工作",
   SupportMeDesc: "palserver GUI 永远免费并持续维护。您不需要为使用应用程序收费，然而，若您乐意支持我们的工作，不妨考虑请我喝杯咖啡，将是我们莫大的鼓励。",
   //20240217
@@ -184,6 +185,23 @@ const zh_cn = {
   RCONEnabledDesc: "您需要启用远程控制台（RCON）才能使用管理面板功能。",
   RCONFirst: "请先启用 RCON 才能开启此功能。",
   ServerBackupRecord: "服务器存档备份记录",
-  Open: "开启"
+  Open: "开启",
+  //20240226
+  SupportBy: "由 <u>${1}</u> 進行供電",
+  //20240227
+  MigrateSaveDesc: "若您需要迁移存档，请前往设置进行操作。",
+  OpenFilePath: "打开文件位置",
+  //
+  Rename: "重新命名",
+  DeleteMod: "删除模组",
+  SetTime: "设置时间",
+  HourPerTime: "小时一次",
+  UpdateLog: "更新日志",
+  OpenToCommunity: "公开到社群菜单",
+  PalSettings: "帕鲁设定",
+  PlayerSettings: "玩家设定",
+  GuildSettings: "公会设定",
+  OthersSettings: "其他设定",
+  HasNotASCIIPath: "您的 palserver GUI 路径可能存在中文或非 ASCII 字符，请将其修改才可完成更新。路径名称"
 };
 export default zh_cn;

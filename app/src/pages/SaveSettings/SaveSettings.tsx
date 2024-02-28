@@ -13,9 +13,9 @@ import useGameSave from "../../hooks/useGameSave";
 import { isUndefined } from "lodash";
 import useSaveMeta from "../../hooks/useSaveMeta";
 import SaveBackup from "../SaveBackup/SaveBackup";
+import isASCII from "../../utils/isASCII";
 
 export default function SaveSettings() {
-  const history = useHistory();
   const { appLanguage } = useAppLanguage();
 
   const isServerRunning = useServerIsRunning();
@@ -35,13 +35,21 @@ export default function SaveSettings() {
   };
 
   const handleUpdateServer = () => {
-    setIsServerUpdate(true);
-    ipcRenderer.send("request-update-server");
-    ipcRenderer.on("update-server-response:done", () => {
-      setIsServerUpdate(false);
-      window.alert(LOCALES[appLanguage].ServerUpdateDone);
-      ipcRenderer.removeAllListeners("update-server-response:done");
-    });
+    const appPath = electron.__dirname();
+
+    if (!isASCII(appPath)) {
+      window.alert(
+        LOCALES[appLanguage].HasNotASCIIPath + "：" + electron.__dirname()
+      );
+    } else {
+      setIsServerUpdate(true);
+      ipcRenderer.send("request-update-server");
+      ipcRenderer.on("update-server-response:done", () => {
+        setIsServerUpdate(false);
+        window.alert(LOCALES[appLanguage].ServerUpdateDone);
+        ipcRenderer.removeAllListeners("update-server-response:done");
+      });
+    }
   };
 
   // rcon 啟用關閉
@@ -71,6 +79,7 @@ export default function SaveSettings() {
   const { getSaveMetaData, setSaveMetaData } = useSaveMeta();
 
   const saveMetaData = getSaveMetaData(selectedGameSave);
+
   const isUe4ssEnabled = isUndefined(saveMetaData?.ue4ssEnabled)
     ? true
     : saveMetaData?.ue4ssEnabled;
@@ -79,6 +88,15 @@ export default function SaveSettings() {
     setSaveMetaData(selectedGameSave, {
       ...saveMetaData,
       ue4ssEnabled: !isUe4ssEnabled,
+    });
+  };
+
+  const openToCommunity = saveMetaData?.openToCommunity;
+
+  const handleSwitchOpenToCom = () => {
+    setSaveMetaData(selectedGameSave, {
+      ...saveMetaData,
+      openToCommunity: !openToCommunity,
     });
   };
 
@@ -133,6 +151,13 @@ export default function SaveSettings() {
                     : LOCALES[appLanguage].SwitchOff}
                 </Button>
               </div>
+              {/* 公開到社群 */}
+              <Button color="gray" onClick={handleSwitchOpenToCom}>
+                {LOCALES[appLanguage].OpenToCommunity}：
+                {openToCommunity
+                  ? LOCALES[appLanguage].SwitchOn
+                  : LOCALES[appLanguage].SwitchOff}
+              </Button>
               {/* 伺服器備份管理 */}
               <SaveBackup />
               {/* 更新伺服器版本 */}
@@ -148,6 +173,9 @@ export default function SaveSettings() {
                   ? LOCALES[appLanguage].ServerIsUpdating
                   : LOCALES[appLanguage].UpdateServerToLatestVersion}
               </Button>
+              <div className="fixed bottom-8 text-xs text-center">
+                {LOCALES[appLanguage].OpenServerFolderDesc}
+              </div>
             </div>
           </Tabs.Content>
         </div>

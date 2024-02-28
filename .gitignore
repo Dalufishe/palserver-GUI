@@ -5,3 +5,4 @@
 /app/build
 /electron/frontend/build
 /electron/saves
+/app/src/firebase/initFirebase.ts
