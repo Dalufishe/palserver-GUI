@@ -36,8 +36,7 @@ A fully graphical interface, a one-click tool for creating and managing Palworld
 
 ### Installation Link and Updates
 
-First-time download link: [Click here](https://github.com/Dalufishe/palserver-GUI/releases/download/0.0.9/0.0.9-palserver-GUI-win32-x64.rar)  
-Patch package link: [Click here](https://github.com/Dalufishe/palserver-GUI/releases/download/patch-0.0.9/patch-0.0.9-palserver-GUI-win32-x64.rar)
+To the bottom right corner of GitHub [releases](https://github.com/Dalufishe/palserver-GUI/releases), download the latest version of palserver-GUI.
 
 Or go to the bottom right corner of GitHub releases to download historical versions :D
 
