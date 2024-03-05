@@ -1,6 +1,6 @@
 # palserver GUI
 
-<a href="../README.md">繁體中文</a> / <a href=".">English</a>
+<a href="../README.md">繁體中文</a> / <a href="./readme//README_ZH_CN.md">简体中文</a> / <a href=".">English</a>
 
 A fully graphical interface, a one-click tool for creating and managing Palworld servers.
 

@@ -1,6 +1,6 @@
 # palserver GUI
 
-<a href=".">繁體中文</a> / <a href="./readme//README_EN.md">English</a>
+<a href=".">繁體中文</a> / <a href="./readme//README_ZH_CN.md">简体中文</a> / <a href="./readme//README_EN.md">English</a>
 
 全圖形化介面，一鍵式帕魯 (Palworld) 伺服器建立、管理工具。
 
