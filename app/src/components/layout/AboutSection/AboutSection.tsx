@@ -50,6 +50,7 @@ export default function AboutSection() {
             <Select.Item value="zh_cn">简体中文</Select.Item>
             <Select.Item value="en">English</Select.Item>
             <Select.Item value="jp">日本語</Select.Item>
+            <Select.Item value="es">Español</Select.Item>
           </Select.Content>
         </Select.Root>
         {/* <SupportMe /> */}
