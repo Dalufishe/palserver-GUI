@@ -61,6 +61,7 @@ export default function AddSaveButton({ button }: { button: React.ReactNode }) {
     ]);
     setServerName("");
     setPublicIP("");
+    setPublicPort(null);
     setServerPassword("");
     setAdminPassword("");
     setSelectedGameSave(saveId);

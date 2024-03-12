@@ -1,4 +1,8 @@
+
+import game_data_zh_tw from "./game-data/zh_tw";
+
 const zh_tw = {
+  ...game_data_zh_tw,
   ServerIsRunning: "伺服器執行中",
   Server: "伺服器",
   BootServer: "啟動伺服器",

@@ -36,8 +36,8 @@
 
 ### 安裝連結及更新
 
-第一次下載連結：[點我](https://github.com/Dalufishe/palserver-GUI/releases/download/0.1.0/0.1.0-palserver-GUI-win32-x64.7z)  
-補丁包連結：[點我](https://github.com/Dalufishe/palserver-GUI/releases/download/patch-0.1.0/patch-0.1.0-palserver-GUI-win32-x64.7z)
+第一次下載連結：[點我](https://github.com/Dalufishe/palserver-GUI/releases/download/0.2.0/0.2.0-palserver-GUI-win32-x64.7z)  
+補丁包連結：[點我](https://github.com/Dalufishe/palserver-GUI/releases/download/patch-0.2.0/patch-0.2.0-palserver-GUI-win32-x64.7z)
 
 或者到 github 右下角 releases 也可以下載歷史版本 :D
 

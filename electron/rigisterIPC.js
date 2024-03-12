@@ -67,7 +67,7 @@ module.exports = function rigisterIPC() {
       __dirname,
       "./engine/steamapps/common/PalServer/PalServer.exe"
     )}`;
-    const palserver = spawn(cmd, ["-RCONPort=25575", openToCommunity ? "-EpicApp=PalServer" : "", "-useperfthreads", "-NoAsyncLoadingThread", "-UseMultithreadForDS"]);
+    const palserver = spawn(cmd, ["-RCONPort=25575", openToCommunity ? "-publiclobby" : "", "-useperfthreads", "-NoAsyncLoadingThread", "-UseMultithreadForDS"]);
 
     event.reply("exec-server-response:done", currentSave);
 
@@ -210,6 +210,7 @@ module.exports = function rigisterIPC() {
         { encoding: "utf-8" }
       );
     }
+
     const SaveSettingsFile = await fs.readFile(SaveSettingsPath, {
       encoding: "utf-8",
     });
@@ -220,7 +221,7 @@ module.exports = function rigisterIPC() {
     const SaveSettings = { ...prevSaveSettings, ...data.settings };
 
     // 寫入 .ini
-
+  
     const inputText = ini.stringify({
       "/Script/Pal": {
         PalGameWorldSettings: {
@@ -293,10 +294,10 @@ module.exports = function rigisterIPC() {
     const SavePath = path.join(SaveRootPath, savePath);
     if (fsc.existsSync(SavePath)) {
       // 將存檔確實清空
-      // fsc.rmSync(path.join(EngineSavePath, "/SaveGames"), {
-      //   recursive: true,
-      //   force: true,
-      // });
+      fsc.rmSync(path.join(EngineSavePath, "/SaveGames"), {
+        recursive: true,
+        force: true,
+      });
       await fs.cp(SavePath, EngineSavePath, { recursive: true, force: true });
       event.reply("set-save-to-engine-response:done", { savePath });
     }
@@ -314,10 +315,10 @@ module.exports = function rigisterIPC() {
       if (fsc.existsSync(SavePath)) {
 
         // 將存檔確實清空
-        // fsc.rmSync(path.join(SavePath, "/SaveGames"), {
-        //   recursive: true,
-        //   force: true,
-        // });
+        fsc.rmSync(path.join(SavePath, "/SaveGames"), {
+          recursive: true,
+          force: true,
+        });
 
         await fs.cp(path.join(EngineSavePath), SavePath, {
           recursive: true,

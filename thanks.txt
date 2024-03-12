@@ -1,0 +1,5 @@
+https://github.com/PalworldModding/Docs
+https://github.com/KURAMAAA0/PalModding
+https://github.com/Ultimeit/palguard_anticheat
+https://github.com/legoduded/palworld-worldoptions
+https://github.com/zaigie/palworld-server-tool

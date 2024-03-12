@@ -14,6 +14,7 @@ import { isUndefined } from "lodash";
 import useSaveMeta from "../../hooks/useSaveMeta";
 import SaveBackup from "../SaveBackup/SaveBackup";
 import isASCII from "../../utils/isASCII";
+import ServerGUIPlugin from "./ServerGUIPlugin/PluginCard/ServerGUIPlugin";
 
 export default function SaveSettings() {
   const { appLanguage } = useAppLanguage();
@@ -107,22 +108,32 @@ export default function SaveSettings() {
           {LOCALES[appLanguage].OpenServerFolder}
         </Button>
       </div>
-      <Tabs.Root defaultValue="lua">
+      <Tabs.Root defaultValue="dash">
         <Tabs.List>
-          <Tabs.Trigger value="lua" style={{ color: "white", fontWeight: 500 }}>
+          <Tabs.Trigger
+            value="dash"
+            style={{ color: "white", fontWeight: 500 }}
+          >
             {/* 管理面板 */}
             {LOCALES[appLanguage].Dashboard}
           </Tabs.Trigger>
-          <Tabs.Trigger value="pak" style={{ color: "white", fontWeight: 500 }}>
+          <Tabs.Trigger value="set" style={{ color: "white", fontWeight: 500 }}>
             {/* 設定 */}
             {LOCALES[appLanguage].Setting}
           </Tabs.Trigger>
+          <Tabs.Trigger
+            value="extra"
+            style={{ color: "white", fontWeight: 500 }}
+          >
+            {/* 擴展功能 */}
+            {"GUI 插件"}
+          </Tabs.Trigger>
         </Tabs.List>
         <div className="py-4">
-          <Tabs.Content value="lua">
+          <Tabs.Content value="dash">
             <ServerDashboard />
           </Tabs.Content>
-          <Tabs.Content value="pak">
+          <Tabs.Content value="set">
             <div className="flex flex-col gap-6 relative p-2">
               {/* 開啟伺服器資料夾 */}
               <div className="flex gap-4">
@@ -177,6 +188,9 @@ export default function SaveSettings() {
                 {LOCALES[appLanguage].OpenServerFolderDesc}
               </div>
             </div>
+          </Tabs.Content>
+          <Tabs.Content value="extra">
+            <ServerGUIPlugin />
           </Tabs.Content>
         </div>
       </Tabs.Root>

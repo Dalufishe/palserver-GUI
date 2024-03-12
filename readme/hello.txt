@@ -1,0 +1,5 @@
+Hi there, the palserver-GUI only offical download link is at Github.com :
+
+https://github.com/Dalufishe/palserver-GUI/releases
+
+download the latest version and... have fun!

@@ -36,9 +36,13 @@ A fully graphical interface, a one-click tool for creating and managing Palworld
 
 ### Installation Link and Updates
 
+<<<<<<< HEAD
 To the bottom right corner of GitHub [releases](https://github.com/Dalufishe/palserver-GUI/releases), download the latest version of palserver-GUI.
 
 Or go to the bottom right corner of GitHub releases to download historical versions :D
+=======
+To the bottom right corner of GitHub releases, download the latest version of palserver-GUI.
+>>>>>>> e30a1d5 (feat: 支持 palguard)
 
 ### Roadmap
 
