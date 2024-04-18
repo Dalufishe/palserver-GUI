@@ -7,6 +7,8 @@ import useSelectedServerInstance from '../../../../redux/selectedServerInstance/
 import _ from 'lodash';
 import useTranslation from '../../../../hooks/useTranslation';
 import { MdOutlineMoreVert } from 'react-icons/md';
+import PlayerMoreAction from '../PlayerMoreAction/PlayerMoreAction';
+import Channels from '../../../../../main/ipcs/channels';
 
 export default function PlayerPreview({
   playerIndex,
@@ -17,8 +19,22 @@ export default function PlayerPreview({
 
   const { selectedServerInstance } = useSelectedServerInstance();
   const players = useServerOnlinePlayers(selectedServerInstance);
-
   const player = players[playerIndex] || {};
+
+  const handleKickPlayer = () => {
+    window.electron.ipcRenderer.invoke(
+      Channels.sendRCONCommand,
+      selectedServerInstance,
+      `KickPlayer ${player.userId}`,
+    );
+  };
+  const handleBanPlayer = () => {
+    window.electron.ipcRenderer.invoke(
+      Channels.sendRCONCommand,
+      selectedServerInstance,
+      `BanPlayer ${player.userId}`,
+    );
+  };
 
   return (
     _.isEmpty(player) || (
@@ -60,16 +76,20 @@ export default function PlayerPreview({
           </Theme>
         </div>
         <div className="mt-2 ml-16 flex gap-2">
-          <Button size="1">踢出</Button>
-          <Button size="1" color="red">
+          <Button onClick={handleKickPlayer} size="1">
+            踢出
+          </Button>
+          <Button onClick={handleBanPlayer} size="1" color="red">
             封鎖
           </Button>
           {/* <IconButton size={'1'} color="gray">
             <MdOutlineMoreVert />
           </IconButton> */}
-          <Button size="1" color="gray">
-            其他操作
-          </Button>
+          <PlayerMoreAction
+            name={player.name}
+            playerId={player.playerId}
+            steamId={player.userId}
+          />
         </div>
       </div>
     )

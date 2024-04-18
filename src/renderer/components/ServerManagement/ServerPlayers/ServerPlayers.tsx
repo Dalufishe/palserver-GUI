@@ -15,43 +15,51 @@ export default function ServerPlayers() {
 
   return (
     <div className="w-full mt-4 flex">
-      <PlayerPreview playerIndex={selectedPlayerIndex} />
-      <div className="flex flex-col gap-1">
-        {players.map((player, i) => (
-          <>
-            <PlayerItem
-              player={player}
-              onClick={() => {
-                setSelectedPlayerIndex(i);
-              }}
-            />
-            <PlayerItem
-              player={player}
-              onClick={() => {
-                setSelectedPlayerIndex(i);
-              }}
-            />
-            <PlayerItem
-              player={player}
-              onClick={() => {
-                setSelectedPlayerIndex(i);
-              }}
-            />
-            <PlayerItem
-              player={player}
-              onClick={() => {
-                setSelectedPlayerIndex(i);
-              }}
-            />
-            <PlayerItem
-              player={player}
-              onClick={() => {
-                setSelectedPlayerIndex(i);
-              }}
-            />
-          </>
-        ))}
-      </div>
+      {!!players.length ? (
+        <>
+          <PlayerPreview playerIndex={selectedPlayerIndex} />
+          <div className="flex flex-col gap-1">
+            {players.map((player, i) => (
+              <>
+                <PlayerItem
+                  player={player}
+                  onClick={() => {
+                    setSelectedPlayerIndex(i);
+                  }}
+                />
+                <PlayerItem
+                  player={player}
+                  onClick={() => {
+                    setSelectedPlayerIndex(i);
+                  }}
+                />
+                <PlayerItem
+                  player={player}
+                  onClick={() => {
+                    setSelectedPlayerIndex(i);
+                  }}
+                />
+                <PlayerItem
+                  player={player}
+                  onClick={() => {
+                    setSelectedPlayerIndex(i);
+                  }}
+                />
+                <PlayerItem
+                  player={player}
+                  onClick={() => {
+                    setSelectedPlayerIndex(i);
+                  }}
+                />
+              </>
+            ))}
+          </div>
+        </>
+      ) : (
+        <div>
+          <div className="text-2xl opacity-60">伺服器沒有玩家</div>
+        </div>
+      )}
     </div>
   );
 }

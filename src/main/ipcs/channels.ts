@@ -33,6 +33,12 @@ const Channels = {
     DATA: 'get-server-log:data',
   },
   // REST
-  getRestAPI: 'get-rest-api',
+  sendRestAPI: 'send-rest-api',
+  // RCON
+  sendRCONCommand: 'send-rcon-command',
+  // backup
+  getOfficalServerBackup: 'get-offical-server-backup',
+  // saved
+  getCorrectSaveGamesPath: 'get-correct-savegames-path',
 } as const;
 export default Channels;

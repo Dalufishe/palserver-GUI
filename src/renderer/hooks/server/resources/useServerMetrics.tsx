@@ -19,7 +19,7 @@ const useServerMetrics = (serverId: string) => {
   useEffect(() => {
     const i = setInterval(() => {
       window.electron.ipcRenderer
-        .invoke(Channels.getRestAPI, '/metrics', serverId)
+        .invoke(Channels.sendRestAPI, serverId, '/metrics')
         .then((data: any) => {
           setServerMetrics(data);
         })

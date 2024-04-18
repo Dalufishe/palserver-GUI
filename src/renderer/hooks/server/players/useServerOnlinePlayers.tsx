@@ -18,7 +18,7 @@ const useServerOnlinePlayers = (serverId: string) => {
   useEffect(() => {
     const i = setInterval(() => {
       window.electron.ipcRenderer
-        .invoke(Channels.getRestAPI, '/players', serverId)
+        .invoke(Channels.sendRestAPI, serverId, '/players')
         .then((data: any) => {
           setPlayers(data?.players);
         })

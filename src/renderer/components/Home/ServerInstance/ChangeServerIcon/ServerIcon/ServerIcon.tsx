@@ -28,7 +28,7 @@ export default function ServerIcon(props: Props) {
           />
         </div>
         <span className="text-xs font-bold text-center w-24 break-words">
-          {t(props.icon.id.split('_').slice(1, -2).join('_'))}
+          {t(props.icon.id)}
         </span>
       </div>
     </AlertDialog.Action>

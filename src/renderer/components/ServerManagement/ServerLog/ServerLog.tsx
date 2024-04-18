@@ -37,7 +37,7 @@ export default function ServerLog({
     const getLog = window.electron.ipcRenderer.on(
       Channels.getServerLogReply.DATA,
       (data: string) => {
-        setLog(applySheet(data).split('\n').slice(37));
+        setLog(applySheet(data).split('\n').slice(38));
       },
     );
     return () => {
@@ -57,12 +57,18 @@ export default function ServerLog({
   }, [log.length, prevLog.length]);
 
   return (
-    <div className="mt-4 w-full h-[calc(100vh-200px)] overflow-y-scroll rounded-md font-mono">
-      <div className="flex flex-col gap-2 p-4">
-        {log.map((l) => (
-          <div>{l}</div>
-        ))}
-      </div>
+    <div className="mt-4 w-full h-[calc(100vh-200px)] overflow-y-scroll rounded-md">
+      {log.length ? (
+        <div className="flex flex-col gap-2 p-4">
+          {log.map((l) => (
+            <div className="font-mono">{l}</div>
+          ))}
+        </div>
+      ) : (
+        <div>
+          <div className="text-2xl opacity-60">暫無日誌</div>
+        </div>
+      )}
     </div>
   );
 }

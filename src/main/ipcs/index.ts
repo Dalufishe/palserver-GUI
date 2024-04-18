@@ -29,4 +29,12 @@ import './server/exec/execShutdownServer';
 // log
 import './server/log/getServerLog';
 
-import './server/rest/getRestAPI';
+// rcon / rest
+import './server/rest/sendRestAPI';
+import './server/rcon/sendRCONCommand';
+
+// backup
+import './server/backup/getOfficalServerBackup';
+
+// saved
+import './server/saved/getCorrectSaveGamesPath';

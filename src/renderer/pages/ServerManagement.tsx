@@ -5,10 +5,11 @@ import { cn } from '../../utils/cn';
 import Display from '../components/Display';
 import ServerLog from '../components/ServerManagement/ServerLog/ServerLog';
 import ServerPlayers from '../components/ServerManagement/ServerPlayers/ServerPlayers';
+import ServerSettings from '../components/ServerManagement/ServerSettings/ServerSettings';
 
 export default function ServerManagement() {
   const [managementMode, setManagementMode] = useState<
-    'log' | 'performance' | 'players'
+    'log' | 'performance' | 'players' | 'settings'
   >('log');
 
   // 效能監控相關
@@ -82,22 +83,16 @@ export default function ServerManagement() {
             伺服器日誌
           </Tabs.Trigger>
           <Tabs.Trigger
-            value="performance"
-            style={{ color: 'white', fontWeight: 500 }}
-          >
-            效能監測
-          </Tabs.Trigger>
-          <Tabs.Trigger
             value="players"
             style={{ color: 'white', fontWeight: 500 }}
           >
             伺服器玩家
           </Tabs.Trigger>
           <Tabs.Trigger
-            value="backup"
+            value="performance"
             style={{ color: 'white', fontWeight: 500 }}
           >
-            存檔備份
+            效能監測
           </Tabs.Trigger>
           <Tabs.Trigger
             value="settings"
@@ -126,6 +121,9 @@ export default function ServerManagement() {
             setSingleProcessResources(p);
           }}
         />
+      </Display>
+      <Display display={managementMode === 'settings'}>
+        <ServerSettings />
       </Display>
     </div>
   );

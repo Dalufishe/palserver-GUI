@@ -1,9 +1,11 @@
 /* eslint-disable no-template-curly-in-string */
+/* eslint-disable camelcase */
 
 import game_data_pals_zh_tw from './pal';
+import game_data_items_zh_tw from './item';
 
-/* eslint-disable camelcase */
 const zh_tw = {
+  ...game_data_items_zh_tw,
   ...game_data_pals_zh_tw,
   ServerIsRunning: '伺服器執行中',
   Server: '伺服器',
@@ -238,5 +240,8 @@ const zh_tw = {
   SwitchToAll: '切換到整體',
   PlayerLocation: '玩家座標',
   PlayerId: '玩家 ID',
+  Performance: '效能',
+  Internet: '網路',
+  Security: '安全性',
 };
 export default zh_tw;

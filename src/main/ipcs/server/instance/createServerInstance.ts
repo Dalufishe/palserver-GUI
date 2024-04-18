@@ -53,7 +53,7 @@ ipcMain.handle(
       serverId,
       instancePath: createdInstancePath,
       serverPath: createdServerPath,
-      iconId: 'T_SheepBall_icon_normal',
+      iconId: 'SheepBall',
       createdAt: createdTime,
     };
     fs.writeFile(

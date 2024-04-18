@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 
-import { Select, Slider, Switch, TextField } from '@radix-ui/themes';
+import { Select, Slider, Switch, TextField, Theme } from '@radix-ui/themes';
 import { isBoolean } from 'lodash';
 import useTranslation from '../../../hooks/useTranslation';
 import { worldSettingsOptions } from '../settings';
@@ -9,7 +9,7 @@ function WorldSettingsItem({ id, worldSettings, setWorldSettings }) {
 
   return (
     <div key={id} className="w-full flex items-center gap-4">
-      <label className="w-60">{t(id)}：</label>
+      <label className="w-80">{t(id)}：</label>
       <div className="w-14">
         {id === 'DeathPenalty' ? (
           t(`DeathPenalty_${worldSettings[id]}`)
@@ -17,24 +17,27 @@ function WorldSettingsItem({ id, worldSettings, setWorldSettings }) {
           t(worldSettings[id] ? 'SwitchOn' : 'SwitchOff')
         ) : (
           <div className="font-mono">
-            <TextField.Root
-              style={{
-                background: '#1b1421',
-                color: 'white',
-                fontFamily: 'inherit',
-                fontSize: 16,
-                width: 60,
-              }}
-              size="1"
-              type="number"
-              value={worldSettings[id]}
-              onChange={(e) => {
-                setWorldSettings({
-                  ...worldSettings,
-                  [id]: e.target.value,
-                });
-              }}
-            />
+            <Theme
+              appearance="dark"
+              style={{ background: 'inherit', fontFamily: 'inherit' }}
+            >
+              <TextField.Root
+                style={{
+                  fontFamily: 'inherit',
+                  fontSize: 16,
+                  width: 60,
+                }}
+                size="1"
+                type="number"
+                value={worldSettings[id]}
+                onChange={(e) => {
+                  setWorldSettings({
+                    ...worldSettings,
+                    [id]: e.target.value,
+                  });
+                }}
+              />
+            </Theme>
           </div>
         )}
       </div>

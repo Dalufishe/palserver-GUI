@@ -22,6 +22,8 @@ module.exports = {
     camelcase: 'off',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
+    'react/require-default-props': 'off',
+    'spaced-comment': 'off',
   },
   parserOptions: {
     ecmaVersion: 2022,

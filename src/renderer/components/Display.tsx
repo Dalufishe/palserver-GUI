@@ -8,7 +8,7 @@ export default function Display({
   display: boolean;
 }) {
   return (
-    <div className={display ? '' : 'absolute translate-x-[1000px]'}>
+    <div className={display ? '' : 'absolute translate-x-[4000px]'}>
       {children}
     </div>
   );

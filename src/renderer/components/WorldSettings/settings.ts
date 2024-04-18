@@ -57,8 +57,6 @@ export const OthersSettingsOptionsKey = [
   'bIsMultiplay',
   'bEnableNonLoginPenalty',
   'bExistPlayerAfterLogout',
-  'RCONEnabled',
-  'RESTAPIEnabled',
 ];
 
 export const worldSettingsOptions: any = {

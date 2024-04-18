@@ -15,6 +15,7 @@ import useWorldSettings from '../../../hooks/server/world-settings/useWorldSetti
 import useSelectedServerInstance from '../../../redux/selectedServerInstance/useSelectedServerInstance';
 import DuplicateServerAlert from './DuplicateServer/DuplicateServerAlert';
 import useIsRunningServers from '../../../redux/isRunningServers/useIsRunningServers';
+import useCorrectSaveGamesPath from '../../../hooks/server/saved/useCorrectSaveGamesPath';
 
 type Props = {
   info: ServerInstanceSetting;
@@ -25,6 +26,7 @@ export default function ServerInstance(props: Props) {
 
   const serverIcon = useServerIcon(props.info.iconId);
   const { worldSettings } = useWorldSettings(props.info.serverId);
+  const saveGamesPath = useCorrectSaveGamesPath(props.info.serverId);
 
   const [instanceSize, setIntanceSize] = useState();
   useEffect(() => {
@@ -151,16 +153,7 @@ export default function ServerInstance(props: Props) {
           action() {
             setCurrentAlretWindow('');
 
-            const worldSettingsPath = window.electron.node
-              .path()
-              .join(
-                window.electron.constant.USER_SERVER_INSTANCES_PATH(),
-                props.info.serverId,
-                'server',
-                'Pal/Saved/SaveGames/0',
-              );
-
-            window.electron.openExplorer(worldSettingsPath);
+            window.electron.openExplorer(saveGamesPath);
           },
         },
         //* 設定檔資料夾
@@ -176,7 +169,7 @@ export default function ServerInstance(props: Props) {
                 window.electron.constant.USER_SERVER_INSTANCES_PATH(),
                 props.info.serverId,
                 'server',
-                'Pal/Saved/Config',
+                'Pal/Saved/Config/WindowsServer',
               );
 
             window.electron.openExplorer(worldSettingsPath);
