@@ -3,6 +3,7 @@ import './server/instance/createServerInstance';
 import './server/instance/editServerInstance';
 import './server/instance/deleteServerInstance';
 import './server/instance/duplicateServerInstance';
+import './server/instance/updateServerInstance';
 
 // icons
 import './server/icons/getAllServerIcons';
@@ -38,3 +39,5 @@ import './server/backup/getOfficalServerBackup';
 
 // saved
 import './server/saved/getCorrectSaveGamesPath';
+
+import './server/init/runServerInstall';

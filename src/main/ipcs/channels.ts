@@ -1,4 +1,12 @@
 const Channels = {
+  // init
+  runServerInstall: 'run-server-install',
+  runServerInstallReply: {
+    PROGRESS: 'run-server-install:progress',
+    ERROR: 'run-server-install:error',
+    DONE: 'run-server-install:done',
+  },
+  listenWorldsettingsToSav: 'listen-world-settings-to-sav',
   // 伺服器操作
   execStartServer: 'exec-start-server',
   execStartServerReply: {
@@ -13,6 +21,10 @@ const Channels = {
   editServerInstance: 'edit-server-instance',
   deleteServerInstance: 'delete-server-instance',
   duplicateServerInstance: 'duplicate-server-instance',
+  updateServerInstance: 'update-server-instance',
+  updateServerInstanceReply: {
+    DONE: 'update-server-instance:done',
+  },
   // 伺服器圖示圖像檔
   getAllServerIcons: 'get-all-server-icons',
   getServerIcon: 'get-server-icon',

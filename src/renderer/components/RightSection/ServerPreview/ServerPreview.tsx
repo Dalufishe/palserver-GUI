@@ -90,7 +90,11 @@ export default function ServerPreview() {
                     );
                   }}
                 >
-                  {trimWorldSettingsString(worldSettings?.[info.id]) ||
+                  {(info.secure
+                    ? trimWorldSettingsString(
+                        worldSettings?.[info.id],
+                      )?.replace(/./gu, '*')
+                    : trimWorldSettingsString(worldSettings?.[info.id])) ||
                     t('HaventSavedYet')}
                 </span>
                 {/* <div

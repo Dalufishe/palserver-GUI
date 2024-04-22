@@ -5,7 +5,7 @@ const useCorrectSaveGamesPath = (serverId: string) => {
   const [path, setPath] = useState('');
   useEffect(() => {
     window.electron.ipcRenderer
-      .invoke(Channels.getCorrectSaveGamesPath, serverId)
+      .invoke(Channels.getCorrectSaveGamesPath, serverId || '')
       .then((p) => {
         setPath(p);
       });

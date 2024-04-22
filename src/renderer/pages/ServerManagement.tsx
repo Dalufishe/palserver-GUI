@@ -6,11 +6,20 @@ import Display from '../components/Display';
 import ServerLog from '../components/ServerManagement/ServerLog/ServerLog';
 import ServerPlayers from '../components/ServerManagement/ServerPlayers/ServerPlayers';
 import ServerSettings from '../components/ServerManagement/ServerSettings/ServerSettings';
+import useServerInfo from '../hooks/server/info/useServerInfo';
+import useSelectedServerInstance from '../redux/selectedServerInstance/useSelectedServerInstance';
+import useTranslation from '../hooks/useTranslation';
+import useIsRunningServers from '../redux/isRunningServers/useIsRunningServers';
 
 export default function ServerManagement() {
+  const { t } = useTranslation();
+
+  const { selectedServerInstance } = useSelectedServerInstance();
+  const { serverInfo } = useServerInfo(selectedServerInstance);
+
   const [managementMode, setManagementMode] = useState<
     'log' | 'performance' | 'players' | 'settings'
-  >('log');
+  >('settings');
 
   // 效能監控相關
   const [performanceMonitorMode, setPerformanceMonitorMode] = useState<
@@ -21,6 +30,8 @@ export default function ServerManagement() {
   const [singleProcessResources, setSingleProcessResources] = useState<any>({});
 
   const [newLogCount, setNewLogCount] = useState(0);
+
+  const { includeRunningServers } = useIsRunningServers();
 
   return (
     <div className={cn('page-container', 'overflow-y-hidden')}>
@@ -79,26 +90,37 @@ export default function ServerManagement() {
         }}
       >
         <Tabs.List>
-          <Tabs.Trigger value="log" style={{ color: 'white', fontWeight: 500 }}>
-            伺服器日誌
-          </Tabs.Trigger>
-          <Tabs.Trigger
-            value="players"
-            style={{ color: 'white', fontWeight: 500 }}
-          >
-            伺服器玩家
-          </Tabs.Trigger>
-          <Tabs.Trigger
-            value="performance"
-            style={{ color: 'white', fontWeight: 500 }}
-          >
-            效能監測
-          </Tabs.Trigger>
+          {includeRunningServers(selectedServerInstance) && (
+            <>
+              <Tabs.Trigger
+                value="log"
+                style={{ color: 'white', fontWeight: 500 }}
+              >
+                {t('ServerLog')}
+              </Tabs.Trigger>
+              <Tabs.Trigger
+                value="players"
+                style={{ color: 'white', fontWeight: 500 }}
+              >
+                {t('ServerPlayers')}
+              </Tabs.Trigger>
+            </>
+          )}
+
+          {serverInfo?.performanceMonitorEnabled && (
+            <Tabs.Trigger
+              value="performance"
+              style={{ color: 'white', fontWeight: 500 }}
+            >
+              {t('PerformanceMonitor')}
+            </Tabs.Trigger>
+          )}
+
           <Tabs.Trigger
             value="settings"
             style={{ color: 'white', fontWeight: 500 }}
           >
-            伺服器設定
+            {t('ServerSettings')}
           </Tabs.Trigger>
         </Tabs.List>
       </Tabs.Root>

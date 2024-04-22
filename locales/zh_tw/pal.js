@@ -1,6 +1,7 @@
 const game_data_pals_zh_tw = {
   ...{
     // 一般
+    zunknown: '未知',
     SheepBall: '棉悠悠',
     PinkCat: '搗蛋貓',
     ChickenPal: '皮皮雞',

@@ -2,10 +2,14 @@ import React from 'react';
 import { Link as RLink, Theme } from '@radix-ui/themes';
 import { LuExternalLink } from 'react-icons/lu';
 
-export default function Link(props: { children: any; herf: string }) {
+export default function Link(props: {
+  children: any;
+  herf: string;
+  appearance?: 'light' | 'dark';
+}) {
   return (
     <Theme
-      appearance="dark"
+      appearance={props.appearance || 'dark'}
       style={{ background: 'inherit', display: 'inline-block' }}
     >
       <RLink

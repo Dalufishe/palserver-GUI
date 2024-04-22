@@ -3,10 +3,13 @@ import Channels from '../../channels';
 import { USER_SERVER_INSTANCES_PATH } from '../../../constant';
 import fs from 'fs/promises';
 import path from 'path';
-import readWorldSettingsini from '../../../services/readWorldSettingsini';
-import writeWorldSettingsini from '../../../services/writeWorldSettingsini';
+import readWorldSettingsini from '../../../services/worldSettings/readWorldSettingsini';
+import writeWorldSettingsini from '../../../services/worldSettings/writeWorldSettingsini';
 import uniqid from 'uniqid';
 import { ServerInstanceSetting } from '../../../../types/ServerInstanceSetting.types';
+import convertToWorldOptionsByServerId from '../../../services/worldSettings/convertToWorldOptionsByServerId';
+import getWorldSettingsByServerId from '../../../services/worldSettings/getWorldSettingsByServerId';
+import setWorldSettingsiniByServerId from '../../../services/worldSettings/setWorldSettingsiniByServerId';
 
 ipcMain.handle(
   Channels.duplicateServerInstance,
@@ -36,12 +39,18 @@ ipcMain.handle(
 
     // 寫入實體設置檔 (.pal)
 
+    const prevdServerInstanceSettingPath = path.join(oldInstancePath, '.pal');
+
+    const prevServerInstanceSettingJson = JSON.parse(
+      await fs.readFile(prevdServerInstanceSettingPath, { encoding: 'utf-8' }),
+    );
+
     const serverInstanceSettingPath = path.join(newInstancePath, '.pal');
     const serverInstanceSettingJson: ServerInstanceSetting = {
+      ...prevServerInstanceSettingJson,
       serverId: newServerId,
       instancePath: newInstancePath,
       serverPath: path.join(newInstancePath, 'server'),
-      iconId: 'T_SheepBall_icon_normal',
       createdAt: createdTime,
     };
     fs.writeFile(
@@ -51,21 +60,15 @@ ipcMain.handle(
     );
 
     // 寫入世界設定 (ini)
-    const worldSettingsiniPath = path.join(
-      newInstancePath,
-      'server',
-      'Pal/Saved/Config/WindowsServer/PalWorldSettings.ini',
-    );
-
     const prevWorldSettingsiniJson =
-      await readWorldSettingsini(worldSettingsiniPath);
+      await getWorldSettingsByServerId(newServerId);
 
     const worldSettingsiniJson = {
       ...prevWorldSettingsiniJson,
       ...{ ServerName: newServerName },
     };
 
-    writeWorldSettingsini(worldSettingsiniPath, worldSettingsiniJson);
+    setWorldSettingsiniByServerId(newServerId, worldSettingsiniJson);
 
     // 寫入世界設定 (sav)
 

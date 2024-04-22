@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Channels from '../../../../main/ipcs/channels';
 import useSelectedServerInstance from '../../../redux/selectedServerInstance/useSelectedServerInstance';
+import useTranslation from '../../../hooks/useTranslation';
+import { TextField, Theme } from '@radix-ui/themes';
+import Boardcastbar from './Boardcastbar/Boardcastbar';
 
 const logSheet = [
   ['(chat)', ''],
+  ['isPVPEnabled = False', 'PVP Mode = False'],
+  // ['invoked', '調用'],
+  // ['args', '參數'],
   // ['has logged in with', '登入 > '],
   // ['has logged out', '已登出'],
 ];
@@ -25,6 +31,8 @@ export default function ServerLog({
   managementMode: string;
   onNewLog: (logCount: number) => void;
 }) {
+  const { t } = useTranslation();
+
   const { selectedServerInstance } = useSelectedServerInstance();
 
   const [log, setLog] = useState<string[]>([]);
@@ -57,18 +65,24 @@ export default function ServerLog({
   }, [log.length, prevLog.length]);
 
   return (
-    <div className="mt-4 w-full h-[calc(100vh-200px)] overflow-y-scroll rounded-md">
-      {log.length ? (
-        <div className="flex flex-col gap-2 p-4">
-          {log.map((l) => (
-            <div className="font-mono">{l}</div>
-          ))}
-        </div>
-      ) : (
-        <div>
-          <div className="text-2xl opacity-60">暫無日誌</div>
-        </div>
-      )}
+    <div className="my-4 flex flex-col gap-8">
+      <div className="w-full h-[calc(100vh-284px)] overflow-y-scroll rounded-md">
+        {log.length ? (
+          <div className="flex flex-col-reverse gap-2 p-4">
+            {log
+              .slice()
+              .reverse()
+              .map((l) => (
+                <div className="font-mono">{l}</div>
+              ))}
+          </div>
+        ) : (
+          <div>
+            <div className="text-2xl opacity-60 p-4">{t('ServerHasNoLog')}</div>
+          </div>
+        )}
+      </div>
+      <Boardcastbar />
     </div>
   );
 }

@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import Channels from '../../../../main/ipcs/channels';
+import useIsRunningServers from '../../../redux/isRunningServers/useIsRunningServers';
 
 const useServerMetrics = (serverId: string) => {
+  const { includeRunningServers } = useIsRunningServers();
+
   const [serverMetrics, setServerMetrics] = useState<{
     currentplayernum: number;
     serverfps: number;

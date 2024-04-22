@@ -2,6 +2,8 @@ import { AlertDialog, Button, Flex, Slider, TextField } from '@radix-ui/themes';
 import React, { useState } from 'react';
 import useSelectedServerInstance from '../../../../../redux/selectedServerInstance/useSelectedServerInstance';
 import Channels from '../../../../../../main/ipcs/channels';
+import formatLocale from '../../../../../utils/formatLocale';
+import useTranslation from '../../../../../hooks/useTranslation';
 
 export default function GiveExpToPlayer({
   actionType,
@@ -16,6 +18,7 @@ export default function GiveExpToPlayer({
   steamId: string;
   name: string;
 }) {
+  const { t } = useTranslation();
   const { selectedServerInstance } = useSelectedServerInstance();
 
   const [exp, setExp] = useState(100000);
@@ -30,7 +33,9 @@ export default function GiveExpToPlayer({
 
   return (
     <AlertDialog.Content>
-      <AlertDialog.Title>給予 {name} 經驗值</AlertDialog.Title>
+      <AlertDialog.Title>
+        {formatLocale(t('GivePlayerItem'), [name])}
+      </AlertDialog.Title>
       <AlertDialog.Description>
         {/* <p className="my-2">進階操作使用第三方插件 PalGuard 實現</p> */}
         <div className="pt-2 flex items-center gap-4">

@@ -1,35 +1,27 @@
 {
-  "description": "A foundation for scalable desktop apps",
+  "name": "palserver-gui",
+  "description": "GUI support, one-click Palworld dedicated servers management tool. ",
   "keywords": [
-    "electron",
-    "boilerplate",
-    "react",
-    "typescript",
-    "ts",
-    "sass",
-    "webpack",
-    "hot",
-    "reload"
+    "palworld",
+    "palserver",
+    "dedicated server",
+    "palserver gui"
   ],
-  "homepage": "https://github.com/electron-react-boilerplate/electron-react-boilerplate#readme",
+  "homepage": "https://github.com/Dalufishe/palserver-GUI#readme",
   "bugs": {
-    "url": "https://github.com/electron-react-boilerplate/electron-react-boilerplate/issues"
+    "url": "https://github.com/Dalufishe/palserver-GUI/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/electron-react-boilerplate/electron-react-boilerplate.git"
+    "url": "git+https://github.com/Dalufishe/palserver-GUI.git"
   },
   "license": "MIT",
   "author": {
-    "name": "Electron React Boilerplate Maintainers",
-    "email": "electronreactboilerplate@gmail.com",
-    "url": "https://electron-react-boilerplate.js.org"
+    "name": "Dalufishe"
   },
   "contributors": [
     {
-      "name": "Amila Welihinda",
-      "email": "amilajack@gmail.com",
-      "url": "https://github.com/amilajack"
+      "name": "Dalufishe"
     }
   ],
   "main": "./src/main/main.ts",
@@ -97,18 +89,13 @@
   },
   "dependencies": {
     "@radix-ui/themes": "^3.0.2",
-    "@types/ini": "^4.1.0",
-    "@types/lodash": "^4.17.0",
-    "@types/node-os-utils": "^1.3.4",
-    "@types/pidusage": "^2.0.5",
-    "@types/ps-tree": "^1.1.6",
-    "@types/react-router-dom": "^5.3.3",
-    "@types/uniqid": "^5.3.4",
     "@uiw/react-json-view": "^2.0.0-alpha.23",
+    "axios": "^1.6.8",
     "electron-debug": "^3.2.0",
     "electron-log": "^4.4.8",
     "electron-updater": "^6.1.4",
     "explorer-opener": "^1.0.1",
+    "express": "^4.19.2",
     "fast-folder-size": "^2.2.0",
     "get-folder-size": "^4.0.0",
     "i18next": "^23.11.1",
@@ -132,8 +119,7 @@
     "redux": "^5.0.1",
     "redux-persist": "^6.0.0",
     "tailwind-merge": "^2.2.2",
-    "uniqid": "^5.4.0",
-    "zx": "^8.0.1"
+    "uniqid": "^5.4.0"
   },
   "devDependencies": {
     "@electron/notarize": "^2.1.0",
@@ -143,12 +129,19 @@
     "@teamsupercell/typings-for-css-modules-loader": "^2.5.2",
     "@testing-library/jest-dom": "^6.1.3",
     "@testing-library/react": "^14.0.0",
+    "@types/ini": "^4.1.0",
     "@types/jest": "^29.5.5",
+    "@types/lodash": "^4.17.0",
     "@types/node": "20.6.2",
+    "@types/node-os-utils": "^1.3.4",
+    "@types/pidusage": "^2.0.5",
+    "@types/ps-tree": "^1.1.6",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
+    "@types/react-router-dom": "^5.3.3",
     "@types/react-test-renderer": "^18.0.1",
     "@types/terser-webpack-plugin": "^5.0.4",
+    "@types/uniqid": "^5.3.4",
     "@types/webpack-bundle-analyzer": "^4.6.0",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
@@ -207,9 +200,9 @@
     "webpack-merge": "^5.9.0"
   },
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.erb.ElectronReact",
-    "asar": true,
+    "productName": "palserver-gui",
+    "appId": "org.dalufishe.palservergui",
+    "asar": false,
     "asarUnpack": "**\\*.{node,dll}",
     "files": [
       "dist",
@@ -263,12 +256,7 @@
     },
     "extraResources": [
       "./assets/**"
-    ],
-    "publish": {
-      "provider": "github",
-      "owner": "electron-react-boilerplate",
-      "repo": "electron-react-boilerplate"
-    }
+    ]
   },
   "collective": {
     "url": "https://opencollective.com/electron-react-boilerplate-594"

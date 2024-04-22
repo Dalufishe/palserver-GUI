@@ -9,12 +9,16 @@
  * `./src/main.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import { app, BrowserWindow, shell, ipcMain } from 'electron';
+import { app, BrowserWindow, shell, ipcMain, dialog } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+
+// ipc
 import './ipcs/index';
+// servers
+import './server/palserver-online-map/server';
 
 process.setMaxListeners(0);
 
@@ -100,7 +104,7 @@ const createWindow = async () => {
     }
   });
 
-  mainWindow.on('closed', () => {
+  mainWindow.on('closed', function (e) {
     mainWindow = null;
   });
 
@@ -123,13 +127,13 @@ const createWindow = async () => {
  * Add event listeners...
  */
 
-app.on('window-all-closed', () => {
-  // Respect the OSX convention of having the application in memory even
-  // after all windows have been closed
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-});
+// app.on('window-all-closed', () => {
+//   // Respect the OSX convention of having the application in memory even
+//   // after all windows have been closed
+//   if (process.platform !== 'darwin') {
+//     app.quit();
+//   }
+// });
 
 app
   .whenReady()

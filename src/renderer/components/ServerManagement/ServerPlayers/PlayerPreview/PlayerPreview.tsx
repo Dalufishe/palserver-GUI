@@ -36,9 +36,11 @@ export default function PlayerPreview({
     );
   };
 
+  const location = getInGameLocation(player.location_x, player.location_y);
+
   return (
     _.isEmpty(player) || (
-      <div className="flex-1 p-4">
+      <div className="flex flex-col p-4">
         <div className="flex items-center gap-4">
           <img
             className="w-12 h-12 rounded-full"
@@ -58,7 +60,9 @@ export default function PlayerPreview({
                   size="2"
                   color="gray"
                 >
-                  {player.playerId}
+                  {player.userId
+                    ?.replace(player.userId.substring(11, 18), '*******')
+                    .slice(6)}
                 </Text>
               </div>
               <Text as="div" size="2" color="gray">
@@ -68,8 +72,7 @@ export default function PlayerPreview({
                 </span>{' '}
                 .{' '}
                 <span className="cursor-pointer" title={t('PlayerLocation')}>
-                  ({player.location_x?.toFixed(0)},{' '}
-                  {player.location_y?.toFixed(0)})
+                  ({location[0]?.toFixed(0)}, {location[1]?.toFixed(0)})
                 </span>
               </Text>
             </Box>
@@ -77,10 +80,10 @@ export default function PlayerPreview({
         </div>
         <div className="mt-2 ml-16 flex gap-2">
           <Button onClick={handleKickPlayer} size="1">
-            踢出
+            {t('Kick')}
           </Button>
           <Button onClick={handleBanPlayer} size="1" color="red">
-            封鎖
+            {t('Ban')}
           </Button>
           {/* <IconButton size={'1'} color="gray">
             <MdOutlineMoreVert />
@@ -94,4 +97,10 @@ export default function PlayerPreview({
       </div>
     )
   );
+}
+
+function getInGameLocation(x: number, y: number) {
+  const x_loc = (y - 157664.55791065) / 462.962962963;
+  const y_loc = (x + 123467.1611767) / 462.962962963;
+  return [x_loc, y_loc];
 }

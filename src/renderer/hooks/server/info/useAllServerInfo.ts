@@ -13,7 +13,7 @@ const useAllServerInfo = () => {
         .then((info) => {
           setServerInfo(info);
         });
-    }, 200);
+    }, 300);
     return () => {
       clearInterval(i);
     };

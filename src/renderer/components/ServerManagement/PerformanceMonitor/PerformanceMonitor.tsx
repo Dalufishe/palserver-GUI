@@ -16,6 +16,7 @@ import useIsRunningServers from '../../../redux/isRunningServers/useIsRunningSer
 import useSelectedServerInstance from '../../../redux/selectedServerInstance/useSelectedServerInstance';
 import useTranslation from '../../../hooks/useTranslation';
 import useServerMetrics from '../../../hooks/server/resources/useServerMetrics';
+import useServerInfo from '../../../hooks/server/info/useServerInfo';
 
 const defaultRecord: any = _.range(60);
 defaultRecord.fill({ cpuUsage: 0, memUsage: 0 });
@@ -33,11 +34,12 @@ export default function PerformanceMonitor(props: Props) {
 
   const [chartMode, setChartMode] = useState<'cpu' | 'ram'>('cpu');
   const [mainChartIs, setMainChartIs] = useState<'computer' | 'process'>(
-    'computer',
+    'process',
   );
 
   const { selectedServerInstance } = useSelectedServerInstance();
   const { isRunningServers } = useIsRunningServers();
+  const { serverInfo } = useServerInfo(selectedServerInstance);
 
   const processId = isRunningServers.find(
     (server) => server.serverId === selectedServerInstance,
@@ -91,7 +93,9 @@ export default function PerformanceMonitor(props: Props) {
             <YAxis />
             <Tooltip />
             <Area
-              animationDuration={1000}
+              animationDuration={
+                serverInfo?.performanceMonitorAnimationEnabled ? 1000 : 0
+              }
               type="monotone"
               dataKey={chartMode === 'cpu' ? 'cpuUsage' : 'memUsage'}
               stroke={chartMode === 'cpu' ? '#6761de' : '#a784d8'}
@@ -100,7 +104,7 @@ export default function PerformanceMonitor(props: Props) {
           </AreaChart>
         </ResponsiveContainer>
         <div className="absolute bottom-9 right-6 text-2xl opacity-60">
-          {mainChartIs === 'computer' ? '整體' : '伺服器'}
+          {mainChartIs === 'computer' ? t('All') : t('Server')}
         </div>
       </div>
       <div className="flex gap-4">
@@ -150,7 +154,7 @@ export default function PerformanceMonitor(props: Props) {
               value="e"
             >
               <RadioCards.Item value="uptime">
-                運行時間 -{' '}
+                {t('UpTime')} -{' '}
                 {new Date(serverMetrics.uptime * 1000)
                   .toISOString()
                   .slice(11, 19)
@@ -165,32 +169,37 @@ export default function PerformanceMonitor(props: Props) {
             setMainChartIs(mainChartIs === 'computer' ? 'process' : 'computer');
           }}
         >
-          <ResponsiveContainer height={140}>
-            <AreaChart
-              style={{ cursor: 'pointer' }}
-              data={mainChartIs === 'computer' ? processRecord : record}
-              title={
-                mainChartIs === 'computer'
-                  ? t('SwitchToServer')
-                  : t('SwitchToAll')
-              }
-              margin={{
-                top: 10,
-                right: 10,
-                left: 10,
-                bottom: 0,
-              }}
-            >
-              <CartesianGrid strokeDasharray="1 1" />
-              <Area
-                animationDuration={1000}
-                type="monotone"
-                dataKey={chartMode === 'cpu' ? 'cpuUsage' : 'memUsage'}
-                stroke={chartMode === 'cpu' ? '#6761de' : '#a784d8'}
-                fill={chartMode === 'cpu' ? '#534bc2' : '#8a65be'}
-              />
-            </AreaChart>
-          </ResponsiveContainer>
+          <div className="relative">
+            <ResponsiveContainer height={140}>
+              <AreaChart
+                style={{ cursor: 'pointer' }}
+                data={mainChartIs === 'computer' ? processRecord : record}
+                title={
+                  mainChartIs === 'computer'
+                    ? t('SwitchToServer')
+                    : t('SwitchToAll')
+                }
+                margin={{
+                  top: 10,
+                  right: 10,
+                  left: 10,
+                  bottom: 0,
+                }}
+              >
+                <CartesianGrid strokeDasharray="1 1" />
+                <Area
+                  animationDuration={1000}
+                  type="monotone"
+                  dataKey={chartMode === 'cpu' ? 'cpuUsage' : 'memUsage'}
+                  stroke={chartMode === 'cpu' ? '#6761de' : '#a784d8'}
+                  fill={chartMode === 'cpu' ? '#534bc2' : '#8a65be'}
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+            <div className="absolute bottom-1 right-6 text-md opacity-60">
+              {mainChartIs === 'computer' ? t('Server') : t('All')}
+            </div>
+          </div>
         </div>
       </div>
     </div>

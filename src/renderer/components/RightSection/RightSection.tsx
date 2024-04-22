@@ -22,7 +22,7 @@ export default function RightSection() {
             history.push('/server-management');
           }}
         >
-          {t('ServerSettings')}
+          {t('ServerManagement')}
         </RightSectionButton>
         <RightSectionButton
           onClick={() => {

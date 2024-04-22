@@ -24,6 +24,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'off',
     'react/require-default-props': 'off',
     'spaced-comment': 'off',
+    'prefer-destructuring': 'off',
   },
   parserOptions: {
     ecmaVersion: 2022,

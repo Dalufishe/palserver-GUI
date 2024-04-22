@@ -5,6 +5,7 @@ import Channels from '../../../../../../main/ipcs/channels';
 import useTranslation from '../../../../../hooks/useTranslation';
 import useSelectedServerInstance from '../../../../../redux/selectedServerInstance/useSelectedServerInstance';
 import ActionItem from '../AcionItem/AcionItem';
+import formatLocale from '../../../../../utils/formatLocale';
 
 export default function ActionList({
   actionType,
@@ -58,59 +59,59 @@ export default function ActionList({
 
   return (
     <AlertDialog.Content>
-      <AlertDialog.Title>進階操作</AlertDialog.Title>
+      <AlertDialog.Title>{t('AdvancedActions')}</AlertDialog.Title>
       <AlertDialog.Description>
         {/* <p className="my-2">進階操作使用第三方插件 PalGuard 實現</p> */}
         <div className="flex flex-col gap-4 pt-2">
           <ActionItem
-            title={'設置為管理員'}
-            subtitle={'將用戶設置設置為伺服器管理員'}
-            buttonText={'設置'}
+            title={t('SetAsAdmin')}
+            subtitle={formatLocale(t('SetAsAdminDesc'), [name])}
+            buttonText={t('Set')}
             onButtonClick={handleSetAdmin}
           />
           <ActionItem
-            title={'踢出 ' + name}
-            subtitle={'踢出該用戶'}
-            buttonText={'踢出'}
+            title={t('KickPlayer') + ' ' + name}
+            subtitle={formatLocale(t('KickPlayerDesc'), [name, name])}
+            buttonText={t('KickPlayer')}
             color="red"
             onButtonClick={handleKickUser}
           />
           <ActionItem
-            title={'封鎖 ' + name}
-            subtitle={'封鎖該用戶'}
-            buttonText={'封鎖'}
+            title={t('Ban') + ' ' + name}
+            subtitle={formatLocale(t('BanDesc'), [name, name])}
+            buttonText={t('Ban')}
             color="red"
             onButtonClick={handleBanUser}
           />
           <ActionItem
-            title={`封鎖 ${name} 的 IP 地址`}
-            subtitle={'封鎖該用戶'}
-            buttonText={'封鎖'}
+            title={formatLocale(t('BanIP'), [name])}
+            subtitle={formatLocale(t('BanDesc'), [name, name])}
+            buttonText={t('Ban')}
             color="red"
             onButtonClick={handleBanUserIP}
           />
           <ActionItem
-            title={'給予道具'}
-            subtitle={`給予 ${name} 指定數量的遊戲道具`}
-            buttonText={'選擇'}
+            title={t('GiveItem')}
+            subtitle={formatLocale(t('GiveItem'), [name])}
+            buttonText={t('Choose')}
             color="yellow"
             onButtonClick={() => {
               setActionType('give_items');
             }}
           />
           <ActionItem
-            title={'給予帕魯'}
-            subtitle={`給予 ${name} 指定帕魯`}
-            buttonText={'選擇'}
+            title={t('GivePal')}
+            subtitle={formatLocale(t('GivePalDesc'), [name])}
+            buttonText={t('Choose')}
             color="yellow"
             onButtonClick={() => {
               setActionType('give_pals');
             }}
           />
           <ActionItem
-            title={'給予經驗值'}
-            subtitle={`給予 ${name} 指定數量的經驗值`}
-            buttonText={'選擇'}
+            title={t('GiveExp')}
+            subtitle={formatLocale(t('GiveExpDesc'), [name])}
+            buttonText={t('Choose')}
             color="yellow"
             onButtonClick={() => {
               setActionType('give_exps');

@@ -2,7 +2,7 @@ import { ipcMain, ipcRenderer } from 'electron';
 import Channels from '../../channels';
 import trimWorldSettingsString from '../../../../utils/trimWorldSettingsString';
 import axios from 'axios';
-import getWorldSettingsByServerId from '../../utils/getWorldSettingsByServerId';
+import getWorldSettingsByServerId from '../../../services/worldSettings/getWorldSettingsByServerId';
 
 ipcMain.handle(
   Channels.sendRestAPI,

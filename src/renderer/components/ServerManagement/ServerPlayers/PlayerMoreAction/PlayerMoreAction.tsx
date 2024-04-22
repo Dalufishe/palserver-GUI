@@ -29,7 +29,7 @@ export default function PlayerMoreAction({
     >
       <AlertDialog.Trigger>
         <Button size="1" color="gray">
-          其他操作
+          {t('MoreActions')}
         </Button>
       </AlertDialog.Trigger>
       {actionType === 'list' && (

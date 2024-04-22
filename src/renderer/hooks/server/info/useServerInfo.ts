@@ -15,7 +15,7 @@ const useServerInfo = (serverId: string) => {
             setServerInfo(info);
           });
       }
-    }, 200);
+    }, 300);
     return () => {
       clearInterval(i);
     };

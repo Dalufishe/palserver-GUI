@@ -14,7 +14,7 @@ const useWorldSettings = (serverId: string) => {
             setWorldSettings(info);
           });
       }
-    }, 200);
+    }, 300);
     return () => {
       clearInterval(i);
     };

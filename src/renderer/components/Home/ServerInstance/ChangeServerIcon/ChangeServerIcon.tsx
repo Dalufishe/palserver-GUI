@@ -35,7 +35,17 @@ export default function ChangeServerIcon() {
         </div>
       </ScrollArea>
 
-      <Flex gap="3" mt="4" justify="end">
+      <Flex gap="3" mt="4" justify="between">
+        <Button
+          color="yellow"
+          onClick={() => {
+            window.electron.openExplorer(
+              window.electron.constant.SERVER_ICONS_PATH(),
+            );
+          }}
+        >
+          {t('OpenFolder2')}
+        </Button>
         <AlertDialog.Cancel>
           <Button variant="soft" color="gray">
             {t('Cancel')}

@@ -4,6 +4,7 @@ import useTranslation from '../../../hooks/useTranslation';
 import _ from 'lodash';
 import Channels from '../../../../main/ipcs/channels';
 import SecureEye from '../../SecureEye';
+import uniqid from 'uniqid';
 
 const defaultServerConfigOptions = {
   serverName: {
@@ -11,30 +12,35 @@ const defaultServerConfigOptions = {
     value: '',
     secure: false,
     showValue: true,
+    required: true,
   },
   publicIP: {
     id: 'PublicIP',
     value: '',
     secure: true,
     showValue: false,
+    required: false,
   },
   publicPort: {
     id: 'PublicPort',
     value: '8211',
     secure: false,
     showValue: true,
+    required: true,
   },
   serverPassword: {
     id: 'ServerPassword',
     value: '',
     secure: true,
     showValue: false,
+    required: false,
   },
   adminPassword: {
     id: 'AdminPassword',
-    value: '',
+    value: uniqid(),
     secure: true,
     showValue: false,
+    required: true,
   },
 };
 
@@ -52,6 +58,8 @@ export default function CreateServerAlert() {
       PublicPort: serverConfigOptions.publicPort.value,
       ServerPassword: `"${serverConfigOptions.serverPassword.value}"`,
       AdminPassword: `"${serverConfigOptions.adminPassword.value}"`,
+      RCONEnabled: true,
+      RESTAPIEnabled: true,
     });
   };
 
@@ -64,7 +72,7 @@ export default function CreateServerAlert() {
             <span>{t(option.id)}：</span>
             <TextField.Root
               type={option.showValue ? 'text' : 'password'}
-              placeholder=""
+              placeholder={option.required ? '' : t('CantBeEmpty')}
               value={option.value}
               onChange={(e) => {
                 setServerConfigOptions({
@@ -103,7 +111,13 @@ export default function CreateServerAlert() {
         </AlertDialog.Cancel>
         <AlertDialog.Action>
           <Button
-            disabled={!serverConfigOptions.serverName.value}
+            disabled={
+              !(
+                serverConfigOptions.serverName.value &&
+                serverConfigOptions.publicPort.value &&
+                serverConfigOptions.adminPassword.value
+              )
+            }
             onClick={handleCreateServer}
             variant="solid"
             color="yellow"

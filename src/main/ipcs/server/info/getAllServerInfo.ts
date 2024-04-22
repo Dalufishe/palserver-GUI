@@ -8,27 +8,31 @@ import { ServerInstanceSetting } from '../../../../types/ServerInstanceSetting.t
 import isJsonString from '../../../../utils/isJsonString';
 
 ipcMain.handle(Channels.getAllServerInfo, async () => {
-  const serverIds = await fs.readdir(USER_SERVER_INSTANCES_PATH);
+  if (fsc.existsSync(USER_SERVER_INSTANCES_PATH)) {
+    const serverIds = await fs.readdir(USER_SERVER_INSTANCES_PATH);
 
-  const allServerInfo: ServerInstanceSetting[] = serverIds.map((serverId) => {
-    const serverInstanceSettingPath = path.join(
-      USER_SERVER_INSTANCES_PATH,
-      serverId,
-      '.pal',
-    );
-    if (fsc.existsSync(serverInstanceSettingPath)) {
-      const serverInfoText = fsc.readFileSync(serverInstanceSettingPath, {
-        encoding: 'utf-8',
-      });
+    const allServerInfo: ServerInstanceSetting[] = serverIds.map((serverId) => {
+      const serverInstanceSettingPath = path.join(
+        USER_SERVER_INSTANCES_PATH,
+        serverId,
+        '.pal',
+      );
 
-      const serverInfo = isJsonString(serverInfoText)
-        ? JSON.parse(serverInfoText)
-        : {};
+      if (fsc.existsSync(serverInstanceSettingPath)) {
+        const serverInfoText = fsc.readFileSync(serverInstanceSettingPath, {
+          encoding: 'utf-8',
+        });
 
-      return serverInfo;
-    }
-    return {};
-  });
+        const serverInfo = isJsonString(serverInfoText)
+          ? JSON.parse(serverInfoText)
+          : {};
 
-  return allServerInfo;
+        return serverInfo;
+      }
+      return {};
+    });
+
+    return allServerInfo;
+  }
+  return [];
 });

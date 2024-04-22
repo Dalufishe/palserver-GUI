@@ -1,0 +1,92 @@
+body {
+  background-color: black;
+}
+#openseadragon {
+  width: 100vw;
+  height: 100vh;
+}
+
+#cursorViewportPosition,
+.input-overlay,
+.textHelper,
+.info,
+.button-overlay {
+  position: fixed;
+  color: white;
+  font-size: 15px;
+  z-index: 9999;
+}
+
+#cursorViewportPosition {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid black;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  right: 1vw;
+  bottom: 1vh;
+}
+
+.textHelper {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid black;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  top: 1vh;
+  left: 1vw;
+}
+
+.info {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid black;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  bottom: 1vh;
+  left: 1vw;
+}
+
+.info a {
+  color: white;
+}
+
+.input-overlay {
+  top: 1vh;
+  right: 2vw;
+  min-width: 10vw;
+  max-width: 30vw;
+}
+
+.input-row {
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid black;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.button-overlay {
+  bottom: 1vh;
+  left: 1vw;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid black;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+.test-overlay {
+  z-index: 100;
+  background: rgb(206, 127, 224);
+  width: 20px;
+  height: 20px;
+  border-radius: 100px;
+}
+.player-label {
+  position: absolute;
+  bottom: 28px;
+  right: 50%;
+  transform: translate(50%, 0%);
+  width: fit-content;
+  color: white;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  display: flex;
+  gap: 8px;
+}

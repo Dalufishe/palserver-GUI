@@ -39,6 +39,9 @@ export default function BootServerButton() {
     const done = window.electron.ipcRenderer.on(
       Channels.execStartServerReply.DONE,
       (serverId, processId) => {
+      
+        console.log(serverId, processId);
+
         addIsRunningServers(serverId, processId);
       },
     );

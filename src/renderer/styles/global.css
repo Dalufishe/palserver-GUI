@@ -1,7 +1,5 @@
 @tailwind base;
-
 @tailwind components;
-
 @tailwind utilities;
 
 * {
@@ -13,7 +11,6 @@
 .App {
   background-color: black;
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
 
   ::-webkit-scrollbar {

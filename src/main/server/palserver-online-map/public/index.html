@@ -1,0 +1,84 @@
+<!-- Yes, i regret not doing it in literally any framework -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>palserver Online Map</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@recogito/annotorious-openseadragon@2.7.17/dist/annotorious.min.css"
+    />
+
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+
+  <body>
+    <div id="openseadragon"></div>
+
+    <span id="cursorViewportPosition"></span>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/openseadragon"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@recogito/annotorious-openseadragon@2.7.17/dist/openseadragon-annotorious.min.js"></script>
+
+    <script>
+      var viewer = OpenSeadragon({
+        showNavigationControl: false,
+        showZoomControl: false,
+        id: 'openseadragon',
+        tileSources: [
+          {
+            type: 'image',
+            url: './map.jpg',
+          },
+        ],
+        minZoomLevel: 1,
+        maxZoomLevel: 10,
+        visibilityRatio: 1.0,
+        defaultZoomLevel: 1,
+        constrainDuringPan: true,
+        zoomPerClick: 1,
+      });
+
+      var config = {
+        disableEditor: true,
+        allowEmpty: true,
+      };
+
+      function onMouseTrackerMove(event) {
+        var viewerX = event.position.x;
+        var viewerY = event.position.y;
+        var windowPoint = new OpenSeadragon.Point(viewerX, viewerY);
+        var viewportPoint =
+          viewer.viewport.windowToImageCoordinates(windowPoint);
+        var imageSize = viewer.source.dimensions;
+
+        var mappedX = (viewportPoint.x / imageSize.x) * 2000 - 1000;
+        var mappedY =
+          ((imageSize.y - viewportPoint.y) / imageSize.y) * 2000 - 1000;
+
+        $('#cursorViewportPosition').text(
+          Math.round(mappedX) + ',' + Math.round(mappedY),
+        );
+      }
+
+      new OpenSeadragon.MouseTracker({
+        element: document,
+        moveHandler: onMouseTrackerMove,
+      }).setTracking(true);
+
+      var anno = OpenSeadragon.Annotorious(viewer, config);
+    </script>
+
+    <!-- <script src="annotationsEvents.js"></script> -->
+
+    <script src="./index.js"></script>
+  </body>
+</html>

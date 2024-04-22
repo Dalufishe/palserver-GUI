@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import Channels from '../../../../main/ipcs/channels';
+import useIsRunningServers from '../../../redux/isRunningServers/useIsRunningServers';
 
 const useServerOnlinePlayers = (serverId: string) => {
+  const { includeRunningServers } = useIsRunningServers();
+
   const [players, setPlayers] = useState<
     {
       name: string;

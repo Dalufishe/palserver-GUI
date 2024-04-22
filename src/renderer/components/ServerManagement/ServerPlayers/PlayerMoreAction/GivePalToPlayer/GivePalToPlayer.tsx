@@ -12,6 +12,7 @@ import PalItem from './PalItem/PalItem';
 import useTranslation from '../../../../../hooks/useTranslation';
 import Channels from '../../../../../../main/ipcs/channels';
 import useSelectedServerInstance from '../../../../../redux/selectedServerInstance/useSelectedServerInstance';
+import formatLocale from '../../../../../utils/formatLocale';
 
 const gamePals = {};
 
@@ -63,7 +64,9 @@ export default function GivePalToPlayer({
 
   return (
     <AlertDialog.Content>
-      <AlertDialog.Title>給予 {name} 帕魯</AlertDialog.Title>
+      <AlertDialog.Title>
+        {formatLocale(t('GivePlayerPal'), [name])}
+      </AlertDialog.Title>
       <AlertDialog.Description>
         {/* <p className="my-2">進階操作使用第三方插件 PalGuard 實現</p> */}
         <ScrollArea

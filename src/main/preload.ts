@@ -5,7 +5,12 @@ import path from 'path';
 import openExplorer from 'explorer-opener';
 import fs from 'fs';
 import Channels from './ipcs/channels';
-import { APP_DATA_PATH, USER_SERVER_INSTANCES_PATH } from './constant';
+import {
+  APP_DATA_PATH,
+  ENGINE_PATH,
+  SERVER_ICONS_PATH,
+  USER_SERVER_INSTANCES_PATH,
+} from './constant';
 
 export type ChannelsType = (typeof Channels)[keyof typeof Channels];
 
@@ -32,6 +37,7 @@ const electronHandler = {
   },
 
   node: {
+    __dirname: () => __dirname,
     path() {
       return path;
     },
@@ -42,6 +48,12 @@ const electronHandler = {
     },
     USER_SERVER_INSTANCES_PATH() {
       return USER_SERVER_INSTANCES_PATH;
+    },
+    ENGNIE_PATH() {
+      return ENGINE_PATH;
+    },
+    SERVER_ICONS_PATH() {
+      return SERVER_ICONS_PATH;
     },
   },
 

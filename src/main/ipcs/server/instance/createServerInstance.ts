@@ -6,10 +6,10 @@ import {
 } from '../../../constant';
 import fs from 'fs/promises';
 import path from 'path';
-import readWorldSettingsini from '../../../services/readWorldSettingsini';
-import writeWorldSettingsini from '../../../services/writeWorldSettingsini';
 import uniqid from 'uniqid';
 import { ServerInstanceSetting } from '../../../../types/ServerInstanceSetting.types';
+import setWorldSettingsiniByServerId from '../../../services/worldSettings/setWorldSettingsiniByServerId';
+import getWorldSettingsByServerId from '../../../services/worldSettings/getWorldSettingsByServerId';
 
 ipcMain.handle(
   Channels.createServerInstance,
@@ -55,28 +55,32 @@ ipcMain.handle(
       serverPath: createdServerPath,
       iconId: 'SheepBall',
       createdAt: createdTime,
+      performanceOptimizationEnabled: false,
+      performanceMonitorEnabled: false,
+      performanceMonitorAnimationEnabled: true,
+      ue4ssEnabled: true,
+      palguardEnabled: true,
+      modManagementEnabled: false,
+      AutoRestart: 0,
+      CrashRestart: false,
+      OverRamRestart: false,
+      openToCommunity: false,
     };
     fs.writeFile(
       serverInstanceSettingPath,
-      JSON.stringify(serverInstanceSettingJson),
+      JSON.stringify(serverInstanceSettingJson, null, 4),
       { encoding: 'utf-8' },
     );
 
     // 寫入世界設定 (ini)
-    const worldSettingsiniPath = path.join(
-      createdServerPath,
-      'Pal/Saved/Config/WindowsServer/PalWorldSettings.ini',
-    );
-
-    const prevWorldSettingsiniJson =
-      await readWorldSettingsini(worldSettingsiniPath);
+    const prevWorldSettingsiniJson = await getWorldSettingsByServerId(serverId);
 
     const worldSettingsiniJson = {
       ...prevWorldSettingsiniJson,
       ...serverConfig,
     };
 
-    writeWorldSettingsini(worldSettingsiniPath, worldSettingsiniJson);
+    setWorldSettingsiniByServerId(serverId, worldSettingsiniJson);
 
     // 寫入世界設定 (sav)
 

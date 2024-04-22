@@ -13,6 +13,7 @@ import Channels from '../../../../../../main/ipcs/channels';
 import useSelectedServerInstance from '../../../../../redux/selectedServerInstance/useSelectedServerInstance';
 import ItemItem from './ItemItem/ItemItem';
 import { MdSearch } from 'react-icons/md';
+import formatLocale from '../../../../../utils/formatLocale';
 
 export default function GiveItemToPlayer({
   actionType,
@@ -55,7 +56,9 @@ export default function GiveItemToPlayer({
 
   return (
     <AlertDialog.Content>
-      <AlertDialog.Title>給予 {name} 道具</AlertDialog.Title>
+      <AlertDialog.Title>
+        {formatLocale(t('GivePlayerItem'), [name])}
+      </AlertDialog.Title>
       <AlertDialog.Description>
         {/* <p className="my-2">進階操作使用第三方插件 PalGuard 實現</p> */}
         <ScrollArea
