@@ -65,6 +65,8 @@ ipcMain.handle(
       CrashRestart: false,
       OverRamRestart: false,
       openToCommunity: false,
+      OnlineMapEnabled: false,
+      LogEnabled: true,
     };
     fs.writeFile(
       serverInstanceSettingPath,

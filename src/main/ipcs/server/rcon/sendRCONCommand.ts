@@ -3,7 +3,7 @@ import Channels from '../../channels';
 import trimWorldSettingsString from '../../../../utils/trimWorldSettingsString';
 import axios from 'axios';
 import getWorldSettingsByServerId from '../../../services/worldSettings/getWorldSettingsByServerId';
-import sendCommand from '../../utils/rcon/sendCommand';
+import sendCommand from '../../../utils/rcon/sendCommand';
 
 ipcMain.handle(
   Channels.sendRCONCommand,

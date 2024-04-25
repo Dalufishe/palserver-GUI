@@ -39,14 +39,14 @@ export default function ServerPlayers() {
           </div> */}
           </div>
           <div>
-            <iframe
+            {/* <iframe
               className="w-[320px] h-[320px]"
               src={`http://127.0.0.1:3434?ip=127.0.0.1&port=${
                 worldSettings.RESTAPIPort
               }&password=${trimWorldSettingsString(
                 worldSettings.AdminPassword,
               )}`}
-            />
+            /> */}
           </div>
         </div>
       ) : (

@@ -227,10 +227,12 @@ export default function ServerInstance(props: Props) {
         <TheContextMenu
           trigger={
             <div
-              onClick={handleSelectServerInstance}
+              onClick={
+                props.info.serverId ? handleSelectServerInstance : () => {}
+              }
               className="flex flex-col gap-y-2 items-center w-28 h-24 p-2 pt-3 cursor-pointer rounded-lg hover:bg-bg1 relative"
             >
-              {worldSettings.ServerName ? (
+              {props.info.serverId ? (
                 <div className="relative">
                   <img
                     src={serverIcon?.image}

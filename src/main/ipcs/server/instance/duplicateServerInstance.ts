@@ -7,7 +7,6 @@ import readWorldSettingsini from '../../../services/worldSettings/readWorldSetti
 import writeWorldSettingsini from '../../../services/worldSettings/writeWorldSettingsini';
 import uniqid from 'uniqid';
 import { ServerInstanceSetting } from '../../../../types/ServerInstanceSetting.types';
-import convertToWorldOptionsByServerId from '../../../services/worldSettings/convertToWorldOptionsByServerId';
 import getWorldSettingsByServerId from '../../../services/worldSettings/getWorldSettingsByServerId';
 import setWorldSettingsiniByServerId from '../../../services/worldSettings/setWorldSettingsiniByServerId';
 

@@ -1,10 +1,17 @@
 import path from 'path';
 
-export const APP_DATA_PATH = (function () {
+export const PROGRAM_APP_DATA_PATH = (function () {
   const appDataPath = process.env.APPDATA || '';
   return process.env.NODE_ENV === 'development'
     ? path.join(appDataPath, '../Local/Programs', 'palserver-gui-dev')
     : path.join(appDataPath, '../Local/Programs', 'palserver-gui');
+})();
+
+export const APP_DATA_PATH = (function () {
+  const appDataPath = process.env.APPDATA || '';
+  return process.env.NODE_ENV === 'development'
+    ? path.join(appDataPath, '../Local', 'palserver-gui-dev')
+    : path.join(appDataPath, '../Local', 'palserver-gui');
 })();
 
 export const USER_SERVER_INSTANCES_PATH = path.join(APP_DATA_PATH, 'instances');
@@ -12,7 +19,7 @@ export const USER_SERVER_INSTANCES_PATH = path.join(APP_DATA_PATH, 'instances');
 export const ENGINE_PATH =
   process.env.NODE_ENV === 'development'
     ? path.join(__dirname, '../../assets/engine')
-    : path.join(APP_DATA_PATH, 'resources/assets/engine');
+    : path.join(PROGRAM_APP_DATA_PATH, 'resources/assets/engine');
 
 export const STEAMCMD_PATH = path.join(ENGINE_PATH, 'steamcmd-engine');
 

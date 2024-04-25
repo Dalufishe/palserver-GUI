@@ -71,26 +71,9 @@
 <img src="https://i.ytimg.com/vi_webp/8Vq7uANT0Eo/maxresdefault.webp"/>
 </a>
 
-### Roadmap
+### 條款
 
-#### 開發中
-
-- 屏蔽 IP 地址，防止盜版外掛
-- 自動重啟、定時關閉等功能
-
-#### 已完成
-
-- 一鍵安裝，一鍵啟動伺服器
-- 可視化世界設定修改頁面
-- 一鍵更新伺服器
-- 多伺服器、存檔管理
-- 自動存檔，閃退存檔不會再消失了
-- 自動備份，救回壞檔前的存檔
-- 支持存檔遷移 (專用轉專用、四人轉專用都可以！)
-- 模組管理及匯出功能
-- 管理員控制台，支援 RCON 指令 & 查看在線玩家
-- 封鎖名單管理
-- 本地化，支持多語言
+程式碼僅供學習用途，不得再次將軟體進行二次打包散佈、販售。也不得進行商業使用。
 
 ### 參與貢獻
 
@@ -104,7 +87,7 @@
 也可以給予一杯咖啡的支持 [buymeacoffee](https://www.buymeacoffee.com/dalufish) ，鼓勵我繼續創作，感激不盡。
 
 <a href="https://www.buymeacoffee.com/Dalufish"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Dalufish&button_colour=FFDD00&font_colour=000000&font_family=Comic&outline_colour=000000&coffee_colour=ffffff" /></a>
-
+0
 ### 回報問題
 
 目前專案仍在超早期階段，可能存在一定數量的 bugs (僅管我已經很努力排除)，如果您發現了錯誤歡迎到 [issues](https://github.com/Dalufishe/palserver-GUI/issues) 發表，我會在最短時間內解決問題。另外有想加的功能或改進也都歡迎到 [issues](https://github.com/Dalufishe/palserver-GUI/issues) 提出。

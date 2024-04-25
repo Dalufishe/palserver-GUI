@@ -15,5 +15,6 @@ export default async (serverId: string, worldSettingsiniJson: any) => {
   );
 
   await writeWorldSettingsini(worldSettingsPath, worldSettingsiniJson);
-  convertToWorldOptionsByServerId(serverId);
+  // 退役了
+  // convertToWorldOptionsByServerId(serverId);
 };

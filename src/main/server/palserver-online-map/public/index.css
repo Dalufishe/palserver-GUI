@@ -72,7 +72,7 @@ body {
 }
 .test-overlay {
   z-index: 100;
-  background: rgb(206, 127, 224);
+  background: rgb(53, 206, 58);
   width: 20px;
   height: 20px;
   border-radius: 100px;

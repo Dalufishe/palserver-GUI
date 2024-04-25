@@ -8,13 +8,21 @@ const useIsRunningServers = () => {
 
   const isRunningServers = useSelector<
     RootState,
-    { serverId: string; processId: number }[]
+    { serverId: string; processId: number; queryPort: number }[]
   >((state) => state.isRunningServers);
 
-  const addIsRunningServers = (serverId: string, processId: number) => {
+  const addIsRunningServers = (
+    serverId: string,
+    processId: number,
+    queryPort: number,
+  ) => {
     dispatch(
       isRunningServersAction(
-        _.unionBy(isRunningServers, [{ serverId, processId }], 'serverId'),
+        _.unionBy(
+          isRunningServers,
+          [{ serverId, processId, queryPort }],
+          'serverId',
+        ),
       ),
     );
   };

@@ -324,5 +324,13 @@ const zh_tw = {
   PalguardNeedUpgrade: 'Palguard 需要更新！',
   PalguardNeedUpgradeDesc: '將 Palguard 更新到最新版，否則有些功能可能失效。',
   Update: '更新',
+  ModManagement: '模組插件管理',
+  AddLuaMod: '新增 Lua模組',
+  OpenLuaModFolder: '開啟模組資料夾',
+  OtherExtensions: '額外擴展',
+  OnlineMap: '線上地圖',
+  OnlineMapDesc: '實時查看在線玩家遊戲位置。',
+  LogEnabled: '啟用日誌',
+  LogEnabledDesc: '支援 Palguard 日誌顯示玩家進出，聊天訊息等。',
 };
 export default zh_tw;

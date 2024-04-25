@@ -15,84 +15,66 @@ import NoServerHint from '../components/Home/NoServerHint/NoServerHint';
 export default function Home() {
   // const { t } = useTranslation();
 
-  const hasInstalled = useRunServerInstall();
-
   const serverInfos = useAllServerInfo();
 
   const [currentAction, setCurrentAction] = useState<string | null>(null);
-  const rightClickOptions: ContextMenuOptions = hasInstalled
-    ? [
-        //* 建立伺服器 (未完成)
+  const rightClickOptions: ContextMenuOptions = [
+    //* 建立伺服器 (未完成)
+    {
+      id: 'CreateServer',
+      type: 'action',
+      action() {
+        setCurrentAction('CreateServer');
+      },
+    },
+    {
+      id: 'ImportServer',
+      type: 'sub',
+      sub: [
         {
-          id: 'CreateServer',
+          id: 'FourPlayerSave',
           type: 'action',
-          action() {
-            setCurrentAction('CreateServer');
-          },
         },
         {
-          id: 'ImportServer',
-          type: 'sub',
-          sub: [
-            {
-              id: 'FourPlayerSave',
-              type: 'action',
-            },
-            {
-              id: 'DedicatedServer',
-              type: 'action',
-            },
-            {
-              id: 'ServerInstance',
-              type: 'action',
-            },
-          ],
-        },
-        {
-          id: '',
-          type: 'seperator',
-        },
-        //* 建立遠端連接 (未完成)
-        {
-          id: 'CreateRemoteServer',
+          id: 'DedicatedServer',
           type: 'action',
-          shortcut: '⇗',
-          action() {
-            setCurrentAction('CreateRemoteServer');
-          },
         },
-      ]
-    : [
-        //* 建立遠端連接 (未完成)
         {
-          id: 'CreateRemoteServer',
+          id: 'ServerInstance',
           type: 'action',
-          shortcut: '⇗',
-          action() {
-            setCurrentAction('CreateRemoteServer');
-          },
         },
-      ];
+      ],
+    },
+    {
+      id: '',
+      type: 'seperator',
+    },
+    //* 建立遠端連接 (未完成)
+    {
+      id: 'CreateRemoteServer',
+      type: 'action',
+      shortcut: '⇗',
+      action() {
+        setCurrentAction('CreateRemoteServer');
+      },
+    },
+  ];
 
   return (
     <AlertDialog.Root>
       <ContextMenu
         trigger={
           <div className="page-container">
-            {hasInstalled ? (
-              serverInfos.length ? (
-                <div className="flex flex-row items-start gap-3 flex-wrap">
-                  {serverInfos
-                    .sort((a, b) => a.createdAt - b.createdAt)
-                    .map((info) => (
-                      <ServerInstance info={info} />
-                    ))}
-                </div>
-              ) : (
-                <NoServerHint />
-              )
+            {serverInfos.length ? (
+              <div className="flex flex-row items-start gap-3 flex-wrap">
+                {serverInfos
+                  .sort((a, b) => a.createdAt - b.createdAt)
+                  .map((info) => (
+                    <ServerInstance info={info} />
+                  ))}
+              </div>
             ) : (
-              <EngineInstallingHint />
+              <NoServerHint />
             )}
             <Version />
           </div>

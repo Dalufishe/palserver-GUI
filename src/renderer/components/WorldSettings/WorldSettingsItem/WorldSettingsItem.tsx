@@ -33,7 +33,7 @@ function WorldSettingsItem({ id, worldSettings, setWorldSettings }) {
                 onChange={(e) => {
                   setWorldSettings({
                     ...worldSettings,
-                    [id]: e.target.value,
+                    [id]: Number(e.target.value),
                   });
                 }}
               />

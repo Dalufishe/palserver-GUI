@@ -62,7 +62,10 @@ export default function ServerSettings() {
           window.electron.ipcRenderer.once(
             Channels.updateServerInstanceReply.DONE,
             () => {
-              window.alert(t('ServerUpdateDone'));
+              window.electron.ipcRenderer.sendMessage(
+                'alert',
+                t('ServerUpdateDone'),
+              );
             },
           );
         },
@@ -376,6 +379,32 @@ export default function ServerSettings() {
           setServerInfo({
             ...serverInfo!,
             OverRamRestart: v,
+          });
+        },
+      },
+    },
+    OtherExtensions: {
+      LogEnabled: {
+        id: 'LogEnabled',
+        title: t('LogEnabled'),
+        desciption: t('LogEnabledDesc'),
+        value: serverInfo?.LogEnabled,
+        onValueChange(v) {
+          setServerInfo({
+            ...serverInfo!,
+            LogEnabled: v,
+          });
+        },
+      },
+      OnlineMap: {
+        id: 'OnlineMap',
+        title: t('OnlineMap'),
+        desciption: t('OnlineMapDesc'),
+        value: serverInfo?.OnlineMapEnabled,
+        onValueChange(v) {
+          setServerInfo({
+            ...serverInfo!,
+            OnlineMapEnabled: v,
           });
         },
       },

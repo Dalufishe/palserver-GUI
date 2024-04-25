@@ -3,7 +3,7 @@ import { Link } from '@radix-ui/themes';
 export default function Version() {
   return (
     <div className="absolute bottom-2 left-2 text-xs flex w-[97%] justify-between font-mono">
-      <div>Beta - 0.4.0 (windows)</div>
+      <div>Beta - 0.4.3 (windows)</div>
       <div>
         Made by Dalufishe, Supported by{' '}
         <span

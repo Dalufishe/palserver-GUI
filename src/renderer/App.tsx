@@ -14,9 +14,16 @@ import RightSection from './components/RightSection/RightSection';
 import WorldSettings from './pages/WorldSettings';
 import ServerManagement from './pages/ServerManagement';
 import useSelectedServerInstance from './redux/selectedServerInstance/useSelectedServerInstance';
+import ModManagement from './pages/ModManagement';
+import { useEffect } from 'react';
+import useRunServerInstall from './hooks/server/useRunServerInstall';
+import EngineInstallingHint from './components/Home/EngineInstallingHint/EngineInstallingHint';
 
 export default function App() {
+  const hasInstalled = useRunServerInstall();
+
   const { selectedServerInstance } = useSelectedServerInstance();
+
   return (
     <Router>
       <Theme>
@@ -27,9 +34,14 @@ export default function App() {
               <AboutSection />
               <Switch>
                 {/* <Route path="/monitor" component={Monitor} /> */}
-                <Route exact path="/" component={Home} />
+                <Route
+                  exact
+                  path="/"
+                  component={hasInstalled ? Home : EngineInstallingHint}
+                />
                 <Route path="/world-settings" component={WorldSettings} />
                 <Route path="/server-management" component={ServerManagement} />
+                <Route path="/mod-management" component={ModManagement} />
 
                 {/*
                 <Route path="/save-settings" component={SaveSettings} />

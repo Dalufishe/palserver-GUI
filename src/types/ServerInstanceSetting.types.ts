@@ -16,4 +16,6 @@ export type ServerInstanceSetting = {
   readonly CrashRestart: boolean;
   readonly OverRamRestart: boolean;
   readonly openToCommunity: boolean;
+  readonly OnlineMapEnabled: boolean;
+  readonly LogEnabled: boolean;
 };

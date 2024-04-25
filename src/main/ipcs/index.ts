@@ -41,3 +41,6 @@ import './server/backup/getOfficalServerBackup';
 import './server/saved/getCorrectSaveGamesPath';
 
 import './server/init/runServerInstall';
+import './init/getIsFirstInstall';
+
+import './alert/alert';

@@ -10,6 +10,7 @@ import useServerInfo from '../hooks/server/info/useServerInfo';
 import useSelectedServerInstance from '../redux/selectedServerInstance/useSelectedServerInstance';
 import useTranslation from '../hooks/useTranslation';
 import useIsRunningServers from '../redux/isRunningServers/useIsRunningServers';
+import OnlineMap from '../components/ServerManagement/OnlineMap/OnlineMap';
 
 export default function ServerManagement() {
   const { t } = useTranslation();
@@ -18,7 +19,7 @@ export default function ServerManagement() {
   const { serverInfo } = useServerInfo(selectedServerInstance);
 
   const [managementMode, setManagementMode] = useState<
-    'log' | 'performance' | 'players' | 'settings'
+    'log' | 'performance' | 'players' | 'settings' | 'map'
   >('settings');
 
   // 效能監控相關
@@ -104,6 +105,14 @@ export default function ServerManagement() {
               >
                 {t('ServerPlayers')}
               </Tabs.Trigger>
+              {serverInfo?.OnlineMapEnabled && (
+                <Tabs.Trigger
+                  value="map"
+                  style={{ color: 'white', fontWeight: 500 }}
+                >
+                  {t('OnlineMap')}
+                </Tabs.Trigger>
+              )}
             </>
           )}
 
@@ -115,7 +124,6 @@ export default function ServerManagement() {
               {t('PerformanceMonitor')}
             </Tabs.Trigger>
           )}
-
           <Tabs.Trigger
             value="settings"
             style={{ color: 'white', fontWeight: 500 }}
@@ -134,6 +142,9 @@ export default function ServerManagement() {
             setNewLogCount(c);
           }}
         />
+      </Display>
+      <Display display={managementMode === 'map'}>
+        <OnlineMap />
       </Display>
       <Display display={managementMode === 'performance'}>
         <PerformanceMonitor

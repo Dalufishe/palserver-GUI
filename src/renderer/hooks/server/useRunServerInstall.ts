@@ -5,9 +5,7 @@ import useTranslation from '../useTranslation';
 const useRunServerInstall = () => {
   const { t } = useTranslation();
 
-  const [serverEngineHasInstall, setServerEngineHasInstall] = useState(
-    JSON.parse(window.localStorage.getItem('engine-has-install') || 'false'),
-  );
+  const [serverEngineHasInstall, setServerEngineHasInstall] = useState(false);
 
   useEffect(() => {
     if (!serverEngineHasInstall) {
@@ -20,14 +18,18 @@ const useRunServerInstall = () => {
             'engine-has-install',
             JSON.stringify(true),
           );
-          window.alert(t('EngineInstallFinish'));
+          window.electron.ipcRenderer.sendMessage(
+            'alert',
+            t('EngineInstallFinish'),
+          );
         },
       );
       window.electron.ipcRenderer.once(
         Channels.runServerInstallReply.ERROR,
         (data) => {
           if (data.errorMessage === 'ASCII') {
-            window.alert(
+            window.electron.ipcRenderer.sendMessage(
+              'alert',
               t('HasNotASCIIPath') + window.electron.node.__dirname(),
             );
           }

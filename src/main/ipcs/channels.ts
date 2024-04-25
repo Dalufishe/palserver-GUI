@@ -1,5 +1,6 @@
 const Channels = {
   // init
+  getIsFirstInstall: 'get-is-first-install',
   runServerInstall: 'run-server-install',
   runServerInstallReply: {
     PROGRESS: 'run-server-install:progress',

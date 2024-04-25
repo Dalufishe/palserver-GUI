@@ -18,9 +18,20 @@ export default function BootServerButton() {
   const isServerRunning = includeRunningServers(selectedServerInstance);
 
   const handleBootServer = () => {
+    const queryPorts = isRunningServers.map((server) => server.queryPort);
+
+    let queryPort = 27015;
+
+    while (queryPorts.includes(queryPort)) {
+      queryPort = Number(
+        '270' + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10),
+      );
+    }
+
     window.electron.ipcRenderer.sendMessage(
       Channels.execStartServer,
       selectedServerInstance,
+      queryPort,
     );
   };
 
@@ -38,11 +49,8 @@ export default function BootServerButton() {
   useEffect(() => {
     const done = window.electron.ipcRenderer.on(
       Channels.execStartServerReply.DONE,
-      (serverId, processId) => {
-      
-        console.log(serverId, processId);
-
-        addIsRunningServers(serverId, processId);
+      (serverId, processId, queryPort) => {
+        addIsRunningServers(serverId, processId, queryPort);
       },
     );
     const exit = window.electron.ipcRenderer.on(

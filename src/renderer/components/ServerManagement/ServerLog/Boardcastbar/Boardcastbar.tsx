@@ -12,7 +12,7 @@ export default function Boardcastbar() {
   const [input, setInput] = useState('');
 
   const handleConfirm = () => {
-    if (!input.trim()) {
+    if (input.trim()) {
       if (input.startsWith('/')) {
         handleSendCommand();
       } else {

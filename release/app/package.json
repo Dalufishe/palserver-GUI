@@ -1,6 +1,6 @@
 {
   "name": "palserver-gui",
-  "version": "0.4.0",
+  "version": "0.4.3",
   "description": "GUI support, one-click Palworld dedicated servers management tool.",
   "author": {
     "name": "Dalufishe"

@@ -7,10 +7,15 @@ import RightSectionButton from './ui/RightSectionButton/RightSectionButton';
 import useTranslation from '../../hooks/useTranslation';
 import { useHistory } from 'react-router-dom';
 import { MdAnnouncement } from 'react-icons/md';
+import useSelectedServerInstance from '../../redux/selectedServerInstance/useSelectedServerInstance';
+import useServerInfo from '../../hooks/server/info/useServerInfo';
 
 export default function RightSection() {
   const { t } = useTranslation();
   const history = useHistory();
+
+  const { selectedServerInstance } = useSelectedServerInstance();
+  const { serverInfo } = useServerInfo(selectedServerInstance);
 
   return (
     <div className="w-[400px] h-full p-4 bg-bg2 flex flex-col gap-4 relative">
@@ -31,7 +36,15 @@ export default function RightSection() {
         >
           {t('WorldSettings')}
         </RightSectionButton>
-
+        {/* {serverInfo?.modManagementEnabled && (
+          <RightSectionButton
+            onClick={() => {
+              history.push('/mod-management');
+            }}
+          >
+            {t('ModManagement')}
+          </RightSectionButton>
+        )} */}
         <BootServerButton />
       </div>
     </div>
