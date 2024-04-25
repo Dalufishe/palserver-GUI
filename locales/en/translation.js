@@ -215,7 +215,7 @@ const en = {
   Rename: 'Rename',
   DeleteMod: 'Delete Mod',
   SetTime: 'Set Time',
-  HourPerTime: 'per hours',
+  HourPerTime: 'hours',
   UpdateLog: 'Update Log',
   OpenToCommunity: 'Open to Community Menu',
   PalSettings: 'Pal Settings',
@@ -329,5 +329,23 @@ const en = {
   GiveExp: 'Give Experience',
   GivePlayerExp: 'Give ${1} Exp',
   GiveExpDesc: 'Give ${1} specified amount of experience',
+  ClickLink: 'Open Link',
+  OpenFolder2: 'Open Folder',
+  UE4SSNeedUpgrade: 'UE4SS Needs Upgrade!',
+  UE4SSNeedUpgradeDesc:
+    'Upgrade UE4SS to the latest version, otherwise some modules may not function properly.',
+  PalguardNeedUpgrade: 'Palguard Needs Upgrade!',
+  PalguardNeedUpgradeDesc:
+    'Upgrade Palguard to the latest version, otherwise some features may not function properly.',
+  Update: 'Update',
+  ModManagement: 'Mod Plugin Management',
+  AddLuaMod: 'Add Lua Mod',
+  OpenLuaModFolder: 'Open Mod Folder',
+  OtherExtensions: 'Other Extensions',
+  OnlineMap: 'Online Map',
+  OnlineMapDesc: 'View online player game locations in real-time.',
+  LogEnabled: 'Log Enabled',
+  LogEnabledDesc:
+    'Support Palguard log display for player entry, chat messages, etc.',
 };
 export default en;

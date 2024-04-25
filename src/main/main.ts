@@ -14,11 +14,11 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
- 
+
 // ipc
 import './ipcs/index';
 // servers
-import './server/palserver-online-map/server';
+import './server/server-online-map/server';
 
 process.setMaxListeners(0);
 

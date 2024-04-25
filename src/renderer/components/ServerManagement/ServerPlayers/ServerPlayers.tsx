@@ -23,9 +23,25 @@ export default function ServerPlayers() {
     <div className="w-full h-full mt-4 flex">
       {players.length ? (
         <div className="w-full flex justify-between pr-4">
-          <div className="w-full h-[calc(100vh-180px)] overflow-y-scroll flex flex-col gap-1">
+          <div className="w-full h-[calc(100vh-180px)] overflow-y-scroll flex flex-wrap gap-4">
             {players.map((player, i) => (
-              <PlayerPreview playerIndex={i} />
+              <>
+                <PlayerPreview playerIndex={i} />
+                <PlayerPreview playerIndex={i} />
+                <PlayerPreview playerIndex={i} />
+                <PlayerPreview playerIndex={i} />
+                <PlayerPreview playerIndex={i} />
+                <PlayerPreview playerIndex={i} />
+                <PlayerPreview playerIndex={i} />
+                <PlayerPreview playerIndex={i} />
+                <PlayerPreview playerIndex={i} />
+                <PlayerPreview playerIndex={i} />
+                <PlayerPreview playerIndex={i} />
+                <PlayerPreview playerIndex={i} />
+                <PlayerPreview playerIndex={i} />
+                <PlayerPreview playerIndex={i} />
+                <PlayerPreview playerIndex={i} />
+              </>
             ))}
             {/* <div className="flex flex-col gap-1">
             {players.map((player, i) => (
