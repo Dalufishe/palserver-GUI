@@ -1,7 +1,6 @@
 import { ipcMain } from 'electron';
 import Channels from '../../channels';
 import { STEAMCMD_PATH, USER_SERVER_INSTANCES_PATH } from '../../../constant';
-import fs from 'fs/promises';
 import path from 'path';
 import { spawn } from 'child_process';
 

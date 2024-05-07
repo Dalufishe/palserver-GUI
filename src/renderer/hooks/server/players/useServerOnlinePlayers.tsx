@@ -25,9 +25,7 @@ const useServerOnlinePlayers = (serverId: string) => {
         .then((data: any) => {
           setPlayers(data?.players);
         })
-        .catch((error) => {
-          console.log(error);
-        });
+        .catch((error) => {});
     }, 1000);
     return () => {
       clearInterval(i);

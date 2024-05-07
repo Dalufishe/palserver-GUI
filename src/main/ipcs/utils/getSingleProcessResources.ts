@@ -10,9 +10,7 @@ ipcMain.handle(Channels.getSingleProcessResources, async (event, processId) => {
   try {
     const stats = await pidusage(processId);
 
-    console.log(stats);
-
-    cpuUsage = stats.cpu;
+    cpuUsage = stats.cpu / 10;
     memUsage = (stats.memory / osu.mem.totalMem()) * 100;
   } catch (e) {
     cpuUsage = 0;

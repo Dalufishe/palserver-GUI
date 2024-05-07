@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Channels from '../../../../main/ipcs/channels';
 import useSelectedServerInstance from '../../../redux/selectedServerInstance/useSelectedServerInstance';
 import useTranslation from '../../../hooks/useTranslation';
-import { TextField, Theme } from '@radix-ui/themes';
+import { AlertDialog, TextField, Theme } from '@radix-ui/themes';
 import Boardcastbar from './Boardcastbar/Boardcastbar';
 
 const logSheet = [
@@ -45,7 +45,7 @@ export default function ServerLog({
     const getLog = window.electron.ipcRenderer.on(
       Channels.getServerLogReply.DATA,
       (data: string) => {
-        setLog(applySheet(data).split('\n').slice(38));
+        setLog(applySheet(data).split('\n').slice(40));
       },
     );
     return () => {
@@ -65,24 +65,28 @@ export default function ServerLog({
   }, [log.length, prevLog.length]);
 
   return (
-    <div className="my-4 flex flex-col gap-8">
-      <div className="w-full h-[calc(100vh-284px)] overflow-y-scroll rounded-md">
-        {log.length ? (
-          <div className="flex flex-col-reverse gap-2 p-4">
-            {log
-              .slice()
-              .reverse()
-              .map((l) => (
-                <div className="font-mono">{l}</div>
-              ))}
-          </div>
-        ) : (
-          <div>
-            <div className="text-2xl opacity-60 p-4">{t('ServerHasNoLog')}</div>
-          </div>
-        )}
+    <AlertDialog.Root>
+      <div className="my-4 flex flex-col gap-8">
+        <div className="w-full h-[calc(100vh-284px)] overflow-y-scroll rounded-md">
+          {log.length ? (
+            <div className="flex flex-col-reverse gap-2 p-4">
+              {log
+                .slice()
+                .reverse()
+                .map((l) => (
+                  <div className="font-mono">{l}</div>
+                ))}
+            </div>
+          ) : (
+            <div>
+              <div className="text-2xl opacity-60 p-4">
+                {t('ServerHasNoLog')}
+              </div>
+            </div>
+          )}
+        </div>
+        <Boardcastbar />
       </div>
-      <Boardcastbar />
-    </div>
+    </AlertDialog.Root>
   );
 }

@@ -2,14 +2,11 @@
 import { AlertDialog } from '@radix-ui/themes';
 import Version from '../components/Version';
 import ServerInstance from '../components/Home/ServerInstance/ServerInstance';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import CreateServerAlert from '../components/Home/CreateServer/CreateServerAlert';
 import CreateRemoteServerAlert from '../components/Home/CreateRemoteServer/CreateRemoteServerAlert';
 import useAllServerInfo from '../hooks/server/info/useAllServerInfo';
 import ContextMenu, { ContextMenuOptions } from '../components/ContextMenu';
-import { LuServer } from 'react-icons/lu';
-import useRunServerInstall from '../hooks/server/useRunServerInstall';
-import EngineInstallingHint from '../components/Home/EngineInstallingHint/EngineInstallingHint';
 import NoServerHint from '../components/Home/NoServerHint/NoServerHint';
 
 export default function Home() {

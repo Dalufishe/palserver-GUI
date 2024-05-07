@@ -44,3 +44,6 @@ import './server/init/runServerInstall';
 import './init/getIsFirstInstall';
 
 import './alert/alert';
+
+import './server/plugin/updatePalguard';
+import './server/plugin/updateUE4SS';

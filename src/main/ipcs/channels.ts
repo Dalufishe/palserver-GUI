@@ -53,5 +53,8 @@ const Channels = {
   getOfficalServerBackup: 'get-offical-server-backup',
   // saved
   getCorrectSaveGamesPath: 'get-correct-savegames-path',
+  //
+  updatePalguard: 'update-palguard',
+  updateUE4SS: 'update-ue4ss',
 } as const;
 export default Channels;

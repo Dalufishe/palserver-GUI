@@ -7,7 +7,10 @@ import getSortedFiles from '../../../utils/getSortedFiles';
 
 ipcMain.on(Channels.getServerLog, async (event, serverId) => {
   const serverPath = path.join(USER_SERVER_INSTANCES_PATH, serverId, 'server');
-  const serverLogsPath = path.join(serverPath, 'Pal/Binaries/Win64/logs');
+  const serverLogsPath = path.join(
+    serverPath,
+    'Pal/Binaries/Win64/palguard/logs',
+  );
   let serverLogsDir = await getSortedFiles(serverLogsPath);
   let serverLogsStartWithNumber = serverLogsDir.filter((l) => /^\d/.test(l));
 
@@ -24,7 +27,6 @@ ipcMain.on(Channels.getServerLog, async (event, serverId) => {
 
   fs.watch(serverLogsPath, async () => {
     serverLogsDir = await getSortedFiles(serverLogsPath);
-    serverLogsStartWithNumber = serverLogsDir.filter((l) => /^\d/.test(l));
 
     // latest log file
     serverLogFile = path.join(serverLogsPath, serverLogsStartWithNumber[0]);

@@ -92,7 +92,7 @@ export default function ActionList({
           />
           <ActionItem
             title={t('GiveItem')}
-            subtitle={formatLocale(t('GiveItem'), [name])}
+            subtitle={formatLocale(t('GiveItemDesc'), [name])}
             buttonText={t('Choose')}
             color="yellow"
             onButtonClick={() => {

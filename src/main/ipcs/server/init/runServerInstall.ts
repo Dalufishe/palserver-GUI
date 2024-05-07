@@ -3,7 +3,11 @@ import { spawn } from 'child_process';
 import { ipcMain } from 'electron';
 import Channels from '../../channels';
 import path from 'path';
-import { ENGINE_PATH, SERVER_TEMPLATE_PATH, STEAMCMD_PATH } from '../../../constant';
+import {
+  ENGINE_PATH,
+  SERVER_TEMPLATE_PATH,
+  STEAMCMD_PATH,
+} from '../../../constant';
 import isASCII from '../../../../utils/isASCII';
 import loadSavedTemplate from '../../../services/templates/loadSaveTemplate';
 import loadUE4SSTemplate from '../../../services/templates/loadUE4SSTemplate';
@@ -26,6 +30,12 @@ ipcMain.on(Channels.runServerInstall, async (event) => {
       'validate',
       '+quit',
     ]);
+
+    palserverUpdate.stdout.on('data', (data) => {
+      event.reply(Channels.runServerInstallReply.PROGRESS, {
+        message: data.toString(),
+      });
+    });
 
     palserverUpdate.on('exit', async () => {
       await Promise.all([

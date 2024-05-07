@@ -93,12 +93,14 @@ export default function ServerManagement() {
         <Tabs.List>
           {includeRunningServers(selectedServerInstance) && (
             <>
-              <Tabs.Trigger
-                value="log"
-                style={{ color: 'white', fontWeight: 500 }}
-              >
-                {t('ServerLog')}
-              </Tabs.Trigger>
+              {serverInfo?.LogEnabled && (
+                <Tabs.Trigger
+                  value="log"
+                  style={{ color: 'white', fontWeight: 500 }}
+                >
+                  {t('ServerLog')}
+                </Tabs.Trigger>
+              )}
               <Tabs.Trigger
                 value="players"
                 style={{ color: 'white', fontWeight: 500 }}

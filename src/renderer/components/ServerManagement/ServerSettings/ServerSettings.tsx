@@ -20,6 +20,7 @@ import SaveBackup from './ServerBackup/ServerBackup';
 import Link from '../../Link';
 import useServerInfo from '../../../hooks/server/info/useServerInfo';
 import Channels from '../../../../main/ipcs/channels';
+import PalguardSettings from './PalguardSettings/PalguardSettings';
 
 export default function ServerSettings() {
   const { t } = useTranslation();
@@ -31,6 +32,7 @@ export default function ServerSettings() {
   const { serverInfo, setServerInfo } = useServerInfo(selectedServerInstance);
 
   const [openSaveBackup, setOpenSaveBackup] = useState(false);
+  const [openPalguardSettings, setOpenPalguardSettings] = useState(false);
 
   const settingOptions = {
     ServerUpgrade: {
@@ -70,72 +72,83 @@ export default function ServerSettings() {
           );
         },
       },
-      // UE4SSNeedUpgrade: {
-      //   id: 'UE4SSNeedUpgrade',
-      //   title: t('UE4SSNeedUpgrade'),
-      //   desciption: (
-      //     <span>
-      //       {t('UE4SSNeedUpgradeDesc')}{' '}
-      //       <Theme
-      //         appearance="dark"
-      //         style={{ background: 'inherit', display: 'inline-block' }}
-      //       >
-      //         <Text color="blue">
-      //           <span className="underline">v0.2.1</span> {'> '}
-      //           <span className="underline">v0.6.0</span>
-      //         </Text>
-      //       </Theme>
-      //     </span>
-      //   ),
-      //   type: 'button',
-      //   buttonText: t('Update'),
-      //   action() {
-      //     window.electron.ipcRenderer.sendMessage(
-      //       Channels.updateServerInstance,
-      //       selectedServerInstance,
-      //     );
-
-      //     window.electron.ipcRenderer.once(
-      //       Channels.updateServerInstanceReply.DONE,
-      //       () => {
-      //         window.alert(t('ServerUpdateDone'));
-      //       },
-      //     );
-      //   },
-      // },
-      // PalguardNeedUpgrade: {
-      //   id: 'PalguardNeedUpgrade',
-      //   title: t('PalguardNeedUpgrade'),
-      //   desciption: (
-      //     <span>
-      //       {t('PalguardNeedUpgradeDesc')}{' '}
-      //       <Theme
-      //         appearance="dark"
-      //         style={{ background: 'inherit', display: 'inline-block' }}
-      //       >
-      //         <Text color="blue">
-      //           <span className="underline">v0.2.1</span> {'> '}
-      //           <span className="underline">v0.6.0</span>
-      //         </Text>
-      //       </Theme>
-      //     </span>
-      //   ),
-      //   type: 'button',
-      //   buttonText: t('Update'),
-      //   action() {
-      //     window.electron.ipcRenderer.sendMessage(
-      //       Channels.updateServerInstance,
-      //       selectedServerInstance,
-      //     );
-
-      //     window.electron.ipcRenderer.once(
-      //       Channels.updateServerInstanceReply.DONE,
-      //       () => {
-      //         window.alert(t('ServerUpdateDone'));
-      //       },
-      //     );
-      //   },
-      // },
+      UE4SSNeedUpgrade: {
+        id: 'UE4SSNeedUpgrade',
+        title: t('UE4SSNeedUpgrade'),
+        desciption: (
+          <span>
+            {t('UE4SSNeedUpgradeDesc')}{' '}
+            <Theme
+              appearance="dark"
+              style={{ background: 'inherit', display: 'inline-block' }}
+            >
+              <Text color="blue">
+                <span className="underline">
+                  v
+                  {window.electron.constant.SERVER_UE4SS_VERSION(
+                    selectedServerInstance,
+                  ) || '???'}
+                </span>{' '}
+                {'> '}
+                <span className="underline">
+                  v {window.electron.constant.SYSTEM_UE4SS_VERSION() || '???'}
+                </span>
+              </Text>
+            </Theme>
+          </span>
+        ),
+        type: 'button',
+        buttonText: t('Update'),
+        action() {
+          window.electron.ipcRenderer.sendMessage(
+            Channels.updateUE4SS,
+            selectedServerInstance,
+          );
+        },
+        hidden:
+          window.electron.constant.SERVER_UE4SS_VERSION(
+            selectedServerInstance,
+          ) === window.electron.constant.SYSTEM_UE4SS_VERSION(),
+      },
+      PalguardNeedUpgrade: {
+        id: 'PalguardNeedUpgrade',
+        title: t('PalguardNeedUpgrade'),
+        desciption: (
+          <span>
+            {t('PalguardNeedUpgradeDesc')}{' '}
+            <Theme
+              appearance="dark"
+              style={{ background: 'inherit', display: 'inline-block' }}
+            >
+              <Text color="blue">
+                <span className="underline">
+                  v
+                  {window.electron.constant.SERVER_PALGUARD_VERSION(
+                    selectedServerInstance,
+                  ) || '???'}
+                </span>{' '}
+                {'> '}
+                <span className="underline">
+                  v{' '}
+                  {window.electron.constant.SYSTEM_PALGUARD_VERSION() || '???'}
+                </span>
+              </Text>
+            </Theme>
+          </span>
+        ),
+        type: 'button',
+        buttonText: t('Update'),
+        action() {
+          window.electron.ipcRenderer.sendMessage(
+            Channels.updatePalguard,
+            selectedServerInstance,
+          );
+        },
+        hidden:
+          window.electron.constant.SERVER_PALGUARD_VERSION(
+            selectedServerInstance,
+          ) === window.electron.constant.SYSTEM_PALGUARD_VERSION(),
+      },
     },
     Performance: {
       PerformanceOptimizationEnabled: {
@@ -288,6 +301,26 @@ export default function ServerSettings() {
             ...serverInfo!,
             palguardEnabled: v,
           });
+        },
+      },
+      PalguardSettings: {
+        hidden: !serverInfo?.palguardEnabled,
+        id: 'PalguardSettings',
+        title: t('PalguardSettings'),
+        desciption: t('PalguardSettingsDesc'),
+        type: 'button',
+        buttonText: t('Open'),
+        action() {
+          window.electron.openExplorer(
+            window.electron.node
+              .path()
+              .join(
+                window.electron.constant.USER_SERVER_INSTANCES_PATH(),
+                selectedServerInstance,
+                'server/Pal/Binaries/Win64/palguard.json',
+              ),
+          );
+          // setOpenPalguardSettings(true);
         },
       },
       // EnableCoffee: {
@@ -444,6 +477,7 @@ export default function ServerSettings() {
           ))}
         </div>
         {openSaveBackup && <SaveBackup />}
+        {/* {openPalguardSettings && <PalguardSettings />} */}
       </div>
     </AlertDialog.Root>
   );

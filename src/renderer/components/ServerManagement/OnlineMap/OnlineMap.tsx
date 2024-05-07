@@ -6,9 +6,6 @@ import { LuExternalLink } from 'react-icons/lu';
 
 export default function OnlineMap() {
   const { selectedServerInstance } = useSelectedServerInstance();
-  const { worldSettings } = useWorldSettings(selectedServerInstance);
-
-  console.log(selectedServerInstance);
 
   return (
     <div className="relative w-full">

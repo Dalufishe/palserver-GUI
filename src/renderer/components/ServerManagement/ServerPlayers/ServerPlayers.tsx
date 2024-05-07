@@ -17,7 +17,6 @@ export default function ServerPlayers() {
 
   const players = useServerOnlinePlayers(selectedServerInstance);
 
-  const [selectedPlayerIndex, setSelectedPlayerIndex] = useState(0);
 
   return (
     <div className="w-full h-full mt-4 flex">
@@ -25,23 +24,7 @@ export default function ServerPlayers() {
         <div className="w-full flex justify-between pr-4">
           <div className="w-full h-[calc(100vh-180px)] overflow-y-scroll flex flex-wrap gap-4">
             {players.map((player, i) => (
-              <>
-                <PlayerPreview playerIndex={i} />
-                <PlayerPreview playerIndex={i} />
-                <PlayerPreview playerIndex={i} />
-                <PlayerPreview playerIndex={i} />
-                <PlayerPreview playerIndex={i} />
-                <PlayerPreview playerIndex={i} />
-                <PlayerPreview playerIndex={i} />
-                <PlayerPreview playerIndex={i} />
-                <PlayerPreview playerIndex={i} />
-                <PlayerPreview playerIndex={i} />
-                <PlayerPreview playerIndex={i} />
-                <PlayerPreview playerIndex={i} />
-                <PlayerPreview playerIndex={i} />
-                <PlayerPreview playerIndex={i} />
-                <PlayerPreview playerIndex={i} />
-              </>
+              <PlayerPreview playerIndex={i} />
             ))}
             {/* <div className="flex flex-col gap-1">
             {players.map((player, i) => (
