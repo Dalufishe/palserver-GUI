@@ -9,7 +9,7 @@ import gamePalsOrigin from '../../../../../../../assets/game-data/data/pals.json
 import { useState } from 'react';
 import { MdSearch } from 'react-icons/md';
 import PalItem from './PalItem/PalItem';
-import useTranslation from '../../../../../hooks/useTranslation';
+import useTranslation from '../../../../../hooks/translation/useTranslation';
 import Channels from '../../../../../../main/ipcs/channels';
 import useSelectedServerInstance from '../../../../../redux/selectedServerInstance/useSelectedServerInstance';
 import formatLocale from '../../../../../utils/formatLocale';

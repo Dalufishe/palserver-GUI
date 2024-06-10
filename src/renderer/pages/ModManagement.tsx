@@ -1,6 +1,6 @@
 import { Tabs } from '@radix-ui/themes';
 import React, { useState } from 'react';
-import useTranslation from '../hooks/useTranslation';
+import useTranslation from '../hooks/translation/useTranslation';
 import LuaMods from '../components/ModManagement/LuaMods/LuaMods';
 import PakMods from '../components/ModManagement/PakMods/PakMods';
 

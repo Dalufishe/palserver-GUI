@@ -183,8 +183,7 @@ const zh_tw = {
   KickPlayerDesc: '確定踢出 ${1}? 此舉動將會將 ${2} 從伺服器移除。',
   ConfirmKick: ' 確認踢出',
   Ban: '封鎖',
-  BanDesc:
-    '確定封鎖 ${1}? 此舉動將會將 ${2} 從伺服器移除。',
+  BanDesc: '確定封鎖 ${1}? 此舉動將會將 ${2} 從伺服器移除。',
   ConfirmBan: ' 確認封鎖',
   Send: '送出',
   EnterCommandOrBoardCast: '輸入指令或廣播訊息 . . .',
@@ -335,5 +334,12 @@ const zh_tw = {
   PalguardSettings: 'Palguard 設定',
   PalguardSettingsDesc: '開啟 palguard.json 插件相關設置介面。',
   LogFolder: '日誌資料夾',
+  //
+  ClearCache: '清除暫存',
+  ClearCacheDesc:
+    '若伺服器無法啟動，請嘗試刪除該伺服器，清除暫存後，重新啟動 palserver GUI，建立伺服器後再嘗試啟動伺服器。',
+  Clear: '清除',
+  ServerInstancePath: '實例路徑 (需重新啟動)',
+  Change: '修改',
 };
 export default zh_tw;

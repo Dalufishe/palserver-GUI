@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Channels from '../../../main/ipcs/channels';
-import useTranslation from '../useTranslation';
+import useTranslation from '../translation/useTranslation';
 import electronAlert from '../../utils/electronAlert';
 
 const useRunServerInstall = () => {

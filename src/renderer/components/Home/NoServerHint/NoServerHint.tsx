@@ -1,6 +1,6 @@
 import { AlertDialog } from '@radix-ui/themes';
 import React from 'react';
-import useTranslation from '../../../hooks/useTranslation';
+import useTranslation from '../../../hooks/translation/useTranslation';
 import { LuServer } from 'react-icons/lu';
 
 export default function NoServerHint() {

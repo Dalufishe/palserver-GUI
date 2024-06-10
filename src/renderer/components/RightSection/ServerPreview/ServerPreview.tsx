@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router-dom';
-import useTranslation from '../../../hooks/useTranslation';
+import useTranslation from '../../../hooks/translation/useTranslation';
 import useSelectedServerInstance from '../../../redux/selectedServerInstance/useSelectedServerInstance';
 import { useState } from 'react';
 import useServerIcon from '../../../hooks/server/icons/useServerIcon';

@@ -1,6 +1,6 @@
 import { AlertDialog, Button, Flex, Select, TextField } from '@radix-ui/themes';
 import React from 'react';
-import useTranslation from '../../../../../hooks/useTranslation';
+import useTranslation from '../../../../../hooks/translation/useTranslation';
 import useSelectedServerInstance from '../../../../../redux/selectedServerInstance/useSelectedServerInstance';
 import useServerInfo from '../../../../../hooks/server/info/useServerInfo';
 

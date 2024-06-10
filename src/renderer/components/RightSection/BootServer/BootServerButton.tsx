@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import useTranslation from '../../../hooks/useTranslation';
+import useTranslation from '../../../hooks/translation/useTranslation';
 import Channels from '../../../../main/ipcs/channels';
 import useSelectedServerInstance from '../../../redux/selectedServerInstance/useSelectedServerInstance';
 import useIsRunningServers from '../../../redux/isRunningServers/useIsRunningServers';

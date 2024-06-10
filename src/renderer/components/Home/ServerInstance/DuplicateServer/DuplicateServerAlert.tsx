@@ -1,6 +1,6 @@
 import { AlertDialog, Button, Flex, TextField } from '@radix-ui/themes';
 import React, { useEffect, useState } from 'react';
-import useTranslation from '../../../../hooks/useTranslation';
+import useTranslation from '../../../../hooks/translation/useTranslation';
 import useThisWorldSettings from '../ServerInfoProvider/useThisWorldSettings';
 import trimWorldSettingsString from '../../../../../utils/trimWorldSettingsString';
 import Channels from '../../../../../main/ipcs/channels';

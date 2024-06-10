@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 import { Text, TextField } from '@radix-ui/themes';
 import React, { useEffect, useState } from 'react';
-import useTranslation from '../../../../../../hooks/useTranslation';
+import useTranslation from '../../../../../../hooks/translation/useTranslation';
 import { useHover } from '../../../../../../hooks/useHover';
 
 export default function ItemItem(props: {

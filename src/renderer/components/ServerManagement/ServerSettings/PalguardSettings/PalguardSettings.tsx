@@ -1,6 +1,6 @@
 import { AlertDialog, Button, Flex } from '@radix-ui/themes';
 import React from 'react';
-import useTranslation from '../../../../hooks/useTranslation';
+import useTranslation from '../../../../hooks/translation/useTranslation';
 
 export default function PalguardSettings() {
   const { t } = useTranslation();

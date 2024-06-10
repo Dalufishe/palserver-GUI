@@ -2,7 +2,7 @@
 
 import { Select, Slider, Switch, TextField, Theme } from '@radix-ui/themes';
 import { isBoolean } from 'lodash';
-import useTranslation from '../../../hooks/useTranslation';
+import useTranslation from '../../../hooks/translation/useTranslation';
 import { worldSettingsOptions } from '../settings';
 function WorldSettingsItem({ id, worldSettings, setWorldSettings }) {
   const { t } = useTranslation();

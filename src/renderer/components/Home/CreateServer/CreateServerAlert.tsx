@@ -1,6 +1,6 @@
 import { AlertDialog, Button, Flex, TextField } from '@radix-ui/themes';
 import { useState } from 'react';
-import useTranslation from '../../../hooks/useTranslation';
+import useTranslation from '../../../hooks/translation/useTranslation';
 import _ from 'lodash';
 import Channels from '../../../../main/ipcs/channels';
 import SecureEye from '../../SecureEye';

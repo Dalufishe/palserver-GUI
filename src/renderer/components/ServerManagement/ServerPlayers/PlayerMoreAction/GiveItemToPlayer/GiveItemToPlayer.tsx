@@ -6,7 +6,7 @@ import {
   Text,
   TextField,
 } from '@radix-ui/themes';
-import useTranslation from '../../../../../hooks/useTranslation';
+import useTranslation from '../../../../../hooks/translation/useTranslation';
 import { useState } from 'react';
 import gameItems from '../../../../../../../assets/game-data/data/items.json';
 import Channels from '../../../../../../main/ipcs/channels';

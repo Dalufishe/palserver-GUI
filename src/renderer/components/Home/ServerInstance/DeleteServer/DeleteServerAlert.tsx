@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useThisServerInfo from '../ServerInfoProvider/useThisServerInfo';
 import Channels from '../../../../../main/ipcs/channels';
 import { AlertDialog, Button, Flex, TextField } from '@radix-ui/themes';
-import useTranslation from '../../../../hooks/useTranslation';
+import useTranslation from '../../../../hooks/translation/useTranslation';
 import useThisWorldSettings from '../ServerInfoProvider/useThisWorldSettings';
 
 export default function DeleteServerAlert() {

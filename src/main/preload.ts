@@ -108,6 +108,8 @@ const electronHandler = {
 
   openExplorer: (p: string) => fs.existsSync(p) && openExplorer(p),
   openLink: (link: string) => shell.openExternal(link),
+  alert: (message: string) => ipcRenderer.send('alert', message),
+  selectFolder: () => ipcRenderer.invoke('selectDir'),
 };
 
 contextBridge.exposeInMainWorld('electron', electronHandler);

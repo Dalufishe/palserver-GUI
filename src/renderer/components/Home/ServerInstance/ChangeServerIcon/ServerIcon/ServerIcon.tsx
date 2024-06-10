@@ -1,6 +1,6 @@
 import React from 'react';
 import { ServerIcon as ServerIconType } from '../../../../../../types/ServerIcon.types';
-import useTranslation from '../../../../../hooks/useTranslation';
+import useTranslation from '../../../../../hooks/translation/useTranslation';
 import useThisServerInfo from '../../ServerInfoProvider/useThisServerInfo';
 import { AlertDialog } from '@radix-ui/themes';
 

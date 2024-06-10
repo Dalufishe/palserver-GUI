@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-curly-brace-presence */
 import { AlertDialog, Button, Flex } from '@radix-ui/themes';
 import Channels from '../../../../../../main/ipcs/channels';
-import useTranslation from '../../../../../hooks/useTranslation';
+import useTranslation from '../../../../../hooks/translation/useTranslation';
 import useSelectedServerInstance from '../../../../../redux/selectedServerInstance/useSelectedServerInstance';
 import ActionItem from '../AcionItem/AcionItem';
 import formatLocale from '../../../../../utils/formatLocale';

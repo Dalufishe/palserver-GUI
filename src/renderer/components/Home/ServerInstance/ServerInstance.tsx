@@ -1,6 +1,6 @@
 import { AlertDialog, Spinner } from '@radix-ui/themes';
 import React, { useEffect, useState } from 'react';
-import useTranslation from '../../../hooks/useTranslation';
+import useTranslation from '../../../hooks/translation/useTranslation';
 import ChangeServerIcon from './ChangeServerIcon/ChangeServerIcon';
 import { ServerInstanceSetting } from '../../../../types/ServerInstanceSetting.types';
 import useServerIcon from '../../../hooks/server/icons/useServerIcon';

@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import type { Language } from '../../../../locales';
 import TranslationContext from './TranslationContext';
+import useLocalState from '../../hooks/useLocalState';
 
 export default function Translation({ children }: { children: any }) {
-  const [language, setLanguage] = useState<Language>('zh_tw');
+  const [language, setLanguage] = useLocalState<Language>('language', 'zh_tw');
 
   return (
     <TranslationContext.Provider value={{ language, setLanguage }}>

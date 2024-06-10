@@ -4,6 +4,7 @@ import './server/instance/editServerInstance';
 import './server/instance/deleteServerInstance';
 import './server/instance/duplicateServerInstance';
 import './server/instance/updateServerInstance';
+import './server/instance/changeInstancePath';
 
 // icons
 import './server/icons/getAllServerIcons';
@@ -22,6 +23,7 @@ import './server/world-settings/setWorldSettings';
 import './utils/getFolderSize';
 import './utils/getComputerResources';
 import './utils/getSingleProcessResources';
+import './utils/alert';
 
 // server
 import './server/exec/execStartServer';
@@ -43,7 +45,7 @@ import './server/saved/getCorrectSaveGamesPath';
 import './server/init/runServerInstall';
 import './init/getIsFirstInstall';
 
-import './alert/alert';
-
 import './server/plugin/updatePalguard';
 import './server/plugin/updateUE4SS';
+
+import './server/cache/clearServerCache';

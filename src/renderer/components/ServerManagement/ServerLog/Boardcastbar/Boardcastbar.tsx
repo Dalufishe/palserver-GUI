@@ -7,7 +7,7 @@ import {
   Theme,
 } from '@radix-ui/themes';
 import React, { useState } from 'react';
-import useTranslation from '../../../../hooks/useTranslation';
+import useTranslation from '../../../../hooks/translation/useTranslation';
 import Channels from '../../../../../main/ipcs/channels';
 import useSelectedServerInstance from '../../../../redux/selectedServerInstance/useSelectedServerInstance';
 import Schedule from './Schedule/Schedule';

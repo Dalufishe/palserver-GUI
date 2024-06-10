@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import { AlertDialog, ContextMenu } from '@radix-ui/themes';
 import React from 'react';
-import useTranslation from '../hooks/useTranslation';
+import useTranslation from '../hooks/translation/useTranslation';
 
 export type ContextMenuOptions = {
   id: string;

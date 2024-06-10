@@ -10,7 +10,7 @@ import {
 } from '@radix-ui/themes';
 import useSelectedServerInstance from '../../../../redux/selectedServerInstance/useSelectedServerInstance';
 import { useEffect, useState } from 'react';
-import useTranslation from '../../../../hooks/useTranslation';
+import useTranslation from '../../../../hooks/translation/useTranslation';
 import Channels from '../../../../../main/ipcs/channels';
 import useCorrectSaveGamesPath from '../../../../hooks/server/saved/useCorrectSaveGamesPath';
 

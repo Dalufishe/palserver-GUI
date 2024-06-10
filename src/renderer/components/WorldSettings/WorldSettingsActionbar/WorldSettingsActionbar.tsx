@@ -1,5 +1,5 @@
 import { Button } from '@radix-ui/themes';
-import useTranslation from '../../../hooks/useTranslation';
+import useTranslation from '../../../hooks/translation/useTranslation';
 import { animated, useSpring, useTransition } from 'react-spring';
 import _ from 'lodash';
 import useSelectedServerInstance from '../../../redux/selectedServerInstance/useSelectedServerInstance';

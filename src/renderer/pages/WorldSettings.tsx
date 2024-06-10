@@ -8,7 +8,7 @@ import {
   TextField,
   Tooltip,
 } from '@radix-ui/themes';
-import useTranslation from '../hooks/useTranslation';
+import useTranslation from '../hooks/translation/useTranslation';
 import { MdEditDocument } from 'react-icons/md';
 import _, { isEmpty, map, pickBy } from 'lodash';
 import {

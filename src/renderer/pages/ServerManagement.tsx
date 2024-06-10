@@ -8,7 +8,7 @@ import ServerPlayers from '../components/ServerManagement/ServerPlayers/ServerPl
 import ServerSettings from '../components/ServerManagement/ServerSettings/ServerSettings';
 import useServerInfo from '../hooks/server/info/useServerInfo';
 import useSelectedServerInstance from '../redux/selectedServerInstance/useSelectedServerInstance';
-import useTranslation from '../hooks/useTranslation';
+import useTranslation from '../hooks/translation/useTranslation';
 import useIsRunningServers from '../redux/isRunningServers/useIsRunningServers';
 import OnlineMap from '../components/ServerManagement/OnlineMap/OnlineMap';
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Channels from '../../../../main/ipcs/channels';
 import useSelectedServerInstance from '../../../redux/selectedServerInstance/useSelectedServerInstance';
-import useTranslation from '../../../hooks/useTranslation';
+import useTranslation from '../../../hooks/translation/useTranslation';
 import { AlertDialog, TextField, Theme } from '@radix-ui/themes';
 import Boardcastbar from './Boardcastbar/Boardcastbar';
 

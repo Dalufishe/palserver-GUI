@@ -146,3 +146,13 @@ app
     });
   })
   .catch(console.log);
+
+ipcMain.handle('selectDir', async () => {
+  const { canceled, filePaths } = await dialog.showOpenDialog(mainWindow, {
+    properties: ['openDirectory'],
+  });
+  if (canceled) {
+    return;
+  }
+  return filePaths[0];
+});

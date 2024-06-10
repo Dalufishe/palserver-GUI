@@ -14,7 +14,7 @@ import _ from 'lodash';
 import useSingleProcessResources from '../../../hooks/server/resources/useSingleProcessResources';
 import useIsRunningServers from '../../../redux/isRunningServers/useIsRunningServers';
 import useSelectedServerInstance from '../../../redux/selectedServerInstance/useSelectedServerInstance';
-import useTranslation from '../../../hooks/useTranslation';
+import useTranslation from '../../../hooks/translation/useTranslation';
 import useServerMetrics from '../../../hooks/server/resources/useServerMetrics';
 import useServerInfo from '../../../hooks/server/info/useServerInfo';
 

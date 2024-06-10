@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import useSelectedServerInstance from '../../../../../redux/selectedServerInstance/useSelectedServerInstance';
 import Channels from '../../../../../../main/ipcs/channels';
 import formatLocale from '../../../../../utils/formatLocale';
-import useTranslation from '../../../../../hooks/useTranslation';
+import useTranslation from '../../../../../hooks/translation/useTranslation';
 
 export default function GiveExpToPlayer({
   actionType,

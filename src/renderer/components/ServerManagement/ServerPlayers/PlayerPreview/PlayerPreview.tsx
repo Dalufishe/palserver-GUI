@@ -5,7 +5,7 @@ import React from 'react';
 import useServerOnlinePlayers from '../../../../hooks/server/players/useServerOnlinePlayers';
 import useSelectedServerInstance from '../../../../redux/selectedServerInstance/useSelectedServerInstance';
 import _ from 'lodash';
-import useTranslation from '../../../../hooks/useTranslation';
+import useTranslation from '../../../../hooks/translation/useTranslation';
 import { MdOutlineMoreVert } from 'react-icons/md';
 import PlayerMoreAction from '../PlayerMoreAction/PlayerMoreAction';
 import Channels from '../../../../../main/ipcs/channels';

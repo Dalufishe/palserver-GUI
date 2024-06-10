@@ -5,7 +5,7 @@ import PlayerItem from './PlayerItem/PlayerItem';
 import PlayerPreview from './PlayerPreview/PlayerPreview';
 import { useEffect, useState } from 'react';
 import _ from 'lodash';
-import useTranslation from '../../../hooks/useTranslation';
+import useTranslation from '../../../hooks/translation/useTranslation';
 import useWorldSettings from '../../../hooks/server/world-settings/useWorldSettings';
 import trimWorldSettingsString from '../../../../utils/trimWorldSettingsString';
 
@@ -16,7 +16,6 @@ export default function ServerPlayers() {
   const { worldSettings } = useWorldSettings(selectedServerInstance);
 
   const players = useServerOnlinePlayers(selectedServerInstance);
-
 
   return (
     <div className="w-full h-full mt-4 flex">

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useTranslation from '../../../../hooks/useTranslation';
+import useTranslation from '../../../../hooks/translation/useTranslation';
 import Channels from '../../../../../main/ipcs/channels';
 import useThisServerInfo from '../ServerInfoProvider/useThisServerInfo';
 import {

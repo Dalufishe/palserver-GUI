@@ -10,7 +10,7 @@ import {
   Theme,
 } from '@radix-ui/themes';
 import React, { useState } from 'react';
-import useTranslation from '../../../hooks/useTranslation';
+import useTranslation from '../../../hooks/translation/useTranslation';
 import _ from 'lodash';
 import useSelectedServerInstance from '../../../redux/selectedServerInstance/useSelectedServerInstance';
 import useWorldSettings from '../../../hooks/server/world-settings/useWorldSettings';
@@ -391,30 +391,30 @@ export default function ServerSettings() {
           });
         },
       },
-      CrashRestart: {
-        id: 'CrashRestart',
-        title: t('CrashRestart'),
-        desciption: t('CrashRestartDesc'),
-        value: serverInfo?.CrashRestart,
-        onValueChange(v) {
-          setServerInfo({
-            ...serverInfo!,
-            CrashRestart: v,
-          });
-        },
-      },
-      OverRamRestart: {
-        id: 'OverRamRestart',
-        title: t('OverRamRestart'),
-        desciption: t('OverRamRestartDesc'),
-        value: serverInfo?.OverRamRestart,
-        onValueChange(v) {
-          setServerInfo({
-            ...serverInfo!,
-            OverRamRestart: v,
-          });
-        },
-      },
+      // CrashRestart: {
+      //   id: 'CrashRestart',
+      //   title: t('CrashRestart'),
+      //   desciption: t('CrashRestartDesc'),
+      //   value: serverInfo?.CrashRestart,
+      //   onValueChange(v) {
+      //     setServerInfo({
+      //       ...serverInfo!,
+      //       CrashRestart: v,
+      //     });
+      //   },
+      // },
+      // OverRamRestart: {
+      //   id: 'OverRamRestart',
+      //   title: t('OverRamRestart'),
+      //   desciption: t('OverRamRestartDesc'),
+      //   value: serverInfo?.OverRamRestart,
+      //   onValueChange(v) {
+      //     setServerInfo({
+      //       ...serverInfo!,
+      //       OverRamRestart: v,
+      //     });
+      //   },
+      // },
     },
     OtherExtensions: {
       LogEnabled: {

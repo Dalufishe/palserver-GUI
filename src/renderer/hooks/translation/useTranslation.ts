@@ -1,6 +1,6 @@
 /* eslint-disable consistent-return */
 
-import LOCALES from '../../../locales';
+import LOCALES from '../../../../locales';
 import useLanguage from './useLanguage';
 
 const useTranslation = () => {

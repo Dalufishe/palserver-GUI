@@ -4,7 +4,7 @@ import { Badge, Button, IconButton } from '@radix-ui/themes';
 import BootServerButton from './BootServer/BootServerButton';
 import ServerRunningBadge from './ServerRunningBadge/ServerRunningBadge';
 import RightSectionButton from './ui/RightSectionButton/RightSectionButton';
-import useTranslation from '../../hooks/useTranslation';
+import useTranslation from '../../hooks/translation/useTranslation';
 import { useHistory } from 'react-router-dom';
 import { MdAnnouncement } from 'react-icons/md';
 import useSelectedServerInstance from '../../redux/selectedServerInstance/useSelectedServerInstance';

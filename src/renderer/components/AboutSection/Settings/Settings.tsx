@@ -1,11 +1,12 @@
 import { AlertDialog, Button, Flex, Select } from '@radix-ui/themes';
 import React from 'react';
 import { MdSettings } from 'react-icons/md';
-import useTranslation from '../../../hooks/useTranslation';
+import useTranslation from '../../../hooks/translation/useTranslation';
 import _ from 'lodash';
-import useLanguage from '../../../hooks/useLanguage';
+import useLanguage from '../../../hooks/translation/useLanguage';
 import { Language } from '../../../../../locales';
 import Link from '../../Link';
+import Channels from '../../../../main/ipcs/channels';
 
 export default function Settings() {
   const { t } = useTranslation();
@@ -21,11 +22,36 @@ export default function Settings() {
         </Link>
       ),
       type: 'options',
-      options: ['繁體中文', 'English'],
-      values: ['zh_tw', 'en'],
+      options: ['繁體中文', '簡體中文', 'English'],
+      values: ['zh_tw', 'zh_cn', 'en'],
       value: language,
       onValueChange(l: Language) {
         setLanguage(l);
+      },
+    },
+    ClearCache: {
+      id: 'ClearCache',
+      title: t('ClearCache'),
+      description: t('ClearCacheDesc'),
+      type: 'button',
+      buttonText: t('Clear'),
+      onButtonClick() {
+        window.electron.ipcRenderer.invoke(Channels.clearSystemCache);
+      },
+    },
+    ServerInstancePath: {
+      id: 'ServerInstancePath',
+      title: t('ServerInstancePath'),
+      description: window.electron.constant.USER_SERVER_INSTANCES_PATH(),
+      type: 'button',
+      buttonText: t('Change'),
+      async onButtonClick() {
+        const newInstancePath = await window.electron.selectFolder();
+        window.electron.ipcRenderer.invoke(
+          Channels.changeInstancePath,
+          window.electron.constant.USER_SERVER_INSTANCES_PATH(),
+          newInstancePath,
+        );
       },
     },
     SourceCode: {
@@ -99,10 +125,12 @@ const SettingsItem = ({
   options,
   type,
   values,
+  buttonText,
+  onButtonClick,
 }: any) => {
   return (
     <div className="mb-3 flex items-center justify-between">
-      <div className="flex flex-col">
+      <div className="flex flex-col w-[80%]">
         <h3 className="text-lg font-bold">{title}</h3>
         <p className="opacity-90">{description}</p>
       </div>
@@ -118,6 +146,11 @@ const SettingsItem = ({
             ))}
           </Select.Content>
         </Select.Root>
+      )}
+      {type === 'button' && (
+        <Button color="yellow" onClick={onButtonClick}>
+          {buttonText}
+        </Button>
       )}
     </div>
   );

@@ -1,6 +1,6 @@
 import { AlertDialog, Button, Flex, TextField } from '@radix-ui/themes';
 import React, { useState } from 'react';
-import useTranslation from '../../../hooks/useTranslation';
+import useTranslation from '../../../hooks/translation/useTranslation';
 import _ from 'lodash';
 
 export default function CreateRemoteServerAlert() {

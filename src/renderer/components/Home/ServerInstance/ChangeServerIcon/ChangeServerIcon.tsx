@@ -1,6 +1,6 @@
 import { AlertDialog, Button, Flex, ScrollArea } from '@radix-ui/themes';
 import React, { useEffect, useState } from 'react';
-import useTranslation from '../../../../hooks/useTranslation';
+import useTranslation from '../../../../hooks/translation/useTranslation';
 import Channels from '../../../../../main/ipcs/channels';
 import ServerIcon from './ServerIcon/ServerIcon';
 import { ServerIcon as ServerIconType } from '../../../../../types/ServerIcon.types';

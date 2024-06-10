@@ -26,6 +26,7 @@ const Channels = {
   updateServerInstanceReply: {
     DONE: 'update-server-instance:done',
   },
+  changeInstancePath: 'change-instance-path',
   // 伺服器圖示圖像檔
   getAllServerIcons: 'get-all-server-icons',
   getServerIcon: 'get-server-icon',
@@ -53,8 +54,10 @@ const Channels = {
   getOfficalServerBackup: 'get-offical-server-backup',
   // saved
   getCorrectSaveGamesPath: 'get-correct-savegames-path',
-  //
+  // update
   updatePalguard: 'update-palguard',
   updateUE4SS: 'update-ue4ss',
+  // cache
+  clearSystemCache: 'clear-system-cache',
 } as const;
 export default Channels;

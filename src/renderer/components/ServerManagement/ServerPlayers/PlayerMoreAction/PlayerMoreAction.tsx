@@ -1,5 +1,5 @@
 import { AlertDialog, Button } from '@radix-ui/themes';
-import useTranslation from '../../../../hooks/useTranslation';
+import useTranslation from '../../../../hooks/translation/useTranslation';
 import ActionList from './ActionList/ActionList';
 import { useState } from 'react';
 import GivePalToPlayer from './GivePalToPlayer/GivePalToPlayer';
