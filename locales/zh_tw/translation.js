@@ -20,6 +20,7 @@ const zh_tw = {
   HaventSavedYet: '尚未設定',
   LuaMods: 'Lua 模組',
   PakMods: 'Pak 模組',
+  PakLogicMods: 'LogicMods 模組',
   Mod: '模組',
   Disabled: '停用',
   Enabled: '啟用',
@@ -29,10 +30,10 @@ const zh_tw = {
   VerifyChange: '確定修改',
   VerifyDelete: '確定刪除',
   EditFromSourceFile: '編輯原始檔',
-  SourceCode: '原始碼',
+  SourceCode: '程式原始碼',
   ServerIsUpdating: '伺服器更新中，請稍候',
   UpdateServerToLatestVersion: '將伺服器更新到最新版',
-  ServerUpdateDone: '伺服器更新完的啦!!',
+  ServerUpdateDone: '伺服器更新完成！',
   OpenModsFolder: '開啟模組資料夾',
   HowToImportMods: '如何匯入 ${1} 模組?',
   HowToImportLuaModsDesc1:
@@ -230,7 +231,7 @@ const zh_tw = {
   ServerInstanceFolder: 'GUI 實例資料夾',
   WorldSettingsFolder: '世界設定檔案',
   ImportServer: '導入伺服器',
-  FourPlayerSave: '本機存檔',
+  FourPlayerSave: '遊戲存檔',
   DedicatedServer: '專用伺服器',
   ServerInstance: 'GUI 實例',
   Reset: '重置',
@@ -341,5 +342,13 @@ const zh_tw = {
   Clear: '清除',
   ServerInstancePath: '實例路徑 (需重新啟動)',
   Change: '修改',
+  //
+  ImportGameSaves: '導入遊戲存檔',
+  HowToImportDedicatedServer: '如何導入專用伺服器 (Windows / Linux)？',
+  HowToImportFourPlayerSaves: '如何導入本機存檔 (四人邀請碼)？',
+  HelpPlzJoinUs: '疑難排解 - 請加入我們的',
+  SpecialThanks: '特別感謝',
+  SpeicalThanksDesc: '感謝所有的開發人員、贊助者、小幫手及使用 GUI 的大家。',
+  BuyMeACoffee: '請我喝杯咖啡',
 };
 export default zh_tw;

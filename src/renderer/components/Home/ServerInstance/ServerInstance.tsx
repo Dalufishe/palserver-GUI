@@ -63,19 +63,6 @@ export default function ServerInstance(props: Props) {
         setCurrentAlretWindow('EditServer');
       },
     },
-    //* 修改圖示
-    {
-      id: 'ChangeIcon',
-      type: 'action',
-      action() {
-        setCurrentAlretWindow('ChangeIcon');
-      },
-    },
-    //* ===
-    {
-      id: '',
-      type: 'seperator',
-    },
     //* 複製伺服器
     {
       id: 'CopyServer',
@@ -84,21 +71,30 @@ export default function ServerInstance(props: Props) {
         setCurrentAlretWindow('DuplicateServer');
       },
     },
-    //* 導出伺服器
+    //* 修改圖示
     {
-      id: 'ExportServer',
-      type: 'sub',
-      sub: [
-        {
-          id: 'DedicatedServer',
-          type: 'action',
-        },
-        {
-          id: 'ServerInstance',
-          type: 'action',
-        },
-      ],
+      id: 'ChangeIcon',
+      type: 'action',
+      action() {
+        setCurrentAlretWindow('ChangeIcon');
+      },
     },
+
+    //* 導出伺服器
+    // {
+    //   id: 'ExportServer',
+    //   type: 'sub',
+    //   sub: [
+    //     {
+    //       id: 'DedicatedServer',
+    //       type: 'action',
+    //     },
+    //     {
+    //       id: 'ServerInstance',
+    //       type: 'action',
+    //     },
+    //   ],
+    // },
     //* ===
     {
       id: '',

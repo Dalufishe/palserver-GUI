@@ -1,9 +1,9 @@
 import useLatestVersion from '../hooks/firebase/useLatestVersion';
 import { ENV, PLATFORM, VERSION } from '../../constant/app';
 import useTranslation from '../hooks/translation/useTranslation';
-import { Link } from '@radix-ui/themes';
 import formatLocale from '../utils/formatLocale';
 import versionToValue from '../utils/versionToValue';
+import Link from './Link';
 
 export default function Version() {
   const { version: latestVersion, versionValue: latestVersionValue } =
@@ -27,7 +27,20 @@ export default function Version() {
         )} */}
       </div>
       <div>
-        Made by Dalufishe, Supported by{' '}
+        Made by{' '}
+        <span
+          className="text-xs underline cursor-pointer"
+          style={{ color: 'white' }}
+          onClick={() => {
+            window.electron.openLink('https://github.com/Dalufishe');
+          }}
+          // dangerouslySetInnerHTML={{
+          //   __html: formatLocale(LOCALES[appLanguage].SupportBy, ['TOC']),
+          // }}
+        >
+          Dalufishe
+        </span>
+        , Supported by{' '}
         <span
           className="text-xs underline cursor-pointer"
           style={{ color: 'white' }}

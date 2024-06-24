@@ -1,5 +1,10 @@
 const game_data_pals_en = {
   ...{
+    // 四月新更新
+    NightLady: 'NightLady',
+    NightLady_Dark: 'NightLady_Dark',
+  },
+  ...{
     //一般
     SheepBall: 'Lamball #1',
     PinkCat: 'Cattiva #2',

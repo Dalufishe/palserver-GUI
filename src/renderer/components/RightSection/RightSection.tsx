@@ -36,7 +36,7 @@ export default function RightSection() {
         >
           {t('WorldSettings')}
         </RightSectionButton>
-        {/* {serverInfo?.modManagementEnabled && (
+        {serverInfo?.modManagementEnabled && (
           <RightSectionButton
             onClick={() => {
               history.push('/mod-management');
@@ -44,7 +44,7 @@ export default function RightSection() {
           >
             {t('ModManagement')}
           </RightSectionButton>
-        )} */}
+        )}
         <BootServerButton />
       </div>
     </div>

@@ -1,5 +1,30 @@
 const game_data_items_en = {
   ...{
+    // 4月新更新
+    ExpBoost_01: 'ExpBoost_01',
+    ExpBoost_02: 'ExpBoost_02',
+    ExpBoost_03: 'ExpBoost_03',
+    ExpBoost_04: 'ExpBoost_04',
+    LvUP_01: 'LvUP_01',
+    Fruit_attack_01: 'Fruit_attack_01',
+    Fruit__defense_01: 'Fruit__defense_01',
+    Fruit_hp_01: 'Fruit_hp_01',
+    Homeward: 'Homeward',
+    PalSummon_NightLady: 'PalSummon_NightLady',
+    PalSummon_NightLady_Dark: 'PalSummon_NightLady_Dark',
+    PalSummon_NightLady_Dark_2: 'PalSummon_NightLady_Dark_2',
+    PalSummon_NightLady_Parts: 'PalSummon_NightLady_Parts',
+    PalSummon_NightLady_Dark_Parts: 'PalSummon_NightLady_Dark_Parts',
+    PalSummon_NightLady_Dark_Parts_2: 'PalSummon_NightLady_Dark_Parts_2',
+    AncientParts2: 'AncientParts2',
+    AncientTechnologyBook_G1: 'AncientTechnologyBook_G1',
+    Potion_Low: 'Potion_Low',
+    Potion: 'Potion',
+    Potion_High: 'Potion_High',
+    Accessory_TalentChecker: 'Accessory_TalentChecker',
+    Accessory_Nonkilling: 'Accessory_Nonkilling',
+  },
+  ...{
     //武器 Sphere
     Bat: '(101)Wooden Club(Common)', //須找正確ID
     Bat2: '(101)Bat(Common)', //須找正確ID

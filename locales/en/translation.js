@@ -21,6 +21,7 @@ const en = {
   HaventSavedYet: 'Not yet saved',
   LuaMods: 'Lua Mods',
   PakMods: 'Pak Mods',
+  PakLogicMods: 'Logic Mods',
   Mod: 'Mod',
   Disabled: 'Disabled',
   Enabled: 'Enabled',
@@ -347,5 +348,21 @@ const en = {
   LogEnabled: 'Log Enabled',
   LogEnabledDesc:
     'Support Palguard log display for player entry, chat messages, etc.',
+  ClearCache: 'Clear Cache',
+  ClearCacheDesc:
+    'If the server cannot start, try deleting the server, clearing the cache, then restarting the palserver GUI, creating the server again, and then trying to start the server.',
+  Clear: 'Clear',
+  ServerInstancePath: 'Instance Path (requires restart)',
+  Change: 'Change',
+  ImportGameSaves: 'Import Game Saves',
+  HowToImportDedicatedServer:
+    'How to Import Dedicated Server (Windows / Linux)?',
+  HowToImportFourPlayerSaves:
+    'How to Import Local Saves (Four Player Invite Code)?',
+  HelpPlzJoinUs: 'Troubleshooting - Please join our',
+  SpecialThanks: 'Special Thanks',
+  SpeicalThanksDesc:
+    'Thanks to all the developers, sponsors, helpers, and everyone using the GUI.',
+  BuyMeACoffee: 'Buy Me a Coffee',
 };
 export default en;

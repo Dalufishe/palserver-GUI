@@ -1,5 +1,30 @@
 const game_data_items_zh_tw = {
   ...{
+    // 4月新更新
+    ExpBoost_01: '修練之書 (小)',
+    ExpBoost_02: '修練之書 (中)',
+    ExpBoost_03: '修練之書 (大)',
+    ExpBoost_04: '修練之書 (特大)',
+    LvUP_01: '修練結晶',
+    Fruit_attack_01: '剛力之果',
+    Fruit__defense_01: '堅壁之果',
+    Fruit_hp_01: '生命之果',
+    Homeward: 'Homeward',
+    PalSummon_NightLady: 'PalSummon_NightLady',
+    PalSummon_NightLady_Dark: 'PalSummon_NightLady_Dark',
+    PalSummon_NightLady_Dark_2: 'PalSummon_NightLady_Dark_2',
+    PalSummon_NightLady_Parts: 'PalSummon_NightLady_Parts',
+    PalSummon_NightLady_Dark_Parts: 'PalSummon_NightLady_Dark_Parts',
+    PalSummon_NightLady_Dark_Parts_2: 'PalSummon_NightLady_Dark_Parts_2',
+    AncientParts2: 'AncientParts2',
+    AncientTechnologyBook_G1: 'AncientTechnologyBook_G1',
+    Potion_Low: 'Potion_Low',
+    Potion: 'Potion',
+    Potion_High: 'Potion_High',
+    Accessory_TalentChecker: 'Accessory_TalentChecker',
+    Accessory_Nonkilling: 'Accessory_Nonkilling',
+  },
+  ...{
     //武器
     Bat: '(101)木棍(常見)', //須找正確ID
     Bat2: '(101)棒球棒(常見)', //須找正確ID

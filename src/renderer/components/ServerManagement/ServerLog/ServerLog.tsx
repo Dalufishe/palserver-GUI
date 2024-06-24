@@ -7,6 +7,8 @@ import Boardcastbar from './Boardcastbar/Boardcastbar';
 
 const logSheet = [
   ['(chat)', ''],
+  ['[info]', ''],
+  [/\/adminpassword .+/gu, '/adminpassword ***'],
   ['isPVPEnabled = False', 'PVP Mode = False'],
   // ['invoked', '調用'],
   // ['args', '參數'],

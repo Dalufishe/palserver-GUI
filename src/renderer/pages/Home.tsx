@@ -2,12 +2,15 @@
 import { AlertDialog } from '@radix-ui/themes';
 import Version from '../components/Version';
 import ServerInstance from '../components/Home/ServerInstance/ServerInstance';
-import {  useState } from 'react';
+import { useState } from 'react';
 import CreateServerAlert from '../components/Home/CreateServer/CreateServerAlert';
 import CreateRemoteServerAlert from '../components/Home/CreateRemoteServer/CreateRemoteServerAlert';
 import useAllServerInfo from '../hooks/server/info/useAllServerInfo';
 import ContextMenu, { ContextMenuOptions } from '../components/ContextMenu';
 import NoServerHint from '../components/Home/NoServerHint/NoServerHint';
+import ImportServer from '../components/Home/ImportServer/ImportServer';
+import { VERSION } from '../../constant/app';
+import CongratBootServerAlert from '../components/RightSection/BootServer/CongratBootServerAlert/CongratBootServerAlert';
 
 export default function Home() {
   // const { t } = useTranslation();
@@ -16,7 +19,18 @@ export default function Home() {
 
   const [currentAction, setCurrentAction] = useState<string | null>(null);
   const rightClickOptions: ContextMenuOptions = [
-    //* 建立伺服器 (未完成)
+    {
+      id: 'Version',
+      type: 'disabled',
+      value: `GUI ${VERSION}　　　　`,
+      color: 'gray',
+    },
+    {
+      id: '',
+      type: 'seperator',
+    },
+
+    //* 建立伺服器
     {
       id: 'CreateServer',
       type: 'action',
@@ -26,39 +40,24 @@ export default function Home() {
     },
     {
       id: 'ImportServer',
-      type: 'sub',
-      sub: [
-        {
-          id: 'FourPlayerSave',
-          type: 'action',
-        },
-        {
-          id: 'DedicatedServer',
-          type: 'action',
-        },
-        {
-          id: 'ServerInstance',
-          type: 'action',
-        },
-      ],
-    },
-    {
-      id: '',
-      type: 'seperator',
-    },
-    //* 建立遠端連接 (未完成)
-    {
-      id: 'CreateRemoteServer',
       type: 'action',
-      shortcut: '⇗',
       action() {
-        setCurrentAction('CreateRemoteServer');
+        setCurrentAction('ImportServer');
       },
     },
+    //* 建立遠端連接 (未完成)
+    // {
+    //   id: 'CreateRemoteServer',
+    //   type: 'action',
+    //   shortcut: '⇗',
+    //   action() {
+    //     setCurrentAction('CreateRemoteServer');
+    //   },
+    // },
   ];
 
   return (
-    <AlertDialog.Root>
+    <>
       <ContextMenu
         trigger={
           <div className="page-container">
@@ -81,6 +80,8 @@ export default function Home() {
 
       {currentAction === 'CreateServer' && <CreateServerAlert />}
       {currentAction === 'CreateRemoteServer' && <CreateRemoteServerAlert />}
-    </AlertDialog.Root>
+      {currentAction === 'ImportServer' && <ImportServer />}
+
+    </>
   );
 }

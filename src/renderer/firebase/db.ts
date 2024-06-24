@@ -5,6 +5,7 @@ const firestore = getFirestore(firebaseApp);
 
 const db = {
   App: collection(firestore, 'App'),
+  Links: collection(firestore, 'Links'),
 };
 
 export default db;

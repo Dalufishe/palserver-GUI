@@ -4,7 +4,7 @@ import { LuExternalLink } from 'react-icons/lu';
 
 export default function Link(props: {
   children: any;
-  herf: string;
+  href: string;
   appearance?: 'light' | 'dark';
 }) {
   return (
@@ -14,7 +14,7 @@ export default function Link(props: {
     >
       <RLink
         onClick={() => {
-          window.electron.openLink(props.herf);
+          window.electron.openLink(props.href);
         }}
         color="blue"
         style={{

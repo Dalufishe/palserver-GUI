@@ -7,17 +7,20 @@ import useLanguage from '../../../hooks/translation/useLanguage';
 import { Language } from '../../../../../locales';
 import Link from '../../Link';
 import Channels from '../../../../main/ipcs/channels';
+import useOnlineLinksMap from '../../../hooks/firebase/useOnlineLinksMap';
 
 export default function Settings() {
   const { t } = useTranslation();
   const { language, setLanguage } = useLanguage();
+
+  const speicalThanksLink = useOnlineLinksMap('SupportPalserverGUI');
 
   const settings = {
     Language: {
       id: 'Language',
       title: t('Language'),
       description: (
-        <Link herf="https://discord.com/invite/sgMMdUZd3V" appearance="light">
+        <Link href="https://discord.com/invite/sgMMdUZd3V" appearance="light">
           {t('LanguageDesc')}
         </Link>
       ),
@@ -59,7 +62,7 @@ export default function Settings() {
       title: t('SourceCode'),
       description: (
         <Link
-          herf="https://github.com/Dalufishe/palserver-GUI"
+          href="https://github.com/Dalufishe/palserver-GUI"
           appearance="light"
         >
           {t('ClickLink')}
@@ -70,8 +73,17 @@ export default function Settings() {
       id: 'Discord',
       title: 'Discord',
       description: (
-        <Link herf="https://discord.com/invite/sgMMdUZd3V" appearance="light">
+        <Link href="https://discord.com/invite/sgMMdUZd3V" appearance="light">
           {t('ClickLink')}
+        </Link>
+      ),
+    },
+    SpecialThanks: {
+      id: 'SpecialThanks',
+      title: t('SpecialThanks'),
+      description: (
+        <Link href={speicalThanksLink} appearance="light">
+          {t('SpeicalThanksDesc')}
         </Link>
       ),
     },
@@ -100,7 +112,12 @@ export default function Settings() {
                 }}
                 className="select-none"
               >
-                <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Dalufish&button_colour=FFDD00&font_colour=000000&font_family=Comic&outline_colour=000000&coffee_colour=ffffff" />
+                <img
+                  src={`https://img.buymeacoffee.com/button-api/?text=${t(
+                    'BuyMeACoffee',
+                  )}&emoji=&slug=Dalufish&button_colour=FFDD00&font_colour=000000&font_family=Comic&outline_colour=000000&coffee_colour=ffffff`}
+                  alt=""
+                />
               </div>
             </div>
           </div>

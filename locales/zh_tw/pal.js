@@ -1,5 +1,10 @@
 const game_data_pals_zh_tw = {
   ...{
+    // 四月新更新
+    NightLady: '貝菈諾娃',
+    NightLady_Dark: '貝菈露潔',
+  },
+  ...{
     // 一般
     zunknown: '未知',
     SheepBall: '棉悠悠',

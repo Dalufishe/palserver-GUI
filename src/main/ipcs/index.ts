@@ -49,3 +49,11 @@ import './server/plugin/updatePalguard';
 import './server/plugin/updateUE4SS';
 
 import './server/cache/clearServerCache';
+
+import './server/mods/getLuaMods';
+import './server/mods/deleteLuaMods';
+import './server/mods/getPakMods';
+import './server/mods/deletePakMods';
+import './server/mods/getPakLogicMods';
+import './server/mods/deletePakLogicMods';
+import './server/mods/exportModsToClientSide';

@@ -20,6 +20,7 @@ const zh_cn = {
   HaventSavedYet: '尚未设置',
   LuaMods: 'Lua 模组',
   PakMods: 'Pak 模组',
+  PakLogicMods: 'LogicMods 模组',
   Mod: '模组',
   Disabled: '停用',
   Enabled: '启用',
@@ -325,5 +326,12 @@ const zh_cn = {
   Clear: '清除',
   ServerInstancePath: '实例路径 (需重新啟動)',
   Change: '修改',
+  ImportGameSaves: '导入游戏存档',
+  HowToImportDedicatedServer: '如何导入专用服务器 (Windows / Linux)？',
+  HowToImportFourPlayerSaves: '如何导入本机存档 (四人邀请码)？',
+  HelpPlzJoinUs: '疑难排解 - 请加入我们的',
+  SpecialThanks: '特别感谢',
+  SpeicalThanksDesc: '感谢所有的开发人员、赞助者、小帮手及使用 GUI 的大家。',
+  BuyMeACoffee: '请我喝杯咖啡',
 };
 export default zh_cn;

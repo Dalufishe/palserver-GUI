@@ -271,7 +271,7 @@ export default function ServerSettings() {
         desciption: (
           <span>
             {t('UE4SSEnabledDesc')}
-            <Link herf="https://github.com/UE4SS-RE/RE-UE4SS">
+            <Link href="https://github.com/UE4SS-RE/RE-UE4SS">
               {t('OfficalWebsite')}
             </Link>
           </span>
@@ -290,7 +290,7 @@ export default function ServerSettings() {
         desciption: (
           <span>
             {t('PalguardEnabledDesc')}
-            <Link herf="https://www.nexusmods.com/palworld/mods/451/">
+            <Link href="https://www.nexusmods.com/palworld/mods/451/">
               {t('OfficalWebsite')}
             </Link>
           </span>

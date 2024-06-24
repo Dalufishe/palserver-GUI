@@ -59,5 +59,13 @@ const Channels = {
   updateUE4SS: 'update-ue4ss',
   // cache
   clearSystemCache: 'clear-system-cache',
+  // mods
+  getLuaMods: 'get-lua-mods',
+  getPakMods: 'get-pak-mods',
+  getPakLogicMods: 'get-pak-logic-mods',
+  deleteLuaMods: 'delete-lua-mods',
+  deletePakMods: 'delete-pak-mods',
+  deletePakLogicMods: 'delete-pak-logic-mods',
+  exportModsToClientSide: 'export-mods-to-client-side',
 } as const;
 export default Channels;
