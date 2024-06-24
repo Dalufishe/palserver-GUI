@@ -107,7 +107,7 @@ ipcMain.on(
 
     // start server
 
-    let processId = await startServer(event, serverId);
+    let processId = await startServer(event, serverId, queryport);
 
     // #region auto restart
 
@@ -123,7 +123,7 @@ ipcMain.on(
             }
             // 伺服器重新啟動
             await sleep(2000);
-            processId = await startServer(event, serverId);
+            processId = await startServer(event, serverId, queryport);
           } catch (e) {
             // 伺服器被提早關閉
             // Error: kill ESRCH
@@ -187,25 +187,20 @@ const startServer = async (
 
   const palserver = `${path.join(
     serverPath,
-    'Pal/Binaries/Win64/PalServer-Win64-Shipping-Cmd.exe',
+    'Pal/Binaries/Win64/PalServer-Win64-Shipping.exe',
   )}`;
 
-  const palserverStream = spawn(
-    palserver,
-    [
-      `-RCONPort=${worldSettings.RCONPort}`,
-      `-port=${worldSettings.PublicPort}`,
-      `-publicport=${worldSettings.PublicPort}`,
-      `-publicip=${worldSettings.PublicIP}`,
-      `-QueryPort=${queryport}`,
-      serverInfo.openToCommunity ? '-publiclobby' : '',
-      serverInfo.performanceOptimizationEnabled ? '-useperfthreads' : '',
-      serverInfo.performanceOptimizationEnabled ? '-NoAsyncLoadingThread' : '',
-      serverInfo.performanceOptimizationEnabled ? '-UseMultithreadForDS' : '',
-      '-logformat=text',
-    ],
-    { stdio: 'pipe' },
-  );
+  const palserverStream = spawn(palserver, [
+    `-RCONPort=${worldSettings.RCONPort}`,
+    `-port=${worldSettings.PublicPort}`,
+    `-publicport=${worldSettings.PublicPort}`,
+    `-publicip=${worldSettings.PublicIP}`,
+    `-QueryPort=${queryport}`,
+    serverInfo.openToCommunity ? '-publiclobby' : '',
+    serverInfo.performanceOptimizationEnabled ? '-useperfthreads' : '',
+    serverInfo.performanceOptimizationEnabled ? '-NoAsyncLoadingThread' : '',
+    serverInfo.performanceOptimizationEnabled ? '-UseMultithreadForDS' : '',
+  ]);
 
   const processId = palserverStream.pid;
 

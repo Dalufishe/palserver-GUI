@@ -91,33 +91,28 @@ export default function ServerManagement() {
         }}
       >
         <Tabs.List>
-          {includeRunningServers(selectedServerInstance) && (
-            <>
-              {serverInfo?.LogEnabled && (
-                <Tabs.Trigger
-                  value="log"
-                  style={{ color: 'white', fontWeight: 500 }}
-                >
-                  {t('ServerLog')}
-                </Tabs.Trigger>
-              )}
-              <Tabs.Trigger
-                value="players"
-                style={{ color: 'white', fontWeight: 500 }}
-              >
-                {t('ServerPlayers')}
-              </Tabs.Trigger>
-              {serverInfo?.OnlineMapEnabled && (
-                <Tabs.Trigger
-                  value="map"
-                  style={{ color: 'white', fontWeight: 500 }}
-                >
-                  {t('OnlineMap')}
-                </Tabs.Trigger>
-              )}
-            </>
+          {serverInfo?.LogEnabled && (
+            <Tabs.Trigger
+              value="log"
+              style={{ color: 'white', fontWeight: 500 }}
+            >
+              {t('ServerLog')}
+            </Tabs.Trigger>
           )}
-
+          <Tabs.Trigger
+            value="players"
+            style={{ color: 'white', fontWeight: 500 }}
+          >
+            {t('ServerPlayers')}
+          </Tabs.Trigger>
+          {serverInfo?.OnlineMapEnabled && (
+            <Tabs.Trigger
+              value="map"
+              style={{ color: 'white', fontWeight: 500 }}
+            >
+              {t('OnlineMap')}
+            </Tabs.Trigger>
+          )}
           {serverInfo?.performanceMonitorEnabled && (
             <Tabs.Trigger
               value="performance"
