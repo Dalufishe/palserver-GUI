@@ -14,7 +14,7 @@ export default function Link(props: {
     >
       <RLink
         onClick={() => {
-          window.electron.openLink(props.href);
+          window.electron.openLink(props.href || '');
         }}
         color="blue"
         style={{

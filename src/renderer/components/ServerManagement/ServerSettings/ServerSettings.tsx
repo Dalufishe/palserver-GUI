@@ -164,6 +164,7 @@ export default function ServerSettings() {
         },
       },
       PerformanceMonitorEnabled: {
+        hidden: serverInfo?.UseIndependentProcess,
         id: 'PerformanceMonitorEnabled',
         title: t('PerformanceMonitorEnabled'),
         desciption: t('PerformanceMonitorEnabledDesc'),
@@ -415,6 +416,20 @@ export default function ServerSettings() {
       //     });
       //   },
       // },
+    },
+    Process: {
+      UseIndependentProcess: {
+        id: 'UseIndependentProcess',
+        title: t('UseIndependentProcess'),
+        desciption: t('UseIndependentProcessDesc'),
+        value: serverInfo?.UseIndependentProcess,
+        onValueChange(v) {
+          setServerInfo({
+            ...serverInfo!,
+            UseIndependentProcess: v,
+          });
+        },
+      },
     },
     OtherExtensions: {
       LogEnabled: {

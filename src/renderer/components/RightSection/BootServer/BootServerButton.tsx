@@ -6,6 +6,7 @@ import useIsRunningServers from '../../../redux/isRunningServers/useIsRunningSer
 import CongratBootServerAlert from './CongratBootServerAlert/CongratBootServerAlert';
 import { AlertDialog, ContextMenu } from '@radix-ui/themes';
 import useLocalState from '../../../hooks/useLocalState';
+import useServerInfo from '../../../hooks/server/info/useServerInfo';
 
 export default function BootServerButton() {
   const { t } = useTranslation();
@@ -17,6 +18,8 @@ export default function BootServerButton() {
     includeRunningServers,
     isRunningServers,
   } = useIsRunningServers();
+
+  const { serverInfo } = useServerInfo(selectedServerInstance);
 
   const isServerRunning = includeRunningServers(selectedServerInstance);
 
@@ -72,10 +75,22 @@ export default function BootServerButton() {
   return (
     <div>
       <AlertDialog.Trigger
-        onClick={isServerRunning ? handleShutDownServer : handleBootServer}
+        onClick={
+          isServerRunning
+            ? serverInfo?.UseIndependentProcess
+              ? () => {}
+              : handleShutDownServer
+            : handleBootServer
+        }
       >
         <div className="w-full h-10 bg-gray-200 hover:bg-slate-50 text-bg1 rounded-lg flex items-center justify-center select-none cursor-pointer">
-          {isServerRunning ? t('CloseServer') : t('BootServer')}
+          {serverInfo?.UseIndependentProcess
+            ? isServerRunning
+              ? t('ServerIsRunning')
+              : t('BootServer')
+            : isServerRunning
+            ? t('CloseServer')
+            : t('BootServer')}
         </div>
       </AlertDialog.Trigger>
     </div>

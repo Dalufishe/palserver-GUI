@@ -4,7 +4,7 @@ import { doc, getDoc } from 'firebase/firestore';
 
 const useOnlineLinksMap = (id: string) => {
   const { data: link } = useQuery(
-    'online-links-map',
+    ['online-links-map', id],
     async () => {
       const docRef = doc(db.Links, id);
       const docSnap = await getDoc(docRef);
@@ -26,4 +26,4 @@ const useOnlineLinksMap = (id: string) => {
   return link;
 };
 
-export default useOnlineLinksMap
+export default useOnlineLinksMap;

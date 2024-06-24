@@ -107,7 +107,12 @@ ipcMain.on(
 
     // start server
 
-    let processId = await startServer(event, serverId, queryport);
+    let processId = await startServer(
+      event,
+      serverId,
+      queryport,
+      serverInfo.UseIndependentProcess,
+    );
 
     // #region auto restart
 
@@ -123,7 +128,12 @@ ipcMain.on(
             }
             // 伺服器重新啟動
             await sleep(2000);
-            processId = await startServer(event, serverId, queryport);
+            processId = await startServer(
+              event,
+              serverId,
+              queryport,
+              serverInfo.UseIndependentProcess,
+            );
           } catch (e) {
             // 伺服器被提早關閉
             // Error: kill ESRCH
@@ -174,6 +184,7 @@ const startServer = async (
   event: IpcMainEvent,
   serverId: string,
   queryport: number,
+  useIndependentProcess: boolean,
 ) => {
   const serverInfo = await getServerInfoByServerId(serverId);
   const serverPath = path.join(USER_SERVER_INSTANCES_PATH, serverId, 'server');
@@ -187,7 +198,9 @@ const startServer = async (
 
   const palserver = `${path.join(
     serverPath,
-    'Pal/Binaries/Win64/PalServer-Win64-Shipping.exe',
+    useIndependentProcess
+      ? 'PalServer.exe'
+      : 'Pal/Binaries/Win64/PalServer-Win64-Shipping.exe',
   )}`;
 
   const palserverStream = spawn(palserver, [
@@ -201,6 +214,8 @@ const startServer = async (
     serverInfo.performanceOptimizationEnabled ? '-NoAsyncLoadingThread' : '',
     serverInfo.performanceOptimizationEnabled ? '-UseMultithreadForDS' : '',
   ]);
+
+
 
   const processId = palserverStream.pid;
 

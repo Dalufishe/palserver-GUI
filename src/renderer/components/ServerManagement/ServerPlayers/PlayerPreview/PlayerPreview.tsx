@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 
 import { Box, Button, IconButton, Text, Theme } from '@radix-ui/themes';
-import React from 'react';
+import React, { useState } from 'react';
 import useServerOnlinePlayers from '../../../../hooks/server/players/useServerOnlinePlayers';
 import useSelectedServerInstance from '../../../../redux/selectedServerInstance/useSelectedServerInstance';
 import _ from 'lodash';
@@ -9,6 +9,7 @@ import useTranslation from '../../../../hooks/translation/useTranslation';
 import { MdOutlineMoreVert } from 'react-icons/md';
 import PlayerMoreAction from '../PlayerMoreAction/PlayerMoreAction';
 import Channels from '../../../../../main/ipcs/channels';
+import { PiEye, PiEyeClosed } from 'react-icons/pi';
 
 export default function PlayerPreview({
   playerIndex,
@@ -18,8 +19,14 @@ export default function PlayerPreview({
   const { t } = useTranslation();
 
   const { selectedServerInstance } = useSelectedServerInstance();
+
   const players = useServerOnlinePlayers(selectedServerInstance);
   const player = players[playerIndex] || {};
+
+  // eslint-disable-next-line no-use-before-define
+  const location = getInGameLocation(player.location_x, player.location_y);
+
+  const [showPlayerSteamId, setShowPlayerSteamId] = useState(false);
 
   const handleKickPlayer = () => {
     window.electron.ipcRenderer.invoke(
@@ -36,11 +43,9 @@ export default function PlayerPreview({
     );
   };
 
-  const location = getInGameLocation(player.location_x, player.location_y);
-
   return (
     _.isEmpty(player) || (
-      <div className="flex flex-col p-4">
+      <div className="flex flex-col p-3.5 h-fit">
         <div className="flex items-center gap-4">
           <img
             className="w-12 h-12 rounded-full"
@@ -60,10 +65,19 @@ export default function PlayerPreview({
                   size="2"
                   color="gray"
                 >
-                  {player.userId
-                    ?.replace(player.userId.substring(11, 18), '*******')
-                    .slice(6)}
+                  {showPlayerSteamId
+                    ? player.userId
+                        ?.replace(player.userId.substring(11, 18), '*******')
+                        .slice(6)
+                    : player.userId.slice(6)}
                 </Text>
+                <div
+                  onClick={() => {
+                    setShowPlayerSteamId(!showPlayerSteamId);
+                  }}
+                >
+                  {showPlayerSteamId ? <PiEye /> : <PiEyeClosed />}
+                </div>
               </div>
               <Text as="div" size="2" color="gray">
                 Lv {player.level} .{' '}

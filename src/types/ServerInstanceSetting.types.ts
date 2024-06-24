@@ -18,5 +18,5 @@ export type ServerInstanceSetting = {
   readonly openToCommunity: boolean;
   readonly OnlineMapEnabled: boolean;
   readonly LogEnabled: boolean;
-  readonly AutoBoardcast: number;
+  readonly UseIndependentProcess: boolean;
 };

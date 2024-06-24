@@ -113,14 +113,15 @@ export default function ServerManagement() {
               {t('OnlineMap')}
             </Tabs.Trigger>
           )}
-          {serverInfo?.performanceMonitorEnabled && (
-            <Tabs.Trigger
-              value="performance"
-              style={{ color: 'white', fontWeight: 500 }}
-            >
-              {t('PerformanceMonitor')}
-            </Tabs.Trigger>
-          )}
+          {!serverInfo?.UseIndependentProcess &&
+            serverInfo?.performanceMonitorEnabled && (
+              <Tabs.Trigger
+                value="performance"
+                style={{ color: 'white', fontWeight: 500 }}
+              >
+                {t('PerformanceMonitor')}
+              </Tabs.Trigger>
+            )}
           <Tabs.Trigger
             value="settings"
             style={{ color: 'white', fontWeight: 500 }}

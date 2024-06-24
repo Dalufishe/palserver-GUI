@@ -18,13 +18,21 @@ export default function Version() {
         <span className="font-mono">
           {ENV} - {VERSION} ({PLATFORM}){' '}
         </span>
-        {/* {latestVersionValue > currentVersionValue ? (
-          <Link color="sky">
+        {latestVersionValue > currentVersionValue ? (
+          <Link
+            appearance="dark"
+            href={`https://github.com/Dalufishe/palserver-GUI/releases/tag/${latestVersion}`}
+          >
             {formatLocale(t('NewUpdate'), [latestVersion])}
           </Link>
         ) : (
-          <Link color="sky">{t('UpdateLog')}</Link>
-        )} */}
+          <Link
+            appearance="dark"
+            href={`https://github.com/Dalufishe/palserver-GUI/releases/tag/${VERSION}`}
+          >
+            {t('UpdateLog')}
+          </Link>
+        )}
       </div>
       <div>
         Made by{' '}
