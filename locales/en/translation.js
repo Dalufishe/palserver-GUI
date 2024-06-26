@@ -364,5 +364,11 @@ const en = {
   SpeicalThanksDesc:
     'Thanks to all the developers, sponsors, helpers, and everyone using the GUI.',
   BuyMeACoffee: 'Buy Me a Coffee',
+  Process: 'Process',
+  UseIndependentProcess: 'Use Independent Process',
+  UseIndependentProcessDesc:
+    'By default, it is turned off, and the server runs as a child process of the GUI. If your server frequently crashes unexpectedly, try enabling this option. A small black window will appear when enabled, and performance monitoring will be unavailable.',
+  ServerVersion: 'Server Version',
+  SupportGUI: 'Support GUI ❤️',
 };
 export default en;

@@ -5,6 +5,9 @@ import _ from 'lodash';
 import Channels from '../../../../main/ipcs/channels';
 import SecureEye from '../../SecureEye';
 import uniqid from 'uniqid';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import db from '../../../firebase/db';
+import { VERSION } from '../../../../constant/app';
 
 const defaultServerConfigOptions = {
   serverName: {
@@ -52,6 +55,19 @@ export default function CreateServerAlert() {
   );
 
   const handleCreateServer = async () => {
+    try {
+      // collect data
+      const docRef = doc(db.ServerInfo, VERSION);
+      const docSnap = await getDoc(docRef);
+      const prev_create_count = docSnap.data()?.create_count || 0;
+      await updateDoc(docRef, {
+        create_count: prev_create_count + 1,
+      });
+    } catch (e) {
+      //
+    }
+
+    // create server
     window.electron.ipcRenderer.invoke(Channels.createServerInstance, {
       ServerName: `"${serverConfigOptions.serverName.value}"`,
       PublicIP: `"${serverConfigOptions.publicIP.value}"`,

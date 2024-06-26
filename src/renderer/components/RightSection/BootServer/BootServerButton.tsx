@@ -7,6 +7,9 @@ import CongratBootServerAlert from './CongratBootServerAlert/CongratBootServerAl
 import { AlertDialog, ContextMenu } from '@radix-ui/themes';
 import useLocalState from '../../../hooks/useLocalState';
 import useServerInfo from '../../../hooks/server/info/useServerInfo';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import db from '../../../firebase/db';
+import { VERSION } from '../../../../constant/app';
 
 export default function BootServerButton() {
   const { t } = useTranslation();
@@ -23,7 +26,19 @@ export default function BootServerButton() {
 
   const isServerRunning = includeRunningServers(selectedServerInstance);
 
-  const handleBootServer = () => {
+  const handleBootServer = async () => {
+    try {
+      // collect data
+      const docRef = doc(db.ServerInfo, VERSION);
+      const docSnap = await getDoc(docRef);
+      const prev_boot_count = docSnap.data()?.boot_count || 0;
+      await updateDoc(docRef, {
+        boot_count: prev_boot_count + 1,
+      });
+    } catch (e) {
+      //
+    }
+
     // setting query port (thanks Pumpkin at Hydra Network <3)
     const queryPorts = isRunningServers.map((server) => server.queryPort);
     let queryPort = 27015;

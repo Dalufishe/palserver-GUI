@@ -50,7 +50,7 @@ export default function ServerPreview() {
       value: '',
       secure: false,
       showValue: true,
-    },
+    }
   };
 
   return (

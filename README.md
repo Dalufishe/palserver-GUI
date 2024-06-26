@@ -1,58 +1,61 @@
 # palserver GUI
 
-### 1.0.0 正在開發中! 即將帶來更多實用的功能! 
+palserver GUI 是一款全圖形化介面的專用伺服器架設、管理工具：
 
-- 伺服器多開 (支援平行運行)
-- 伺服器複製、匯出、遠端連線等功能。
-- 模組、差件、日誌環境獨立。
-- 更完善的效能監控、資源管理及玩家管理。
-- 自動重啟、崩潰重啟。
-- 更完善的自動備份系統 (上限設置)。
-- 全新 UIUX 升級 & 還有更多。
-
-
-因為早期程式寫得較隨意、將程式碼重構花了較多時間，請大家再給我一些時間。
+- **開箱即用**：易於上手，傻瓜式安裝 + 一鍵啟動伺服器。
+- **全圖形化介面**：提供完整且功能強大的 GUI 介面調整世界設定、伺服器設定等。
+- **強大功能擴展**：內建 UE4SS 和 Palguard 防作弊系統、玩家列表、線上地圖、多存檔管理和模組管理等功能，大幅提升伺服器的管理效率和玩家體驗。
 
 ---
 
-全圖形化介面，一鍵式帕魯 (Palworld) 伺服器建立、管理工具。
+### 一鍵啟動伺服器
 
-- 易於上手，只需點擊首頁`右下方按鈕`即可啟動伺服器。
-- 提供完整的 `GUI 介面`調整世界設定、伺服器設定等。
-- 支持`多存檔`及`模組`管理，方便設定不同玩法和好友同樂！
+安裝完成後，建立伺服器，點擊「右下角啟動」即成功架設您的第一個伺服器。
 
-![alt text](/readme//2zh.webp)
+![alt text](/readme/menu.png)
 
----
-
-### 開箱即用，一鍵式體驗
-
-![alt text](/readme//1zh.webp)
 
 ### 可視化世界設定選項
 
-![alt text](/readme//3zh.webp)
+使用滑動條和輸入框調整世界設定，不再需要修改原始文件 PalWorldSettings.ini：
 
-### 多伺服器建立、管理
+![alt text](/readme/worldsettings.png)
 
-![alt text](/readme/5zh.webp)
+### 在線玩家列表
 
-### 伺服器遠端控制台、在線玩家查看、權限操作
+顯示在線玩家資訊，並提供諸多功能讓房主對玩家操作。
 
-![alt text](/readme//7zh.webp)
+![alt text](/readme/playerlist.png)
 
-### 模組管理，並支持匯出到遊戲
+![alt text](/readme/playeraction.png)
 
-![alt text](/readme//6zh.webp)
+### 玩家實時地圖
+
+即時顯示玩家在遊戲內的等級、座標和在地圖上的位置。
+
+![alt text](/readme/onlinemap.png)
+
+
+
+
+### 模組管理、匯出到遊戲
+
+默認安裝 UE4SS 及 Palguard，模組管理面板，一鍵打包到客戶端！
+
+![alt text](/readme/mod.png)
+
+### 一鍵更新、一鍵最佳化、還有更多
+
+除此之外，還有更多的伺服器設定與功能，微調您的伺服器以達到最佳的遊戲體驗！
+
+
 
 ---
 
 ### 安裝連結及更新
 
-第一次下載連結：[點我](https://github.com/Dalufishe/palserver-GUI/releases/download/0.2.0/0.2.0-palserver-GUI-win32-x64.7z)  
-補丁包連結：[點我](https://github.com/Dalufishe/palserver-GUI/releases/download/patch-0.2.0/patch-0.2.0-palserver-GUI-win32-x64.7z)
-
-或者到 github 右下角 releases 也可以下載歷史版本 :D
+安裝包 (推薦)：[點我下鮺](https://github.com/Dalufishe/palserver-GUI/releases/download/1.0.0/1.0.0-palserver-gui.exe)
+免安裝版本：[點我下載](https://github.com/Dalufishe/palserver-GUI/releases/download/1.0.0/unpack-1.0.0-palserver-gui.zip)
 
 ### 相關連結
 
@@ -87,7 +90,7 @@
 也可以給予一杯咖啡的支持 [buymeacoffee](https://www.buymeacoffee.com/dalufish) ，鼓勵我繼續創作，感激不盡。
 
 <a href="https://www.buymeacoffee.com/Dalufish"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Dalufish&button_colour=FFDD00&font_colour=000000&font_family=Comic&outline_colour=000000&coffee_colour=ffffff" /></a>
-0
+
 ### 回報問題
 
-目前專案仍在超早期階段，可能存在一定數量的 bugs (僅管我已經很努力排除)，如果您發現了錯誤歡迎到 [issues](https://github.com/Dalufishe/palserver-GUI/issues) 發表，我會在最短時間內解決問題。另外有想加的功能或改進也都歡迎到 [issues](https://github.com/Dalufishe/palserver-GUI/issues) 提出。
+目前專案仍在早期階段，可能存在一定數量的 bugs (僅管我已經很努力排除)，如果您發現了錯誤歡迎到 [issues](https://github.com/Dalufishe/palserver-GUI/issues) 發表，我會在最短時間內解決問題。另外有想加的功能或改進也都歡迎到 [issues](https://github.com/Dalufishe/palserver-GUI/issues) 提出。

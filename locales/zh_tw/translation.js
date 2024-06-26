@@ -355,5 +355,7 @@ const zh_tw = {
   UseIndependentProcess: '使用獨立進程',
   UseIndependentProcessDesc:
     '預設情況下為關閉，伺服器為 GUI 的子進程。當您的伺服器經常發生非預期性的崩潰時，請嘗試開啟此選項。開啟後會顯示小黑窗，另外開啟後無法使用效能監測功能。',
+  ServerVersion: '伺服器版本',
+  SupportGUI: '支持 GUI ❤️',
 };
 export default zh_tw;

@@ -19,9 +19,8 @@ export const APP_DATA_PATH = (function () {
 export const ENGINE_PATH =
   process.env.NODE_ENV === 'development'
     ? path.join(__dirname, '../../assets/engine')
-    : path.join(PROGRAM_APP_DATA_PATH, 'resources/assets/engine');
-
-  console.log(getEngineConfig().USER_SERVER_INSTANCES_PATH);
+    : path.join(__dirname, '../../../assets/engine');
+// path.join(PROGRAM_APP_DATA_PATH, 'resources/assets/engine');
 
 export const USER_SERVER_INSTANCES_PATH =
   getEngineConfig().USER_SERVER_INSTANCES_PATH ||

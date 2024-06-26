@@ -4,9 +4,12 @@ import { Button, Select } from '@radix-ui/themes';
 import { useHistory } from 'react-router-dom';
 import IconImage from '../../../../assets/icon.png';
 import Settings from './Settings/Settings';
+import useTranslation from '../../hooks/translation/useTranslation';
 // import SupportMe from './SupportMe/SupportMe';
 
 export default function AboutSection() {
+  const { t } = useTranslation();
+
   const history = useHistory();
 
   return (
@@ -26,6 +29,15 @@ export default function AboutSection() {
         <Button size="1" color="pink">
           支持我們
         </Button> */}
+        <Button
+          size="1"
+          color="pink"
+          onClick={() => {
+            window.electron.openLink('https://buymeacoffee.com/dalufish');
+          }}
+        >
+          {t('SupportGUI')}
+        </Button>
         <Settings />
         {/* <SupportMe /> */}
         {/* <Button onClick={handleOpenYoutube}>

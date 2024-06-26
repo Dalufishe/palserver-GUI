@@ -333,5 +333,11 @@ const zh_cn = {
   SpecialThanks: '特别感谢',
   SpeicalThanksDesc: '感谢所有的开发人员、赞助者、小帮手及使用 GUI 的大家。',
   BuyMeACoffee: '请我喝杯咖啡',
+  Process: '进程',
+  UseIndependentProcess: '使用独立进程',
+  UseIndependentProcessDesc:
+    '默认情况下为关闭，服务器为 GUI 的子进程。当您的服务器经常发生非预期性的崩溃时，请尝试开启此选项。开启后会显示小黑窗，另外开启后无法使用性能监测功能。',
+  ServerVersion: '服务器版本',
+  SupportGUI: '支持 GUI ❤️',
 };
 export default zh_cn;
