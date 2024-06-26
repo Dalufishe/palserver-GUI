@@ -1,5 +1,11 @@
 # palserver GUI
 
+![RELEASE](https://img.shields.io/badge/RELEASE-1.0.0-green)
+[![RELEASE](https://img.shields.io/badge/website-link-blue)](https://dalufishes-team.gitbook.io/palserver-gui)
+![Make With Love](https://img.shields.io/badge/make_with_%E2%9D%A4%EF%B8%8F-white)
+
+#### [English](/README_EN.md) / [繁體中文](/README.md)
+
 palserver GUI 是一款全圖形化介面的專用伺服器架設、管理工具：
 
 - **開箱即用**：易於上手，傻瓜式安裝 + 一鍵啟動伺服器。
@@ -13,7 +19,6 @@ palserver GUI 是一款全圖形化介面的專用伺服器架設、管理工具
 安裝完成後，建立伺服器，點擊「右下角啟動」即成功架設您的第一個伺服器。
 
 ![alt text](/readme/menu.png)
-
 
 ### 可視化世界設定選項
 
@@ -35,9 +40,6 @@ palserver GUI 是一款全圖形化介面的專用伺服器架設、管理工具
 
 ![alt text](/readme/onlinemap.png)
 
-
-
-
 ### 模組管理、匯出到遊戲
 
 默認安裝 UE4SS 及 Palguard，模組管理面板，一鍵打包到客戶端！
@@ -47,8 +49,6 @@ palserver GUI 是一款全圖形化介面的專用伺服器架設、管理工具
 ### 一鍵更新、一鍵最佳化、還有更多
 
 除此之外，還有更多的伺服器設定與功能，微調您的伺服器以達到最佳的遊戲體驗！
-
-
 
 ---
 
@@ -90,8 +90,6 @@ palserver GUI 是一款全圖形化介面的專用伺服器架設、管理工具
 ### 參與貢獻
 
 目前 palserver GUI 是我的一人專案，使用 Typescript + React + Electron 開發。如果你有興趣參與專案開發 (不論是軟體設計上、美術、翻譯或者程序開發)，都歡迎聯繫我的 discord (使用者名稱：dalufish) 討論！
-
-構建方式稍後補。
 
 ### 給予支持
 
