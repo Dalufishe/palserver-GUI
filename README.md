@@ -57,9 +57,18 @@ palserver GUI 是一款全圖形化介面的專用伺服器架設、管理工具
 安裝包 (推薦)：[點我下鮺](https://github.com/Dalufishe/palserver-GUI/releases/download/1.0.0/1.0.0-palserver-gui.exe)
 免安裝版本：[點我下載](https://github.com/Dalufishe/palserver-GUI/releases/download/1.0.0/unpack-1.0.0-palserver-gui.zip)
 
+### 常見問題
+
+- 使用 VPN 仍無法進入伺服器：[點我](https://dalufishes-team.gitbook.io/palserver-gui/faq/shi-yong-vpn-reng-wu-fa-jin-ru-si-fu-qi)
+- 伺服器無法啟動：[點我](https://dalufishes-team.gitbook.io/palserver-gui/faq/si-fu-qi-wu-fa-qi-dong)
+- 伺服器頻繁崩潰：[點我](https://dalufishes-team.gitbook.io/palserver-gui/faq/si-fu-qi-bin-fan-beng-kui)
+- 沒有顯示在線玩家：[點我](https://dalufishes-team.gitbook.io/palserver-gui/faq/mei-you-xian-shi-zai-xian-wan-jia)
+- 如何將測試版本 GUI 檔案遷移到正式版：[點我](https://dalufishes-team.gitbook.io/palserver-gui/faq/ce-shi-ban-ben-gui-dang-an-qian-yi-dao-zheng-shi-ban)
+
 ### 相關連結
 
 - Discord： [點我](https://discord.gg/sgMMdUZd3V)
+- 官方文檔：[點我](https://dalufishes-team.gitbook.io/palserver-gui)
 - 巴哈文：[點我](https://forum.gamer.com.tw/C.php?bsn=71458&snA=2043)
 - yahoo 遊戲新聞連結：[點我](https://tw.news.yahoo.com/palserver-gui-041354287.html)
 - 電玩誌：[點我](https://gank.fanpiece.com/animeradio/%E5%8F%B0%E7%81%A3%E5%A4%A7%E7%A5%9E%E5%89%B5-%E5%B9%BB%E7%8D%B8%E5%B8%95%E9%AD%AF-%E4%B8%80%E9%8D%B5%E9%96%8B%E8%A8%AD%E4%BC%BA%E6%9C%8D%E5%99%A8-%E5%B7%A5%E5%85%B7-%E5%85%A7%E5%BB%BA%E7%B9%81%E4%B8%AD-%E5%9C%96%E5%83%8FUI-c1452714.html)
