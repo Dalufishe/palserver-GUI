@@ -57,8 +57,8 @@ palserver GUI 是一款全圖形化介面的專用伺服器架設、管理工具
 
 ### 安裝連結及更新
 
-安裝包 (推薦)：[點我下鮺](https://github.com/Dalufishe/palserver-GUI/releases/download/1.0.1/1.0.1-palserver-gui.exe)
-免安裝版本：[點我下載](https://github.com/Dalufishe/palserver-GUI/releases/download/1.0.1/unpack-1.0.1-palserver-gui.zip)
+- 安裝包 (推薦)：[點我下載](https://github.com/Dalufishe/palserver-GUI/releases/download/1.0.1/1.0.1-palserver-gui.exe)
+- 免安裝版本：[點我下載](https://github.com/Dalufishe/palserver-GUI/releases/download/1.0.1/unpack-1.0.1-palserver-gui.zip)
 
 ### 常見問題
 
