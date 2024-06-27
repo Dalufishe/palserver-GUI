@@ -336,7 +336,7 @@ const zh_cn = {
   Process: '进程',
   UseIndependentProcess: '使用独立进程',
   UseIndependentProcessDesc:
-    '默认情况下为关闭，服务器为 GUI 的子进程。当您的服务器经常发生非预期性的崩溃时，请尝试开启此选项。开启后会显示小黑窗，另外开启后无法使用性能监测功能。',
+    '当您的服务器经常发生意外崩溃时，请启用此选项。默认情况下为启用状态。启用时，服务器与 GUI 将作为相互独立的进程运行。如果您需要使用性能监控面板，请关闭它。此时服务器将作为 GUI 的子进程运行。',
   ServerVersion: '服务器版本',
   SupportGUI: '支持 GUI ❤️',
 };

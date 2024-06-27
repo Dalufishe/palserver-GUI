@@ -348,6 +348,7 @@ const en = {
   LogEnabled: 'Log Enabled',
   LogEnabledDesc:
     'Support Palguard log display for player entry, chat messages, etc.',
+  LogFolder: 'Logs Folder',
   ClearCache: 'Clear Cache',
   ClearCacheDesc:
     'If the server cannot start, try deleting the server, clearing the cache, then restarting the palserver GUI, creating the server again, and then trying to start the server.',
@@ -367,7 +368,7 @@ const en = {
   Process: 'Process',
   UseIndependentProcess: 'Use Independent Process',
   UseIndependentProcessDesc:
-    'By default, it is turned off, and the server runs as a child process of the GUI. If your server frequently crashes unexpectedly, try enabling this option. A small black window will appear when enabled, and performance monitoring will be unavailable.',
+    'When your server frequently experiences unexpected crashes, please enable this option. By default, it is enabled. When enabled, the server and GUI run as separate processes. If you need to use the performance monitoring panel, please disable it. In this case, the server will run as a subprocess of the GUI.',
   ServerVersion: 'Server Version',
   SupportGUI: 'Support GUI ❤️',
 };

@@ -67,7 +67,7 @@ ipcMain.handle(
       openToCommunity: false,
       OnlineMapEnabled: false,
       LogEnabled: true,
-      UseIndependentProcess: false,
+      UseIndependentProcess: true,
     };
     fs.writeFile(
       serverInstanceSettingPath,
