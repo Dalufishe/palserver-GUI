@@ -58,7 +58,18 @@ ipcMain.handle(
         }),
       ]);
 
-      await fs.rm(path.join(clientSidePakModPath, 'Pal-WindowsServer.pak'));
+      // 刪除不必要的檔案
+
+      const unnessaryMods = [
+        'Pal-WindowsServer.pak',
+        'Pal-WindowsServer.ucas',
+        'Pal-WindowsServer.utoc',
+        'global.ucas',
+        'global.utoc',
+      ];
+      unnessaryMods.forEach(async (mod) => {
+        await fs.rm(path.join(clientSidePakModPath, mod));
+      });
 
       openExplorer(clientSideModPath);
 

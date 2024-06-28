@@ -1,6 +1,6 @@
 import { AlertDialog, Button, Flex, Select } from '@radix-ui/themes';
 import React from 'react';
-import { MdSettings } from 'react-icons/md';
+import { MdCoffee, MdSettings } from 'react-icons/md';
 import useTranslation from '../../../hooks/translation/useTranslation';
 import _ from 'lodash';
 import useLanguage from '../../../hooks/translation/useLanguage';
@@ -8,19 +8,21 @@ import { Language } from '../../../../../locales';
 import Link from '../../Link';
 import Channels from '../../../../main/ipcs/channels';
 import useOnlineLinksMap from '../../../hooks/firebase/useOnlineLinksMap';
+import { FaDiscord, FaGithub } from 'react-icons/fa';
 
 export default function Settings() {
   const { t } = useTranslation();
   const { language, setLanguage } = useLanguage();
 
   const speicalThanksLink = useOnlineLinksMap('SupportPalserverGUI');
+  const helpTranslateLink = useOnlineLinksMap('HelpTranslate');
 
   const settings = {
     Language: {
       id: 'Language',
       title: t('Language'),
       description: (
-        <Link href="https://discord.com/invite/sgMMdUZd3V" appearance="light">
+        <Link href={helpTranslateLink} appearance="light">
           {t('LanguageDesc')}
         </Link>
       ),
@@ -57,36 +59,37 @@ export default function Settings() {
         );
       },
     },
-    SourceCode: {
-      id: 'SourceCode',
-      title: t('SourceCode'),
-      description: (
-        <Link
-          href="https://github.com/Dalufishe/palserver-GUI"
-          appearance="light"
-        >
-          {t('ClickLink')}
-        </Link>
-      ),
-    },
-    Discord: {
-      id: 'Discord',
-      title: 'Discord',
-      description: (
-        <Link href="https://discord.com/invite/sgMMdUZd3V" appearance="light">
-          {t('ClickLink')}
-        </Link>
-      ),
-    },
-    SpecialThanks: {
-      id: 'SpecialThanks',
-      title: t('SpecialThanks'),
-      description: (
-        <Link href={speicalThanksLink} appearance="light">
-          {t('SpeicalThanksDesc')}
-        </Link>
-      ),
-    },
+
+    // SourceCode: {
+    //   id: 'SourceCode',
+    //   title: t('SourceCode'),
+    //   description: (
+    //     <Link
+    //       href="https://github.com/Dalufishe/palserver-GUI"
+    //       appearance="light"
+    //     >
+    //       {t('ClickLink')}
+    //     </Link>
+    //   ),
+    // },
+    // Discord: {
+    //   id: 'Discord',
+    //   title: 'Discord',
+    //   description: (
+    //     <Link href="https://discord.com/invite/sgMMdUZd3V" appearance="light">
+    //       {t('ClickLink')}
+    //     </Link>
+    //   ),
+    // },
+    // SpecialThanks: {
+    //   id: 'SpecialThanks',
+    //   title: t('SpecialThanks'),
+    //   description: (
+    //     <Link href={speicalThanksLink} appearance="light">
+    //       {t('SpeicalThanksDesc')}
+    //     </Link>
+    //   ),
+    // },
   };
 
   return (
@@ -97,16 +100,18 @@ export default function Settings() {
         </Button>
       </AlertDialog.Trigger>
       <AlertDialog.Content maxWidth="650px">
+        {/* 應用程式設定 */}
         <AlertDialog.Title>{t('AppSettings')}</AlertDialog.Title>
         <AlertDialog.Description size="2">
+          {/* 選項 */}
           <div className="my-6">
             {_.map(settings, (option, key) => (
               <SettingsItem {...option} />
             ))}
           </div>
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center justify-center mt-8 mb-4">
-              <div
+
+          <div className="flex items-center justify-center gap-8 mt-8 mb-4">
+            {/* <div
                 onClick={() => {
                   window.electron.openLink('https://buymeacoffee.com/dalufish');
                 }}
@@ -118,8 +123,35 @@ export default function Settings() {
                   )}&emoji=&slug=Dalufish&button_colour=FFDD00&font_colour=000000&font_family=Comic&outline_colour=000000&coffee_colour=ffffff`}
                   alt=""
                 />
-              </div>
-            </div>
+              </div> */}
+            <FaDiscord
+              size={48}
+              color="#5562EA"
+              className="cursor-pointer"
+              onClick={() => {
+                window.electron.openLink(
+                  'https://discord.com/invite/sgMMdUZd3V',
+                );
+              }}
+            />
+            <FaGithub
+              size={48}
+              color="gray"
+              className="cursor-pointer"
+              onClick={() => {
+                window.electron.openLink(
+                  'https://github.com/Dalufishe/palserver-GUI',
+                );
+              }}
+            />
+            <MdCoffee
+              size={48}
+              color="#ff08a9"
+              className="cursor-pointer"
+              onClick={() => {
+                window.electron.openLink('https://buymeacoffee.com/dalufish');
+              }}
+            />
           </div>
         </AlertDialog.Description>
         <Flex gap="3" mt="4" justify="end">

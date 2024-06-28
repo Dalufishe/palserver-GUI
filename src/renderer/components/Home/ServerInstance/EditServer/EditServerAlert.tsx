@@ -13,12 +13,16 @@ import _ from 'lodash';
 import useThisWorldSettings from '../ServerInfoProvider/useThisWorldSettings';
 import trimWorldSettingsString from '../../../../../utils/trimWorldSettingsString';
 import SecureEye from '../../../SecureEye';
+import useIsRunningServers from '../../../../redux/isRunningServers/useIsRunningServers';
 
 export default function EditServerAlert() {
   const { t } = useTranslation();
 
   const { serverInfo } = useThisServerInfo();
   const { worldSettings } = useThisWorldSettings();
+
+  const { includeRunningServers } = useIsRunningServers();
+  const isServerRunning = includeRunningServers(serverInfo?.serverId!);
 
   const [serverConfigOptions, setServerConfigOptions] = useState({
     serverName: {
@@ -78,12 +82,15 @@ export default function EditServerAlert() {
 
   return (
     <AlertDialog.Content style={{ maxWidth: 450 }}>
-      <AlertDialog.Title>{t('EditServer')}</AlertDialog.Title>
+      <AlertDialog.Title>
+        {t('EditServer')} {isServerRunning && `(${t('PlzCloseServerFirst')})`}
+      </AlertDialog.Title>
       <div className="flex flex-col w-[78%]">
         {_.map(serverConfigOptions, (option, key) => (
           <div className="w-full my-2 flex gap-2 items-center justify-between relative">
             <span>{t(option.id)}：</span>
             <TextField.Root
+              disabled={isServerRunning}
               type={option.showValue ? 'text' : 'password'}
               placeholder={
                 option.showValue

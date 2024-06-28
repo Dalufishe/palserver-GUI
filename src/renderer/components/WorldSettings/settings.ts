@@ -33,11 +33,13 @@ export const PlayerSettingsOptionsKey = [
 export const GuildSettingsOptionsKey = [
   'BaseCampMaxNum',
   'BaseCampWorkerMaxNum',
+  'BaseCampMaxNumInGuild',
   'GuildPlayerMaxNum',
   'bAutoResetGuildNoOnlinePlayers',
   'AutoResetGuildTimeNoOnlinePlayers',
   'bEnableDefenseOtherGuildPlayer',
   'bCanPickupOtherGuildDeathPenaltyDrop',
+  'bInvisibleOtherGuildBaseCampAreaFX',
 ];
 
 export const OthersSettingsOptionsKey = [
@@ -57,6 +59,7 @@ export const OthersSettingsOptionsKey = [
   'bIsMultiplay',
   'bEnableNonLoginPenalty',
   'bExistPlayerAfterLogout',
+  'AutoSaveSpan',
 ];
 
 export const worldSettingsOptions: any = {
@@ -98,7 +101,7 @@ export const worldSettingsOptions: any = {
   bEnableAimAssistKeyboard: { type: 'switch' },
 
   BaseCampMaxNum: { range: [0, 1024], type: 'num' },
-  BaseCampWorkerMaxNum: { range: [1, 20], type: 'num' },
+  BaseCampWorkerMaxNum: { range: [1, 50], type: 'num' },
   DropItemAliveMaxHours: { range: [0, 50], type: 'num_10' },
   bAutoResetGuildNoOnlinePlayers: { type: 'switch' },
   AutoResetGuildTimeNoOnlinePlayers: { range: [0, 24 * 7], type: 'num' },
@@ -116,4 +119,7 @@ export const worldSettingsOptions: any = {
   RCONEnabled: { type: 'switch' },
   RESTAPIEnabled: { type: 'switch' },
   bShowPlayerList: { type: 'switch' },
+  BaseCampMaxNumInGuild: { range: [3, 10], type: 'num', default: 3 },
+  bInvisibleOtherGuildBaseCampAreaFX: { type: 'switch', default: false },
+  AutoSaveSpan: { range: [300, 6000], type: 'num_10', default: 300 },
 };

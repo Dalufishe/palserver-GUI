@@ -47,7 +47,7 @@ export default function ServerLog({
     const getLog = window.electron.ipcRenderer.on(
       Channels.getServerLogReply.DATA,
       (data: string) => {
-        setLog(applySheet(data).split('\n').slice(40));
+        setLog(applySheet(data).split('\n').slice(42));
       },
     );
     return () => {

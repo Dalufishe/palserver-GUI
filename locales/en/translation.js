@@ -371,5 +371,10 @@ const en = {
     'When your server frequently experiences unexpected crashes, please enable this option. By default, it is enabled. When enabled, the server and GUI run as separate processes. If you need to use the performance monitoring panel, please disable it. In this case, the server will run as a subprocess of the GUI.',
   ServerVersion: 'Server Version',
   SupportGUI: 'Support GUI ❤️',
+  PlzCloseServerFirst: 'Please close the server first',
+  BaseCampMaxNumInGuild: 'Maximum number of base camps per guild',
+  bInvisibleOtherGuildBaseCampAreaFX:
+    "Hide other guilds' base camp area effects",
+  AutoSaveSpan: 'Auto-save interval (seconds)',
 };
 export default en;

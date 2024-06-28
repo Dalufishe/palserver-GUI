@@ -16,7 +16,17 @@ ipcMain.handle(Channels.getPakMods, async (event, serverId: string) => {
     //
     const pakModsNames = fsc
       .readdirSync(pakModsPath)
-      .filter((mod) => mod !== 'Pal-WindowsServer.pak' && mod !== 'LogicMods');
+      .filter(
+        (mod) =>
+          ![
+            'LogicMods',
+            'Pal-WindowsServer.pak',
+            'Pal-WindowsServer.ucas',
+            'Pal-WindowsServer.utoc',
+            'global.ucas',
+            'global.utoc',
+          ].includes(mod),
+      );
 
     return pakModsNames.map((name) => ({
       name,

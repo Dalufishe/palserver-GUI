@@ -1,6 +1,6 @@
 # palserver GUI
 
-![RELEASE](https://img.shields.io/badge/RELEASE-1.0.1-green)
+![RELEASE](https://img.shields.io/badge/RELEASE-1.0.3-green)
 [![Website](https://img.shields.io/badge/website-click-blue)](https://dalufishes-team.gitbook.io/palserver-gui-en)
 [![Discord](https://img.shields.io/badge/discord-click-blue)](https://discord.gg/sgMMdUZd3V)
 ![Make With Love](https://img.shields.io/badge/make_with_%E2%9D%A4%EF%B8%8F-white)
@@ -57,8 +57,8 @@ In addition, there are more server settings and features to fine-tune your serve
 
 ### Installation Links and Updates
 
-Installation Package (Recommended):[Click here to download](https://github.com/Dalufishe/palserver-GUI/releases/download/1.0.1/1.0.1-palserver-gui.exe)
-Portable Version (No installation required)：[Click here to download](https://github.com/Dalufishe/palserver-GUI/releases/download/1.0.1/unpack-1.0.1-palserver-gui.zip)
+Installation Package (Recommended):[Click here to download](https://github.com/Dalufishe/palserver-GUI/releases/download/1.0.3/1.0.3-palserver-gui.exe)
+Portable Version (No installation required)：[Click here to download](https://github.com/Dalufishe/palserver-GUI/releases/download/1.0.3/unpack-1.0.3-palserver-gui.zip)
 
 ### FAQs
 

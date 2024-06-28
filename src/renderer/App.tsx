@@ -20,7 +20,7 @@ import useRunServerInstall from './hooks/server/useRunServerInstall';
 import EngineInstallingHint from './components/Home/EngineInstallingHint/EngineInstallingHint';
 
 export default function App() {
-  const [hasInstalled] = useRunServerInstall();
+  const [hasInstalled, installMessage] = useRunServerInstall();
 
   const { selectedServerInstance } = useSelectedServerInstance();
 
@@ -39,7 +39,11 @@ export default function App() {
                     exact
                     path="/"
                     render={() =>
-                      hasInstalled ? <Home /> : <EngineInstallingHint />
+                      hasInstalled ? (
+                        <Home />
+                      ) : (
+                        <EngineInstallingHint installMessage={installMessage} />
+                      )
                     }
                   />
                   <Route path="/world-settings" component={WorldSettings} />

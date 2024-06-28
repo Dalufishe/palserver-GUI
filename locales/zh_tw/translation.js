@@ -357,5 +357,10 @@ const zh_tw = {
     '當您的伺服器經常發生非預期性的崩潰時，請開啟此選項。預設情況下為開啟。開啟時伺服器與 GUI 為相互獨立的進程。若您需要使用效能監測面板，請關閉他。此時伺服器為 GUI 的子進程。',
   ServerVersion: '伺服器版本',
   SupportGUI: '支持 GUI ❤️',
+  //
+  PlzCloseServerFirst: '請先關閉伺服器',
+  BaseCampMaxNumInGuild: '各公會據點上限',
+  bInvisibleOtherGuildBaseCampAreaFX: '隱藏其他公會區域',
+  AutoSaveSpan: '自動存檔時間 (秒)',
 };
 export default zh_tw;

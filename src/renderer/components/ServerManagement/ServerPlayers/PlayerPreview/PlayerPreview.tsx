@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 
 import { Box, Button, IconButton, Text, Theme } from '@radix-ui/themes';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useServerOnlinePlayers from '../../../../hooks/server/players/useServerOnlinePlayers';
 import useSelectedServerInstance from '../../../../redux/selectedServerInstance/useSelectedServerInstance';
 import _ from 'lodash';
@@ -10,6 +10,8 @@ import { MdOutlineMoreVert } from 'react-icons/md';
 import PlayerMoreAction from '../PlayerMoreAction/PlayerMoreAction';
 import Channels from '../../../../../main/ipcs/channels';
 import { PiEye, PiEyeClosed } from 'react-icons/pi';
+import useAllServerIcons from '../../../../hooks/server/icons/useAllServerIcons';
+import PlayerAvatar from './PlayerAvatar';
 
 export default function PlayerPreview({
   playerIndex,
@@ -22,6 +24,7 @@ export default function PlayerPreview({
 
   const players = useServerOnlinePlayers(selectedServerInstance);
   const player = players[playerIndex] || {};
+  const playerImages = useAllServerIcons();
 
   // eslint-disable-next-line no-use-before-define
   const location = getInGameLocation(player.location_x, player.location_y);
@@ -47,11 +50,7 @@ export default function PlayerPreview({
     _.isEmpty(player) || (
       <div className="flex flex-col p-3.5 h-fit">
         <div className="flex items-center gap-4">
-          <img
-            className="w-12 h-12 rounded-full"
-            src={require('../../../../../../assets/icon.png')}
-            alt=""
-          />
+          <PlayerAvatar icons={playerImages} />
           <Theme appearance="dark" style={{ background: 'inherit' }}>
             <Box>
               <div className="flex items-center gap-2">
@@ -65,7 +64,7 @@ export default function PlayerPreview({
                   size="2"
                   color="gray"
                 >
-                  {showPlayerSteamId
+                  {!showPlayerSteamId
                     ? player.userId
                         ?.replace(player.userId.substring(11, 18), '*******')
                         .slice(6)

@@ -4,6 +4,7 @@ import {
   AlertDialog,
   Button,
   Select,
+  Spinner,
   Switch,
   Text,
   TextField,
@@ -21,6 +22,7 @@ import Link from '../../Link';
 import useServerInfo from '../../../hooks/server/info/useServerInfo';
 import Channels from '../../../../main/ipcs/channels';
 import PalguardSettings from './PalguardSettings/PalguardSettings';
+import useIsRunningServers from '../../../redux/isRunningServers/useIsRunningServers';
 
 export default function ServerSettings() {
   const { t } = useTranslation();
@@ -31,6 +33,12 @@ export default function ServerSettings() {
   );
   const { serverInfo, setServerInfo } = useServerInfo(selectedServerInstance);
 
+  const { includeRunningServers } = useIsRunningServers();
+
+  const isServerRunning = includeRunningServers(selectedServerInstance);
+
+  const [isServerUpdating, setIsServerUpdating] = useState(false);
+
   const [openSaveBackup, setOpenSaveBackup] = useState(false);
   const [openPalguardSettings, setOpenPalguardSettings] = useState(false);
 
@@ -38,6 +46,7 @@ export default function ServerSettings() {
     ServerUpgrade: {
       ServerNeedUpgrade: {
         id: 'ServerNeedUpdate',
+        disabled: isServerRunning,
         title: t('ServerNeedUpgrade'),
         desciption: (
           <span>
@@ -54,16 +63,25 @@ export default function ServerSettings() {
           </span>
         ),
         type: 'button',
-        buttonText: t('Update'),
+        buttonText: isServerUpdating ? (
+          <>
+            <Spinner /> {t('Update')}
+          </>
+        ) : (
+          t('Update')
+        ),
         action() {
           window.electron.ipcRenderer.sendMessage(
             Channels.updateServerInstance,
             selectedServerInstance,
           );
 
+          setIsServerUpdating(true);
+
           window.electron.ipcRenderer.once(
             Channels.updateServerInstanceReply.DONE,
             () => {
+              setIsServerUpdating(false);
               window.electron.ipcRenderer.sendMessage(
                 'alert',
                 t('ServerUpdateDone'),
@@ -74,6 +92,7 @@ export default function ServerSettings() {
       },
       UE4SSNeedUpgrade: {
         id: 'UE4SSNeedUpgrade',
+        disabled: isServerRunning,
         title: t('UE4SSNeedUpgrade'),
         desciption: (
           <span>
@@ -112,6 +131,7 @@ export default function ServerSettings() {
       },
       PalguardNeedUpgrade: {
         id: 'PalguardNeedUpgrade',
+        disabled: isServerRunning,
         title: t('PalguardNeedUpgrade'),
         desciption: (
           <span>
@@ -152,6 +172,7 @@ export default function ServerSettings() {
     },
     Performance: {
       PerformanceOptimizationEnabled: {
+        disabled: isServerRunning,
         id: 'PerformanceOptimizationEnabled',
         title: t('PerformanceOptimizationEnabled'),
         desciption: t('PerformanceOptimizationEnabledDesc'),
@@ -164,7 +185,7 @@ export default function ServerSettings() {
         },
       },
       PerformanceMonitorEnabled: {
-        hidden: serverInfo?.UseIndependentProcess,
+        // hidden: serverInfo?.UseIndependentProcess,
         id: 'PerformanceMonitorEnabled',
         title: t('PerformanceMonitorEnabled'),
         desciption: t('PerformanceMonitorEnabledDesc'),
@@ -191,6 +212,7 @@ export default function ServerSettings() {
     },
     Internet: {
       RCONEnabled: {
+        disabled: isServerRunning,
         id: 'RCONEnabled',
         title: t('RCONEnabled'),
         desciption: t('RCONEnabledDesc'),
@@ -200,6 +222,7 @@ export default function ServerSettings() {
         },
       },
       RESTAPIEnabled: {
+        disabled: isServerRunning,
         id: 'RESTAPIEnabled',
         title: t('RESTAPIEnabled'),
         desciption: t('RESTAPIEnabledDesc'),
@@ -210,6 +233,7 @@ export default function ServerSettings() {
       },
       PublicPort: {
         id: 'PublicPort',
+        disabled: isServerRunning,
         title: t('PublicPort'),
         desciption: t('PublicPortDesc'),
         type: 'input',
@@ -221,6 +245,7 @@ export default function ServerSettings() {
 
       RCONPort: {
         id: 'RCONPort',
+        disabled: isServerRunning,
         title: t('RCONPort'),
         desciption: t('RCONPortDesc'),
         type: 'input',
@@ -231,6 +256,7 @@ export default function ServerSettings() {
       },
       RESTAPIPort: {
         id: 'RESTAPIPort',
+        disabled: isServerRunning,
         title: t('RESTAPIPort'),
         desciption: t('RESTAPIPortDesc'),
         type: 'input',
@@ -241,6 +267,7 @@ export default function ServerSettings() {
       },
       OpenToCommunity: {
         id: 'OpenToCommunity',
+        disabled: isServerRunning,
         title: t('OpenToCommunity'),
         desciption: t('OpenToCommunityDesc'),
 
@@ -268,6 +295,7 @@ export default function ServerSettings() {
       },
       UE4SSEnabled: {
         id: 'UE4SSEnabled',
+        disabled: isServerRunning,
         title: t('UE4SSEnabled'),
         desciption: (
           <span>
@@ -287,6 +315,7 @@ export default function ServerSettings() {
       },
       PalguardEnabled: {
         id: 'PalguardEnabled',
+        disabled: isServerRunning,
         title: t('PalguardEnabled'),
         desciption: (
           <span>
@@ -342,6 +371,7 @@ export default function ServerSettings() {
         },
       },
       ServerPassword: {
+        disabled: isServerRunning,
         id: 'ServerPassword',
         title: t('ServerPassword'),
         desciption: t('ServerPasswordDesc'),
@@ -353,6 +383,7 @@ export default function ServerSettings() {
         secure: true,
       },
       AdminPassword: {
+        disabled: isServerRunning,
         id: 'AdminPassword',
         title: t('AdminPassword'),
         desciption: t('AdminPasswordDesc'),
@@ -373,6 +404,7 @@ export default function ServerSettings() {
     },
     Restart: {
       AutoRestart: {
+        disabled: isServerRunning,
         id: 'AutoRestart',
         title: t('AutoRestart'),
         desciption: t('AutoRestartDesc'),
@@ -419,6 +451,7 @@ export default function ServerSettings() {
     },
     Process: {
       UseIndependentProcess: {
+        disabled: isServerRunning,
         id: 'UseIndependentProcess',
         title: t('UseIndependentProcess'),
         desciption: t('UseIndependentProcessDesc'),
@@ -485,6 +518,7 @@ export default function ServerSettings() {
                       secure={option.secure}
                       action={option.action}
                       buttonText={option.buttonText}
+                      disabled={option.disabled}
                     />
                   ),
               )}
@@ -509,6 +543,7 @@ function SettingsItem({
   secure,
   action,
   buttonText,
+  disabled,
 }: {
   title: string;
   desc: string;
@@ -520,6 +555,7 @@ function SettingsItem({
   secure?: boolean;
   action?: () => void;
   buttonText?: string;
+  disabled?: boolean;
 }) {
   const { t } = useTranslation();
 
@@ -536,6 +572,7 @@ function SettingsItem({
           <div className="flex items-center gap-2">
             <div className="font-mono">
               <TextField.Root
+                disabled={disabled}
                 type={secure ? 'password' : 'text'}
                 value={value || ''}
                 onChange={(e) => {
@@ -548,13 +585,18 @@ function SettingsItem({
         )}
         {type === 'button' && (
           <AlertDialog.Trigger>
-            <Button size="2" onClick={action}>
+            <Button size="2" onClick={action} disabled={disabled}>
               {buttonText || t('Open')}
             </Button>
           </AlertDialog.Trigger>
         )}
         {type === 'options' && (
-          <Select.Root size="2" value={value} onValueChange={onValueChange}>
+          <Select.Root
+            disabled={disabled}
+            size="2"
+            value={value}
+            onValueChange={onValueChange}
+          >
             <Select.Trigger />
             <Select.Content>
               {values?.map((v, i) => (
@@ -563,7 +605,13 @@ function SettingsItem({
             </Select.Content>
           </Select.Root>
         )}
-        {!type && <Switch checked={value} onCheckedChange={onValueChange} />}
+        {!type && (
+          <Switch
+            disabled={disabled}
+            checked={value}
+            onCheckedChange={onValueChange}
+          />
+        )}
       </div>
     </Theme>
   );

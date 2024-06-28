@@ -7,7 +7,7 @@ const useRunServerInstall = () => {
   const { t } = useTranslation();
 
   const [serverEngineHasInstall, setServerEngineHasInstall] = useState(false);
-  const [installPercentage, setInstallPercentage] = useState(0);
+  const [installMessage, setInstallMessage] = useState('');
 
   useEffect(() => {
     if (!serverEngineHasInstall) {
@@ -35,14 +35,14 @@ const useRunServerInstall = () => {
         Channels.runServerInstallReply.PROGRESS,
         (data) => {
           if (data.message) {
-            console.log(data.message);
+            setInstallMessage(data.message);
           }
         },
       );
     }
   }, [serverEngineHasInstall]);
 
-  return [serverEngineHasInstall, installPercentage];
+  return [serverEngineHasInstall, installMessage];
 };
 
 export default useRunServerInstall;

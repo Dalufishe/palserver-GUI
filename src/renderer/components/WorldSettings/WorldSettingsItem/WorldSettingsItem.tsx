@@ -13,8 +13,12 @@ function WorldSettingsItem({ id, worldSettings, setWorldSettings }) {
       <div className="w-14">
         {id === 'DeathPenalty' ? (
           t(`DeathPenalty_${worldSettings[id]}`)
-        ) : isBoolean(worldSettings[id]) ? (
-          t(worldSettings[id] ? 'SwitchOn' : 'SwitchOff')
+        ) : worldSettingsOptions[id].type === 'switch' ? (
+          t(
+            worldSettings[id] || worldSettingsOptions[id]?.default
+              ? 'SwitchOn'
+              : 'SwitchOff',
+          )
         ) : (
           <div className="font-mono">
             <Theme
@@ -29,7 +33,12 @@ function WorldSettingsItem({ id, worldSettings, setWorldSettings }) {
                 }}
                 size="1"
                 type="number"
-                value={worldSettings[id]}
+                value={
+                  worldSettings[id] ||
+                  (worldSettingsOptions[id].type === 'num'
+                    ? worldSettingsOptions[id]?.default
+                    : (worldSettingsOptions[id]?.default || 0) / 10)
+                }
                 onChange={(e) => {
                   setWorldSettings({
                     ...worldSettings,
@@ -44,7 +53,7 @@ function WorldSettingsItem({ id, worldSettings, setWorldSettings }) {
       {worldSettingsOptions[id]?.type === 'switch' && (
         <Switch
           variant="classic"
-          checked={worldSettings[id]}
+          checked={worldSettings[id] || worldSettingsOptions[id]?.default}
           onCheckedChange={(v) => {
             setWorldSettings({
               ...worldSettings,
@@ -56,7 +65,7 @@ function WorldSettingsItem({ id, worldSettings, setWorldSettings }) {
       {worldSettingsOptions[id]?.type === 'options' && (
         <Select.Root
           size="2"
-          value={worldSettings[id]}
+          value={worldSettings[id] || worldSettingsOptions[id]?.default}
           onValueChange={(v) => {
             setWorldSettings({
               ...worldSettings,
@@ -84,9 +93,9 @@ function WorldSettingsItem({ id, worldSettings, setWorldSettings }) {
           min={worldSettingsOptions[id].range[0]}
           max={worldSettingsOptions[id].range[1]}
           value={[
-            worldSettingsOptions[id].type === 'num'
+            (worldSettingsOptions[id].type === 'num'
               ? worldSettings[id]
-              : worldSettings[id] * 10,
+              : worldSettings[id] * 10) || worldSettingsOptions[id]?.default,
           ]}
           onValueChange={(v) => {
             setWorldSettings({

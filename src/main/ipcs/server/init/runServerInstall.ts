@@ -33,7 +33,7 @@ ipcMain.on(Channels.runServerInstall, async (event) => {
 
     palserverUpdate.stdout.on('data', (data) => {
       event.reply(Channels.runServerInstallReply.PROGRESS, {
-        message: data.toString(),
+        message: data.toString().slice(0, 100) + '...',
       });
     });
 
