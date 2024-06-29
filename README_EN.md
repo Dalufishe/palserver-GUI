@@ -7,13 +7,14 @@
 
 #### [繁體中文](/README.md) / [English](/README_EN.md)
 
-> Join our Discord for more infomation - https://discord.gg/sgMMdUZd3V
-
 Palserver GUI is a dedicated server setup and management tool with a fully graphical interface:
 
 - **Easy to use**：Easy to get started, with a foolproof installation and one-click server start.
 - **Fully Graphical Interface**：Provides a complete and powerful GUI for adjusting world settings, server settings, and more.
 - **Powerful Feature Extensions**：Includes built-in UE4SS and Palguard, player list, online maps, multiple save management, and mod management, significantly enhancing server management efficiency and player experience.
+
+> [!IMPORTANT]
+> Join our Discord for more infomation - https://discord.gg/sgMMdUZd3V
 
 ---
 
