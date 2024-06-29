@@ -7,6 +7,7 @@
 
 #### [English](/README_EN.md) / [繁體中文](/README.md)
 
+[!IMPORTANT]
 > 加入我們的 Discord 以獲得更多資訊 - https://discord.gg/sgMMdUZd3V
 
 palserver GUI 是一款全圖形化介面的專用伺服器架設、管理工具：
