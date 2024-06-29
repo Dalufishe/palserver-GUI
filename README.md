@@ -7,14 +7,14 @@
 
 #### [English](/README_EN.md) / [繁體中文](/README.md)
 
-> [!IMPORTANT]
-> 加入我們的 Discord 以獲得更多資訊 - https://discord.gg/sgMMdUZd3V
-
 palserver GUI 是一款全圖形化介面的專用伺服器架設、管理工具：
 
 - **開箱即用**：易於上手，傻瓜式安裝 + 一鍵啟動伺服器。
 - **全圖形化介面**：提供完整且功能強大的 GUI 介面調整世界設定、伺服器設定等。
 - **強大功能擴展**：內建 UE4SS 和 Palguard 防作弊系統、玩家列表、線上地圖、多存檔管理和模組管理等功能，大幅提升伺服器的管理效率和玩家體驗。
+
+> [!IMPORTANT]
+> 加入我們的 Discord 以獲得更多資訊 - https://discord.gg/sgMMdUZd3V
 
 ---
 
