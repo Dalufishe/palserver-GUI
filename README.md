@@ -1,6 +1,6 @@
 # palserver GUI
 
-![RELEASE](https://img.shields.io/badge/RELEASE-1.0.3-green)
+![RELEASE](https://img.shields.io/badge/RELEASE-1.0.5-green)
 [![Website](https://img.shields.io/badge/website-click-blue)](https://dalufishes-team.gitbook.io/palserver-gui-en)
 [![Discord](https://img.shields.io/badge/discord-click-blue)](https://discord.gg/sgMMdUZd3V)
 ![Make With Love](https://img.shields.io/badge/make_with_%E2%9D%A4%EF%B8%8F-white)
@@ -58,8 +58,8 @@ palserver GUI 是一款全圖形化介面的專用伺服器架設、管理工具
 
 ### 安裝連結及更新
 
-- 安裝包 (推薦)：[點我下載](https://github.com/Dalufishe/palserver-GUI/releases/download/1.0.3/1.0.3-palserver-gui.exe)
-- 免安裝版本：[點我下載](https://github.com/Dalufishe/palserver-GUI/releases/download/1.0.3/unpack-1.0.3-palserver-gui.zip)
+- 安裝包 (推薦)：[點我下載](https://github.com/Dalufishe/palserver-GUI/releases/download/1.0.5/1.0.5-palserver-gui.exe)
+- 免安裝版本：[點我下載](https://github.com/Dalufishe/palserver-GUI/releases/download/1.0.5/unpack-1.0.5-palserver-gui.zip)
 
 ### 常見問題
 
