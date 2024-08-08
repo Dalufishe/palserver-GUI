@@ -60,6 +60,7 @@ export const OthersSettingsOptionsKey = [
   'bEnableNonLoginPenalty',
   'bExistPlayerAfterLogout',
   'AutoSaveSpan',
+  'AllowConnectPlatform',
 ];
 
 export const worldSettingsOptions: any = {
@@ -122,4 +123,8 @@ export const worldSettingsOptions: any = {
   BaseCampMaxNumInGuild: { range: [3, 10], type: 'num', default: 3 },
   bInvisibleOtherGuildBaseCampAreaFX: { type: 'switch', default: false },
   AutoSaveSpan: { range: [300, 6000], type: 'num_10', default: 300 },
+  AllowConnectPlatform: {
+    range: ['Steam', 'Xbox'],
+    type: 'options',
+  },
 };

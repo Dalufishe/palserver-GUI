@@ -18,7 +18,11 @@ const gamePals = {};
 
 for (let key in gamePalsOrigin) {
   gamePals[key] = gamePalsOrigin[key];
-  gamePals['BOSS_' + key] = 'BOSS_' + gamePalsOrigin[key];
+  gamePals['BOSS_' + key] = {
+    id: 'BOSS_' + key,
+    name: gamePalsOrigin[key].name,
+    image: gamePalsOrigin[key].image,
+  };
 }
 
 export default function GivePalToPlayer({
@@ -77,11 +81,11 @@ export default function GivePalToPlayer({
           <ul className="flex flex-col">
             {Object.values(gamePals)
               ?.filter((item) => {
-                return item.startsWith('BOSS_')
-                  ? t(item.slice(5))
+                return item.id.startsWith('BOSS_')
+                  ? t(item.id.slice(5))
                       ?.toUpperCase()
                       ?.includes(searchText?.toUpperCase())
-                  : t(item)
+                  : t(item.id)
                       ?.toUpperCase()
                       ?.includes(searchText?.toUpperCase());
               })
@@ -89,21 +93,21 @@ export default function GivePalToPlayer({
                 (item) =>
                   item && (
                     <PalItem
-                      type={item.startsWith('BOSS_') ? 'boss' : 'pal'}
+                      type={item.id.startsWith('BOSS_') ? 'boss' : 'pal'}
                       pal={item}
                       amount={
                         Object.values(
                           palsAmount.filter(
-                            (i) => Object.keys(i)[0] === item,
+                            (i) => Object.keys(i)[0] === item.id,
                           )[0],
                         )[0]
                       }
                       onAmountChange={(a) => {
                         setPalsAmount([
                           ...palsAmount.filter(
-                            (pal) => Object.keys(pal)[0] !== item,
+                            (pal) => Object.keys(pal)[0] !== item.id,
                           ),
-                          { [item]: a },
+                          { [item.id]: a },
                         ]);
                       }}
                     />

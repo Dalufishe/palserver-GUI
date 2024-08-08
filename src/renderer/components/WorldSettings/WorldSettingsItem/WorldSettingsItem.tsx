@@ -11,8 +11,8 @@ function WorldSettingsItem({ id, worldSettings, setWorldSettings }) {
     <div key={id} className="w-full flex items-center gap-4">
       <label className="w-80">{t(id)}：</label>
       <div className="w-14">
-        {id === 'DeathPenalty' ? (
-          t(`DeathPenalty_${worldSettings[id]}`)
+        {worldSettingsOptions[id]?.type === 'options' ? (
+          t(`${id}_${worldSettings[id]}`)
         ) : worldSettingsOptions[id].type === 'switch' ? (
           t(
             worldSettings[id] || worldSettingsOptions[id]?.default
@@ -78,7 +78,8 @@ function WorldSettingsItem({ id, worldSettings, setWorldSettings }) {
             <Select.Group>
               {worldSettingsOptions[id].range.map((option) => (
                 <Select.Item value={option}>
-                  {id === 'DeathPenalty' && t(`DeathPenalty_${option}`)}
+                  {worldSettingsOptions[id]?.type === 'options' &&
+                    t(`${id}_${option}`)}
                 </Select.Item>
               ))}
             </Select.Group>

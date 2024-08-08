@@ -22,14 +22,14 @@ export default async function writeWorldSettingsini(
   worldOptionsiniText = `[/Script/Pal.PalGameWorldSettings]\nOptionSettings=${worldOptionsiniText.substring(
     startIndex,
   )}`;
-  worldOptionsiniText = worldOptionsiniText.substring(
-    0,
-    worldOptionsiniText.length - 1,
-  );
-  worldOptionsiniText = worldOptionsiniText.replaceAll('\\', '');
+  // worldOptionsiniText = worldOptionsiniText.substring(
+  //   0,
+  //   worldOptionsiniText.length - 1,
+  // );
+  worldOptionsiniText = worldOptionsiniText.replaceAll('\\', '').slice(0, -1);
+  // .replaceAll(/\)+/gu, ')"');
 
   await fs.writeFile(worldOptionsiniPath, worldOptionsiniText, {
     encoding: 'utf-8',
   });
-
 }

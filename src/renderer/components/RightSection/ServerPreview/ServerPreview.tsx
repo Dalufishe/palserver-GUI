@@ -18,10 +18,6 @@ export default function ServerPreview() {
   const serverIcon = useServerIcon(serverInfo?.iconId!);
   const { worldSettings } = useWorldSettings(selectedServerInstance!);
 
-  const handleCopyToClickboard = (v: string) => {
-    navigator.clipboard.writeText(v);
-  };
-
   const serverPreviewInfo = {
     publicIP: {
       id: 'PublicIP',
@@ -50,7 +46,7 @@ export default function ServerPreview() {
       value: '',
       secure: false,
       showValue: true,
-    }
+    },
   };
 
   return (
@@ -113,3 +109,7 @@ export default function ServerPreview() {
     </div>
   );
 }
+
+export const handleCopyToClickboard = (v: string) => {
+  navigator.clipboard.writeText(v);
+};

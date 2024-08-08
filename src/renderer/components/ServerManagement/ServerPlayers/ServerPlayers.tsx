@@ -23,30 +23,8 @@ export default function ServerPlayers() {
         <div className="w-full flex justify-between pr-4">
           <div className="w-full h-[calc(100vh-180px)] overflow-y-scroll flex flex-col gap-4">
             {players.map((player, i) => (
-              <>
-                <PlayerPreview playerIndex={i} />
-              </>
+              <PlayerPreview playerIndex={i} />
             ))}
-            {/* <div className="flex flex-col gap-1">
-            {players.map((player, i) => (
-              <PlayerItem
-                player={player}
-                onClick={() => {
-                  setSelectedPlayerIndex(i);
-                }}
-              />
-            ))}
-          </div> */}
-          </div>
-          <div>
-            {/* <iframe
-              className="w-[320px] h-[320px]"
-              src={`http://127.0.0.1:3434?ip=127.0.0.1&port=${
-                worldSettings.RESTAPIPort
-              }&password=${trimWorldSettingsString(
-                worldSettings.AdminPassword,
-              )}`}
-            /> */}
           </div>
         </div>
       ) : (

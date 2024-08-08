@@ -14,6 +14,9 @@ import loadUE4SSTemplate from '../../../services/templates/loadUE4SSTemplate';
 import loadPalguardTemplate from '../../../services/templates/loadPalguardTemplate';
 
 ipcMain.on(Channels.runServerInstall, async (event) => {
+
+
+
   if (!isASCII(ENGINE_PATH)) {
     event.reply(Channels.runServerInstallReply.ERROR, {
       errorMessage: 'ASCII',

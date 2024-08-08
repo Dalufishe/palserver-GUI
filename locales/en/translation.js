@@ -304,9 +304,10 @@ const en = {
   ServerPasswordDesc: 'Set a password for the server.',
   AdminPasswordDesc: 'Set an administrator password.',
   AutoRestart: 'Auto Restart',
-  AutoRestartDesc: 'Restart the server periodically.',
+  AutoRestartDesc: 'Restart the server periodically. Require Rcon Enabled.',
   CrashRestart: 'Crash Restart',
-  CrashRestartDesc: 'Restart the server in case of a crash.',
+  CrashRestartDesc:
+    'Restart the server in case of a crash. Require RCON Enabled.',
   OverRamRestart: 'Over RAM Threshold Restart',
   OverRamRestartDesc: 'Restart the server when memory usage exceeds 90%.',
   All: 'All',
@@ -319,7 +320,7 @@ const en = {
   SetAsAdminDesc: 'Set ${1} as a server administrator',
   Kick: 'Kick',
   KickDesc: 'Kick out the user',
-  BanIP: 'Ban IP Address ${1}',
+  BanIP: 'Ban ${1} IP Address',
   GiveItem: 'Give Item',
   GivePlayerItem: 'Give ${1} Item',
   GiveItemDesc: 'Give ${1} specified quantity of in-game items',
@@ -376,5 +377,8 @@ const en = {
   bInvisibleOtherGuildBaseCampAreaFX:
     "Hide other guilds' base camp area effects",
   AutoSaveSpan: 'Auto-save interval (seconds)',
+  AllowConnectPlatform: 'Allow Platform',
+  AllowConnectPlatform_Steam: 'Steam',
+  AllowConnectPlatform_Xbox: 'Xbox',
 };
 export default en;

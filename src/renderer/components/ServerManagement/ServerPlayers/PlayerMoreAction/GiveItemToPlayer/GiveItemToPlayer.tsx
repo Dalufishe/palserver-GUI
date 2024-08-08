@@ -70,7 +70,7 @@ export default function GiveItemToPlayer({
             {Object.values(gameItems)
               .filter(
                 (item) =>
-                  t(item)
+                  t(item.id)
                     ?.toUpperCase()
                     ?.includes(searchText?.toUpperCase()),
               )
@@ -82,16 +82,16 @@ export default function GiveItemToPlayer({
                       amount={
                         Object.values(
                           itemsAmount.filter(
-                            (i) => Object.keys(i)[0] === item,
+                            (i) => Object.keys(i)[0] === item.id,
                           )[0],
                         )[0]
                       }
                       onAmountChange={(a) => {
                         setItemsAmount([
                           ...itemsAmount.filter(
-                            (i) => Object.keys(i)[0] !== item,
+                            (i) => Object.keys(i)[0] !== item.id,
                           ),
-                          { [item]: a },
+                          { [item.id]: a },
                         ]);
                       }}
                     />

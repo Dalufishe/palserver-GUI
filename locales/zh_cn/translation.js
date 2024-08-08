@@ -1,12 +1,12 @@
 /* eslint-disable no-template-curly-in-string */
 /* eslint-disable camelcase */
 
-import game_data_pals_zh_tw from '../zh_tw/pal';
-import game_data_items_zh_tw from '../zh_tw/item';
+import game_data_items_zh_cn from './item';
+import game_data_pals_zh_cn from './pal';
 
 const zh_cn = {
-  ...game_data_items_zh_tw,
-  ...game_data_pals_zh_tw,
+  ...game_data_items_zh_cn,
+  ...game_data_pals_zh_cn,
   ServerIsRunning: '服务器运行中',
   Server: '服务器',
   BootServer: '启动服务器',
@@ -229,7 +229,7 @@ const zh_cn = {
   Internet: '网络',
   Security: '安全性',
   Restart: '重启',
-  ServerNeedUpgrade: '服务器需要更新！',
+  ServerNeedUpgrade: '更新服务器到最新版！',
   ServerNeedUpgradeDesc: '将服务器版本更新到最新可玩版本。',
   PerformanceOptimizationEnabled: '性能优化',
   PerformanceOptimizationEnabledDesc:
@@ -276,9 +276,9 @@ const zh_cn = {
   ServerPasswordDesc: '为服务器设置密码。',
   AdminPasswordDesc: '设置管理员密码。',
   AutoRestart: '自动重启',
-  AutoRestartDesc: '每隔一段时间时重新启动服务器。',
+  AutoRestartDesc: '每隔一段时间时重新启动服务器。需啟用 RCON 才能使用。',
   CrashRestart: '崩溃重启',
-  CrashRestartDesc: '在服务器崩溃时重新启动服务器。',
+  CrashRestartDesc: '在服务器崩溃时重新启动服务器。需啟用 RCON 才能使用。',
   OverRamRestart: '超过阈值重启',
   OverRamRestartDesc: '在服务器内存使用率超过 90% 时重新启动服务器。',
   All: '整体',
@@ -343,5 +343,8 @@ const zh_cn = {
   BaseCampMaxNumInGuild: '各公会据点上限',
   bInvisibleOtherGuildBaseCampAreaFX: '隐藏其他公会区域',
   AutoSaveSpan: '自动存档时间 (秒)',
+  AllowConnectPlatform: '允許的連接平台',
+  AllowConnectPlatform_Steam: 'Steam',
+  AllowConnectPlatform_Xbox: 'Xbox',
 };
 export default zh_cn;

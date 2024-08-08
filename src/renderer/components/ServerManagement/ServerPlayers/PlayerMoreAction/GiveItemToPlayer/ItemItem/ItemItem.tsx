@@ -1,11 +1,11 @@
 /* eslint-disable global-require */
-import { Text, TextField } from '@radix-ui/themes';
-import React, { useEffect, useState } from 'react';
+import { TextField } from '@radix-ui/themes';
+import { useEffect, useState } from 'react';
 import useTranslation from '../../../../../../hooks/translation/useTranslation';
 import { useHover } from '../../../../../../hooks/useHover';
 
 export default function ItemItem(props: {
-  item: string;
+  item: { id: string; name: string; image: string };
   amount: number;
   onAmountChange: (v: number) => void;
 }) {
@@ -24,6 +24,7 @@ export default function ItemItem(props: {
   }, [props.amount]);
 
   return (
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <li
       onMouseDown={(e) => {
         if (e.button === 2) {
@@ -34,10 +35,16 @@ export default function ItemItem(props: {
         }
       }}
       className="flex items-center justify-between w-[97%] hover:bg-slate-100 rounded-lg p-2 cursor-pointer select-none"
+      title={props.item.id}
     >
       <div className="flex items-center">
-        <img className="w-12 h-12" src={getItemImage(props.item)} alt="" />
-        <span className="ml-3 select-text">{t(props.item)}</span>
+        <img
+          className="w-12 h-12"
+          loading="lazy"
+          src={props.item.image}
+          alt=""
+        />
+        <span className="ml-3 select-text">{t(props.item.id)}</span>
       </div>
 
       {!!amount && (
@@ -69,18 +76,5 @@ export default function ItemItem(props: {
         </div>
       )}
     </li>
-  );
-}
-
-function getItemImage(itemId: string) {
-  if (itemId.startsWith('SkillUnlock')) {
-    return require('../../../../../../../../assets/game-data/images/items/T_itemicon_SkillUnlock_Harness.png');
-  }
-  if (itemId.startsWith('Blueprint')) {
-    return require('../../../../../../../../assets/game-data/images/items/T_itemicon_Blueprint.png');
-  }
-  // eslint-disable-next-line import/no-dynamic-require
-  return require(
-    `../../../../../../../../assets/game-data/images/items/T_itemicon_${itemId}.png`,
   );
 }

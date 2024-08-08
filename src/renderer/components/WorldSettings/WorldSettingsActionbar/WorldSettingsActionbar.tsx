@@ -16,8 +16,6 @@ export default function WorldSettingsActionbar({
 }) {
   const { t } = useTranslation();
 
-  console.log(worldSettings, prevWorldSettings);
-
   const transition = useTransition(
     !_.isEqual(prevWorldSettings, worldSettings),
     null,

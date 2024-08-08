@@ -91,6 +91,7 @@
     "@radix-ui/themes": "^3.0.2",
     "@uiw/react-json-view": "^2.0.0-alpha.23",
     "axios": "^1.6.8",
+    "cheerio": "^1.0.0-rc.12",
     "electron-debug": "^3.2.0",
     "electron-log": "^4.4.8",
     "electron-updater": "^6.1.4",

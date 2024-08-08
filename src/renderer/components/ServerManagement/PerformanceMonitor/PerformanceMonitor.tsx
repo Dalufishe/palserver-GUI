@@ -34,7 +34,7 @@ export default function PerformanceMonitor(props: Props) {
 
   const [chartMode, setChartMode] = useState<'cpu' | 'ram'>('cpu');
   const [mainChartIs, setMainChartIs] = useState<'computer' | 'process'>(
-    'process',
+    'computer',
   );
 
   const { selectedServerInstance } = useSelectedServerInstance();
@@ -165,9 +165,15 @@ export default function PerformanceMonitor(props: Props) {
         </Theme>
         <div
           className="w-full h-[280px] hover:scale-105 transition-all"
-          onClick={() => {
-            setMainChartIs(mainChartIs === 'computer' ? 'process' : 'computer');
-          }}
+          onClick={
+            serverInfo?.UseIndependentProcess
+              ? () => {}
+              : () => {
+                  setMainChartIs(
+                    mainChartIs === 'computer' ? 'process' : 'computer',
+                  );
+                }
+          }
         >
           <div className="relative">
             <ResponsiveContainer height={140}>
@@ -197,7 +203,11 @@ export default function PerformanceMonitor(props: Props) {
               </AreaChart>
             </ResponsiveContainer>
             <div className="absolute bottom-1 right-6 text-md opacity-60">
-              {mainChartIs === 'computer' ? t('Server') : t('All')}
+              {mainChartIs === 'computer'
+                ? serverInfo?.UseIndependentProcess
+                  ? t('ServerCantUse')
+                  : t('Server')
+                : t('All')}
             </div>
           </div>
         </div>

@@ -67,5 +67,8 @@ const Channels = {
   deletePakMods: 'delete-pak-mods',
   deletePakLogicMods: 'delete-pak-logic-mods',
   exportModsToClientSide: 'export-mods-to-client-side',
+  // ban
+  getServerBanList: 'get-server-ban-list',
+  
 } as const;
 export default Channels;

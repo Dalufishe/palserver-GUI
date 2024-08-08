@@ -7,7 +7,7 @@ import { useHover } from '../../../../../../hooks/useHover';
 
 export default function PalItem(props: {
   type: 'boss' | 'pal';
-  pal: string;
+  pal: { id: string; name: string; image: string };
   amount: number;
   onAmountChange: (v: number) => void;
 }) {
@@ -39,17 +39,10 @@ export default function PalItem(props: {
         }
       }}
       className="flex items-center justify-between w-[97%] hover:bg-slate-100 rounded-lg p-2 cursor-pointer select-none"
+      title={props.pal.id}
     >
       <div className="flex items-center relative">
-        <img
-          className="w-12 h-12"
-          src={require(
-            `../../../../../../../../assets/game-data/images/pals/T_${
-              props.type === 'boss' ? props.pal.slice(5) : props.pal
-            }_icon_normal.png`,
-          )}
-          alt=""
-        />
+        <img className="w-12 h-12" src={props.pal.image} alt="" />
         {props.type === 'boss' && (
           <img
             className="absolute w-6 h-6 -top-2 left-8"
@@ -58,7 +51,7 @@ export default function PalItem(props: {
           />
         )}
         <span className="ml-3 select-text">
-          {props.type === 'boss' ? t(props.pal.slice(5)) : t(props.pal)}
+          {props.type === 'boss' ? t(props.pal.id.slice(5)) : t(props.pal.id)}
         </span>
       </div>
 

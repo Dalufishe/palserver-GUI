@@ -12,6 +12,8 @@ import Channels from '../../../../../main/ipcs/channels';
 import { PiEye, PiEyeClosed } from 'react-icons/pi';
 import useAllServerIcons from '../../../../hooks/server/icons/useAllServerIcons';
 import PlayerAvatar from './PlayerAvatar';
+import useServerBanList from '../../../../hooks/server/ban/useServerBanList';
+import { handleCopyToClickboard } from '../../../RightSection/ServerPreview/ServerPreview';
 
 export default function PlayerPreview({
   playerIndex,
@@ -45,6 +47,13 @@ export default function PlayerPreview({
       `BanPlayer ${player.userId}`,
     );
   };
+  const handleUnBanPlayer = () => {
+    window.electron.ipcRenderer.invoke(
+      Channels.sendRCONCommand,
+      selectedServerInstance,
+      `UnBanPlayer ${player.userId}`,
+    );
+  };
 
   return (
     _.isEmpty(player) || (
@@ -58,7 +67,10 @@ export default function PlayerPreview({
                   {player.name}
                 </Text>
                 <Text
-                  className="cursor-pointer"
+                  className="cursor-pointer hover:underline"
+                  onClick={() => {
+                    handleCopyToClickboard(player.userId.slice(6));
+                  }}
                   title={t('PlayerId')}
                   as="div"
                   size="2"
@@ -80,8 +92,20 @@ export default function PlayerPreview({
               </div>
               <Text as="div" size="2" color="gray">
                 Lv {player.level} .{' '}
-                <span className="cursor-pointer" title={t('PublicIP')}>
-                  {player.ip}
+                <span
+                  className="cursor-pointer hover:underline"
+                  onClick={() => {
+                    handleCopyToClickboard(player.userId.slice(6));
+                  }}
+                  title={t('PublicIP')}
+                >
+                  {!showPlayerSteamId
+                    ? `${player.ip.split('.')[0]}.${player.ip
+                        .split('.')[1]
+                        .replaceAll(/\d+/gu, '*')}.${player.ip
+                        .split('.')[2]
+                        .replaceAll(/\d+/gu, '*')}.${player.ip.split('.')[3]}`
+                    : player.ip}
                 </span>{' '}
                 .{' '}
                 <span className="cursor-pointer" title={t('PlayerLocation')}>

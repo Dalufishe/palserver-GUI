@@ -9,6 +9,7 @@ import Link from '../../Link';
 import Channels from '../../../../main/ipcs/channels';
 import useOnlineLinksMap from '../../../hooks/firebase/useOnlineLinksMap';
 import { FaDiscord, FaGithub } from 'react-icons/fa';
+import useServerEngineVersion from '../../../hooks/server/useServerEngineVersion';
 
 export default function Settings() {
   const { t } = useTranslation();
@@ -16,6 +17,9 @@ export default function Settings() {
 
   const speicalThanksLink = useOnlineLinksMap('SupportPalserverGUI');
   const helpTranslateLink = useOnlineLinksMap('HelpTranslate');
+
+  const [serverEngineVersion, setServerEngineVersion] =
+    useServerEngineVersion();
 
   const settings = {
     Language: {
@@ -40,8 +44,9 @@ export default function Settings() {
       description: t('ClearCacheDesc'),
       type: 'button',
       buttonText: t('Clear'),
-      onButtonClick() {
-        window.electron.ipcRenderer.invoke(Channels.clearSystemCache);
+      async onButtonClick() {
+        await window.electron.ipcRenderer.invoke(Channels.clearSystemCache);
+        setServerEngineVersion(0);
       },
     },
     ServerInstancePath: {

@@ -57,3 +57,5 @@ import './server/mods/deletePakMods';
 import './server/mods/getPakLogicMods';
 import './server/mods/deletePakLogicMods';
 import './server/mods/exportModsToClientSide';
+
+import './server/ban/getServerBanList';

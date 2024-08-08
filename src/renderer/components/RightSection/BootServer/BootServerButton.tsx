@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import useTranslation from '../../../hooks/translation/useTranslation';
 import Channels from '../../../../main/ipcs/channels';
 import useSelectedServerInstance from '../../../redux/selectedServerInstance/useSelectedServerInstance';
 import useIsRunningServers from '../../../redux/isRunningServers/useIsRunningServers';
-import CongratBootServerAlert from './CongratBootServerAlert/CongratBootServerAlert';
-import { AlertDialog, ContextMenu } from '@radix-ui/themes';
-import useLocalState from '../../../hooks/useLocalState';
-import useServerInfo from '../../../hooks/server/info/useServerInfo';
+import { AlertDialog } from '@radix-ui/themes';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import db from '../../../firebase/db';
 import { VERSION } from '../../../../constant/app';
@@ -21,11 +18,9 @@ export default function BootServerButton() {
     includeRunningServers,
     isRunningServers,
   } = useIsRunningServers();
-
-  const { serverInfo } = useServerInfo(selectedServerInstance);
-
   const isServerRunning = includeRunningServers(selectedServerInstance);
 
+  // 啟動伺服器
   const handleBootServer = async () => {
     try {
       // collect data
@@ -44,7 +39,7 @@ export default function BootServerButton() {
     let queryPort = 27015;
     while (queryPorts.includes(queryPort)) {
       queryPort = Number(
-        '270' + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10),
+        `270${Math.floor(Math.random() * 10)}${Math.floor(Math.random() * 10)}`,
       );
     }
 
@@ -56,13 +51,16 @@ export default function BootServerButton() {
     );
   };
 
+  // 關閉伺服器
   const handleShutDownServer = () => {
     const processId = isRunningServers.find(
       (server) => server.serverId === selectedServerInstance,
     )?.processId as number;
 
+    // 確保伺服器已啟用 (否則無法執行 rcon 指令)
     window.electron.ipcRenderer.sendMessage(
       Channels.execShutdownServer,
+      selectedServerInstance,
       processId,
     );
   };
@@ -89,25 +87,12 @@ export default function BootServerButton() {
 
   return (
     <div>
-      <AlertDialog.Trigger
-        onClick={
-          isServerRunning
-            ? serverInfo?.UseIndependentProcess
-              ? () => {}
-              : handleShutDownServer
-            : handleBootServer
-        }
+      <div
+        onClick={isServerRunning ? handleShutDownServer : handleBootServer}
+        className="w-full h-10 bg-gray-200 hover:bg-slate-50 text-bg1 rounded-lg flex items-center justify-center select-none cursor-pointer"
       >
-        <div className="w-full h-10 bg-gray-200 hover:bg-slate-50 text-bg1 rounded-lg flex items-center justify-center select-none cursor-pointer">
-          {serverInfo?.UseIndependentProcess
-            ? isServerRunning
-              ? t('ServerIsRunning')
-              : t('BootServer')
-            : isServerRunning
-            ? t('CloseServer')
-            : t('BootServer')}
-        </div>
-      </AlertDialog.Trigger>
+        {isServerRunning ? t('CloseServer') : t('BootServer')}
+      </div>
     </div>
   );
 }

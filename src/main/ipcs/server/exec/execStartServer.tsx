@@ -13,6 +13,8 @@ import sleep from '../../../../utils/sleep';
 import pidusage from 'pidusage';
 import osu from 'node-os-utils';
 import axios from 'axios';
+import trimWorldSettingsString from '../../../../utils/trimWorldSettingsString';
+import sendCommand from '../../../utils/rcon/sendCommand';
 
 ipcMain.on(
   Channels.execStartServer,
@@ -107,42 +109,28 @@ ipcMain.on(
 
     // start server
 
-    let processId = await startServer(
+    const processId = await startServer(
       event,
       serverId,
       queryport,
       serverInfo.UseIndependentProcess,
     );
 
-    // #region auto restart
+    autoRestart(
+      event,
+      serverId,
+      queryport,
+      serverInfo.UseIndependentProcess,
+      processId,
+    );
 
-    if (serverInfo.AutoRestart) {
-      const clearAutoRestart = setInterval(
-        async () => {
-          try {
-            if (!serverInfo.AutoRestart) {
-              clearInterval(clearAutoRestart);
-            }
-            if (processId) {
-              process.kill(processId);
-            }
-            // 伺服器重新啟動
-            await sleep(2000);
-            processId = await startServer(
-              event,
-              serverId,
-              queryport,
-              serverInfo.UseIndependentProcess,
-            );
-          } catch (e) {
-            // 伺服器被提早關閉
-            // Error: kill ESRCH
-          }
-        },
-        serverInfo.AutoRestart * 1000 * 60 * 60,
-      );
-    }
-
+    crashRestart(
+      event,
+      serverId,
+      queryport,
+      serverInfo.UseIndependentProcess,
+      processId,
+    );
     // #endregion
 
     // #region over ram restart
@@ -215,8 +203,6 @@ const startServer = async (
     serverInfo.performanceOptimizationEnabled ? '-UseMultithreadForDS' : '',
   ]);
 
-
-
   const processId = palserverStream.pid;
 
   // ps_tree(processId, (err, children) => {
@@ -252,4 +238,87 @@ const startServer = async (
   });
 
   return processId;
+};
+
+const autoRestart = async (
+  event: IpcMainEvent,
+  serverId: string,
+  queryport: number,
+  useIndependentProcess: boolean,
+  processId: number,
+) => {
+  let serverInfo = await getServerInfoByServerId(serverId);
+  const serverPath = path.join(USER_SERVER_INSTANCES_PATH, serverId, 'server');
+  const worldSettingsPath = path.join(
+    serverPath,
+    'Pal/Saved/Config/WindowsServer/PalWorldSettings.ini',
+  );
+  const worldSettings = await readWorldSettingsini(worldSettingsPath);
+  const serverOptions = {
+    ipAddress: '127.0.0.1',
+    port: worldSettings.RCONPort,
+    password: trimWorldSettingsString(worldSettings.AdminPassword),
+  };
+  const isEnabledRCON = worldSettings.RCONEnabled;
+
+  if (serverInfo.AutoRestart && isEnabledRCON) {
+    const clearAutoRestart = setInterval(
+      async () => {
+        try {
+          serverInfo = await getServerInfoByServerId(serverId);
+          if (!serverInfo.AutoRestart) {
+            clearInterval(clearAutoRestart);
+          }
+          sendCommand(serverOptions, 'save');
+          sendCommand(serverOptions, 'shutdown 1');
+          // 伺服器重新啟動
+          await sleep(5000);
+          await startServer(event, serverId, queryport, useIndependentProcess);
+        } catch (e) {
+          //
+        }
+      },
+      serverInfo.AutoRestart * 1000 * 60 * 60,
+    );
+  }
+};
+
+const crashRestart = async (
+  event: IpcMainEvent,
+  serverId: string,
+  queryport: number,
+  useIndependentProcess: boolean,
+  processId: number,
+) => {
+  let serverInfo = await getServerInfoByServerId(serverId);
+  const serverPath = path.join(USER_SERVER_INSTANCES_PATH, serverId, 'server');
+  const worldSettingsPath = path.join(
+    serverPath,
+    'Pal/Saved/Config/WindowsServer/PalWorldSettings.ini',
+  );
+  const worldSettings = await readWorldSettingsini(worldSettingsPath);
+  const serverOptions = {
+    ipAddress: '127.0.0.1',
+    port: worldSettings.RCONPort,
+    password: trimWorldSettingsString(worldSettings.AdminPassword),
+  };
+  const isEnabledRCON = worldSettings.RCONEnabled;
+
+  if (serverInfo.CrashRestart && isEnabledRCON) {
+    const clearCrashRestart = setInterval(async () => {
+      try {
+        serverInfo = await getServerInfoByServerId(serverId);
+        if (!serverInfo.CrashRestart) {
+          clearInterval(clearCrashRestart);
+        }
+        try {
+          await sendCommand(serverOptions, 'info');
+        } catch (e) {
+          await startServer(event, serverId, queryport, useIndependentProcess);
+        }
+      } catch (e) {
+        //
+      }
+    }, 1000 * 5);
+  }
 };

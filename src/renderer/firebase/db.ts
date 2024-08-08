@@ -6,6 +6,7 @@ const firestore = getFirestore(firebaseApp);
 const db = {
   App: collection(firestore, 'App'),
   Links: collection(firestore, 'Links'),
+  Game: collection(firestore, 'Game'),
   ServerInfo: collection(firestore, 'ServerInfo'),
 };
 

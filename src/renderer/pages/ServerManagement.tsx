@@ -113,8 +113,7 @@ export default function ServerManagement() {
               {t('OnlineMap')}
             </Tabs.Trigger>
           )}
-          {!serverInfo?.UseIndependentProcess &&
-            serverInfo?.performanceMonitorEnabled && (
+          { serverInfo?.performanceMonitorEnabled && (
               <Tabs.Trigger
                 value="performance"
                 style={{ color: 'white', fontWeight: 500 }}

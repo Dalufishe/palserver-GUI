@@ -424,18 +424,18 @@ export default function ServerSettings() {
           });
         },
       },
-      // CrashRestart: {
-      //   id: 'CrashRestart',
-      //   title: t('CrashRestart'),
-      //   desciption: t('CrashRestartDesc'),
-      //   value: serverInfo?.CrashRestart,
-      //   onValueChange(v) {
-      //     setServerInfo({
-      //       ...serverInfo!,
-      //       CrashRestart: v,
-      //     });
-      //   },
-      // },
+      CrashRestart: {
+        id: 'CrashRestart',
+        title: t('CrashRestart'),
+        desciption: t('CrashRestartDesc'),
+        value: serverInfo?.CrashRestart,
+        onValueChange(v) {
+          setServerInfo({
+            ...serverInfo!,
+            CrashRestart: v,
+          });
+        },
+      },
       // OverRamRestart: {
       //   id: 'OverRamRestart',
       //   title: t('OverRamRestart'),

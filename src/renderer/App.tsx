@@ -4,12 +4,9 @@ import {
   Switch,
   Redirect,
 } from 'react-router-dom';
-import { AlertDialog, Theme, ThemePanel } from '@radix-ui/themes';
+import { AlertDialog, Theme } from '@radix-ui/themes';
 import Home from './pages/Home';
 import AboutSection from './components/AboutSection/AboutSection';
-import Translation from './provider/Translation/Translation';
-import { Provider } from 'react-redux';
-import { store } from './redux/store';
 import RightSection from './components/RightSection/RightSection';
 import WorldSettings from './pages/WorldSettings';
 import ServerManagement from './pages/ServerManagement';

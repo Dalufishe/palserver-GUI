@@ -243,7 +243,7 @@ const zh_tw = {
   Internet: '網路',
   Security: '安全性',
   Restart: '重啟',
-  ServerNeedUpgrade: '伺服器需要更新！',
+  ServerNeedUpgrade: '更新伺服器到最新版！',
   ServerNeedUpgradeDesc: '將伺服器版本更新到最新可遊玩版本。',
   PerformanceOptimizationEnabled: '效能最佳化',
   PerformanceOptimizationEnabledDesc:
@@ -290,9 +290,9 @@ const zh_tw = {
   ServerPasswordDesc: '為伺服器設置密碼。',
   AdminPasswordDesc: '設置管理員密碼。',
   AutoRestart: '自動重啟',
-  AutoRestartDesc: '每隔一段時間時重新啟動伺服器。',
+  AutoRestartDesc: '每隔一段時間時重新啟動伺服器。需啟用 RCON 才能使用。',
   CrashRestart: '崩潰重啟',
-  CrashRestartDesc: '在伺服器崩潰時重新啟動伺服器。',
+  CrashRestartDesc: '在伺服器崩潰時重新啟動伺服器。需啟用 RCON 才能使用。',
   OverRamRestart: '超過閥值重啟',
   OverRamRestartDesc: '在伺服器記憶體使用率超過 90% 時重新啟動伺服器。',
   All: '整體',
@@ -311,7 +311,7 @@ const zh_tw = {
   GiveItemDesc: '給予 ${1} 指定數量的遊戲道具。',
   Choose: '選擇',
   GivePal: '給予帕魯',
-  GivePlayerPal: '給予 {$1} 帕魯',
+  GivePlayerPal: '給予 ${1} 帕魯',
   GivePalDesc: '給予 ${1} 指定帕魯。',
   GiveExp: '給予經驗值',
   GivePlayerExp: '給予 ${1} 經驗值',
@@ -362,5 +362,10 @@ const zh_tw = {
   BaseCampMaxNumInGuild: '各公會據點上限',
   bInvisibleOtherGuildBaseCampAreaFX: '隱藏其他公會區域',
   AutoSaveSpan: '自動存檔時間 (秒)',
+  ServerCantUse: '伺服器 (無法使用)',
+  //
+  AllowConnectPlatform: '允許的連接平台',
+  AllowConnectPlatform_Steam: 'Steam',
+  AllowConnectPlatform_Xbox: 'Xbox',
 };
 export default zh_tw;

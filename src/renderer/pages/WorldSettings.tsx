@@ -1,13 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import Version from '../components/Version';
-import {
-  Button,
-  IconButton,
-  SegmentedControl,
-  Tabs,
-  TextField,
-  Tooltip,
-} from '@radix-ui/themes';
+import { useEffect, useState } from 'react';
+import { IconButton, Tabs, Tooltip } from '@radix-ui/themes';
 import useTranslation from '../hooks/translation/useTranslation';
 import { MdEditDocument } from 'react-icons/md';
 import _, { isEmpty, map, pickBy } from 'lodash';

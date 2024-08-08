@@ -4,13 +4,16 @@ import useTranslation from '../hooks/translation/useTranslation';
 import formatLocale from '../utils/formatLocale';
 import versionToValue from '../utils/versionToValue';
 import Link from './Link';
+import useOnlineLinksMap from '../hooks/firebase/useOnlineLinksMap';
 
 export default function Version() {
+  const { t } = useTranslation();
+
   const { version: latestVersion, versionValue: latestVersionValue } =
     useLatestVersion();
   const currentVersionValue = versionToValue(VERSION);
 
-  const { t } = useTranslation();
+  const GUIFAQs = useOnlineLinksMap('GUIFAQs');
 
   return (
     <div className="absolute bottom-2 left-2 text-xs flex w-[97%] justify-between">
@@ -33,6 +36,9 @@ export default function Version() {
             {t('UpdateLog')}
           </Link>
         )}
+        <Link appearance="dark" href={GUIFAQs}>
+          {t('FAQ')}
+        </Link>
       </div>
       <div>
         Made by{' '}
