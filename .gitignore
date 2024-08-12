@@ -28,5 +28,5 @@ npm-debug.log.*
 *.sass.d.ts
 *.scss.d.ts
 
-engine
-release
+assets/engine
+/release
