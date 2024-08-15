@@ -29,4 +29,3 @@ npm-debug.log.*
 *.scss.d.ts
 
 assets/engine
-/release
