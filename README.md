@@ -104,3 +104,9 @@ palserver GUI 是一款全圖形化介面的專用伺服器架設、管理工具
 ### 回報問題
 
 目前專案仍在早期階段，可能存在一定數量的 bugs (僅管我已經很努力排除)，如果您發現了錯誤歡迎到 [issues](https://github.com/Dalufishe/palserver-GUI/issues) 發表，我會在最短時間內解決問題。另外有想加的功能或改進也都歡迎到 [issues](https://github.com/Dalufishe/palserver-GUI/issues) 提出。
+
+### 特別感謝
+
+有大家才有現在的工具可以使用，非常感謝大家。
+
+https://dalufishes-team.gitbook.io/palserver-gui/gei-yu-zhi-chi/te-bie-gan-xie-ming-dan
