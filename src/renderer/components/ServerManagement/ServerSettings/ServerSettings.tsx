@@ -149,7 +149,7 @@ export default function ServerSettings() {
                 </span>{' '}
                 {'> '}
                 <span className="underline">
-                  v{' '}
+                  v{''}
                   {window.electron.constant.SYSTEM_PALGUARD_VERSION() || '???'}
                 </span>
               </Text>

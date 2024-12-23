@@ -31,8 +31,8 @@ export default function Settings() {
         </Link>
       ),
       type: 'options',
-      options: ['繁體中文', '簡體中文', 'English'],
-      values: ['zh_tw', 'zh_cn', 'en'],
+      options: ['繁體中文', '簡體中文', 'English', 'Français'],
+      values: ['zh_tw', 'zh_cn', 'en', 'fr'],
       value: language,
       onValueChange(l: Language) {
         setLanguage(l);
