@@ -108,5 +108,4 @@ palserver GUI 是一款全圖形化介面的專用伺服器架設、管理工具
 ### 特別感謝
 
 有大家才有現在的工具可以使用，非常感謝大家。
-
 https://dalufishes-team.gitbook.io/palserver-gui/gei-yu-zhi-chi/te-bie-gan-xie-ming-dan
