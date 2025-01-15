@@ -10,8 +10,8 @@ export default async function readWorldSettingsini(
   });
 
   const worldSettingsiniJson = palServerSettingConverter.parse(
-    ini.parse(worldSettingsiniText.slice(0, -2))['/Script/Pal']
-      .PalGameWorldSettings.OptionSettings,
+    ini.parse(worldSettingsiniText)['/Script/Pal'].PalGameWorldSettings
+      .OptionSettings,
   );
 
   return worldSettingsiniJson;

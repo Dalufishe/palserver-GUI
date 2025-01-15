@@ -61,6 +61,10 @@ export const OthersSettingsOptionsKey = [
   'bExistPlayerAfterLogout',
   'AutoSaveSpan',
   'AllowConnectPlatform',
+  'ServerReplicatePawnCullDistance',
+  'SupplyDropSpan',
+  'RandomizerType',
+  'RandomizerSeed',
 ];
 
 export const worldSettingsOptions: any = {
@@ -126,5 +130,24 @@ export const worldSettingsOptions: any = {
   AllowConnectPlatform: {
     range: ['Steam', 'Xbox'],
     type: 'options',
+  },
+  ServerReplicatePawnCullDistance: {
+    range: [5000, 15000],
+    type: 'num',
+    default: 5000,
+  },
+  SupplyDropSpan: {
+    range: [0, 100],
+    type: 'num',
+    default: 20,
+  },
+  RandomizerType: {
+    range: ['None', 1, 2],
+    type: 'options',
+  },
+  RandomizerSeed: {
+    range: [0, 10000],
+    type: 'num',
+    default: 0,
   },
 };

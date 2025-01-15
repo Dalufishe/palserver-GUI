@@ -232,8 +232,8 @@ const startServer = async (
     event.reply(Channels.execStartServerReply.EXIT, serverId, processId);
   });
 
-  palserverStream.on('error', () => {
-    console.log('error');
+  palserverStream.on('error', (e) => {
+    console.log('error', e);
     event.reply(Channels.execStartServerReply.EXIT, serverId, processId);
   });
 

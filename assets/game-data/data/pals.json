@@ -1,982 +1,937 @@
 {
   "SheepBall": {
     "id": "SheepBall",
-    "name": "棉悠悠",
+    "name": "Lamball",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SheepBall_icon_normal.webp"
   },
   "PinkCat": {
     "id": "PinkCat",
-    "name": "搗蛋貓",
+    "name": "Cattiva",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_PinkCat_icon_normal.webp"
   },
   "ChickenPal": {
     "id": "ChickenPal",
-    "name": "皮皮雞",
+    "name": "Chikipi",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_ChickenPal_icon_normal.webp"
   },
   "Carbunclo": {
     "id": "Carbunclo",
-    "name": "翠葉鼠",
+    "name": "Lifmunk",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Carbunclo_icon_normal.webp"
   },
   "Kitsunebi": {
     "id": "Kitsunebi",
-    "name": "火絨狐",
+    "name": "Foxparks",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Kitsunebi_icon_normal.webp"
+  },
+  "Kitsunebi_Ice": {
+    "id": "Kitsunebi_Ice",
+    "name": "Foxparks Cryst",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Kitsunebi_Ice_icon_normal.webp"
   },
   "BluePlatypus": {
     "id": "BluePlatypus",
-    "name": "衝浪鴨",
+    "name": "Fuack",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BluePlatypus_icon_normal.webp"
   },
   "ElecCat": {
     "id": "ElecCat",
-    "name": "伏特喵",
+    "name": "Sparkit",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_ElecCat_icon_normal.webp"
   },
   "Monkey": {
     "id": "Monkey",
-    "name": "新葉猿",
+    "name": "Tanzee",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Monkey_icon_normal.webp"
   },
   "FlameBambi": {
     "id": "FlameBambi",
-    "name": "燎火鹿",
+    "name": "Rooby",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FlameBambi_icon_normal.webp"
   },
   "Penguin": {
     "id": "Penguin",
-    "name": "企丸丸",
+    "name": "Pengullet",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Penguin_icon_normal.webp"
   },
   "CaptainPenguin": {
     "id": "CaptainPenguin",
-    "name": "企丸王",
+    "name": "Penking",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_CaptainPenguin_icon_normal.webp"
   },
   "Hedgehog": {
     "id": "Hedgehog",
-    "name": "電棘鼠",
+    "name": "Jolthog",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Hedgehog_icon_normal.webp"
   },
   "Hedgehog_Ice": {
     "id": "Hedgehog_Ice",
-    "name": "冰刺鼠",
+    "name": "Jolthog Cryst",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Hedgehog_Ice_icon_normal.webp"
   },
   "PlantSlime": {
     "id": "PlantSlime",
-    "name": "葉泥泥",
+    "name": "Gumoss",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_PlantSlime_icon_normal.webp"
   },
   "CuteFox": {
     "id": "CuteFox",
-    "name": "玉藻狐",
+    "name": "Vixy",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_CuteFox_icon_normal.webp"
   },
   "WizardOwl": {
     "id": "WizardOwl",
-    "name": "啼卡爾",
+    "name": "Hoocrates",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WizardOwl_icon_normal.webp"
   },
   "Ganesha": {
     "id": "Ganesha",
-    "name": "壺小象",
+    "name": "Teafant",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Ganesha_icon_normal.webp"
   },
   "NegativeKoala": {
     "id": "NegativeKoala",
-    "name": "瞅什魔",
+    "name": "Depresso",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_NegativeKoala_icon_normal.webp"
   },
   "WoolFox": {
     "id": "WoolFox",
-    "name": "米露菲",
+    "name": "Cremis",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WoolFox_icon_normal.webp"
   },
   "DreamDemon": {
     "id": "DreamDemon",
-    "name": "寐魔",
+    "name": "Daedream",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_DreamDemon_icon_normal.webp"
   },
   "Boar": {
     "id": "Boar",
-    "name": "草莽豬",
+    "name": "Rushoar",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Boar_icon_normal.webp"
   },
   "NightFox": {
     "id": "NightFox",
-    "name": "露娜蒂",
+    "name": "Nox",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_NightFox_icon_normal.webp"
   },
   "CuteMole": {
     "id": "CuteMole",
-    "name": "遁地鼠",
+    "name": "Fuddler",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_CuteMole_icon_normal.webp"
   },
   "NegativeOctopus": {
     "id": "NegativeOctopus",
-    "name": "勾魂魷",
+    "name": "Killamari",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_NegativeOctopus_icon_normal.webp"
   },
   "Bastet": {
     "id": "Bastet",
-    "name": "喵絲特",
+    "name": "Mau",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Bastet_icon_normal.webp"
   },
   "Bastet_Ice": {
     "id": "Bastet_Ice",
-    "name": "冰絲特",
+    "name": "Mau Cryst",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Bastet_Ice_icon_normal.webp"
   },
   "FlyingManta": {
     "id": "FlyingManta",
-    "name": "魯米兒",
+    "name": "Celaray",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FlyingManta_icon_normal.webp"
   },
   "Garm": {
     "id": "Garm",
-    "name": "獵狼",
+    "name": "Direhowl",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Garm_icon_normal.webp"
   },
   "ColorfulBird": {
     "id": "ColorfulBird",
-    "name": "炸蛋鳥",
+    "name": "Tocotoco",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_ColorfulBird_icon_normal.webp"
   },
   "FlowerRabbit": {
     "id": "FlowerRabbit",
-    "name": "波娜兔",
+    "name": "Flopie",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FlowerRabbit_icon_normal.webp"
   },
   "CowPal": {
     "id": "CowPal",
-    "name": "波霸牛",
+    "name": "Mozzarina",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_CowPal_icon_normal.webp"
   },
   "LittleBriarRose": {
     "id": "LittleBriarRose",
-    "name": "荊棘魔仙",
+    "name": "Bristla",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_LittleBriarRose_icon_normal.webp"
   },
   "SharkKid": {
     "id": "SharkKid",
-    "name": "鯊小子",
+    "name": "Gobfin",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SharkKid_icon_normal.webp"
   },
   "SharkKid_Fire": {
     "id": "SharkKid_Fire",
-    "name": "紅小鯊",
+    "name": "Gobfin Ignis",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SharkKid_Fire_icon_normal.webp"
   },
   "WindChimes": {
     "id": "WindChimes",
-    "name": "吊縛靈",
+    "name": "Hangyu",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WindChimes_icon_normal.webp"
   },
   "WindChimes_Ice": {
     "id": "WindChimes_Ice",
-    "name": "冰縛靈",
+    "name": "Hangyu Cryst",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WindChimes_Ice_icon_normal.webp"
   },
   "GrassPanda": {
     "id": "GrassPanda",
-    "name": "葉胖達",
+    "name": "Mossanda",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GrassPanda_icon_normal.webp"
   },
   "GrassPanda_Electric": {
     "id": "GrassPanda_Electric",
-    "name": "雷胖達",
+    "name": "Mossanda Lux",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GrassPanda_Electric_icon_normal.webp"
   },
   "SweetsSheep": {
     "id": "SweetsSheep",
-    "name": "棉花糖",
+    "name": "Woolipop",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SweetsSheep_icon_normal.webp"
   },
   "BerryGoat": {
     "id": "BerryGoat",
-    "name": "灌木羊",
+    "name": "Caprity",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BerryGoat_icon_normal.webp"
+  },
+  "BerryGoat_Dark": {
+    "id": "BerryGoat_Dark",
+    "name": "Caprity Noct",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BerryGoat_Dark_icon_normal.webp"
   },
   "Alpaca": {
     "id": "Alpaca",
-    "name": "美露帕",
+    "name": "Melpaca",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Alpaca_icon_normal.webp"
   },
   "Deer": {
     "id": "Deer",
-    "name": "紫霞鹿",
+    "name": "Eikthyrdeer",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Deer_icon_normal.webp"
   },
   "Deer_Ground": {
     "id": "Deer_Ground",
-    "name": "祇岳鹿",
+    "name": "Eikthyrdeer Terra",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Deer_Ground_icon_normal.webp"
   },
   "HawkBird": {
     "id": "HawkBird",
-    "name": "疾風隼",
+    "name": "Nitewing",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_HawkBird_icon_normal.webp"
   },
   "PinkRabbit": {
     "id": "PinkRabbit",
-    "name": "姬小兔",
+    "name": "Ribbuny",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_PinkRabbit_icon_normal.webp"
+  },
+  "PinkRabbit_Grass": {
+    "id": "PinkRabbit_Grass",
+    "name": "Ribbuny Botan",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_PinkRabbit_Grass_icon_normal.webp"
   },
   "Baphomet": {
     "id": "Baphomet",
-    "name": "炎魔羊",
+    "name": "Incineram",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Baphomet_icon_normal.webp"
   },
   "Baphomet_Dark": {
     "id": "Baphomet_Dark",
-    "name": "闇魔羊",
+    "name": "Incineram Noct",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Baphomet_Dark_icon_normal.webp"
   },
   "CuteButterfly": {
     "id": "CuteButterfly",
-    "name": "幻悅蝶",
+    "name": "Cinnamoth",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_CuteButterfly_icon_normal.webp"
   },
   "FlameBuffalo": {
     "id": "FlameBuffalo",
-    "name": "熾焰牛",
+    "name": "Arsox",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FlameBuffalo_icon_normal.webp"
   },
   "LazyCatfish": {
     "id": "LazyCatfish",
-    "name": "趴趴鯰",
+    "name": "Dumud",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_LazyCatfish_icon_normal.webp"
   },
   "DarkCrow": {
     "id": "DarkCrow",
-    "name": "黑鴉隱士",
+    "name": "Cawgnito",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_DarkCrow_icon_normal.webp"
   },
   "LizardMan": {
     "id": "LizardMan",
-    "name": "龐克蜥",
+    "name": "Leezpunk",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_LizardMan_icon_normal.webp"
   },
   "LizardMan_Fire": {
     "id": "LizardMan_Fire",
-    "name": "熱血蜥",
+    "name": "Leezpunk Ignis",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_LizardMan_Fire_icon_normal.webp"
   },
   "Werewolf": {
     "id": "Werewolf",
-    "name": "月鐮魔",
+    "name": "Loupmoon",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Werewolf_icon_normal.webp"
+  },
+  "Werewolf_Ice": {
+    "id": "Werewolf_Ice",
+    "name": "Loupmoon Cryst",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Werewolf_Ice_icon_normal.webp"
   },
   "Eagle": {
     "id": "Eagle",
-    "name": "天擒鳥",
+    "name": "Galeclaw",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Eagle_icon_normal.webp"
   },
   "RobinHood": {
     "id": "RobinHood",
-    "name": "羽箭射手",
+    "name": "Robinquill",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_RobinHood_icon_normal.webp"
   },
   "RobinHood_Ground": {
     "id": "RobinHood_Ground",
-    "name": "山岳射手",
+    "name": "Robinquill Terra",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_RobinHood_Ground_icon_normal.webp"
   },
   "Gorilla": {
     "id": "Gorilla",
-    "name": "鐵拳猿",
+    "name": "Gorirat",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Gorilla_icon_normal.webp"
   },
   "Gorilla_Ground": {
     "id": "Gorilla_Ground",
-    "name": "石掌猿",
+    "name": "Gorirat Terra",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Gorilla_Ground_icon_normal.webp"
   },
   "SoldierBee": {
     "id": "SoldierBee",
-    "name": "騎士蜂",
+    "name": "Beegarde",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SoldierBee_icon_normal.webp"
   },
   "QueenBee": {
     "id": "QueenBee",
-    "name": "女皇蜂",
+    "name": "Elizabee",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_QueenBee_icon_normal.webp"
   },
   "NaughtyCat": {
     "id": "NaughtyCat",
-    "name": "笑魘猫",
+    "name": "Grintale",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_NaughtyCat_icon_normal.webp"
   },
   "MopBaby": {
     "id": "MopBaby",
-    "name": "毛撣兒",
+    "name": "Swee",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_MopBaby_icon_normal.webp"
   },
   "MopKing": {
     "id": "MopKing",
-    "name": "毛老爹",
+    "name": "Sweepa",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_MopKing_icon_normal.webp"
   },
   "WeaselDragon": {
     "id": "WeaselDragon",
-    "name": "疾旋鼬",
+    "name": "Chillet",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WeaselDragon_icon_normal.webp"
   },
   "WeaselDragon_Fire": {
     "id": "WeaselDragon_Fire",
-    "name": "桃旋鼬",
+    "name": "Chillet Ignis",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WeaselDragon_Fire_icon_normal.webp"
   },
   "Kirin": {
     "id": "Kirin",
-    "name": "雷角馬",
+    "name": "Univolt",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Kirin_icon_normal.webp"
   },
   "IceFox": {
     "id": "IceFox",
-    "name": "吹雪狐",
+    "name": "Foxcicle",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_IceFox_icon_normal.webp"
   },
   "FireKirin": {
     "id": "FireKirin",
-    "name": "火麒麟",
+    "name": "Pyrin",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FireKirin_icon_normal.webp"
   },
   "FireKirin_Dark": {
     "id": "FireKirin_Dark",
-    "name": "邪麒麟",
+    "name": "Pyrin Noct",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FireKirin_Dark_icon_normal.webp"
   },
   "IceDeer": {
     "id": "IceDeer",
-    "name": "嚴冬鹿",
+    "name": "Reindrix",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_IceDeer_icon_normal.webp"
   },
   "ThunderDog": {
     "id": "ThunderDog",
-    "name": "霹靂犬",
+    "name": "Rayhound",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_ThunderDog_icon_normal.webp"
   },
   "AmaterasuWolf": {
     "id": "AmaterasuWolf",
-    "name": "蒼焰狼",
+    "name": "Kitsun",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_AmaterasuWolf_icon_normal.webp"
+  },
+  "AmaterasuWolf_Dark": {
+    "id": "AmaterasuWolf_Dark",
+    "name": "Kitsun Noct",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_AmaterasuWolf_Dark_icon_normal.webp"
   },
   "RaijinDaughter": {
     "id": "RaijinDaughter",
-    "name": "雷鳴童子",
+    "name": "Dazzi",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_RaijinDaughter_icon_normal.webp"
+  },
+  "RaijinDaughter_Water": {
+    "id": "RaijinDaughter_Water",
+    "name": "Dazzi Noct",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_RaijinDaughter_Water_icon_normal.webp"
   },
   "Mutant": {
     "id": "Mutant",
-    "name": "秘斯媞雅",
+    "name": "Lunaris",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Mutant_icon_normal.webp"
   },
   "FlowerDinosaur": {
     "id": "FlowerDinosaur",
-    "name": "花冠龍",
+    "name": "Dinossom",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FlowerDinosaur_icon_normal.webp"
   },
   "FlowerDinosaur_Electric": {
     "id": "FlowerDinosaur_Electric",
-    "name": "雷冠龍",
+    "name": "Dinossom Lux",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FlowerDinosaur_Electric_icon_normal.webp"
   },
   "Serpent": {
     "id": "Serpent",
-    "name": "滑水蛇",
+    "name": "Surfent",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Serpent_icon_normal.webp"
   },
   "Serpent_Ground": {
     "id": "Serpent_Ground",
-    "name": "流沙蛇",
+    "name": "Surfent Terra",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Serpent_Ground_icon_normal.webp"
   },
   "GhostBeast": {
     "id": "GhostBeast",
-    "name": "噬魂獸",
+    "name": "Maraith",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GhostBeast_icon_normal.webp"
   },
   "DrillGame": {
     "id": "DrillGame",
-    "name": "碎岩龜",
+    "name": "Digtoise",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_DrillGame_icon_normal.webp"
   },
   "CatBat": {
     "id": "CatBat",
-    "name": "貓蝠怪",
+    "name": "Tombat",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_CatBat_icon_normal.webp"
   },
   "PinkLizard": {
     "id": "PinkLizard",
-    "name": "博愛蜥",
+    "name": "Lovander",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_PinkLizard_icon_normal.webp"
   },
   "LavaGirl": {
     "id": "LavaGirl",
-    "name": "融焰娘",
+    "name": "Flambelle",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_LavaGirl_icon_normal.webp"
   },
   "BirdDragon": {
     "id": "BirdDragon",
-    "name": "烽歌龍",
+    "name": "Vanwyrm",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BirdDragon_icon_normal.webp"
   },
   "BirdDragon_Ice": {
     "id": "BirdDragon_Ice",
-    "name": "霜歌龍",
+    "name": "Vanwyrm Cryst",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BirdDragon_Ice_icon_normal.webp"
   },
   "Ronin": {
     "id": "Ronin",
-    "name": "浪刃武士",
+    "name": "Bushi",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Ronin_icon_normal.webp"
   },
   "Ronin_Dark": {
     "id": "Ronin_Dark",
-    "name": "鬼刃武士",
+    "name": "Bushi Noct",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Ronin_Dark_icon_normal.webp"
   },
   "ThunderBird": {
     "id": "ThunderBird",
-    "name": "迅雷鳥",
+    "name": "Beakon",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_ThunderBird_icon_normal.webp"
   },
   "RedArmorBird": {
     "id": "RedArmorBird",
-    "name": "燧火鳥",
+    "name": "Ragnahawk",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_RedArmorBird_icon_normal.webp"
   },
   "CatMage": {
     "id": "CatMage",
-    "name": "闇巫貓",
+    "name": "Katress",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_CatMage_icon_normal.webp"
   },
   "CatMage_Fire": {
     "id": "CatMage_Fire",
-    "name": "熾巫貓",
+    "name": "Katress Ignis",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_CatMage_Fire_icon_normal.webp"
   },
   "FoxMage": {
     "id": "FoxMage",
-    "name": "焰巫狐",
+    "name": "Wixen",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FoxMage_icon_normal.webp"
   },
   "FoxMage_Dark": {
     "id": "FoxMage_Dark",
-    "name": "幽巫狐",
+    "name": "Wixen Noct",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FoxMage_Dark_icon_normal.webp"
   },
   "GrassRabbitMan": {
     "id": "GrassRabbitMan",
-    "name": "踏春兔",
+    "name": "Verdash",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GrassRabbitMan_icon_normal.webp"
   },
   "VioletFairy": {
     "id": "VioletFairy",
-    "name": "薇莉塔",
+    "name": "Vaelet",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_VioletFairy_icon_normal.webp"
   },
   "WhiteMoth": {
     "id": "WhiteMoth",
-    "name": "綢笠蛾",
+    "name": "Sibelyx",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WhiteMoth_icon_normal.webp"
   },
   "FairyDragon": {
     "id": "FairyDragon",
-    "name": "精靈龍",
+    "name": "Elphidran",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FairyDragon_icon_normal.webp"
   },
   "FairyDragon_Water": {
     "id": "FairyDragon_Water",
-    "name": "水靈龍",
+    "name": "Elphidran Aqua",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FairyDragon_Water_icon_normal.webp"
   },
   "Kelpie": {
     "id": "Kelpie",
-    "name": "水靈兒",
+    "name": "Kelpsea",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Kelpie_icon_normal.webp"
   },
   "Kelpie_Fire": {
     "id": "Kelpie_Fire",
-    "name": "火靈兒",
+    "name": "Kelpsea Ignis",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Kelpie_Fire_icon_normal.webp"
   },
   "BlueDragon": {
     "id": "BlueDragon",
-    "name": "碧海龍",
+    "name": "Azurobe",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BlueDragon_icon_normal.webp"
   },
   "WhiteTiger": {
     "id": "WhiteTiger",
-    "name": "冰棘獸",
+    "name": "Cryolinx",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WhiteTiger_icon_normal.webp"
+  },
+  "WhiteTiger_Ground": {
+    "id": "WhiteTiger_Ground",
+    "name": "Cryolinx Terra",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WhiteTiger_Ground_icon_normal.webp"
   },
   "Manticore": {
     "id": "Manticore",
-    "name": "獄焰王",
+    "name": "Blazehowl",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Manticore_icon_normal.webp"
   },
   "Manticore_Dark": {
     "id": "Manticore_Dark",
-    "name": "獄閻王",
+    "name": "Blazehowl Noct",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Manticore_Dark_icon_normal.webp"
   },
   "LazyDragon": {
     "id": "LazyDragon",
-    "name": "佩克龍",
+    "name": "Relaxaurus",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_LazyDragon_icon_normal.webp"
   },
   "LazyDragon_Electric": {
     "id": "LazyDragon_Electric",
-    "name": "派克龍",
+    "name": "Relaxaurus Lux",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_LazyDragon_Electric_icon_normal.webp"
   },
   "SakuraSaurus": {
     "id": "SakuraSaurus",
-    "name": "連理龍",
+    "name": "Broncherry",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SakuraSaurus_icon_normal.webp"
   },
   "SakuraSaurus_Water": {
     "id": "SakuraSaurus_Water",
-    "name": "海誓龍",
+    "name": "Broncherry Aqua",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SakuraSaurus_Water_icon_normal.webp"
   },
   "FlowerDoll": {
     "id": "FlowerDoll",
-    "name": "花麗娜",
+    "name": "Petallia",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FlowerDoll_icon_normal.webp"
   },
   "VolcanicMonster": {
     "id": "VolcanicMonster",
-    "name": "熔岩獸",
+    "name": "Reptyro",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_VolcanicMonster_icon_normal.webp"
   },
   "VolcanicMonster_Ice": {
     "id": "VolcanicMonster_Ice",
-    "name": "寒霜獸",
+    "name": "Reptyro Cryst",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_VolcanicMonster_Ice_icon_normal.webp"
   },
   "KingAlpaca": {
     "id": "KingAlpaca",
-    "name": "君王美露帕",
+    "name": "Kingpaca",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_KingAlpaca_icon_normal.webp"
   },
   "KingAlpaca_Ice": {
     "id": "KingAlpaca_Ice",
-    "name": "冰帝美露帕",
+    "name": "Kingpaca Cryst",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_KingAlpaca_Ice_icon_normal.webp"
   },
   "GrassMammoth": {
     "id": "GrassMammoth",
-    "name": "森猛獁",
+    "name": "Mammorest",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GrassMammoth_icon_normal.webp"
   },
   "GrassMammoth_Ice": {
     "id": "GrassMammoth_Ice",
-    "name": "雪猛瑪",
+    "name": "Mammorest Cryst",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GrassMammoth_Ice_icon_normal.webp"
   },
   "Yeti": {
     "id": "Yeti",
-    "name": "白絨雪怪",
+    "name": "Wumpo",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Yeti_icon_normal.webp"
   },
   "Yeti_Grass": {
     "id": "Yeti_Grass",
-    "name": "綠苔絨怪",
+    "name": "Wumpo Botan",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Yeti_Grass_icon_normal.webp"
   },
   "HerculesBeetle": {
     "id": "HerculesBeetle",
-    "name": "鎧格力斯",
+    "name": "Warsect",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_HerculesBeetle_icon_normal.webp"
+  },
+  "HerculesBeetle_Ground": {
+    "id": "HerculesBeetle_Ground",
+    "name": "Warsect Terra",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_HerculesBeetle_Ground_icon_normal.webp"
   },
   "FengyunDeeper": {
     "id": "FengyunDeeper",
-    "name": "雲海鹿",
+    "name": "Fenglope",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FengyunDeeper_icon_normal.webp"
+  },
+  "FengyunDeeper_Electric": {
+    "id": "FengyunDeeper_Electric",
+    "name": "Fenglope Lux",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FengyunDeeper_Electric_icon_norma.webp"
   },
   "CatVampire": {
     "id": "CatVampire",
-    "name": "夜幕魔蝠",
+    "name": "Felbat",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_CatVampire_icon_normal.webp"
   },
   "SkyDragon": {
     "id": "SkyDragon",
-    "name": "天羽龍",
+    "name": "Quivern",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SkyDragon_icon_normal.webp"
   },
   "SkyDragon_Grass": {
     "id": "SkyDragon_Grass",
-    "name": "翠羽龍",
+    "name": "Quivern Botan",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SkyDragon_Grass_icon_normal.webp"
   },
   "KingBahamut": {
     "id": "KingBahamut",
-    "name": "焰煌",
+    "name": "Blazamut",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_KingBahamut_icon_normal.webp"
   },
   "KingBahamut_Dragon": {
     "id": "KingBahamut_Dragon",
-    "name": "歿殃",
+    "name": "Blazamut Ryu",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_KingBahamut_Dragon_icon_normal.webp"
   },
   "HadesBird": {
     "id": "HadesBird",
-    "name": "雷冥鳥",
+    "name": "Helzephyr",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_HadesBird_icon_normal.webp"
   },
   "HadesBird_Electric": {
     "id": "HadesBird_Electric",
-    "name": "雷鳴鳥",
+    "name": "Helzephyr Lux",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_HadesBird_Electric_icon_normal.webp"
   },
   "BlackMetalDragon": {
     "id": "BlackMetalDragon",
-    "name": "魔淵龍",
+    "name": "Astegon",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BlackMetalDragon_icon_normal.webp"
   },
   "DarkScorpion": {
     "id": "DarkScorpion",
-    "name": "冥鎧蠍",
+    "name": "Menasting",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_DarkScorpion_icon_normal.webp"
   },
   "DarkScorpion_Ground": {
     "id": "DarkScorpion_Ground",
-    "name": "金鎧蠍",
+    "name": "Menasting Terra",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_DarkScorpion_Ground_icon_normal.webp"
   },
   "Anubis": {
     "id": "Anubis",
-    "name": "阿努比斯",
+    "name": "Anubis",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Anubis_icon_normal.webp"
   },
   "Umihebi": {
     "id": "Umihebi",
-    "name": "覆海龍",
+    "name": "Jormuntide",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Umihebi_icon_normal.webp"
   },
   "Umihebi_Fire": {
     "id": "Umihebi_Fire",
-    "name": "騰炎龍",
+    "name": "Jormuntide Ignis",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Umihebi_Fire_icon_normal.webp"
   },
   "Suzaku": {
     "id": "Suzaku",
-    "name": "朱雀",
+    "name": "Suzaku",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Suzaku_icon_normal.webp"
   },
   "Suzaku_Water": {
     "id": "Suzaku_Water",
-    "name": "清雀",
+    "name": "Suzaku Aqua",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Suzaku_Water_icon_normal.webp"
   },
   "ElecPanda": {
     "id": "ElecPanda",
-    "name": "暴電熊",
+    "name": "Grizzbolt",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_ElecPanda_icon_normal.webp"
   },
   "LilyQueen": {
     "id": "LilyQueen",
-    "name": "百合女王",
+    "name": "Lyleen",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_LilyQueen_icon_normal.webp"
   },
   "LilyQueen_Dark": {
     "id": "LilyQueen_Dark",
-    "name": "黑月女王 ",
+    "name": "Lyleen Noct",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_LilyQueen_Dark_icon_normal.webp"
   },
   "Horus": {
     "id": "Horus",
-    "name": "荷魯斯",
+    "name": "Faleris",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Horus_icon_normal.webp"
+  },
+  "Horus_Water": {
+    "id": "Horus_Water",
+    "name": "Faleris Aqua",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Horus_Water_icon_normal.webp"
   },
   "ThunderDragonMan": {
     "id": "ThunderDragonMan",
-    "name": "波魯傑克斯",
+    "name": "Orserk",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_ThunderDragonMan_icon_normal.webp"
   },
   "BlackGriffon": {
     "id": "BlackGriffon",
-    "name": "異構格里芬",
+    "name": "Shadowbeak",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BlackGriffon_icon_normal.webp"
   },
   "SaintCentaur": {
     "id": "SaintCentaur",
-    "name": "聖光騎士",
+    "name": "Paladius",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SaintCentaur_icon_normal.webp"
   },
   "BlackCentaur": {
     "id": "BlackCentaur",
-    "name": "混沌騎士",
+    "name": "Necromus",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BlackCentaur_icon_normal.webp"
   },
   "IceHorse": {
     "id": "IceHorse",
-    "name": "喚冬獸",
+    "name": "Frostallion",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_IceHorse_icon_normal.webp"
   },
   "IceHorse_Dark": {
     "id": "IceHorse_Dark",
-    "name": "喚夜獸",
+    "name": "Frostallion Noct",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_IceHorse_Dark_icon_normal.webp"
   },
   "JetDragon": {
     "id": "JetDragon",
-    "name": "空渦龍",
+    "name": "Jetragon",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_JetDragon_icon_normal.webp"
   },
   "NightLady": {
     "id": "NightLady",
-    "name": "貝菈諾娃",
+    "name": "Bellanoir",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_NightLady_icon_normal.webp"
   },
   "NightLady_Dark": {
     "id": "NightLady_Dark",
-    "name": "貝菈露潔",
+    "name": "Bellanoir Libero",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_NightLady_Dark_icon_normal.webp"
   },
   "MoonQueen": {
     "id": "MoonQueen",
-    "name": "輝月伊",
+    "name": "Selyne",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_MoonQueen_icon_normal.webp"
   },
   "KendoFrog": {
     "id": "KendoFrog",
-    "name": "武道蛙",
+    "name": "Croajiro",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_KendoFrog_icon_normal.webp"
   },
   "LeafPrincess": {
     "id": "LeafPrincess",
-    "name": "春彩娘",
+    "name": "Lullu",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_LeafPrincess_icon_normal.webp"
   },
   "MushroomDragon": {
     "id": "MushroomDragon",
-    "name": "菇咚",
+    "name": "Shroomer",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_MushroomDragon_icon_normal.webp"
   },
   "MushroomDragon_Dark": {
     "id": "MushroomDragon_Dark",
-    "name": "菇波",
+    "name": "Shroomer Noct",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_MushroomDragon_Dark_icon_normal.webp"
   },
   "SmallArmadillo": {
     "id": "SmallArmadillo",
-    "name": "球犰",
+    "name": "Kikit",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SmallArmadillo_icon_normal.webp"
   },
   "CandleGhost": {
     "id": "CandleGhost",
-    "name": "恐炬靈",
+    "name": "Sootseer",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_CandleGhost_icon_normal.webp"
   },
   "ScorpionMan": {
     "id": "ScorpionMan",
-    "name": "蠱刺妖",
+    "name": "Prixter",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_ScorpionMan_icon_normal.webp"
   },
   "WingGolem": {
     "id": "WingGolem",
-    "name": "泰鋒",
+    "name": "Knocklem",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WingGolem_icon_normal.webp"
   },
   "GuardianDog": {
     "id": "GuardianDog",
-    "name": "八雲犬",
+    "name": "Yakumo",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GuardianDog_icon_normal.webp"
   },
   "SifuDog": {
     "id": "SifuDog",
-    "name": "汪宗師",
+    "name": "Dogen",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SifuDog_icon_normal.webp"
   },
   "FeatherOstrich": {
     "id": "FeatherOstrich",
-    "name": "戰冠雀",
+    "name": "Dazemu",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FeatherOstrich_icon_normal.webp"
   },
   "MimicDog": {
     "id": "MimicDog",
-    "name": "旺財",
+    "name": "Mimog",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_MimicDog_icon_normal.webp"
   },
   "DarkAlien": {
     "id": "DarkAlien",
-    "name": "傑諾貝達",
+    "name": "Xenovader",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_DarkAlien_icon_normal.webp"
   },
   "WhiteAlienDragon": {
     "id": "WhiteAlienDragon",
-    "name": "傑諾路達",
+    "name": "Xenogard",
     "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WhiteAlienDragon_icon_normal.webp"
-  },
-  "BadCatgirl": {
-    "id": "BadCatgirl",
-    "name": "BadCatgirl",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
-  },
-  "BlueberryFairy": {
-    "id": "BlueberryFairy",
-    "name": "BlueberryFairy",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
-  },
-  "BrownRabbit": {
-    "id": "BrownRabbit",
-    "name": "BrownRabbit",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
-  },
-  "ElecLion": {
-    "id": "ElecLion",
-    "name": "Boltmane",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_ElecLion_icon_normal.webp"
-  },
-  "GoldenHorse": {
-    "id": "GoldenHorse",
-    "name": "GoldenHorse",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
-  },
-  "PinkKangaroo": {
-    "id": "PinkKangaroo",
-    "name": "PinkKangaroo",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_dummy_icon.webp"
-  },
-  "TentacleTurtle": {
-    "id": "TentacleTurtle",
-    "name": "TentacleTurtle",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
-  },
-  "BeardedDragon": {
-    "id": "BeardedDragon",
-    "name": "BeardedDragon",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BeardedDragon_icon_normal.webp"
-  },
-  "WaterLizard": {
-    "id": "WaterLizard",
-    "name": "WaterLizard",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
-  },
-  "GrassDragon": {
-    "id": "GrassDragon",
-    "name": "GrassDragon",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
-  },
-  "BlackFurDragon": {
-    "id": "BlackFurDragon",
-    "name": "Dragostrophe",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BlackFurDragon_icon_normal.webp"
-  },
-  "DarkMutant": {
-    "id": "DarkMutant",
-    "name": "DarkMutant",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_DarkMutant_icon_normal.webp"
-  },
-  "VolcanoDragon": {
-    "id": "VolcanoDragon",
-    "name": "VolcanoDragon",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
   },
   "DarkMechaDragon": {
     "id": "DarkMechaDragon",
-    "name": "DarkMechaDragon",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
+    "name": "Xenolord",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_DarkMechaDragon_icon_normal.webp"
   },
   "GhostRabbit": {
     "id": "GhostRabbit",
-    "name": "GhostRabbit",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
+    "name": "Nitemary",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GhostRabbit_icon_normal.webp"
   },
   "NightBlueHorse": {
     "id": "NightBlueHorse",
-    "name": "NightBlueHorse",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
+    "name": "Starryon",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_NightBlueHorse_icon_normal.webp"
   },
   "WhiteShieldDragon": {
     "id": "WhiteShieldDragon",
-    "name": "WhiteShieldDragon",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
+    "name": "Silvegis",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WhiteShieldDragon_icon_normal.webp"
   },
   "BlackPuppy": {
     "id": "BlackPuppy",
-    "name": "BlackPuppy",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
+    "name": "Smokie",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BlackPuppy_icon_normal.webp"
   },
   "WhiteDeer": {
     "id": "WhiteDeer",
-    "name": "WhiteDeer",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
-  },
-  "KingWhale": {
-    "id": "KingWhale",
-    "name": "KingWhale",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
+    "name": "Celesdir",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WhiteDeer_icon_normal.webp"
   },
   "MysteryMask": {
     "id": "MysteryMask",
-    "name": "MysteryMask",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
-  },
-  "HoodGhost": {
-    "id": "HoodGhost",
-    "name": "HoodGhost",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
-  },
-  "Sekhmet": {
-    "id": "Sekhmet",
-    "name": "Sekhmet",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
-  },
-  "ElecLizard": {
-    "id": "ElecLizard",
-    "name": "ElecLizard",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
+    "name": "Omascul",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_MysteryMask_icon_normal.webp"
   },
   "GrimGirl": {
     "id": "GrimGirl",
-    "name": "GrimGirl",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
+    "name": "Splatterina",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GrimGirl_icon_normal.webp"
   },
   "PurpleSpider": {
     "id": "PurpleSpider",
-    "name": "PurpleSpider",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
+    "name": "Tarantriss",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_PurpleSpider_icon_normal.webp"
   },
   "BlueThunderHorse": {
     "id": "BlueThunderHorse",
-    "name": "BlueThunderHorse",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
+    "name": "Azurmane",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BlueThunderHorse_icon_normal.webp"
   },
-  "RockBeast": {
-    "id": "RockBeast",
-    "name": "RockBeast",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
+  "SnowTigerBeastman": {
+    "id": "SnowTigerBeastman",
+    "name": "Bastigor",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SnowTigerBeastman_icon_normal.webp"
   },
-  "OctopusGirl": {
-    "id": "OctopusGirl",
-    "name": "OctopusGirl",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
+  "BlueberryFairy": {
+    "id": "BlueberryFairy",
+    "name": "Prunelia",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BlueberryFairy_icon_normal.webp"
   },
-  "IceNarwhal": {
-    "id": "IceNarwhal",
-    "name": "IceNarwhal",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
+  "BadCatgirl": {
+    "id": "BadCatgirl",
+    "name": "Nyafia",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BadCatgirl_icon_normal.webp"
   },
-  "JellyfishFairy": {
-    "id": "JellyfishFairy",
-    "name": "JellyfishFairy",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/UI/Main_Menu/T_icon_unknown.webp"
-  },
-  "PlantSlime_Flower": {
-    "id": "PlantSlime_Flower",
-    "name": "葉泥泥",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_PlantSlime_icon_normal.webp"
-  },
-  "HerculesBeetle_Ground": {
-    "id": "HerculesBeetle_Ground",
-    "name": "Warsect  Terra",
-    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_HerculesBeetle_Ground_icon_normal.webp"
+  "GoldenHorse": {
+    "id": "GoldenHorse",
+    "name": "Gildane",
+    "image": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GoldenHorse_icon_normal.webp"
   }
 }

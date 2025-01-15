@@ -1,4 +1,5 @@
-import { Blockquote, Button, Heading, Text } from '@radix-ui/themes';
+import { Blockquote, Button, Heading, Text, TextField } from '@radix-ui/themes';
+import { useState } from 'react';
 
 export default function ActionItem({
   title,
@@ -6,15 +7,21 @@ export default function ActionItem({
   buttonText,
   color,
   onButtonClick,
+  hasInput,
+  inputDefaultValue,
 }: {
   title: string;
   subtitle: string;
   buttonText: string;
   color?: string;
   onButtonClick?: any;
+  hasInput?: boolean;
+  inputDefaultValue: number;
 }) {
+  const [inputValue, setInputValue] = useState(inputDefaultValue || 1);
+
   return (
-    <ul className="flex items-center justify-between">
+    <ul className="flex items-center pr-16">
       <Blockquote color={color as any}>
         <Heading size="3" style={{ color: '#222' }}>
           {title}
@@ -23,9 +30,27 @@ export default function ActionItem({
           {subtitle}
         </Text>
       </Blockquote>
-      <Button onClick={onButtonClick} color={color as any}>
-        {buttonText}
-      </Button>
+      <div className="flex gap-3 absolute right-8">
+        {hasInput && (
+          <TextField.Root
+            className="w-24"
+            value={inputValue}
+            onChange={(e) => {
+              if (!Number.isNaN(Number(e.target.value))) {
+                setInputValue(Number(e.target.value));
+              }
+            }}
+          />
+        )}
+        <Button
+          onClick={() => {
+            onButtonClick(inputValue);
+          }}
+          color={color as any}
+        >
+          {buttonText}
+        </Button>
+      </div>
     </ul>
   );
 }

@@ -1,4 +1,4 @@
-const game_data_pals_zh_tw = {
+const game_data_pals_jp = {
   SheepBall: '棉悠悠',
   PinkCat: '搗蛋貓',
   ChickenPal: '皮皮雞',
@@ -188,4 +188,4 @@ const game_data_pals_zh_tw = {
   GoldenHorse: '金馳獸',
 };
 
-export default game_data_pals_zh_tw;
+export default game_data_pals_jp;

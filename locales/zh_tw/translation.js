@@ -302,7 +302,8 @@ const zh_tw = {
   AdvancedActions: '進階操作',
   Set: '設置',
   SetAsAdmin: '設置為管理員',
-  SetAsAdminDesc: '將 ${1} 設置為伺服器管理員。',
+  SetAsAdminDesc:
+    '將 ${1} 設置為伺服器管理員。\n需要到 Palguard 設定將 "useAdminWhitelist" 設定為 false 才能使用。',
   Kick: '踢出',
   KickDesc: '踢出該用戶',
   BanIP: '封鎖 ${1} 的 IP 地址',
@@ -367,5 +368,20 @@ const zh_tw = {
   AllowConnectPlatform: '允許的連接平台',
   AllowConnectPlatform_Steam: 'Steam',
   AllowConnectPlatform_Xbox: 'Xbox',
+  //20250115
+  Give: '給予',
+  GiveRelic: '給予翠葉鼠雕像',
+  GiveRelicDesc: '給予 ${1} 指定數量的翠葉鼠雕像。',
+  GiveTech: '給予科技點',
+  GiveTechDesc: '給予 ${1} 指定數量的科技點。',
+  GiveBossTech: '給予古代科技點',
+  GiveBossTechDesc: '給予 ${1} 指定數量的古代科技點。',
+  ServerReplicatePawnCullDistance: '伺服器複製玩家距離',
+  SupplyDropSpan: '補給掉落範圍',
+  RandomizerType: '隨機化類型',
+  RandomizerType_None: '無隨機',
+  RandomizerType_1: '區域隨機',
+  RandomizerType_2: '全域隨機',
+  RandomizerSeed: '隨機種子',
 };
 export default zh_tw;

@@ -26,8 +26,11 @@ export default async function writeWorldSettingsini(
   //   0,
   //   worldOptionsiniText.length - 1,
   // );
-  worldOptionsiniText = worldOptionsiniText.replaceAll('\\', '').slice(0, -1);
-  // .replaceAll(/\)+/gu, ')"');
+  worldOptionsiniText = worldOptionsiniText
+    .replaceAll('\\', '')
+
+    .replaceAll(/\)+,/g, ',')
+    .replaceAll(/\)+"/g, ')');
 
   await fs.writeFile(worldOptionsiniPath, worldOptionsiniText, {
     encoding: 'utf-8',

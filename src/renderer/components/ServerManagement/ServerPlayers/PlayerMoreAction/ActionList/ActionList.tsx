@@ -111,10 +111,61 @@ export default function ActionList({
           <ActionItem
             title={t('GiveExp')}
             subtitle={formatLocale(t('GiveExpDesc'), [name])}
-            buttonText={t('Choose')}
+            buttonText={t('Give')}
             color="yellow"
-            onButtonClick={() => {
-              setActionType('give_exps');
+            hasInput
+            inputDefaultValue={100000}
+            onButtonClick={(value: number) => {
+              window.electron.ipcRenderer.invoke(
+                Channels.sendRCONCommand,
+                selectedServerInstance,
+                `give_exp ${steamid.slice(6)} ${value}`,
+              );
+            }}
+          />
+          <ActionItem
+            title={t('GiveRelic')}
+            subtitle={formatLocale(t('GiveRelicDesc'), [name])}
+            buttonText={t('Give')}
+            color="yellow"
+            hasInput
+            inputDefaultValue={1}
+            onButtonClick={(value: number) => {
+              window.electron.ipcRenderer.invoke(
+                Channels.sendRCONCommand,
+                selectedServerInstance,
+                `give_relic ${steamid.slice(6)} ${value}`,
+              );
+            }}
+          />
+          <ActionItem
+            title={t('GiveTech')}
+            subtitle={formatLocale(t('GiveTechDesc'), [name])}
+            buttonText={t('Give')}
+            color="yellow"
+            hasInput
+            inputDefaultValue={1}
+            onButtonClick={(value: number) => {
+              window.electron.ipcRenderer.invoke(
+                Channels.sendRCONCommand,
+                selectedServerInstance,
+                `givetech ${steamid.slice(6)} ${value}`,
+              );
+            }}
+          />
+          <ActionItem
+            title={t('GiveBossTech')}
+            subtitle={formatLocale(t('GiveBossTechDesc'), [name])}
+            buttonText={t('Give')}
+            color="yellow"
+            hasInput
+            inputDefaultValue={1}
+            onButtonClick={(value: number) => {
+              window.electron.ipcRenderer.invoke(
+                Channels.sendRCONCommand,
+                selectedServerInstance,
+                `givebosstech ${steamid.slice(6)} ${value}`,
+              );
             }}
           />
         </div>

@@ -75,7 +75,7 @@ export default function GivePalToPlayer({
         {/* <p className="my-2">進階操作使用第三方插件 PalGuard 實現</p> */}
         <ScrollArea
           scrollbars="vertical"
-          style={{ height: 392 }}
+          style={{ height: '65vh' }}
           className="pt-2"
         >
           <ul className="flex flex-col">
