@@ -1,4 +1,6 @@
 const Channels = {
+  // engine
+  getEngineHasError: 'get-engine--has-error',
   // init
   getIsFirstInstall: 'get-is-first-install',
   runServerInstall: 'run-server-install',

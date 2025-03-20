@@ -5,7 +5,7 @@ import Channels from '../../../../main/ipcs/channels';
 
 const useWorldSettings = (serverId: string) => {
   const [worldSettings, setWorldSettings] = useState<any>({});
-  console.log(worldSettings)
+
   useEffect(() => {
     const i = setInterval(() => {
       if (serverId) {

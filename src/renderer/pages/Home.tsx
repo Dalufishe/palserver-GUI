@@ -10,7 +10,6 @@ import ContextMenu, { ContextMenuOptions } from '../components/ContextMenu';
 import NoServerHint from '../components/Home/NoServerHint/NoServerHint';
 import ImportServer from '../components/Home/ImportServer/ImportServer';
 import { VERSION } from '../../constant/app';
-import CongratBootServerAlert from '../components/RightSection/BootServer/CongratBootServerAlert/CongratBootServerAlert';
 
 export default function Home() {
   // const { t } = useTranslation();
@@ -81,7 +80,6 @@ export default function Home() {
       {currentAction === 'CreateServer' && <CreateServerAlert />}
       {currentAction === 'CreateRemoteServer' && <CreateRemoteServerAlert />}
       {currentAction === 'ImportServer' && <ImportServer />}
-
     </>
   );
 }

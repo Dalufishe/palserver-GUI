@@ -15,9 +15,11 @@ import ModManagement from './pages/ModManagement';
 import { useEffect } from 'react';
 import useRunServerInstall from './hooks/server/useRunServerInstall';
 import EngineInstallingHint from './components/Home/EngineInstallingHint/EngineInstallingHint';
+import useServerEngineVersion from './hooks/server/useServerEngineVersion';
+import EngineNeedInstall from './components/Home/EngineNeedInstall/EngineNeedInstall';
 
 export default function App() {
-  const [hasInstalled, installMessage] = useRunServerInstall();
+  // const [hasInstalled, installMessage] = useRunServerInstall();
 
   const { selectedServerInstance } = useSelectedServerInstance();
 
@@ -29,6 +31,7 @@ export default function App() {
           <div className="App">
             <div className="w-screen h-screen flex">
               <div className="w-full h-full p-4 bg-bg-1 flex flex-col gap-4">
+                <EngineNeedInstall />
                 <AboutSection />
                 <Switch>
                   {/* <Route path="/monitor" component={Monitor} /> */}
@@ -36,7 +39,7 @@ export default function App() {
                     exact
                     path="/"
                     render={() =>
-                      hasInstalled ? (
+                      true ? (
                         <Home />
                       ) : (
                         <EngineInstallingHint installMessage={installMessage} />

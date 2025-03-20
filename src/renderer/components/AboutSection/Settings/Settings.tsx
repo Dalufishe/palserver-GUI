@@ -38,17 +38,17 @@ export default function Settings() {
         setLanguage(l);
       },
     },
-    ClearCache: {
-      id: 'ClearCache',
-      title: t('ClearCache'),
-      description: t('ClearCacheDesc'),
-      type: 'button',
-      buttonText: t('Clear'),
-      async onButtonClick() {
-        await window.electron.ipcRenderer.invoke(Channels.clearSystemCache);
-        setServerEngineVersion(0);
-      },
-    },
+    // ClearCache: {
+    //   id: 'ClearCache',
+    //   title: t('ClearCache'),
+    //   description: t('ClearCacheDesc'),
+    //   type: 'button',
+    //   buttonText: t('Clear'),
+    //   async onButtonClick() {
+    //     await window.electron.ipcRenderer.invoke(Channels.clearSystemCache);
+
+    //   },
+    // },
     ServerInstancePath: {
       id: 'ServerInstancePath',
       title: t('ServerInstancePath'),
