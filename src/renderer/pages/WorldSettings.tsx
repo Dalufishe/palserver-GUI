@@ -4,6 +4,8 @@ import useTranslation from '../hooks/translation/useTranslation';
 import { MdEditDocument } from 'react-icons/md';
 import _, { isEmpty, map, pickBy } from 'lodash';
 import {
+  BuildSettingsOptionsKey,
+  DropSettingsOptionsKey,
   GuildSettingsOptionsKey,
   OthersSettingsOptionsKey,
   PalSettingsOptionsKey,
@@ -99,6 +101,20 @@ export default function WorldSettings() {
                 {t('GuildSettings')}
               </Tabs.Trigger>
               <Tabs.Trigger
+                value="build"
+                style={{ color: 'white', fontWeight: 500 }}
+              >
+                {/* 建築物設定 */}
+                {t('BuildSettings')}
+              </Tabs.Trigger>
+              <Tabs.Trigger
+                value="drop"
+                style={{ color: 'white', fontWeight: 500 }}
+              >
+                {/* 掉落物設定 */}
+                {t('DropSettings')}
+              </Tabs.Trigger>
+              <Tabs.Trigger
                 value="others"
                 style={{ color: 'white', fontWeight: 500 }}
               >
@@ -146,6 +162,40 @@ export default function WorldSettings() {
                   {map(
                     pickBy(worldSettingsOptions, (v, k) =>
                       GuildSettingsOptionsKey.includes(k),
+                    ),
+                    (v, k) => (
+                      <WorldSettingsItem
+                        key={k}
+                        id={k}
+                        worldSettings={worldSettings}
+                        setWorldSettings={setWorldSettings}
+                      />
+                    ),
+                  )}
+                </div>
+              </Tabs.Content>
+              <Tabs.Content value="build">
+                <div className="flex flex-col justify-center gap-2 p-2">
+                  {map(
+                    pickBy(worldSettingsOptions, (v, k) =>
+                      BuildSettingsOptionsKey.includes(k),
+                    ),
+                    (v, k) => (
+                      <WorldSettingsItem
+                        key={k}
+                        id={k}
+                        worldSettings={worldSettings}
+                        setWorldSettings={setWorldSettings}
+                      />
+                    ),
+                  )}
+                </div>
+              </Tabs.Content>
+              <Tabs.Content value="drop">
+                <div className="flex flex-col justify-center gap-2 p-2">
+                  {map(
+                    pickBy(worldSettingsOptions, (v, k) =>
+                      DropSettingsOptionsKey.includes(k),
                     ),
                     (v, k) => (
                       <WorldSettingsItem

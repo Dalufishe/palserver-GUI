@@ -22,6 +22,8 @@ export default function ActionList({
 }) {
   const { t } = useTranslation();
 
+  const pgSteamId = 'steam_' + steamid.slice(6);
+
   const { selectedServerInstance } = useSelectedServerInstance();
   // const isUsingPalguard = useIsUsingPalguard(selectedGameSave);
 
@@ -29,7 +31,7 @@ export default function ActionList({
     window.electron.ipcRenderer.invoke(
       Channels.sendRCONCommand,
       selectedServerInstance,
-      `setadmin ${steamid.slice(6)}`,
+      `setadmin ${pgSteamId}`,
     );
   };
 
@@ -53,7 +55,7 @@ export default function ActionList({
     window.electron.ipcRenderer.invoke(
       Channels.sendRCONCommand,
       selectedServerInstance,
-      `ipbanid ${steamid.slice(6)}`,
+      `ipbanid ${pgSteamId}`,
     );
   };
 
@@ -119,7 +121,7 @@ export default function ActionList({
               window.electron.ipcRenderer.invoke(
                 Channels.sendRCONCommand,
                 selectedServerInstance,
-                `give_exp ${steamid.slice(6)} ${value}`,
+                `give_exp steam_${steamid.slice(6)} ${value}`,
               );
             }}
           />
@@ -134,7 +136,7 @@ export default function ActionList({
               window.electron.ipcRenderer.invoke(
                 Channels.sendRCONCommand,
                 selectedServerInstance,
-                `give_relic ${steamid.slice(6)} ${value}`,
+                `give_relic ${pgSteamId} ${value}`,
               );
             }}
           />
@@ -149,7 +151,7 @@ export default function ActionList({
               window.electron.ipcRenderer.invoke(
                 Channels.sendRCONCommand,
                 selectedServerInstance,
-                `givetech ${steamid.slice(6)} ${value}`,
+                `givetech ${pgSteamId} ${value}`,
               );
             }}
           />
@@ -164,7 +166,7 @@ export default function ActionList({
               window.electron.ipcRenderer.invoke(
                 Channels.sendRCONCommand,
                 selectedServerInstance,
-                `givebosstech ${steamid.slice(6)} ${value}`,
+                `givebosstech ${pgSteamId} ${value}`,
               );
             }}
           />

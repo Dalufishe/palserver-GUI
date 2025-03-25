@@ -78,7 +78,7 @@ export default function Boardcastbar() {
                   .join(
                     window.electron.constant.USER_SERVER_INSTANCES_PATH(),
                     selectedServerInstance,
-                    'server/Pal/Binaries/Win64/palguard/logs',
+                    'server/Pal/Binaries/Win64/PalDefender/logs',
                   ),
               );
             }}

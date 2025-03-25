@@ -19,11 +19,19 @@ export default function Translation({ children }: { children: any }) {
 }
 
 function getDefaultLanguage() {
-  if (window.navigator.language === 'zh_TW') {
+  const userLanguage = window.navigator.language.toLowerCase();
+
+  if (userLanguage === 'zh-tw' || userLanguage === 'zh_TW') {
     return 'zh_tw';
   }
-  if (window.navigator.language === 'zh-CN') {
+  if (userLanguage === 'zh-cn' || userLanguage === 'zh_CN') {
     return 'zh_cn';
   }
-  return 'en';
+  if (userLanguage === 'ja' || userLanguage.startsWith('ja')) {
+    return 'jp'; // For Japanese
+  }
+  if (userLanguage === 'fr' || userLanguage.startsWith('fr')) {
+    return 'fr'; // For French
+  }
+  return 'en'; // Default to English
 }

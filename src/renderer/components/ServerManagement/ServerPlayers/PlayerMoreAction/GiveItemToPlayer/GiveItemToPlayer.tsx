@@ -29,6 +29,9 @@ export default function GiveItemToPlayer({
   name: string;
 }) {
   const { t } = useTranslation();
+
+  const pgSteamId = 'steam_' + steamId.slice(6);
+
   const { selectedServerInstance } = useSelectedServerInstance();
 
   const [searchText, setSearchText] = useState('');
@@ -46,7 +49,7 @@ export default function GiveItemToPlayer({
         window.electron.ipcRenderer.invoke(
           Channels.sendRCONCommand,
           selectedServerInstance,
-          `give ${steamId.slice(6)} ${item} ${amount}`,
+          `give ${pgSteamId} ${item} ${amount}`,
         );
       }
     });

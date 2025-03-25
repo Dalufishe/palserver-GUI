@@ -1,6 +1,6 @@
 {
   "name": "palserver-gui",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "GUI support, one-click Palworld dedicated servers management tool.",
   "author": {
     "name": "Dalufishe"
@@ -10,8 +10,5 @@
     "rebuild": "node -r ts-node/register ../../.erb/scripts/electron-rebuild.js",
     "postinstall": "npm run rebuild && npm run link-modules",
     "link-modules": "node -r ts-node/register ../../.erb/scripts/link-modules.ts"
-  },
-  "dependencies": {
-    "palserver-gui": "file:"
   }
 }

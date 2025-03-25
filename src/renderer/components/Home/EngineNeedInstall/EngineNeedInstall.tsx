@@ -6,6 +6,7 @@ import Channels from '../../../../main/ipcs/channels';
 import useLatestGameVersion from '../../../hooks/firebase/useLatestGameVersion';
 import electronAlert from '../../../utils/electronAlert';
 import useServerEngineHasError from '../../../hooks/server/useServerEngineHasError';
+import useAllServerInfo from '../../../hooks/server/info/useAllServerInfo';
 
 export default function EngineNeedInstall() {
   const { t } = useTranslation();
@@ -22,6 +23,10 @@ export default function EngineNeedInstall() {
     !engineHasError && // @ts-ignore
     latestGameVersion > serverEngineVersion &&
     serverEngineVersion !== 0;
+
+  const serverInfos = useAllServerInfo();
+
+  console.log();
 
   const [openDialog, setOpenDialog] = useState(false);
   useEffect(() => {
@@ -68,6 +73,51 @@ export default function EngineNeedInstall() {
       },
     );
   }
+
+  function runServerInstallandUpdate() {
+    // 執行伺服器安裝
+    setServerEngineStartInstall(true);
+    window.electron.ipcRenderer.sendMessage(Channels.runServerInstall);
+    window.electron.ipcRenderer.once(
+      Channels.runServerInstallReply.DONE,
+      async () => {
+        await Promise.all(
+          serverInfos.map((serverId) =>
+            window.electron.ipcRenderer.invoke(
+              Channels.updateServerInstance,
+              serverId,
+            ),
+          ),
+        );
+
+        // 確保所有的更新完成後才執行以下的狀態更新
+        setServerEngineHasInstall(true);
+        setServerEngineStartInstall(false);
+        setServerEngineVersion(latestGameVersion);
+      },
+    );
+    window.electron.ipcRenderer.once(
+      Channels.runServerInstallReply.ERROR,
+      (data) => {
+        setServerEngineStartInstall(false);
+        if (data.errorMessage === 'ASCII') {
+          electronAlert(
+            // eslint-disable-next-line no-underscore-dangle
+            t('HasNotASCIIPath') + window.electron.node.__dirname(),
+          );
+        }
+      },
+    );
+    window.electron.ipcRenderer.on(
+      Channels.runServerInstallReply.PROGRESS,
+      (data) => {
+        if (data.message) {
+          setServerInstallMessage(data.message);
+        }
+      },
+    );
+  }
+
   async function runServerReInstall() {
     setServerEngineStartInstall(true);
     // 清除舊資料
@@ -105,38 +155,35 @@ export default function EngineNeedInstall() {
     );
   }
 
-  console.log(serverEnginehasInstall, engineHasError)
-
   return (
     <AlertDialog.Root open={openDialog}>
       <AlertDialog.Content maxWidth="650px">
-        {/* 應用程式設定 */}
         <AlertDialog.Title>
           {engineHasError &&
-            (serverEnginehasInstall ? '修復完成！' : '伺服器存在異常')}
+            (serverEnginehasInstall ? t('FixCompleted') : t('ServerError'))}
           {engineNeedInstall &&
-            (serverEnginehasInstall ? '安裝完成！' : '初次見面，歡迎您！')}
+            (serverEnginehasInstall
+              ? t('InstallCompleted')
+              : t('FirstTimeWelcome'))}
           {engineNeedUpdate &&
             (serverEnginehasInstall
-              ? '更新完成！'
-              : '遊戲存在新版本，伺服器需要更新')}
+              ? t('UpdateCompleted')
+              : t('ServerNeedsUpdate'))}
         </AlertDialog.Title>
         <AlertDialog.Description size="2">
           <div className="flex gap-8 mt-8 mb-4">
             {engineHasError &&
               (serverEnginehasInstall
-                ? '專用伺服器檔案修復完成。'
-                : '專用伺服器檔案存在缺失，可能是因為安裝過程中斷或檔案損毀。請嘗試修復專用伺服器。')}
-
+                ? t('ServerFileFixCompleted')
+                : t('ServerFileMissing'))}
             {engineNeedInstall &&
               (serverEnginehasInstall
-                ? '專用伺服器已安裝完成。'
-                : '專用伺服器尚未安裝。您必須先安裝專用伺服器，才能使用 Palserver-GUI。（初次安裝時間約 7 ~ 10 分鐘）。')}
-
+                ? t('ServerInstalledCompleted')
+                : t('InstallReminder'))}
             {engineNeedUpdate &&
               (serverEnginehasInstall
-                ? '所有專用伺服器均已更新至最新版本。'
-                : 'Palworld 釋出新版本後，palserver-GUI 管理的專用伺服器（並非 palserver-GUI 本身）也需要更新。您可以選擇一次性更新所有伺服器，或逐一手動更新（可在伺服器管理頁面選擇）。')}
+                ? t('AllServersUpdated')
+                : t('UpdateReminder'))}
           </div>
           <div className="flex gap-8 mt-8 mb-4">{serverInstallMessage}</div>
         </AlertDialog.Description>
@@ -144,56 +191,41 @@ export default function EngineNeedInstall() {
           {engineHasError &&
             (serverEnginehasInstall ? (
               <AlertDialog.Cancel>
-                <Button
-                  onClick={() => {
-                    setOpenDialog(false);
-                  }}
-                >
-                  關閉
+                <Button onClick={() => setOpenDialog(false)}>
+                  {t('Close')}
                 </Button>
               </AlertDialog.Cancel>
             ) : (
               <AlertDialog.Action>
                 <Button
-                  onClick={() => {
-                    runServerReInstall();
-                  }}
+                  onClick={runServerReInstall}
                   loading={serverEngineStartInstall}
                 >
-                  修復
+                  {t('Fix')}
                 </Button>
               </AlertDialog.Action>
             ))}
-
           {engineNeedInstall &&
             (serverEnginehasInstall ? (
               <AlertDialog.Cancel>
-                <Button
-                  onClick={() => {
-                    setOpenDialog(false);
-                  }}
-                >
-                  關閉
+                <Button onClick={() => setOpenDialog(false)}>
+                  {t('Close')}
                 </Button>
               </AlertDialog.Cancel>
             ) : (
               <AlertDialog.Action>
                 <Button
-                  onClick={() => {
-                    runServerInstall();
-                  }}
+                  onClick={runServerInstall}
                   loading={serverEngineStartInstall}
                 >
-                  安裝
+                  {t('Install')}
                 </Button>
               </AlertDialog.Action>
             ))}
           {engineNeedUpdate && (
             <AlertDialog.Cancel>
               <Button
-                onClick={() => {
-                  setOpenDialog(false);
-                }}
+                onClick={() => setOpenDialog(false)}
                 color="gray"
                 variant="soft"
               >
@@ -204,12 +236,10 @@ export default function EngineNeedInstall() {
           {engineNeedUpdate && !serverEnginehasInstall && (
             <AlertDialog.Action>
               <Button
-                onClick={() => {
-                  runServerReInstall();
-                }}
+                onClick={runServerReInstall}
                 loading={serverEngineStartInstall}
               >
-                一次更新
+                {t('OneClickUpdate')}
               </Button>
             </AlertDialog.Action>
           )}

@@ -9,6 +9,7 @@ const useTranslation = () => {
     t: (key: string) => {
       if (language) return LOCALES[language][key];
     },
+    language,
   };
 };
 

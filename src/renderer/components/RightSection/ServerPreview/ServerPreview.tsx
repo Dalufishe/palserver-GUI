@@ -1,13 +1,14 @@
 import { useHistory } from 'react-router-dom';
 import useTranslation from '../../../hooks/translation/useTranslation';
 import useSelectedServerInstance from '../../../redux/selectedServerInstance/useSelectedServerInstance';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useServerIcon from '../../../hooks/server/icons/useServerIcon';
 import useServerInfo from '../../../hooks/server/info/useServerInfo';
 import useWorldSettings from '../../../hooks/server/world-settings/useWorldSettings';
 import trimWorldSettingsString from '../../../../utils/trimWorldSettingsString';
 import { Tooltip } from '@radix-ui/themes';
 import _ from 'lodash';
+import Channels from '../../../../main/ipcs/channels';
 
 export default function ServerPreview() {
   const { t } = useTranslation();
@@ -105,7 +106,43 @@ export default function ServerPreview() {
             ),
           // </Tooltip>
         )}
+        {/* eslint-disable-next-line no-use-before-define */}
+        <ServerVersion serverId={selectedServerInstance} />
       </div>
+    </div>
+  );
+}
+
+function ServerVersion({ serverId }: { serverId: string }) {
+  const { t } = useTranslation();
+
+  const [version, setVersion] = useState('?');
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      window.electron.ipcRenderer
+        .invoke(Channels.sendRCONCommand, serverId, 'info')
+        .then((text) => {
+          if (text) {
+            const versionRegex = /\[v(\d+\.\d+\.\d+\.\d+)\]/;
+            const match = text.match(versionRegex);
+
+            if (match) {
+              setVersion(match[1]);
+            }
+          }
+        });
+    }, 2000);
+
+    // 清理定時器
+    return () => clearInterval(interval);
+  }, [serverId]);
+  return (
+    <div className="w-[75%] flex justify-between items-center flex-wrap text-sm relative text-slate-200">
+      <span>{t('ServerVersion')}：</span>
+      <span className="cursor-pointer hover:underline font-mono ">
+        {version}
+      </span>
     </div>
   );
 }

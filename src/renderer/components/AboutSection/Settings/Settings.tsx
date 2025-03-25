@@ -10,29 +10,27 @@ import Channels from '../../../../main/ipcs/channels';
 import useOnlineLinksMap from '../../../hooks/firebase/useOnlineLinksMap';
 import { FaDiscord, FaGithub } from 'react-icons/fa';
 import useServerEngineVersion from '../../../hooks/server/useServerEngineVersion';
+import { SERVER_URL } from '../../../../constant/app';
 
 export default function Settings() {
   const { t } = useTranslation();
   const { language, setLanguage } = useLanguage();
-
-  const speicalThanksLink = useOnlineLinksMap('SupportPalserverGUI');
-  const helpTranslateLink = useOnlineLinksMap('HelpTranslate');
-
-  const [serverEngineVersion, setServerEngineVersion] =
-    useServerEngineVersion();
 
   const settings = {
     Language: {
       id: 'Language',
       title: t('Language'),
       description: (
-        <Link href={helpTranslateLink} appearance="light">
+        <Link
+          href={`${SERVER_URL}/data/links/${language}/HelpUsTranslate`}
+          appearance="light"
+        >
           {t('LanguageDesc')}
         </Link>
       ),
       type: 'options',
-      options: ['繁體中文', '簡體中文', 'English', 'Français'],
-      values: ['zh_tw', 'zh_cn', 'en', 'fr'],
+      options: ['繁體中文', '簡體中文', '日本語', 'English', 'Français'],
+      values: ['zh_tw', 'zh_cn', 'jp', 'en', 'fr'],
       value: language,
       onValueChange(l: Language) {
         setLanguage(l);
@@ -65,18 +63,18 @@ export default function Settings() {
       },
     },
 
-    // SourceCode: {
-    //   id: 'SourceCode',
-    //   title: t('SourceCode'),
-    //   description: (
-    //     <Link
-    //       href="https://github.com/Dalufishe/palserver-GUI"
-    //       appearance="light"
-    //     >
-    //       {t('ClickLink')}
-    //     </Link>
-    //   ),
-    // },
+    SourceCode: {
+      id: 'SourceCode',
+      title: t('SourceCode'),
+      description: (
+        <Link
+          href="https://github.com/Dalufishe/palserver-GUI"
+          appearance="light"
+        >
+          {t('ClickLink')}
+        </Link>
+      ),
+    },
     // Discord: {
     //   id: 'Discord',
     //   title: 'Discord',
@@ -86,21 +84,24 @@ export default function Settings() {
     //     </Link>
     //   ),
     // },
-    // SpecialThanks: {
-    //   id: 'SpecialThanks',
-    //   title: t('SpecialThanks'),
-    //   description: (
-    //     <Link href={speicalThanksLink} appearance="light">
-    //       {t('SpeicalThanksDesc')}
-    //     </Link>
-    //   ),
-    // },
+    SpecialThanks: {
+      id: 'SpecialThanks',
+      title: t('SpecialThanks'),
+      description: (
+        <Link
+          href={`${SERVER_URL}/data/links/${language}/SpecialThanks`}
+          appearance="light"
+        >
+          {t('SpeicalThanksDesc')}
+        </Link>
+      ),
+    },
   };
 
   return (
     <AlertDialog.Root>
       <AlertDialog.Trigger>
-        <Button size="1" color="gray">
+        <Button title={t('Setting')} size="1" color="gray">
           <MdSettings />
         </Button>
       </AlertDialog.Trigger>

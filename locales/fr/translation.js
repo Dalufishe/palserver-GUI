@@ -391,8 +391,59 @@ const fr = {
   bInvisibleOtherGuildBaseCampAreaFX:
     'Masquer les effets de la zone du camp de base des autres guildes',
   AutoSaveSpan: 'Intervalle de sauvegarde automatique (secondes)',
-  AllowConnectPlatform: 'Autoriser la plateforme',
-  AllowConnectPlatform_Steam: 'Steam',
-  AllowConnectPlatform_Xbox: 'Xbox',
+  ServerCantUse: 'Serveur (Indisponible)',
+  CrossplayPlatforms: 'Plateformes de connexion autorisées',
+  Give: 'Donner',
+  GiveRelic: 'Donner une statue de Souris Feuille',
+  GiveRelicDesc: 'Donner ${1} nombre spécifié de statues de Souris Feuille.',
+  GiveTech: 'Donner des points de technologie',
+  GiveTechDesc: 'Donner ${1} nombre spécifié de points de technologie.',
+  GiveBossTech: 'Donner des points de technologie ancienne',
+  GiveBossTechDesc:
+    'Donner ${1} nombre spécifié de points de technologie ancienne.',
+  SupplyDropSpan: 'Plage de largage de fournitures',
+  RandomizerType: 'Type de randomisation',
+  RandomizerType_None: 'Pas de randomisation',
+  RandomizerType_1: 'Randomisation par zone',
+  RandomizerType_2: 'Randomisation globale',
+  RandomizerSeed: 'Graine de randomisation',
+  ServerListFolder: 'Dossier de la liste des serveurs',
+  DetailData: 'Données détaillées',
+  ServerId: 'ID du serveur',
+  ServerReplicatePawnCullDistance: 'Distance joueur-Pal (cm)',
+  AllowConnectPlatform: 'Autoriser le jeu cross-platform',
+  bAllowGlobalPalboxExport:
+    "Autoriser l'exportation depuis le terminal du Palbox global",
+  bAllowGlobalPalboxImport:
+    "Autoriser l'importation dans le terminal du Palbox global",
+  bBuildAreaLimit: 'Interdire la construction près des structures',
+  bHardcore: 'Activer le mode Hardcore',
+  bIsRandomizerPalLevelRandom: 'Activer le niveau Pal aléatoire',
+  bIsUseBackupSaveData: 'Activer la sauvegarde du monde',
+  bPalLost: 'Pal perdu définitivement à la mort',
+  BuildSettings: 'Paramètres de construction',
+  DropSettings: 'Paramètres de largage',
+  FixCompleted: 'Réparation terminée !',
+  ServerError: 'Erreur du serveur',
+  InstallCompleted: 'Installation terminée !',
+  FirstTimeWelcome: 'Première fois, bienvenue !',
+  UpdateCompleted: 'Mise à jour terminée !',
+  ServerNeedsUpdate:
+    'Une nouvelle version du jeu est disponible. Le serveur doit être mis à jour.',
+  ServerFileFixCompleted: 'Réparation des fichiers du serveur dédié terminée.',
+  ServerFileMissing:
+    "Il manque des fichiers du serveur dédié, probablement en raison d'une interruption du processus d'installation ou de fichiers corrompus. Veuillez essayer de réparer le serveur dédié.",
+  ServerInstalledCompleted: 'Serveur dédié installé avec succès.',
+  InstallReminder:
+    "Vous devez d'abord installer le serveur dédié avant d'utiliser Palserver-GUI. (L'installation initiale prend environ 7 à 10 minutes).",
+  AllServersUpdated:
+    'Tous les serveurs dédiés ont été mis à jour vers la dernière version.',
+  UpdateReminder:
+    "Après la sortie d'une nouvelle version de Palworld, les serveurs dédiés gérés par Palserver-GUI (et non Palserver-GUI lui-même) doivent également être mis à jour. Vous pouvez choisir de mettre à jour tous les serveurs en une seule fois ou de les mettre à jour individuellement (sélectionnable dans la page de gestion des serveurs).",
+  Close: 'Fermer',
+  Fix: 'Réparer',
+  Install: 'Installer',
+  OneClickUpdate: 'Mise à jour',
+  HowToGetIPAdress: 'Comment obtenir une adresse IP ?',
 };
 export default fr;

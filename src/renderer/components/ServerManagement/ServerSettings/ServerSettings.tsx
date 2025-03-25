@@ -103,14 +103,14 @@ export default function ServerSettings() {
             >
               <Text color="blue">
                 <span className="underline">
-                  v
+                  v.
                   {window.electron.constant.SERVER_UE4SS_VERSION(
                     selectedServerInstance,
                   ) || '???'}
                 </span>{' '}
                 {'> '}
                 <span className="underline">
-                  v {window.electron.constant.SYSTEM_UE4SS_VERSION() || '???'}
+                  v. {window.electron.constant.SYSTEM_UE4SS_VERSION() || '???'}
                 </span>
               </Text>
             </Theme>
@@ -142,14 +142,14 @@ export default function ServerSettings() {
             >
               <Text color="blue">
                 <span className="underline">
-                  v
+                  v.
                   {window.electron.constant.SERVER_PALGUARD_VERSION(
                     selectedServerInstance,
                   ) || '???'}
                 </span>{' '}
                 {'> '}
                 <span className="underline">
-                  v{''}
+                  v.{''}
                   {window.electron.constant.SYSTEM_PALGUARD_VERSION() || '???'}
                 </span>
               </Text>
@@ -347,7 +347,7 @@ export default function ServerSettings() {
               .join(
                 window.electron.constant.USER_SERVER_INSTANCES_PATH(),
                 selectedServerInstance,
-                'server/Pal/Binaries/Win64/palguard.json',
+                'server/Pal/Binaries/Win64/PalDefender/Config.json',
               ),
           );
           // setOpenPalguardSettings(true);
@@ -402,53 +402,53 @@ export default function ServerSettings() {
       //   value: false,
       // },
     },
-    Restart: {
-      AutoRestart: {
-        disabled: isServerRunning,
-        id: 'AutoRestart',
-        title: t('AutoRestart'),
-        desciption: t('AutoRestartDesc'),
-        type: 'options',
-        values: [0, 6, 12, 24],
-        labels: [
-          t('SwitchOff'),
-          '6 ' + t('HourPerTime'),
-          '12 ' + t('HourPerTime'),
-          '24 ' + t('HourPerTime'),
-        ],
-        value: serverInfo?.AutoRestart,
-        onValueChange(v) {
-          setServerInfo({
-            ...serverInfo!,
-            AutoRestart: v,
-          });
-        },
-      },
-      CrashRestart: {
-        id: 'CrashRestart',
-        title: t('CrashRestart'),
-        desciption: t('CrashRestartDesc'),
-        value: serverInfo?.CrashRestart,
-        onValueChange(v) {
-          setServerInfo({
-            ...serverInfo!,
-            CrashRestart: v,
-          });
-        },
-      },
-      // OverRamRestart: {
-      //   id: 'OverRamRestart',
-      //   title: t('OverRamRestart'),
-      //   desciption: t('OverRamRestartDesc'),
-      //   value: serverInfo?.OverRamRestart,
-      //   onValueChange(v) {
-      //     setServerInfo({
-      //       ...serverInfo!,
-      //       OverRamRestart: v,
-      //     });
-      //   },
-      // },
-    },
+    // Restart: {
+    //   AutoRestart: {
+    //     disabled: isServerRunning,
+    //     id: 'AutoRestart',
+    //     title: t('AutoRestart'),
+    //     desciption: t('AutoRestartDesc'),
+    //     type: 'options',
+    //     values: [0, 6, 12, 24],
+    //     labels: [
+    //       t('SwitchOff'),
+    //       '6 ' + t('HourPerTime'),
+    //       '12 ' + t('HourPerTime'),
+    //       '24 ' + t('HourPerTime'),
+    //     ],
+    //     value: serverInfo?.AutoRestart,
+    //     onValueChange(v) {
+    //       setServerInfo({
+    //         ...serverInfo!,
+    //         AutoRestart: v,
+    //       });
+    //     },
+    //   },
+    //   CrashRestart: {
+    //     id: 'CrashRestart',
+    //     title: t('CrashRestart'),
+    //     desciption: t('CrashRestartDesc'),
+    //     value: serverInfo?.CrashRestart,
+    //     onValueChange(v) {
+    //       setServerInfo({
+    //         ...serverInfo!,
+    //         CrashRestart: v,
+    //       });
+    //     },
+    //   },
+    //   // OverRamRestart: {
+    //   //   id: 'OverRamRestart',
+    //   //   title: t('OverRamRestart'),
+    //   //   desciption: t('OverRamRestartDesc'),
+    //   //   value: serverInfo?.OverRamRestart,
+    //   //   onValueChange(v) {
+    //   //     setServerInfo({
+    //   //       ...serverInfo!,
+    //   //       OverRamRestart: v,
+    //   //     });
+    //   //   },
+    //   // },
+    // },
     Process: {
       UseIndependentProcess: {
         disabled: isServerRunning,

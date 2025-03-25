@@ -9,6 +9,11 @@ export const PalSettingsOptionsKey = [
   'PalAutoHpRegeneRateInSleep',
   'PalEggDefaultHatchingTime',
   'WorkSpeedRate',
+  'bPalLost',
+  'bIsRandomizerPalLevelRandom',
+  'bAllowGlobalPalboxExport',
+  'bAllowGlobalPalboxImport',
+  'ServerReplicatePawnCullDistance',
 ];
 
 export const PlayerSettingsOptionsKey = [
@@ -42,29 +47,43 @@ export const GuildSettingsOptionsKey = [
   'bInvisibleOtherGuildBaseCampAreaFX',
 ];
 
-export const OthersSettingsOptionsKey = [
-  'DayTimeSpeedRate',
-  'NightTimeSpeedRate',
+export const BuildSettingsOptionsKey = [
   'BuildObjectDamageRate',
   'BuildObjectDeteriorationDamageRate',
+  'bBuildAreaLimit',
+];
+
+export const DropSettingsOptionsKey = [
   'DropItemMaxNum',
-  'CollectionObjectHpRate',
-  'CollectionObjectRespawnSpeedRate',
   'CollectionDropRate',
   'EnemyDropItemRate',
+  'DropItemAliveMaxHours',
+  'SupplyDropSpan',
+];
+
+export const OthersSettingsOptionsKey = [
+  //'CrossplayPlatforms',
+  'DayTimeSpeedRate',
+  'NightTimeSpeedRate',
+
+  'CollectionObjectHpRate',
+  'CollectionObjectRespawnSpeedRate',
+
   'bEnableInvaderEnemy',
   'bEnableAimAssistPad',
   'bEnableAimAssistKeyboard',
-  'DropItemAliveMaxHours',
+
   'bIsMultiplay',
   'bEnableNonLoginPenalty',
   'bExistPlayerAfterLogout',
   'AutoSaveSpan',
-  'AllowConnectPlatform',
-  'ServerReplicatePawnCullDistance',
-  'SupplyDropSpan',
+
   'RandomizerType',
   'RandomizerSeed',
+  //
+
+  'bHardcore',
+  'bIsUseBackupSaveData',
 ];
 
 export const worldSettingsOptions: any = {
@@ -127,10 +146,18 @@ export const worldSettingsOptions: any = {
   BaseCampMaxNumInGuild: { range: [3, 10], type: 'num', default: 3 },
   bInvisibleOtherGuildBaseCampAreaFX: { type: 'switch', default: false },
   AutoSaveSpan: { range: [300, 6000], type: 'num_10', default: 300 },
-  AllowConnectPlatform: {
-    range: ['Steam', 'Xbox'],
-    type: 'options',
-  },
+
+  // CrossplayPlatforms: {
+  //   noTranslate: true,
+  //   range: [
+  //     "'(Steam,Xbox,PS5,Mac)'",
+  //     "'(Steam)'",
+  //     "'(Xbox)'",
+  //     "'(PS5)'",
+  //     "'(Mac)'",
+  //   ],
+  //   type: 'options',
+  // },
   ServerReplicatePawnCullDistance: {
     range: [5000, 15000],
     type: 'num',
@@ -144,10 +171,18 @@ export const worldSettingsOptions: any = {
   RandomizerType: {
     range: ['None', 1, 2],
     type: 'options',
+    default: 'None',
   },
   RandomizerSeed: {
     range: [0, 10000],
     type: 'num',
     default: 0,
   },
+  bAllowGlobalPalboxExport: { type: 'switch', default: true },
+  bAllowGlobalPalboxImport: { type: 'switch', default: true },
+  bBuildAreaLimit: { type: 'switch' },
+  bHardcore: { type: 'switch' },
+  bIsRandomizerPalLevelRandom: { type: 'switch' },
+  bIsUseBackupSaveData: { type: 'switch' },
+  bPalLost: { type: 'switch' },
 };

@@ -39,6 +39,9 @@ export default function GivePalToPlayer({
   name: string;
 }) {
   const { t } = useTranslation();
+
+  const pgSteamId = 'steam_' + steamId.slice(6);
+
   const { selectedServerInstance } = useSelectedServerInstance();
 
   // format: [{A:1}, {B:3}, {C:0}]
@@ -58,7 +61,7 @@ export default function GivePalToPlayer({
         window.electron.ipcRenderer.invoke(
           Channels.sendRCONCommand,
           selectedServerInstance,
-          `givepal ${steamId.slice(6)} ${pal} ${amount}`,
+          `givepal ${pgSteamId} ${pal} ${amount}`,
         );
       }
     });

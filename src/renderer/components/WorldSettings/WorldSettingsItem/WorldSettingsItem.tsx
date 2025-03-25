@@ -16,7 +16,11 @@ function WorldSettingsItem({ id, worldSettings, setWorldSettings }) {
           t(`${id}_${worldSettings[id]}`)
         ) : worldSettingsOptions[id].type === 'switch' ? (
           t(
-            worldSettings[id] || worldSettingsOptions[id]?.default
+            (
+              typeof worldSettings[id] === 'undefined'
+                ? worldSettingsOptions[id]?.default
+                : worldSettings[id]
+            )
               ? 'SwitchOn'
               : 'SwitchOff',
           )
@@ -54,7 +58,11 @@ function WorldSettingsItem({ id, worldSettings, setWorldSettings }) {
       {worldSettingsOptions[id]?.type === 'switch' && (
         <Switch
           variant="classic"
-          checked={worldSettings[id] || worldSettingsOptions[id]?.default}
+          checked={
+            typeof worldSettings[id] === 'undefined'
+              ? worldSettingsOptions[id]?.default
+              : worldSettings[id]
+          }
           onCheckedChange={(v) => {
             setWorldSettings({
               ...worldSettings,
@@ -80,7 +88,9 @@ function WorldSettingsItem({ id, worldSettings, setWorldSettings }) {
               {worldSettingsOptions[id].range.map((option) => (
                 <Select.Item value={option}>
                   {worldSettingsOptions[id]?.type === 'options' &&
-                    t(`${id}_${option}`)}
+                  worldSettingsOptions[id]?.noTranslate
+                    ? option
+                    : t(`${id}_${option}`)}
                 </Select.Item>
               ))}
             </Select.Group>

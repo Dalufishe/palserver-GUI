@@ -6,7 +6,7 @@ import useIsRunningServers from '../../../redux/isRunningServers/useIsRunningSer
 import { AlertDialog } from '@radix-ui/themes';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import db from '../../../firebase/db';
-import { VERSION } from '../../../../constant/app';
+import { SERVER_URL, VERSION } from '../../../../constant/app';
 
 export default function BootServerButton() {
   const { t } = useTranslation();
@@ -24,12 +24,9 @@ export default function BootServerButton() {
   const handleBootServer = async () => {
     try {
       // collect data
-      const docRef = doc(db.ServerInfo, VERSION);
-      const docSnap = await getDoc(docRef);
-      const prev_boot_count = docSnap.data()?.boot_count || 0;
-      await updateDoc(docRef, {
-        boot_count: prev_boot_count + 1,
-      });
+      fetch(`${SERVER_URL}/api/server/boot-count?version=${VERSION}`, {
+        method: 'PUT',
+      }).then((response) => response.json());
     } catch (e) {
       //
     }

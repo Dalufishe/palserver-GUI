@@ -40,9 +40,9 @@ export default function ServerInstance(props: Props) {
 
   const [currentAlertWindow, setCurrentAlretWindow] = useState('');
   const serverOptions: ContextMenuOptions = [
-    //* 伺服器名稱
+    //* Size
     {
-      id: 'ServerName',
+      id: 'Size',
       type: 'disabled',
       value: `${((instanceSize || 0) / 1024 / 1024 / 1024).toFixed(2)} GB`,
       color: 'gray',
@@ -191,6 +191,26 @@ export default function ServerInstance(props: Props) {
       ],
     },
 
+    //* ===
+    {
+      id: '',
+      type: 'seperator',
+    },
+    //* 詳細資料
+    {
+      id: 'DetailData',
+      type: 'sub',
+
+      sub: [
+        //* ServerId
+        {
+          id: 'ServerId',
+          type: 'disabled',
+          value: `${t('ServerId')} : ${props.info.serverId}`,
+          color: 'gray',
+        },
+      ],
+    },
     //* ===
     {
       id: '',

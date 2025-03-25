@@ -61,7 +61,7 @@ const electronHandler = {
         path.join(TEMPLATE_PATH, 'Palguard', 'palguard.version.txt'),
         { encoding: 'utf-8' },
       );
-      return Number(version);
+      return version;
     },
     SERVER_PALGUARD_VERSION(serverId: string) {
       try {
@@ -75,7 +75,7 @@ const electronHandler = {
           ),
           { encoding: 'utf-8' },
         );
-        return Number(version);
+        return version;
       } catch (e) {
         return 0;
       }

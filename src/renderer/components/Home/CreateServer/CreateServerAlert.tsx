@@ -5,9 +5,8 @@ import _ from 'lodash';
 import Channels from '../../../../main/ipcs/channels';
 import SecureEye from '../../SecureEye';
 import uniqid from 'uniqid';
-import { doc, getDoc, updateDoc } from 'firebase/firestore';
-import db from '../../../firebase/db';
-import { VERSION } from '../../../../constant/app';
+import { SERVER_URL, VERSION } from '../../../../constant/app';
+import Link from '../../Link';
 
 const defaultServerConfigOptions = {
   serverName: {
@@ -48,7 +47,7 @@ const defaultServerConfigOptions = {
 };
 
 export default function CreateServerAlert() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
 
   const [serverConfigOptions, setServerConfigOptions] = useState(
     defaultServerConfigOptions,
@@ -57,12 +56,9 @@ export default function CreateServerAlert() {
   const handleCreateServer = async () => {
     try {
       // collect data
-      const docRef = doc(db.ServerInfo, VERSION);
-      const docSnap = await getDoc(docRef);
-      const prev_create_count = docSnap.data()?.create_count || 0;
-      await updateDoc(docRef, {
-        create_count: prev_create_count + 1,
-      });
+      fetch(`${SERVER_URL}/api/server/create-count?version=${VERSION}`, {
+        method: 'PUT',
+      }).then((response) => response.json());
     } catch (e) {
       //
     }
@@ -82,7 +78,7 @@ export default function CreateServerAlert() {
   return (
     <AlertDialog.Content style={{ maxWidth: 450 }}>
       <AlertDialog.Title>{t('CreateServer')}</AlertDialog.Title>
-      <div className="flex flex-col w-[78%]">
+      <div className="flex flex-col w-[78%] pb-4">
         {_.map(serverConfigOptions, (option, key) => (
           <div className="w-full my-2 flex gap-2 items-center justify-between relative">
             <span>{t(option.id)}：</span>
@@ -113,6 +109,13 @@ export default function CreateServerAlert() {
           </div>
         ))}
       </div>
+      <Link
+        appearance="dark"
+        href={`${SERVER_URL}/data/links/${language}/HowToGetIPAdress`}
+      >
+        {t('HowToGetIPAdress')}
+      </Link>
+
       <Flex gap="3" mt="4" justify="end">
         <AlertDialog.Cancel>
           <Button

@@ -30,7 +30,7 @@ const zh_tw = {
   VerifyChange: '確定修改',
   VerifyDelete: '確定刪除',
   EditFromSourceFile: '編輯原始檔',
-  SourceCode: '程式原始碼',
+  SourceCode: '原始碼',
   ServerIsUpdating: '伺服器更新中，請稍候',
   UpdateServerToLatestVersion: '將伺服器更新到最新版',
   ServerUpdateDone: '伺服器更新完成！',
@@ -341,7 +341,7 @@ const zh_tw = {
   ClearCacheDesc:
     '若伺服器無法啟動，請嘗試刪除該伺服器，清除暫存後，重新啟動 palserver GUI，建立伺服器後再嘗試啟動伺服器。',
   Clear: '清除',
-  ServerInstancePath: '實例路徑 (需重新啟動)',
+  ServerInstancePath: '伺服器列表路徑 "需重新啟動"',
   Change: '修改',
   //
   ImportGameSaves: '導入遊戲存檔',
@@ -357,17 +357,16 @@ const zh_tw = {
   UseIndependentProcessDesc:
     '當您的伺服器經常發生非預期性的崩潰時，請開啟此選項。預設情況下為開啟。開啟時伺服器與 GUI 為相互獨立的進程。若您需要使用效能監測面板，請關閉他。此時伺服器為 GUI 的子進程。',
   ServerVersion: '伺服器版本',
-  SupportGUI: '支持 GUI ❤️',
+  SupportGUI: '贊助 GUI ❤️',
   //
   PlzCloseServerFirst: '請先關閉伺服器',
   BaseCampMaxNumInGuild: '各公會據點上限',
   bInvisibleOtherGuildBaseCampAreaFX: '隱藏其他公會區域',
   AutoSaveSpan: '自動存檔時間 (秒)',
+  //11
   ServerCantUse: '伺服器 (無法使用)',
   //
-  AllowConnectPlatform: '允許的連接平台',
-  AllowConnectPlatform_Steam: 'Steam',
-  AllowConnectPlatform_Xbox: 'Xbox',
+  CrossplayPlatforms: '允許的連接平台',
   //20250115
   Give: '給予',
   GiveRelic: '給予翠葉鼠雕像',
@@ -376,12 +375,48 @@ const zh_tw = {
   GiveTechDesc: '給予 ${1} 指定數量的科技點。',
   GiveBossTech: '給予古代科技點',
   GiveBossTechDesc: '給予 ${1} 指定數量的古代科技點。',
-  ServerReplicatePawnCullDistance: '伺服器複製玩家距離',
   SupplyDropSpan: '補給掉落範圍',
   RandomizerType: '隨機化類型',
   RandomizerType_None: '無隨機',
   RandomizerType_1: '區域隨機',
   RandomizerType_2: '全域隨機',
   RandomizerSeed: '隨機種子',
+  //
+  ServerListFolder: '伺服器列表資料夾',
+  DetailData: '詳細資料',
+  ServerId: '伺服器 ID',
+  ServerReplicatePawnCullDistance: '玩家和帕魯距離 (公分)',
+  AllowConnectPlatform: '允許跨平台遊玩',
+  bAllowGlobalPalboxExport: '允許從跨界帕魯終端匯出',
+  bAllowGlobalPalboxImport: '允許從跨界帕魯終端匯入',
+  bBuildAreaLimit: '禁止在結構附近建造',
+  bHardcore: '啟用 Hardcore 模式',
+  bIsRandomizerPalLevelRandom: '啟用隨機化 Pal 等級',
+  bIsUseBackupSaveData: '啟用世界備份',
+  bPalLost: '死亡永久丟失帕魯',
+  BuildSettings: '建築物設定',
+  DropSettings: '掉落物設定',
+  // "FixCompleted": "修復完成！",
+  ServerError: '伺服器存在異常',
+  InstallCompleted: '安裝完成！',
+  FirstTimeWelcome: '初次見面，歡迎您！',
+  UpdateCompleted: '更新完成！',
+  ServerNeedsUpdate: '遊戲存在新版本，伺服器需要更新',
+  ServerFileFixCompleted: '專用伺服器檔案修復完成。',
+  ServerFileMissing:
+    '專用伺服器檔案存在缺失，可能是因為安裝過程中斷或檔案損毀。請嘗試修復專用伺服器。',
+  ServerInstalledCompleted: '專用伺服器已安裝完成。',
+  InstallReminder:
+    '您必須先安裝專用伺服器，才能使用 Palserver-GUI。（初次安裝時間約 7 ~ 10 分鐘）。',
+  AllServersUpdated: '所有專用伺服器均已更新至最新版本。',
+  UpdateReminder:
+    'Palworld 釋出新版本後，palserver-GUI 管理的專用伺服器（並非 palserver-GUI 本身）也需要更新。您可以選擇一次性更新所有伺服器，或逐一手動更新（可在伺服器管理頁面選擇）。',
+  Close: '關閉',
+  Fix: '修復',
+  Install: '安裝',
+  OneClickUpdate: '一次更新',
+  //
+  HowToGetIPAdress: '如何獲取 IP 位址？',
 };
+
 export default zh_tw;

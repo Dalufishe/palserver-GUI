@@ -63,10 +63,10 @@ ipcMain.on(
     // #region enable palguard
 
     const palguardEnabled = serverInfo.palguardEnabled;
-    const palguardPath = path.join(binariesWin64Path, 'palguard.dll');
+    const palguardPath = path.join(binariesWin64Path, 'PalDefender.dll');
     const palguardDisabledPath = path.join(
       binariesWin64Path,
-      'palguard.disabled.dll',
+      'PalDefender.disabled.dll',
     );
 
     // 如果 palguard 先前被禁用
